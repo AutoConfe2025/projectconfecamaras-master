@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/administracion/cupos_afiliacion.feature",
+        features = "src/test/resources/features/liquidacion_renovacion/liquidacion_renovacion.feature",
         glue = "com.co.confecamaras.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-                tags = "@cuposAfiliado"
+                tags = "@LiquidacionRenovacionNombre"
 )
 
 public class ConfecamarasSIIRunner {
