@@ -1,0 +1,50 @@
+package com.co.confecamaras.database;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.co.confecamaras.models.DataBase.getCon;
+
+public class QueryComfecamarasLiquidacionRenovacion {
+    public Map<String, Object> buscarData() throws SQLException {
+    Connection con = getCon();
+    Statement smtDoc= con.createStatement();
+    String queryDoc = "SELECT i.matricula\n" +
+            "from sii_manizales.mreg_est_inscritos i\n" +
+            "INNER JOIN sii_manizales.mreg_est_propietarios mep ON mep.matriculapropietario = i.matricula\n" +
+            "WHERE i.matricula <> ''\n" +
+            "AND i.ultanoren = '2024'\n" +
+            "AND i.fecmatricula > '20240101'\n" +
+            "AND i.organizacion = '01' \n" +
+            "AND i.ctrestmatricula = 'MA'\n" +
+            "AND i.ctrbenley1780 ='S'\n" +
+            "AND i.cumplerequisitos1780 = 'S'\n" +
+            "AND i.cumplerequisitos1780primren = ''\n" +
+            "AND i.renunciabeneficios1780 = ''\n" +
+            "AND i.actcte < '500000000'\n" +
+            "GROUP BY i.matricula\n" +
+            "having count(mep.matriculapropietario) = 1\n" +
+            "LIMIT 1";
+    ResultSet rsDoc = smtDoc.executeQuery(queryDoc);
+    ResultSetMetaData md = rsDoc.getMetaData();
+    int columnCount = md.getColumnCount();
+    Map<String, Object> valueMapDoc = new HashMap<>();
+    while (rsDoc.next()) {
+        String key = rsDoc.getString("matricula");
+        //System.out.println("NUMERO DOCUMENTO: " + numDocumentoConsulta);
+
+        Map<String,Object> rowData = new HashMap<String,Object>();
+        for(int i = 1;i<=columnCount;i++){
+            List<Map<String,Object>> list = new ArrayList<Map<String, Object>>();
+            rowData.put(md.getColumnName(i), rsDoc.getObject(i));
+            list.add (rowData);
+            valueMapDoc.put(key, list);
+        }
+    }
+    getCon().close();
+    return valueMapDoc;
+}
+}

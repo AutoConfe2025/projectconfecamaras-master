@@ -1,0 +1,121 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.14'
+}
+
+defaultTasks 'clean', 'test', 'aggregate'
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+ext {
+    serenityVersion = '4.2.14'
+    junit4Version = '4.13.2'
+    assertJVersion = '3.26.3'
+    lombokVersion = '1.18.34'
+    javaFakerVersion = '1.0.2'
+    apachePoiVersion = '5.3.0'
+    apachePdfBox = '2.0.31'
+    mySql = '8.0.33'
+    zxingGoogle = '3.5.3'
+    slf4jVersion = '2.0.16'
+}
+
+dependencies {
+
+    implementation "com.mysql:mysql-connector-j:${mySql}"
+
+    // SERENITY 4.x
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-junit:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-model:${serenityVersion}"
+
+    // HEALENIUM
+    implementation 'com.epam.healenium:healenium-web:3.5.6'
+
+    // JUNIT 4
+    testImplementation "junit:junit:${junit4Version}"
+
+    // LOGGING
+    implementation "org.slf4j:slf4j-reload4j:${slf4jVersion}"
+
+    // UTILITARIOS
+    implementation "org.assertj:assertj-core:${assertJVersion}"
+    implementation "com.github.javafaker:javafaker:${javaFakerVersion}"
+    implementation "org.apache.poi:poi:${apachePoiVersion}"
+    implementation "org.apache.poi:poi-ooxml:${apachePoiVersion}"
+    implementation "org.apache.pdfbox:pdfbox:${apachePdfBox}"
+    implementation "com.google.zxing:javase:${zxingGoogle}"
+    implementation 'org.json:json:20240303'
+    implementation 'org.jsoup:jsoup:1.18.1'
+
+    // LOMBOK
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    // SIKULI
+    implementation 'com.sikulix:sikulixapi:2.0.5'
+}
+
+test {
+    useJUnit() // ✅ Serenity usa JUnit 4, no JUnit Platform
+    include '**/*Runner.class' // ✅ Ejecuta todos los runners
+
+    testLogging {
+        showStandardStreams = true
+        events "passed", "skipped", "failed"
+    }
+
+    systemProperties System.getProperties()
+
+    doFirst {
+        println "🧹 Limpiando reportes Serenity antiguos..."
+        delete fileTree(dir: "target/site/serenity")
+    }
+
+    finalizedBy(aggregate)
+}
+
+serenity {
+    outputDirectory = file("target/site/serenity")
+    reports = ["single-page-html"]
+}
+
+gradle.startParameter.continueOnFailure = true
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'com.google.guava:guava:33.3.1-jre'
+    }
+}
+
+tasks.named('aggregate') {
+    dependsOn test
+    doLast {
+        println "✅ Generando reporte Serenity..."
+    }
+}

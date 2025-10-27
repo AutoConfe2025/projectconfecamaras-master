@@ -1,0 +1,17 @@
+image: cypress/included
+
+
+
+stages:
+
+  - build
+
+
+
+build-java-project:
+
+  stage: build
+
+  script:
+
+    - gradle build
