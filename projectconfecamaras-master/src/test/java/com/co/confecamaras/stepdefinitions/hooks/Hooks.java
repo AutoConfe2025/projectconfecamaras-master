@@ -26,11 +26,11 @@ public class Hooks {
 
     @After
     public void tearDown() {
-        if (RepairTracker.isRepaired()) {
+        if (RepairTracker.wasRepaired()) {
             String tool = RepairTracker.getRepairTool();
             String reason = RepairTracker.getRepairReason();
 
-            // Agregamos información adicional al reporte Serenity
+            // Agrega información adicional al reporte Serenity
             Serenity.recordReportData()
                     .withTitle("⚠️ Caso Comprometido - Revisión Necesaria")
                     .andContents("🔧 Herramienta: " + tool + "\n📋 Motivo: " + reason);
@@ -48,6 +48,8 @@ public class Hooks {
                 testOutcome.setTestFailureMessage("Caso comprometido — reparado con " + tool);
                 System.out.println("⚠️ Caso marcado como COMPROMETIDO (" + tool + ")");
             }
+        } else {
+            System.out.println("✅ Caso ejecutado sin reparaciones. Estado: OK.");
         }
     }
 

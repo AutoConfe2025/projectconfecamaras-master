@@ -1,6 +1,7 @@
-package com.co.confecamaras.stepdefinitions.hooks;
+package com.co.confecamaras.utils;
 
 public class RepairTracker {
+
     private static boolean repaired = false;
     private static String repairTool = "";
     private static String repairReason = "";
@@ -11,7 +12,7 @@ public class RepairTracker {
         repairReason = reason;
     }
 
-    public static boolean isRepaired() {
+    public static boolean wasRepaired() {
         return repaired;
     }
 

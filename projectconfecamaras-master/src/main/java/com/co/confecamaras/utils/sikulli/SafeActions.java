@@ -53,11 +53,10 @@ public class SafeActions {
                     WebElement webElement = target.resolveFor(actor);
                     webElement.clear();
                     webElement.sendKeys(value);
-                    LOGGER.info("✅ Entrada por DOM exitosa (posible reparación con Healenium).");
+                    LOGGER.info("✅ Entrada por DOM exitosa.");
                     success = true;
-                    repairedWithHealenium = true;
                 } catch (Exception e) {
-                    LOGGER.warn("⚠️ Falló el ingreso por DOM, se usará Sikuli. Error: {}", e.getMessage());
+                    LOGGER.warn("⚠️ Falló el ingreso por DOM. Intentando con SikuliX... Error: {}", e.getMessage());
                 }
 
                 if (!success) {
@@ -80,6 +79,7 @@ public class SafeActions {
                     }
                 }
 
+                // 🟠 Marcar solo si realmente se usó una herramienta de reparación
                 if (repairedWithHealenium) {
                     markAsCompromised("Healenium", "Elemento reparado automáticamente durante ingreso.");
                 } else if (repairedWithSikuli) {
@@ -120,11 +120,10 @@ public class SafeActions {
                     LOGGER.info("➡️ Intentando hacer clic en el elemento {}", target.getName());
                     WebElement webElement = target.resolveFor(actor);
                     webElement.click();
-                    LOGGER.info("✅ Click por DOM exitoso (posible reparación con Healenium).");
+                    LOGGER.info("✅ Click por DOM exitoso.");
                     success = true;
-                    repairedWithHealenium = true;
                 } catch (Exception e) {
-                    LOGGER.warn("⚠️ Falló el click por DOM, se usará Sikuli. Error: {}", e.getMessage());
+                    LOGGER.warn("⚠️ Falló el click por DOM. Intentando con SikuliX... Error: {}", e.getMessage());
                 }
 
                 if (!success) {
@@ -146,6 +145,7 @@ public class SafeActions {
                     }
                 }
 
+                // 🟠 Solo marcar como comprometido si hubo reparación real
                 if (repairedWithHealenium) {
                     markAsCompromised("Healenium", "Elemento reparado automáticamente durante clic.");
                 } else if (repairedWithSikuli) {
@@ -173,31 +173,6 @@ public class SafeActions {
                 .withTitle("🔧 Reparación automática detectada")
                 .andContents(message);
 
-        try {
-            String reportPath = Paths.get("target", "site", "serenity", "index.html")
-                    .toAbsolutePath()
-                    .normalize()
-                    .toString();
-
-            String reportUrl = "file:///" + reportPath.replace("\\", "/");
-            String reportLink = String.format(
-                    "<a href='%s' target='_blank'>📊 Ver reporte Serenity</a>",
-                    reportUrl
-            );
-
-            Serenity.recordReportData()
-                    .withTitle("📎 Enlace al reporte Serenity")
-                    .andContents(reportLink);
-
-        } catch (Exception e) {
-            LoggerFactory.getLogger(SafeActions.class)
-                    .warn("⚠️ No se pudo generar el link al reporte Serenity: {}", e.getMessage());
-        }
-
-        if (tool.equalsIgnoreCase("Healenium")) {
-            RepairTracker.markHealenium();
-        } else if (tool.equalsIgnoreCase("Sikuli")) {
-            RepairTracker.markSikuli();
-        }
+        RepairTracker.markRepaired(tool, reason);
     }
 }
