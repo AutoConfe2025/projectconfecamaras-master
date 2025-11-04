@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'idea'
-    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.14'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'
 }
 
 defaultTasks 'clean', 'test', 'aggregate'
@@ -22,7 +22,7 @@ java {
 }
 
 ext {
-    serenityVersion = '4.2.14'
+    serenityVersion = '4.2.34'
     junit4Version = '4.13.2'
     assertJVersion = '3.26.3'
     lombokVersion = '1.18.34'
@@ -53,8 +53,6 @@ dependencies {
 
     // JUNIT 4
     testImplementation "junit:junit:${junit4Version}"
-
-    // LOGGING
     implementation "org.slf4j:slf4j-reload4j:${slf4jVersion}"
 
     // UTILITARIOS
@@ -78,8 +76,8 @@ dependencies {
 }
 
 test {
-    useJUnit() // ✅ Serenity usa JUnit 4, no JUnit Platform
-    include '**/*Runner.class' // ✅ Ejecuta todos los runners
+    useJUnit()
+    include '**/*Runner.class'
 
     testLogging {
         showStandardStreams = true
@@ -110,6 +108,8 @@ tasks.withType(JavaCompile) {
 configurations.all {
     resolutionStrategy {
         force 'com.google.guava:guava:33.3.1-jre'
+
+        exclude group: 'org.slf4j', module: 'slf4j-simple'
     }
 }
 

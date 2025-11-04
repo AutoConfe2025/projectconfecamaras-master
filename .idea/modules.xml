@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Confecamarasl.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Confecamarasl.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Confecamarasl.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Confecamarasl.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/projectconfecamaras-master.iml" filepath="$PROJECT_DIR$/.idea/projectconfecamaras-master.iml" />
     </modules>
   </component>
