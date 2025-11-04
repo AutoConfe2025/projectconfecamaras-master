@@ -3,7 +3,7 @@
 Característica: proceso de liquidacion renovacion simulador
 
 Antecedentes: ingreso plataforma confecamaras
-  Dado Confecamaras necesita hacer el proceso de liquidacion renovacion
+  Dado Confecamaras ingresa al sistema de confecamaras
 
   @LiquidacionRenovacionNombre
   Escenario: proceso de liquidacion renovacion por nombre
