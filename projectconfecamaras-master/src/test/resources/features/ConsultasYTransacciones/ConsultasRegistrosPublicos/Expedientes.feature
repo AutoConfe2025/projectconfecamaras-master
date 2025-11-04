@@ -2,7 +2,7 @@
 
 Característica: Expedientes
  Antecedentes: Ingreso al aplicativo
-   Dado Confecamaras necesita hacer el proceso de liquidacion renovacion
+   Dado Confecamaras ingresa al sistema de confecamaras
 
 
 @Expedientes_Matricula
