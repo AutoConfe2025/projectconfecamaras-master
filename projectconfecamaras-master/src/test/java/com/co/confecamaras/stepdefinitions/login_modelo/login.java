@@ -11,7 +11,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.withCurrentActor;
 
 public class login {
 
-    @Given("^(.*) necesita hacer el proceso de liquidacion renovacion$")
+    @Given("^(.*) ingresa al sistema de confecamaras$")
     public void confecamarasNecesitaHacerElProcesoDeLiquidacionRenovacion(String actor) {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasHomePage());
     }
@@ -21,7 +21,5 @@ public class login {
         UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioDefault();
         withCurrentActor(loginModelo.enConfecamaras(usuario));
     }
-
-//    @When("")
 
 }

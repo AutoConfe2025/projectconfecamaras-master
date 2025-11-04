@@ -19,7 +19,7 @@ public class UsuarioPublicoModel {
     public static UsuarioPublicoModel usuarioDefault() {
         return UsuarioPublicoModel.builder()
                 .camara("20")
-                .usuario("QAJAQA")
+                .usuario("CAJAQA")
                 .identificacion("11314260")
                 .contrasena("2837279")
                 .build();
