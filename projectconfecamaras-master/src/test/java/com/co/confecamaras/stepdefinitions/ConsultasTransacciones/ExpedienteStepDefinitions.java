@@ -1,16 +1,9 @@
 package com.co.confecamaras.stepdefinitions.ConsultasTransacciones;
 
-import com.co.confecamaras.navigation.NavigateTo;
-import com.co.confecamaras.questions.consultasytransacciones.TablaExpedienteEs;
-import com.co.confecamaras.tasks.ConsultasTransacciones.ConsultaExpedientes;
-import com.co.confecamaras.tasks.ConsultasTransacciones.ConsultarExpediente;
+import com.co.confecamaras.tasks.ConsultasTransacciones.*;
 import io.cucumber.java.es.Cuando;
-import io.cucumber.java.es.Dado;
-import io.cucumber.java.es.Entonces;
-import net.serenitybdd.screenplay.actors.OnStage;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.withCurrentActor;
 
 public class ExpedienteStepDefinitions {
@@ -18,10 +11,22 @@ public class ExpedienteStepDefinitions {
 
     @Cuando("ingrese los datos correspondientes a la consulta de expediente por matricula")
     public void ingreseLosDtosCorrespondientesALaConsultaDeExpedientePorMatricula() {
-        withCurrentActor(ConsultaExpedientes.matricula());
+        withCurrentActor(ConsultaExpedientesMatricula.matricula());
     }
-   // @Entonces("podra ver los datos del expediente")
-  //  public void podraVerLosDatosDelExpediente() {
-    //    OnStage.theActorInTheSpotlight().should(seeThat(TablaExpedienteEs.visible()));
-   // }
+    @Cuando("ingrese los datos correspondientes a la consulta de expediente por Nombre")
+    public void ingreseLosDatosCorrespondientesALaConsultaDeExpedientePorNombre() {
+        withCurrentActor(ConsultaExpedientesNombre.nombre());
+    }
+    @Cuando("ingrese los datos correspondientes a la consulta de expediente por Proponente")
+    public void ingreseLosDtosCorrespondientesALaConsultaDeExpedientePorProponente() {
+        withCurrentActor(ConsultaExpedientesProponente.proponente());
+    }
+        @Cuando("ingrese los datos correspondientes a la consulta de expediente por Palabras")
+    public void ingreseLosDtosCorrespondientesALaConsultaDeExpedientePorPalabra() {
+        withCurrentActor(ConsultaExpedientesPalabras.palabras());
+    }
+    @Cuando("ingrese los datos correspondientes a la consulta de expediente por Identificacion NIT")
+    public void ingreseLosDtosCorrespondientesALaConsultaDeExpedientePorIdentificacionNIT() {
+        withCurrentActor(ConsultaExpedientesIdentificacionNit.identificacionNit());
+    }
 }
