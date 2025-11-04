@@ -22,6 +22,4 @@ public class login {
         withCurrentActor(loginModelo.enConfecamaras(usuario));
     }
 
-//    @When("")
-
 }

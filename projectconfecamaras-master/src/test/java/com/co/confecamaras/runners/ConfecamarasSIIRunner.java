@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/liquidacion_renovacion/liquidacion_renovacion.feature",
         glue = "com.co.confecamaras.stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE,
-                tags = "@LiquidacionRenovacionNombre"
+        snippets = CucumberOptions.SnippetType.CAMELCASE
+                ,tags = "@LiquidacionRenovacionNitCedula"
 )
 
 public class ConfecamarasSIIRunner {
