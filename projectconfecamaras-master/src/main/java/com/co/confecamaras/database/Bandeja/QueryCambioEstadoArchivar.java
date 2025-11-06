@@ -1,6 +1,7 @@
 package com.co.confecamaras.database.Bandeja;
 
 import com.co.confecamaras.tasks.RunDataBase;
+import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 
@@ -10,31 +11,26 @@ import java.sql.Statement;
 
 import static com.co.confecamaras.models.DataBase.getCon;
 
-public class QueryDigitacionRegEsadlCambiarEstadoCodBarras implements Task {
+@AllArgsConstructor
+public class QueryCambioEstadoArchivar implements Task {
+
     private final String codigo_barras;
-
-    public QueryDigitacionRegEsadlCambiarEstadoCodBarras(String codigo_barras) {
-        this.codigo_barras = codigo_barras;
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         try {
             actor.attemptsTo(RunDataBase.dataBase("drios", "Di3gOri2021*"));
             Connection con = getCon();
             Statement smtDoc = con.createStatement();
-            // Digitación de trámites del registro mercantil
             String queryDoc = "UPDATE sii_manizales.mreg_est_codigosbarras\n" +
-                    "SET estadofinal='04'\n" +
+                    "SET estadofinal='11'\n" +
                     "WHERE codigobarras = '" + codigo_barras + "';";
             smtDoc.execute(queryDoc);
             con.close();
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
         }
     }
-
-    public static QueryDigitacionRegEsadlCambiarEstadoCodBarras cambiarEstado(String codigo_barras) {
-        return new QueryDigitacionRegEsadlCambiarEstadoCodBarras(codigo_barras);
+    public static QueryCambioEstadoArchivar cambioEstado11(String codigo_barras){
+        return new QueryCambioEstadoArchivar(codigo_barras);
     }
 }
