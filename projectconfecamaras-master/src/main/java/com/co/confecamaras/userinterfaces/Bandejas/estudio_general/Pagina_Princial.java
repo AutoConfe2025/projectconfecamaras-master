@@ -1,4 +1,4 @@
-package com.co.confecamaras.userinterfaces.Bandejas.estado_general;
+package com.co.confecamaras.userinterfaces.Bandejas.estudio_general;
 
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;

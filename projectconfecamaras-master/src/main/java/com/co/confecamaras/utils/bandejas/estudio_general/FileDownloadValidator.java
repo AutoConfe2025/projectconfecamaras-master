@@ -1,4 +1,4 @@
-package com.co.confecamaras.utils.bandejas.estudio_genera;
+package com.co.confecamaras.utils.bandejas.estudio_general;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,6 +1,6 @@
 package com.co.confecamaras.interactions;
 
-import com.co.confecamaras.utils.bandejas.estudio_genera.FileDownloadValidator;
+import com.co.confecamaras.utils.bandejas.estudio_general.FileDownloadValidator;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.core.Serenity;

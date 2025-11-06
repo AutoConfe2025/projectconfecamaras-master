@@ -12,9 +12,9 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class ModuloBandejaEstudioGenStepDefinitions {
 
-    @When("ingreso al modulo de validacion de bandeja {string}")
-    public void ingresoAlModuloDeValidacionDeBandeja(String codigo_barras) {
-        theActorInTheSpotlight().attemptsTo(IngresoModulo.ingresoAlModulo(codigo_barras));
+    @When("ingreso al modulo de validacion de bandeja {string} {string}")
+    public void ingresoAlModuloDeValidacionDeBandeja(String codigo_barras, String estado) {
+        theActorInTheSpotlight().attemptsTo(IngresoModulo.ingresoAlModulo(codigo_barras,estado));
     }
 
     @Then("valido el proceso de descarga del PDF")
@@ -45,8 +45,8 @@ public class ModuloBandejaEstudioGenStepDefinitions {
         theActorInTheSpotlight().attemptsTo(ValidarModuloEstudio.ValidoEstudio(codigo_barras));
     }
 
-    @Entonces("realizo el proceso para archivar el tramite {string}")
-    public void realizoElProcesoParaArchivarElTramite(String codigo_barras) {
-        theActorInTheSpotlight().attemptsTo(ValidaArchivar.archivarProceso(codigo_barras));
+    @Entonces("realizo el proceso para archivar el tramite {string} {string}")
+    public void realizoElProcesoParaArchivarElTramite(String codigo_barras, String estado) {
+        theActorInTheSpotlight().attemptsTo(ValidaArchivar.archivarProceso(codigo_barras, estado));
     }
 }

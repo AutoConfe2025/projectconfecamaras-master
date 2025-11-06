@@ -25,7 +25,7 @@ public class QueryDigitacionRegEsadlCambiarEstadoCodBarras implements Task {
             Statement smtDoc = con.createStatement();
             // Digitación de trámites del registro mercantil
             String queryDoc = "UPDATE sii_manizales.mreg_est_codigosbarras\n" +
-                    "SET estadofinal='04'\n" +
+                    "SET estadofinal='23'\n" +
                     "WHERE codigobarras = '" + codigo_barras + "';";
             smtDoc.execute(queryDoc);
             con.close();

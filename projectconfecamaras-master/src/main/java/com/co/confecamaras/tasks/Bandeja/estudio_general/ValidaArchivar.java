@@ -1,6 +1,7 @@
 package com.co.confecamaras.tasks.Bandeja.estudio_general;
 
 import com.co.confecamaras.database.Bandeja.QueryCambioEstadoArchivar;
+import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -8,7 +9,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.confecamaras.userinterfaces.Bandejas.estado_general.Pagina_Princial.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.*;
 import static com.co.confecamaras.utils.estudio_general.constant.ADVERTENCIA_ARCHIVAR;
 import static com.co.confecamaras.utils.estudio_general.constant.EXITO_ARCHIVAR;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -20,11 +21,12 @@ import static org.hamcrest.Matchers.containsString;
 public class ValidaArchivar implements Task {
 
     private final String codigo_barras;
+    private final String estado;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                QueryCambioEstadoArchivar.                        cambioEstado11(codigo_barras),
+                QueryGeneralBaseDatos.cambiarEstado(codigo_barras,estado),
                 WaitUntil.the(BOTON_REFRESCAR, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_REFRESCAR),
                 Enter.theValue(codigo_barras).into(CAMPO_BUSQUEDA),
@@ -48,7 +50,7 @@ public class ValidaArchivar implements Task {
         );
     }
 
-    public static ValidaArchivar archivarProceso(String codigo_barras) {
-        return new ValidaArchivar(codigo_barras);
+    public static ValidaArchivar archivarProceso(String codigo_barras, String estado) {
+        return new ValidaArchivar(codigo_barras, estado);
     }
 }

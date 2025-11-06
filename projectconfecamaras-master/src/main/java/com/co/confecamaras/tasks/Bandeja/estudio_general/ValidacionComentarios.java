@@ -8,7 +8,7 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.confecamaras.userinterfaces.Bandejas.estado_general.Pagina_Princial.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.Matchers.is;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
