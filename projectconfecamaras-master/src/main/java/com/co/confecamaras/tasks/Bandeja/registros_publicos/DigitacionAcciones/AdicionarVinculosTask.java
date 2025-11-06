@@ -7,11 +7,13 @@ import com.co.confecamaras.utils.News.Acciones.TypeKey;
 import com.co.confecamaras.utils.News.evidencias.Reportes;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import net.serenitybdd.screenplay.actions.*;
 
 public class AdicionarVinculosTask implements Task {
+
+    private static final String TIPO_VINCULO_DESEADO = "ADMINISTRADOR - PRIMER SUPLENTE (2601)";
+    private static final String TIPO_CARGO_DESEADO = "ADMINISTRADOR (2600)";
+    private static final String GENERO = "Femenino";
     @Override
     public <T extends Actor> void performAs(T actor) {
         if(actor.asksFor(ElementoElegible.para(DigitacionPage.LINK_DIG_VINCULOS))){
@@ -30,9 +32,12 @@ public class AdicionarVinculosTask implements Task {
                     Enter.theValue("Maria").into(DigitacionPage.INP_PRIM_NOMBRE),
                     Enter.theValue("Alejandra").into(DigitacionPage.INP_SEG_NOMBRE),
                     SelectFromOptions.byIndex(1).from(DigitacionPage.SLC_GENERO),
-                    SelectFromOptions.byIndex(1).from(DigitacionPage.SLC_TIPO_VINCULO),
-                    SelectFromOptions.byIndex(1).from(DigitacionPage.SLC_CARGO),
+                    SelectFromOptions.byVisibleText(GENERO).from(DigitacionPage.SLC_GENERO),
+                    SelectFromOptions.byVisibleText(TIPO_VINCULO_DESEADO).from(DigitacionPage.SLC_TIPO_VINCULO),
+                    SelectFromOptions.byVisibleText(TIPO_CARGO_DESEADO).from(DigitacionPage.SLC_CARGO),
+                    Scroll.to(DigitacionPage.BTN_GRABAR),
                     Click.on(DigitacionPage.BTN_GRABAR),
+
                     Click.on(DigitacionPage.BTN_VOLVER)
             );
         }
