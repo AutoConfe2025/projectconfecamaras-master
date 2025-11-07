@@ -1,4 +1,4 @@
-package com.co.confecamaras.tasks.Bandeja.estudio_general;
+package com.co.confecamaras.tasks.Bandeja.oficios_requerimientos;
 
 import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
 import lombok.AllArgsConstructor;
@@ -9,6 +9,8 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.BOTON_ARCHIVAR_TRAMITE;
+import static com.co.confecamaras.utils.bandejas.oficios_requerimientos.constants.MENSAJE_ALERTA_ARCHIVAR;
 import static com.co.confecamaras.utils.estudio_general.constant.ADVERTENCIA_ARCHIVAR;
 import static com.co.confecamaras.utils.estudio_general.constant.EXITO_ARCHIVAR;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -17,11 +19,9 @@ import static net.serenitybdd.screenplay.questions.TextContent.of;
 import static org.hamcrest.Matchers.containsString;
 
 @AllArgsConstructor
-public class ValidaArchivar implements Task {
-
+public class ValidacionArchivar implements Task {
     private final String codigo_barras;
     private final String estado;
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -35,7 +35,7 @@ public class ValidaArchivar implements Task {
 
         actor.should(
                 seeThat("Mensaje advertencia archivar",
-                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(ADVERTENCIA_ARCHIVAR))
+                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(MENSAJE_ALERTA_ARCHIVAR))
         );
 
         actor.attemptsTo(
@@ -49,7 +49,8 @@ public class ValidaArchivar implements Task {
         );
     }
 
-    public static ValidaArchivar archivarProceso(String codigo_barras, String estado) {
-        return new ValidaArchivar(codigo_barras, estado);
+    public static ValidacionArchivar archivarOficio(String codigo_barras, String estado){
+        return new ValidacionArchivar(codigo_barras, estado);
+
     }
 }

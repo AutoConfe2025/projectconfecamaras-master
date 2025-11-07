@@ -14,20 +14,12 @@ public class ModuloBandejaEstudioGenStepDefinitions {
 
     @When("ingreso al modulo de validacion de bandeja {string} {string}")
     public void ingresoAlModuloDeValidacionDeBandeja(String codigo_barras, String estado) {
-        theActorInTheSpotlight().attemptsTo(IngresoModulo.ingresoAlModulo(codigo_barras,estado));
+        theActorInTheSpotlight().attemptsTo(IngresoModulo.ingresoAlModulo(codigo_barras, estado));
     }
 
     @Then("valido el proceso de descarga del PDF")
-    public void validoElProcesoDeDescargaDelPdf(io.cucumber.datatable.DataTable dataTable) {
-
-        Map<String, String> datos = dataTable.asMaps(String.class, String.class).get(0);
-
-        String tipoValidacion = datos.get("tipoValidacion");
-        String textoEsperado = datos.get("textoEsperado");
-
-        OnStage.theActorInTheSpotlight().attemptsTo(
-                ValidacionDescargaPDF.validaDescarga(tipoValidacion, textoEsperado)
-        );
+    public void validoElProcesoDeDescargaDelPdf() {
+        theActorInTheSpotlight().attemptsTo(ValidacionDescargaPDF.validaDescarga());
     }
 
     @Entonces("valido los comentarios de la bandeja")

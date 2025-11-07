@@ -10,8 +10,6 @@ Característica: validacion de bandejas Estudio General
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso al modulo de validacion de bandeja "739420" "04"
     Entonces valido el proceso de descarga del PDF
-      | tipoValidacion |
-      | pdf            |
 
   @ValidacionBandejaEstudioGeneralComentario
   Escenario: ingreso a la bandeja estudio general y valido comentarios

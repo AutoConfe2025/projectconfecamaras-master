@@ -3,14 +3,14 @@ package com.co.confecamaras.userinterfaces.Bandejas.estudio_general;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class Pagina_Princial {
+public class PaginaPrincial {
 
     public static final Target BOTON_CONTROL = Target.the("boton control de busqueda")
             .located(By.xpath("//button[@class='btn_busqueda_header']"));
     public static final Target CAMPO_INGRESO_BUSQUEDA_CONTROL = Target.the("campo de ingreso de busqueda")
             .located(By.xpath("//input[@class='w-100 p-inputtext p-component']"));
 
-    public static final Target OPCION_ESTUDIO_GENERAL = Target.the("opcion de estudio general bandejas")
+    public static final Target SELECCION_OPCION_GENERAL = Target.the("opcion de estudio general bandejas")
             .located(By.xpath("//span[@class='opcion']"));
 
     public static final Target BOTON_REFRESCAR = Target.the("boton refrescar")

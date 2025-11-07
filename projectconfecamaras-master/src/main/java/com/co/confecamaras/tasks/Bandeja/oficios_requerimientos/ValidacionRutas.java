@@ -1,10 +1,8 @@
-package com.co.confecamaras.tasks.Bandeja.estudio_general;
+package com.co.confecamaras.tasks.Bandeja.oficios_requerimientos;
 
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.tasks.utils.ControlDescargas;
 import com.co.confecamaras.utils.News.evidencias.BaseEvidencias;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -15,11 +13,7 @@ import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.BOTON_VER_RUTA;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-@Slf4j
-@AllArgsConstructor
-public class ValidacionDescargaPDF implements Task {
-
-
+public class ValidacionRutas implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -32,7 +26,7 @@ public class ValidacionDescargaPDF implements Task {
         );
     }
 
-    public static ValidacionDescargaPDF validaDescarga() {
-        return new ValidacionDescargaPDF();
+    public static ValidacionRutas validaBotonRutas(){
+        return new ValidacionRutas();
     }
 }
