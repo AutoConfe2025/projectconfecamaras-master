@@ -10,5 +10,5 @@ Característica: Validar Digitacion general
   @DigitacionGeneral
   Escenario: Digitacion General
     Y ingreso al sistema SII3 como usuario publico
-    Cuando Buscamos por el boton principal de busqueda el elemento Digitacion General
-    Entonces validara las acciones de Digitacion General con codigo de barras 739445
+    Cuando Buscamos por el boton principal de busqueda la bandeja Digitacion General
+    Entonces validara las acciones de Digitacion General con codigo de barras "739445" "23"

@@ -1,6 +1,6 @@
 package com.co.confecamaras.tasks.Bandeja.registros_publicos;
 
-import com.co.confecamaras.database.Bandeja.QueryDigitacionRegEsadlCambiarEstadoCodBarras;
+import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.DigitacionAcciones.*;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.AdicionarComentariosTask;
@@ -19,16 +19,19 @@ import static org.hamcrest.Matchers.is;
 
 public class DigitacionGeneralTask implements Task {
     private final String codigo_barras;
+    private final String estado;
 
-    public DigitacionGeneralTask(String codigo_barras) {
+
+    public DigitacionGeneralTask(String codigo_barras, String estado) {
         this.codigo_barras = codigo_barras;
+        this.estado = estado;
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
 
         actor.attemptsTo(
-                QueryDigitacionRegEsadlCambiarEstadoCodBarras.cambiarEstado(codigo_barras),
+                QueryGeneralBaseDatos.cambiarEstado(codigo_barras,estado),
                 SwitchToNewWindow.switchToNewTab(),
                 ConsultaGrillaTask.consultar(codigo_barras),
                 VerRutaTask.verRuta("Ver ruta", codigo_barras),
@@ -51,7 +54,7 @@ public class DigitacionGeneralTask implements Task {
         );
     }
 
-    public static DigitacionGeneralTask digitar(String codigo_barras) {
-        return new DigitacionGeneralTask(codigo_barras);
+    public static DigitacionGeneralTask digitar(String codigo_barras, String estado) {
+        return new DigitacionGeneralTask(codigo_barras , estado);
     }
 }

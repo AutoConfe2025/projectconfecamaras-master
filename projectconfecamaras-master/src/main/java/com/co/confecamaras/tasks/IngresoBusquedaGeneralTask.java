@@ -1,6 +1,7 @@
 package com.co.confecamaras.tasks;
 
 
+import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.waitinteractions.WaitInteractions;
 import com.co.confecamaras.userinterfaces.BusquedaInicial;
 import net.serenitybdd.screenplay.Actor;
@@ -25,6 +26,7 @@ public class IngresoBusquedaGeneralTask implements Task {
                 Click.on(BOTON_BUSQUEDA_HEADER),
                  WaitInteractions.untilAppears(INPUT_BUSCAR),
                  Enter.theValue(elemento_busqueda).into(INPUT_BUSCAR),
+                WaitSeconds.seconds(2),
                  Click.on(BusquedaInicial.elementoBuscadoDinamico(elemento_busqueda))
 
 
