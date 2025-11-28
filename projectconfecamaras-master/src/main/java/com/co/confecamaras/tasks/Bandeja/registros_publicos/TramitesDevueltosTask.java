@@ -1,11 +1,9 @@
 package com.co.confecamaras.tasks.Bandeja.registros_publicos;
 
 import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
-import com.co.confecamaras.interactions.News.ManagePageAlert;
 import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.AdicionarComentariosTask;
-import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.PublicarTask;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.VerRutaTask;
 import com.co.confecamaras.tasks.Consulta.ConsultaGrillaTask;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;

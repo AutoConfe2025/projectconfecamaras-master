@@ -10,4 +10,4 @@ Característica: Validar que permita la revision
   Escenario: Tramites devueltos sin destinamiento detectado
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Revision SIPREF (Radicaciones)
-    Entonces validar las acciones de revision sipref radicaciones1
+    Entonces validar las acciones de revision sipref radicaciones

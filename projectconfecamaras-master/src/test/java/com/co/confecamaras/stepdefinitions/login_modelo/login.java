@@ -21,5 +21,20 @@ public class login {
         UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioDefault();
         withCurrentActor(loginModelo.enConfecamaras(usuario));
     }
+    @And("ingreso al sistema SII3 como analista")
+    public void ingresoAlSistemaSII3ComoAnalista(){
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioAnalista();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
+    @And("ingreso al sistema SII3 como admin16")
+    public void ingresoAlSistemaSII3ComoAdmin16(){
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioAdmin16();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
+    @And("ingreso al sistema SII3 como admin20")
+    public void ingresoAlSistemaSII3ComoAdmin20(){
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioAdmin20();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
 
 }

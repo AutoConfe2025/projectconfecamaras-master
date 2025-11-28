@@ -51,12 +51,10 @@ public class SellarInscripcionTask implements Task {
                 WaitConstant.esperaConstante()
         );
 
-        // PASO 5: Comparación de PDF
         WebDriver driver = BrowseTheWeb.as(actor).getDriver();
         String originalHandle = driver.getWindowHandle();
 
         actor.attemptsTo(
-                // ¡Usar la nueva Tarea!
                 CompararElContenidoDelPDFEnMismaPestana.conReferenciaLocal(
                         Variables_SellarInscripcion.PDF_ESPERADO_SELLOS
                 ));

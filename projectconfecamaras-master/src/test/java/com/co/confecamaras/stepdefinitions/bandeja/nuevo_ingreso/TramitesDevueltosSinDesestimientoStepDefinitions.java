@@ -1,4 +1,4 @@
-package com.co.confecamaras.stepdefinitions.bandeja.registros_publicos;
+package com.co.confecamaras.stepdefinitions.bandeja.nuevo_ingreso;
 
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.TramitesDevueltosSinDesestimientoDeTask;
 import io.cucumber.java.es.Entonces;

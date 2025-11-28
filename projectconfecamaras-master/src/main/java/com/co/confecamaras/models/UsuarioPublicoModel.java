@@ -24,4 +24,28 @@ public class UsuarioPublicoModel {
                 .contrasena("2837279")
                 .build();
     }
+    public static UsuarioPublicoModel usuarioAnalista() {
+        return UsuarioPublicoModel.builder()
+                .camara("20")
+                .usuario("analistaqa@confecamaras.org.co")
+                .identificacion("1026265083")
+                .contrasena("mqVC9(d54Qy@")
+                .build();
+    }
+    public static UsuarioPublicoModel usuarioAdmin16() {
+        return UsuarioPublicoModel.builder()
+                .camara("16")
+                .usuario("admin")
+                .identificacion("11314260")
+                .contrasena("2837279")
+                .build();
+    }
+    public static UsuarioPublicoModel usuarioAdmin20() {
+        return UsuarioPublicoModel.builder()
+                .camara("20")
+                .usuario("admin")
+                .identificacion("11314260")
+                .contrasena("2837279")
+                .build();
+    }
 }

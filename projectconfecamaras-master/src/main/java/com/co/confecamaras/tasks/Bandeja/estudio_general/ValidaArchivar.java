@@ -1,6 +1,5 @@
 package com.co.confecamaras.tasks.Bandeja.estudio_general;
 
-import com.co.confecamaras.database.Bandeja.QueryCambioEstadoArchivar;
 import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;

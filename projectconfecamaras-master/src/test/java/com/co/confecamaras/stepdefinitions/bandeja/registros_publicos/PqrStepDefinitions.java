@@ -1,6 +1,5 @@
 package com.co.confecamaras.stepdefinitions.bandeja.registros_publicos;
 
-import com.co.confecamaras.tasks.Bandeja.registros_publicos.CompraVentasTask;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.PqrTask;
 import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.actors.OnStage;
