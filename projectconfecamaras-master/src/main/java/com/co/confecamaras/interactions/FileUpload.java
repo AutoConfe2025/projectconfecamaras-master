@@ -16,7 +16,7 @@ public class FileUpload implements Interaction {
         archivoComandos();
         archivoDoc();
         firma();
-       }
+    }
 
     public String archivoPj() {
         File file = new File("src/test/resources/data/CertificadoPJ.pdf");

@@ -16,7 +16,6 @@ public class CerrarPestana implements Interaction {
         String originalWindow = BrowseTheWeb.as(actor).getDriver().getWindowHandle();
         BrowseTheWeb.as(actor).getDriver().close();
 
-        // Cambiar a la pestaña anterior
         for (String windowHandle : BrowseTheWeb.as(actor).getDriver().getWindowHandles()) {
             BrowseTheWeb.as(actor).getDriver().switchTo().window(windowHandle);
             break;

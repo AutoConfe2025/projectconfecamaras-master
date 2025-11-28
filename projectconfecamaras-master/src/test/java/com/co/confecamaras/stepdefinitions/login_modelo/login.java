@@ -22,4 +22,16 @@ public class login {
         withCurrentActor(loginModelo.enConfecamaras(usuario));
     }
 
+    @And("ingreso al sistema SII3 como usuario admin")
+    public void ingresoAlSistemaSII3ComoUsuarioAdmin(){
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioAdmin20();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
+
+    @And("ingreso al sistema SII3 como usuario admin27")
+    public void ingresoAlSistemaSII3ComoUsuarioAdmin27(){
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioAdmin27();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
+
 }

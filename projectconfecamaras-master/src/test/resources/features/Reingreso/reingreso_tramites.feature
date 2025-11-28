@@ -1,6 +1,9 @@
 # language: es
 
-Característica: Reingreso de Tramites
+Característica: valida el reingreso de tramites
+
+  Antecedentes: ingreso plataforma confecamaras
+    Dado Confecamaras ingresa al sistema de confecamaras
 
   @reingresoTramites @BloqueData @general
   Escenario: Reingreso de Tramites
