@@ -1,6 +1,5 @@
 package com.co.confecamaras.tasks.Bandeja.estudio_general;
 
-import com.co.confecamaras.database.Bandeja.QueryDigitacionRegEsadlCambiarEstadoCodBarras;
 import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.utils.sikulli.SafeActions;
@@ -11,7 +10,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
 import static com.co.confecamaras.userinterfaces.sikuli.bandejas.EstadoGeneral.*;
 import static com.co.confecamaras.utils.estudio_general.constant.ESTUDIO_GENERAL;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -28,8 +27,8 @@ public class IngresoModulo implements Task {
                 SafeActions.click(BOTON_CONTROL, BOTON_BUSQUEDA),
                 SafeActions.click(CAMPO_INGRESO_BUSQUEDA_CONTROL, ICONO_BUSQUEDA_NOMBRE),
                 Enter.theValue(ESTUDIO_GENERAL).into(CAMPO_INGRESO_BUSQUEDA_CONTROL),
-                WaitUntil.the(OPCION_ESTUDIO_GENERAL, isVisible()).forNoMoreThan(10).seconds(),
-                SafeActions.click(OPCION_ESTUDIO_GENERAL, OPCION_ESTADO_GENERAL_SIKULLI),
+                WaitUntil.the(SELECCION_OPCION_GENERAL, isVisible()).forNoMoreThan(10).seconds(),
+                SafeActions.click(SELECCION_OPCION_GENERAL, OPCION_ESTADO_GENERAL_SIKULLI),
                 SwitchToNewWindow.switchToNewTab(),
                 QueryGeneralBaseDatos.cambiarEstado(codigo_barras,estado),
                 WaitUntil.the(BOTON_REFRESCAR, isVisible()).forNoMoreThan(20).seconds(),

@@ -1,13 +1,20 @@
 # language: es
-Característica: Validar que permita
 
-  @RevisionSIPREFInscripciones @BloqueOcho @general
-  Escenario: Validar revision de inscripciones
-    Dado el Usuario requiere ver la informacion en Confecamaras
-    Cuando ingrese al sistema SII3 como usuario publico
-      | Camara         | 20       |
-      | Usuario        | CAJAQA   |
-      | Identificacion | 11314260 |
-      | Contraseña     | 2837279  |
-    Y consultara Revisión SIPREF (Inscripciones) que abrira una nueva ventana
-    Entonces realizara las acciones de revision de inscripciones
+Característica: validacion de bandejas Estudio General
+
+  Antecedentes: ingreso plataforma confecamaras
+    Dado Confecamaras ingresa al sistema de confecamaras
+
+  @ValidacionRevisionSiprefInscripcionesNotificar
+  Escenario: valido el flujo con el boton de notificar
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando ingreso solo bandeja "Revision SIPREF (Inscripciones)"
+    Y ingreso la fecha de la busqueda "11/07/2025"
+    Entonces realizo el proceso de notificar
+
+  @ValidacionRevisionSiprefInscripcionesRevisado
+  Escenario: valido el flujo con el boton de notificar
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando ingreso solo bandeja "Revision SIPREF (Inscripciones)"
+    Y ingreso la fecha de la busqueda "11/07/2025"
+    Entonces marco como revisado

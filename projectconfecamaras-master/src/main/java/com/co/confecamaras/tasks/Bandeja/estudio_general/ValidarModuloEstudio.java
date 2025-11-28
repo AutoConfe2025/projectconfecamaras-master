@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
 import static com.co.confecamaras.utils.estudio_general.constant.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -49,6 +49,7 @@ public class ValidarModuloEstudio implements Task {
         );
 
         actor.attemptsTo(
+                WaitUntil.the(BOTON_OK_MENSAJE, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_OK_MENSAJE),
                 WaitUntil.the(BOTON_FINALIZAR_PROCESO, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_FINALIZAR_PROCESO),

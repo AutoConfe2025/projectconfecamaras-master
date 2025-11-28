@@ -1,0 +1,64 @@
+# language: es
+
+Característica: validacion de bandeja recursos de reposicion
+
+  Antecedentes: ingreso plataforma confecamaras
+    Dado Confecamaras ingresa al sistema de confecamaras
+
+  @ValidacionBandejaControlCalidadPDF
+  Escenario: ingreso a la bandeja recursos de reposicion y valido la descarga del pdf
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces valido el proceso de descarga del PDF
+    Y valido el proceso de descarga multi PDF
+
+  @ValidacionBandejaControlCalidadAgregarComentario
+  Escenario: ingreso a la bandeja recursos agergar comentario
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces realizo la validacion de agregar un comentario
+
+  @ValidacionBandejaControlCalidadValidarComentario
+  Escenario: ingreso a la bandeja validar comentarios
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces valido los comentarios de la bandeja
+
+  @ValidacionBandejaControlCalidadCertificado
+  Escenario: ingreso a la bandeja certificado
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces valido el modulo de ver certificado
+
+  @ValidacionBandejaControlCalidadDigitacion
+  Escenario: ingreso a la bandeja valido digitacion
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces valido el modulo de digitacion
+
+  @ValidacionBandejaControlCalidadConfirmar
+  Escenario: ingreso a la bandeja confirmar proceso
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces confirmo el proceso de control de calidad
+
+  @ValidacionBandejaControlCalidadRegresarEstudio
+  Escenario: ingreso a la bandeja regresar a estudio
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces confirmo el regreso de estudio
+
+  @ValidacionBandejaControlCalidadRegresarDigitacion
+  Escenario: ingreso a la bandeja regresar a digitacion
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces confirmo el regreso a digitacion
+
+  @ValidacionBandejaControlCalidadArchivar
+  Escenario: ingreso a la bandeja archivar
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces  realizo el proceso para archivar el tramite "739268" "38"
+
+
+

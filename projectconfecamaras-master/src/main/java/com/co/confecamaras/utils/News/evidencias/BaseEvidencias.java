@@ -7,50 +7,91 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class BaseEvidencias {
+
     public static String ESCENARIO = "Temp";
     public static String RUTA_EVIDENCIAS = "";
+    public static String RUTA_DESCARGA = detectarCarpetaDescargas(); // ✅ Detectada automáticamente
 
-    public static String RUTA_DESCARGA = "";
     private static int NUMERO_EJECUCIONES = 1;
 
-    public static String pathEvidence(String escenario) throws Exception {
-        // CREA UNA NUEVA CARPETA INICIAL DE EVIDENCIAS
-        String inicio_usuario = System.getProperty("user.home");
-        Path carpeta_evidencias = Paths.get(inicio_usuario, ".EVIDENCIAS_DESCARGAS");
-        if (!Files.exists(carpeta_evidencias))
-            Files.createDirectory(carpeta_evidencias);
-
-        // CREA LA CARPETA DEL STEP QUE SE VA A EJECUTAR
-        Path carpeta_modulo = null;
+    /**
+     * Detecta automáticamente la carpeta de descargas según el sistema operativo.
+     * Compatible con Windows, Linux y macOS.
+     */
+    public static String detectarCarpetaDescargas() {
         try {
-            carpeta_modulo = carpeta_evidencias.resolve(escenario);
-            if (!Files.exists(carpeta_modulo))
-                Files.createDirectory(carpeta_modulo);
+            String userHome = System.getProperty("user.home");
+
+            if (System.getProperty("os.name").toLowerCase().contains("win")) {
+                Path winPath = Paths.get(userHome, "Downloads");
+                Files.createDirectories(winPath);
+                return winPath.toString();
+            }
+
+            if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+                Path macPath = Paths.get(userHome, "Downloads");
+                Files.createDirectories(macPath);
+                return macPath.toString();
+            }
+
+            Path linuxPath = Paths.get(userHome, "Descargas"); // muchos equipos en español
+            if (!Files.exists(linuxPath)) {
+                linuxPath = Paths.get(userHome, "Downloads");
+            }
+
+            Files.createDirectories(linuxPath);
+            return linuxPath.toString();
+
         } catch (Exception e) {
             e.printStackTrace();
+            // Último recurso
+            return Paths.get(System.getProperty("user.home")).toString();
         }
-        // CREA LA CARPETA EN SECUENCIA POR EJECUCION POR MODULO, AQUI SE ESPERA GUARDAR ALGUN TIPO DE EVIDENCIA
+    }
+
+    /**
+     * Construye la estructura de carpetas de evidencias.
+     */
+    public static String pathEvidence(String escenario) throws Exception {
+
+        String inicio_usuario = System.getProperty("user.home");
+
+        Path carpeta_evidencias = Paths.get(inicio_usuario, ".EVIDENCIAS_DESCARGAS");
+        Files.createDirectories(carpeta_evidencias);
+
+        Path carpeta_modulo = carpeta_evidencias.resolve(escenario);
+        Files.createDirectories(carpeta_modulo);
+
         Path carpeta_ejecucion;
         do {
             carpeta_ejecucion = carpeta_modulo.resolve("Ejecucion " + NUMERO_EJECUCIONES);
             NUMERO_EJECUCIONES++;
         } while (Files.exists(carpeta_ejecucion));
-        Files.createDirectory(carpeta_ejecucion);
-        return carpeta_ejecucion.toAbsolutePath().toString();
+
+        Files.createDirectories(carpeta_ejecucion);
+
+        RUTA_EVIDENCIAS = carpeta_ejecucion.toAbsolutePath().toString();
+
+        return RUTA_EVIDENCIAS;
     }
 
-    public static void configurarRutaReporte(String nueva_ruta_reporte){
-        System.setProperty("serenity.outputDirectory",nueva_ruta_reporte);
+
+    public static void configurarRutaReporte(String nueva_ruta_reporte) {
+        System.setProperty("serenity.outputDirectory", nueva_ruta_reporte);
     }
 
-    // ABRE LA CARPETA CREADA DURANTE LA EJECUCION
+
     public static void openPath() {
         try {
+            if (RUTA_EVIDENCIAS == null || RUTA_EVIDENCIAS.trim().isEmpty()) {
+                throw new Exception("La ruta de evidencias no está definida.");
+            }
+
             Desktop.getDesktop().open(new File(RUTA_EVIDENCIAS));
-            Reportes.reportEvent(Reportes.INFO,"Evidencias almacenadas en: "+ RUTA_EVIDENCIAS);
+            Reportes.reportEvent(Reportes.INFO, "Evidencias almacenadas en: " + RUTA_EVIDENCIAS);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }
