@@ -49,6 +49,7 @@ public class ValidarModuloEstudio implements Task {
         );
 
         actor.attemptsTo(
+                WaitUntil.the(BOTON_OK_MENSAJE, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_OK_MENSAJE),
                 WaitUntil.the(BOTON_FINALIZAR_PROCESO, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_FINALIZAR_PROCESO),

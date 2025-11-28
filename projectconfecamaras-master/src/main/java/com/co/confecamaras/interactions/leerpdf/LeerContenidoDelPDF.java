@@ -12,7 +12,7 @@ public class LeerContenidoDelPDF implements Interaction {
 
     public LeerContenidoDelPDF(String url) {
         this.url = url;
-        System.out.println("URL recibida: " + url); // Verifica qué URL se pasa
+        System.out.println("URL recibida: " + url);
     }
 
     @Override

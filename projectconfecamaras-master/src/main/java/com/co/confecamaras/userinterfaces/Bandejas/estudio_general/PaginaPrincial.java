@@ -31,6 +31,9 @@ public class PaginaPrincial {
     public static final Target TARJETA_COMENTARIOS = Target.the("Tarjeta de comentarios")
             .located(By.xpath("(//div[@class='card-body'])[2]"));
 
+    public static final Target VALIDA_TITULO_DIGITACION = Target.the("titulo de digitacion")
+            .located(By.xpath("//p[contains(text(),'DIGITACIÓN CODIGO BARRAS')]"));
+
     public static final Target BOTON_AGREGAR_COMENTARIOS = Target.the("Boton agregar comentarios")
             .located(By.xpath("//a[@data-original-title='Adicionar comentarios']"));
 

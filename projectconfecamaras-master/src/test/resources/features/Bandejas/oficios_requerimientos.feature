@@ -5,7 +5,7 @@ Característica: validacion de bandejas oficios y requerimientos
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidacionBandejaEstudioGeneralPDF
+  @ValidacionBandejaOficiosPDF
   Escenario: ingreso a la bandeja oficios y requerimientos y descargar el pdf
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso a la bandeja oficios requerimientos "739254" "04"

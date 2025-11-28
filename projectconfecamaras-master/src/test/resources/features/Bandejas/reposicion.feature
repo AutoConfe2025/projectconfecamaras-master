@@ -1,0 +1,36 @@
+# language: es
+
+Característica: validacion de bandeja recursos de reposicion
+
+  Antecedentes: ingreso plataforma confecamaras
+    Dado Confecamaras ingresa al sistema de confecamaras
+
+  @ValidacionBandejaRecurosDeReposicionPDF
+  Escenario: ingreso a la bandeja recursos de reposicion y valido la descarga del pdf
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando ingreso a la bandeja recursos "739451" "04"
+    Entonces valido el proceso de descarga del PDF
+
+  @ValidacionBandejaRecurosDeReposicionComentarios
+  Escenario: ingreso a la bandeja recursos de reposicion y valido los comentarios
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando ingreso a la bandeja recursos "739451" "04"
+    Entonces valido los comentarios de la bandeja
+
+  @ValidacionBandejaRecurosDeReposicionIngresoComentarios
+  Escenario: ingreso a la bandeja recursos de reposicion y ingreso un comentario
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando ingreso a la bandeja recursos "739451" "04"
+    Entonces ingreso un nuevo comentario
+
+  @ValidacionBandejaRecurosDeReposicionResponder
+  Escenario: ingreso a la bandeja recursos de reposicion y ingreso un comentario
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando ingreso a la bandeja recursos "739451" "04"
+    Entonces realizo el proceso de responder recurso
+
+  @ValidacionBandejaRecurosDeReposicionArchivar
+  Escenario: ingreso a la bandeja recursos de reposicion archivo el proceso
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando ingreso a la bandeja recursos "739451" "04"
+    Entonces  se realiza el proceso para archivar el tramite "739451" "04"

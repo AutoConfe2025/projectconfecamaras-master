@@ -1,6 +1,8 @@
 package com.co.confecamaras.stepdefinitions.bandeja.estudio_general;
 
 import com.co.confecamaras.tasks.Bandeja.estudio_general.*;
+import com.co.confecamaras.tasks.Bandeja.general.IngresoRuta;
+import com.co.confecamaras.tasks.Bandeja.recursos_reposicion.ValidarArchivar;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.es.Entonces;
@@ -19,7 +21,7 @@ public class ModuloBandejaEstudioGenStepDefinitions {
 
     @Then("valido el proceso de descarga del PDF")
     public void validoElProcesoDeDescargaDelPdf() {
-        theActorInTheSpotlight().attemptsTo(ValidacionDescargaPDF.validaDescarga());
+        theActorInTheSpotlight().attemptsTo(IngresoRuta.procesoRuta());
     }
 
     @Entonces("valido los comentarios de la bandeja")
@@ -39,6 +41,6 @@ public class ModuloBandejaEstudioGenStepDefinitions {
 
     @Entonces("realizo el proceso para archivar el tramite {string} {string}")
     public void realizoElProcesoParaArchivarElTramite(String codigo_barras, String estado) {
-        theActorInTheSpotlight().attemptsTo(ValidaArchivar.archivarProceso(codigo_barras, estado));
+        theActorInTheSpotlight().attemptsTo(ValidaArchivarEstudio.archivarProceso(codigo_barras, estado));
     }
 }

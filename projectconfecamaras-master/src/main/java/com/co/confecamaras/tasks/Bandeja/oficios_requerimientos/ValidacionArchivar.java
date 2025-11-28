@@ -30,7 +30,8 @@ public class ValidacionArchivar implements Task {
                 Click.on(BOTON_REFRESCAR),
                 Enter.theValue(codigo_barras).into(CAMPO_BUSQUEDA),
                 WaitUntil.the(BOTON_ARCHIVAR_TRAMITE, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_ARCHIVAR_TRAMITE)
+                Click.on(BOTON_ARCHIVAR_TRAMITE),
+                WaitUntil.the(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO, isVisible()).forNoMoreThan(10).seconds()
         );
 
         actor.should(

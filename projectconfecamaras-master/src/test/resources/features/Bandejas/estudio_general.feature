@@ -33,4 +33,4 @@ Característica: validacion de bandejas Estudio General
   Escenario: ingreso a la bandeja estudio general y valido la seccion de archivar
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso al modulo de validacion de bandeja "739420" "04"
-    Entonces  realizo el proceso para archivar el tramite "739420" "04"
+    Entonces  realizo el proceso para archivar el tramite "739420" "11"

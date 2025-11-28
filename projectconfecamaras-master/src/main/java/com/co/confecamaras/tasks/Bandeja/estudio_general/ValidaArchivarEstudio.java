@@ -17,7 +17,7 @@ import static net.serenitybdd.screenplay.questions.TextContent.of;
 import static org.hamcrest.Matchers.containsString;
 
 @AllArgsConstructor
-public class ValidaArchivar implements Task {
+public class ValidaArchivarEstudio implements Task {
 
     private final String codigo_barras;
     private final String estado;
@@ -25,10 +25,7 @@ public class ValidaArchivar implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                QueryGeneralBaseDatos.cambiarEstado(codigo_barras,estado),
-                WaitUntil.the(BOTON_REFRESCAR, isVisible()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_REFRESCAR),
-                Enter.theValue(codigo_barras).into(CAMPO_BUSQUEDA),
+                QueryGeneralBaseDatos.cambiarEstado(codigo_barras, estado),
                 WaitUntil.the(BOTON_ARCHIVAR_TRAMITE, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_ARCHIVAR_TRAMITE)
         );
@@ -39,6 +36,7 @@ public class ValidaArchivar implements Task {
         );
 
         actor.attemptsTo(
+                WaitUntil.the(BOTON_CONFIRMAR_, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_CONFIRMAR_),
                 WaitUntil.the(MENSAJE_ARCHIVAR_PROCESO_FINALIZADO, isVisible()).forNoMoreThan(10).seconds()
         );
@@ -49,7 +47,7 @@ public class ValidaArchivar implements Task {
         );
     }
 
-    public static ValidaArchivar archivarProceso(String codigo_barras, String estado) {
-        return new ValidaArchivar(codigo_barras, estado);
+    public static ValidaArchivarEstudio archivarProceso(String codigo_barras, String estado) {
+        return new ValidaArchivarEstudio(codigo_barras, estado);
     }
 }

@@ -15,6 +15,7 @@ public class BandejaPonalConstans {
     public static final String MENSAJE_INFORMATIVO_ANEXO_CARGADO = "Anexo cargado, por favor cierre esta pestaña";
 
     public static final String MENSAJE_INFORMATIVO = "Mensaje informativo";
+    public static final String MENSAJE_INFORMATIVO_1 = "Errores en la formalización del Nit";
 
 
 

@@ -23,6 +23,7 @@ public class ValidacionDescargaPDF implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                WaitUntil.the(BOTON_VER_RUTA, isVisible()).forNoMoreThan(30).seconds(),
                 Click.on(BOTON_VER_RUTA),
                 SwitchToNewWindow.switchToNewTab(),
                 WaitUntil.the(BOTON_VER_PDF, isVisible()).forNoMoreThan(30).seconds(),
