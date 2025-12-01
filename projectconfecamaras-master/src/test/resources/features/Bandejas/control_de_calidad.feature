@@ -61,4 +61,11 @@ Característica: validacion de bandeja recursos de reposicion
     Entonces  realizo el proceso para archivar el tramite "739268" "38"
 
 
+  @ValidacionBandejaControlCalidadPDF
+  Escenario: ingreso a la bandeja recursos de reposicion y valido la descarga del pdf
+    Y ingreso al sistema SII3 como usuario admin
+    Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
+    Entonces valido el proceso de descarga del PDF
+
+
 

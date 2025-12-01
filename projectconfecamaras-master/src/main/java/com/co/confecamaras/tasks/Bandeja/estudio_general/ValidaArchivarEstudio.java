@@ -9,8 +9,7 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
-import static com.co.confecamaras.utils.estudio_general.constant.ADVERTENCIA_ARCHIVAR;
-import static com.co.confecamaras.utils.estudio_general.constant.EXITO_ARCHIVAR;
+import static com.co.confecamaras.utils.estudio_general.constant.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.TextContent.of;
@@ -32,7 +31,7 @@ public class ValidaArchivarEstudio implements Task {
 
         actor.should(
                 seeThat("Mensaje advertencia archivar",
-                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(ADVERTENCIA_ARCHIVAR))
+                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(ADVERTENCIA_ARCHIVAR_1))
         );
 
         actor.attemptsTo(

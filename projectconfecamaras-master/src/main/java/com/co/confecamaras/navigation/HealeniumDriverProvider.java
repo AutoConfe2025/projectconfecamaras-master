@@ -12,7 +12,7 @@ public class HealeniumDriverProvider implements DriverSource {
 
     @Override
     public WebDriver newDriver() {
-        // Configuración de Chrome
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--remote-allow-origins=*");
@@ -23,13 +23,15 @@ public class HealeniumDriverProvider implements DriverSource {
 
         WebDriver delegate = new ChromeDriver(options);
 
+        // Carga del archivo healenium.properties
         Config config = ConfigFactory.load("healenium.properties");
 
+        // Crear Self Healing Driver
         return SelfHealingDriver.create(delegate, config);
     }
 
     @Override
     public boolean takesScreenshots() {
-        return true;
+        return true; // importante para que Serenity capture
     }
 }
