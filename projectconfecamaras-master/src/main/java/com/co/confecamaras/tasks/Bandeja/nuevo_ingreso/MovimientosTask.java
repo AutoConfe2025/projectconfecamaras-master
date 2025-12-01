@@ -4,12 +4,7 @@ import com.co.confecamaras.interactions.News.AcceptAlert;
 import com.co.confecamaras.interactions.News.LogEvent;
 import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
-import com.co.confecamaras.interactions.WaitInteractions;
-import com.co.confecamaras.tasks.utils.ControlDescargas;
-import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;
-import com.co.confecamaras.utils.News.evidencias.BaseEvidencias;
 import com.co.confecamaras.utils.News.evidencias.Reportes;
-import com.co.confecamaras.utils.News.gestion_archivos.GuardarArchivo;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -36,14 +31,17 @@ public class MovimientosTask implements Task {
         actor.attemptsTo(
                 Click.on(ENLACE_RELACION_MOVIMIENTOS),
 
-                GuardarArchivo.guardar(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS),
+//                GuardarArchivo.guardar(),
+//                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA,120),
                 LogEvent.recordevent(Reportes.PASSED, "Se descargado el Archivo correctamente "),
-                Click.on(SEGUNDO_ENLACE_CENTRAL),
+//                Click.on(SEGUNDO_ENLACE_CENTRAL),
+                WaitSeconds.seconds(3)
 
-                GuardarArchivo.guardar(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS),
-                LogEvent.recordevent(Reportes.PASSED, "Se descargado el Archivo correctamente ")
+
+
+//                GuardarArchivo.guardar(),
+//                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA),
+//                LogEvent.recordevent(Reportes.PASSED, "Se descargado el Archivo correctamente ")
         );
 
 

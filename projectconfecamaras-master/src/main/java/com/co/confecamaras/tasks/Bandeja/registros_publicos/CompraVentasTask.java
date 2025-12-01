@@ -27,8 +27,8 @@ import net.serenitybdd.screenplay.waits.Wait;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.*;
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.MENSAJE_ARCHIVAR_PROCESO_FINALIZADO;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.MENSAJE_ARCHIVAR_PROCESO_FINALIZADO;
 import static com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage.*;
 import static com.co.confecamaras.userinterfaces.DataInscripcionDocumentosMercantilUI.*;
 import static com.co.confecamaras.userinterfaces.InscripcionDocumentos.BTN_REFRESCAR;

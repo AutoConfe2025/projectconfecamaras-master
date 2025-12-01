@@ -11,7 +11,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.BOTON_CONFIRMAR_;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.BOTON_CONFIRMAR_;
 
 public class TramitesDevueltosTask implements Task {
     private final String codigo_barras;

@@ -13,7 +13,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.Pagina_Princial.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
 import static com.co.confecamaras.utils.estudio_general.constant.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
