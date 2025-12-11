@@ -43,7 +43,7 @@ public class RadicacionActualizacionProponenteStepDefinitions {
         TESTER.wasAbleTo(NavigateTo.confecamarasHomePage());
     }
 
-    @When("^ingresa sus credenciales asignadas en el home page$")
+    @When("^ingresa sus credenciales asignadas en el home AdminPage$")
     public void ingresaSusCredencialesAsignadasEnElHomePage() {
         TESTER.wasAbleTo(HacerLoginDatosExcel.enConfecamaraSII(data.get("NumeroCamara"), data.get("Usuario"), data.get("Identificacion"), data.get("Clave")));
     }

@@ -36,7 +36,7 @@ public class ConsultaReportesEEStepDefinitions {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasHomePage());
     }
 
-    @Cuando("ingresa las credenciales exitosas en el home page")
+    @Cuando("ingresa las credenciales exitosas en el home AdminPage")
     public void ingresaLasCredencialesExitosasEnElHomePage() {
         withCurrentActor(HacerLoginDatosExcel.enConfecamaraSII(data.get("NumeroCamara"), data.get("Usuario"),
                 data.get("Identificacion"), data.get("Clave")));

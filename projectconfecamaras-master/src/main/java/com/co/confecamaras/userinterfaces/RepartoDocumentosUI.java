@@ -54,5 +54,5 @@ public class RepartoDocumentosUI extends PageObject {
 
 
     public static final Target BTN_ACEPTAR = Target.the("Seleccionar usuario")
-            .located(By.cssSelector("#page-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
+            .located(By.cssSelector("#AdminPage-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
 }

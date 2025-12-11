@@ -42,7 +42,7 @@ public class MatriculaSoloEstablecimientoComercioStepDefinitions {
         TESTER.wasAbleTo(NavigateTo.confecamarasHomePage());
     }
 
-    @When("^ingresa sus credenciales correctas en el home page$")
+    @When("^ingresa sus credenciales correctas en el home AdminPage$")
     public void ingresaSusCredencialesCorrectasEnElHomePage() {
         TESTER.wasAbleTo(HacerLoginDatosExcel.enConfecamaraSII(data.get("NumeroCamara"), data.get("Usuario"), data.get("Identificacion"), data.get("Clave")));
     }

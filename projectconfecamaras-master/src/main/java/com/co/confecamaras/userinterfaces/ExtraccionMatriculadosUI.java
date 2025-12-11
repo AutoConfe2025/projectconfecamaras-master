@@ -22,7 +22,7 @@ public class ExtraccionMatriculadosUI extends PageObject {
             .located(By.xpath("//button[text()='Generar']"));
 
     public static final Target BTN_GENERAR_DOS_EXTRACCION_MATRICULADOS = Target.the("Boton generar dos")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[8]/div/div/div[2]/button[2]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[8]/div/div/div[2]/button[2]"));
 
     public static final Target LBL_MENSAJE_EXTRACCION_MATRICULADOS = Target.the("Mesaje extraccion matriculados")
             .located(By.xpath("//p[text()='Mensaje informativo']"));

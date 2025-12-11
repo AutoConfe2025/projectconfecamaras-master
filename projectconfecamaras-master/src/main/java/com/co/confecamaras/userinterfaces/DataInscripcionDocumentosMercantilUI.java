@@ -32,7 +32,7 @@ public class DataInscripcionDocumentosMercantilUI extends PageObject {
 
     public static final Target BTN_SELECCION_TRANSACCION_DIDM = Target.the("Boton seleccion transaccion a incluir")
             //.located(By.xpath("//a[text()='Seleccione una transacción a incluir']"));
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/div/div[2]/div/div/div/a/button"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/div/div[2]/div/div/div/a/button"));
 
     public static final Target SELECT_FILTRAR_DIDM = Target.the("Seleccionar filtrar")
             .located(By.id("_filtrotransacciones"));
@@ -96,7 +96,7 @@ public class DataInscripcionDocumentosMercantilUI extends PageObject {
             .located(By.xpath("//button[text()='Generar recibo']"));
 
     public static final Target LBL_CODIGO_BARRAS_DIDM = Target.the("Codigo de barras")
-            //.located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/center/div/div[2]/div/div/div/div/div/table/tbody/tr[2]"));
+            //.located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/center/div/div[2]/div/div/div/div/div/table/tbody/tr[2]"));
             .located(By.xpath("/html/body/div[2]/div/center/div/div[2]/div/div/div/div/div/table/tbody/tr[2]/td[2]"));
     public static final Target BTN_CERRAR_DIDM = Target.the("Boton cerrar")
             .located(By.xpath("(//button[contains(text(), 'Cerrar')])[1]"));

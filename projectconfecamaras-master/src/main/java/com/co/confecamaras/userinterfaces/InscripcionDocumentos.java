@@ -17,7 +17,7 @@ public class InscripcionDocumentos extends PageObject {
             .located(By.xpath("//a[@onmouseover=\"Tip('Adicionar actos')\"]"));
 
     public static final Target LBL_CODIGO_BARRAS_ID = Target.the("Ver codigo de barras")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/center/div/div[2]/div/div/div/div/div/table/tbody/tr[2]/td[2]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/center/div/div[2]/div/div/div/div/div/table/tbody/tr[2]/td[2]"));
 
     public static final Target LBL_CODIGO_BARRAS_ID_DOS = Target.the("Ver codigo de barras")
             .located(By.xpath("/html[1]/body[1]/div[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[3]/table[1]/tbody[1]/tr[3]/td[1]"));
