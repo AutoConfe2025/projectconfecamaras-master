@@ -38,6 +38,8 @@ public class AccionesPage {
 
     // VER RUTA
     public static final Target TABLA_ANEXOS = Target.the("tramites anexos").locatedBy("//strong[text()='Anexos al trámite']/following::div[1]//p[1]/a");
+    public static final Target ENLACE_VER_EXPEDINETE = Target.the("Enlace Ver Expedinete")
+            .located(By.xpath("//*[@id='page-top']/div[2]/div/div/div[10]/div/p[1]/a"));
     public static final Target TABLA_ANEXOS_RESULTADOS = Target.the("tramites anexos").locatedBy("//strong[text()='Anexos al trámite']/following::div[1]//p[{0}]/a");
 
     // VER COMENTARIO
@@ -62,6 +64,7 @@ public class AccionesPage {
     public static final Target BTN_CANCELAR_F = Target.the("cancelar la accion").locatedBy("//button[text()='Cancelar']");
     public static final Target BTN_CONTINUAR_F = Target.the("continuar la accion").locatedBy("//button[text()='Continuar']");
 
+
     // CONSULTA DE RUTA NACIONAL
     public static Target LINK_CONSULTA_RUTA_NACIONAL = Target.the("consulta ruta nacional").
             locatedBy("//tr[2]/td/a[contains(@onmouseover,'Consulta ruta nacional')]");
@@ -83,6 +86,7 @@ public class AccionesPage {
 
     // REGRESAR A LA BANDEJA
     public static Target LINK_REGRESAR_BANDEJA = Target.the("regresara a la bandeja").locatedBy("//*[text()='Regresar a la bandeja']");
+    public static Target LINK_REGRESAR= Target.the("regresara a la bandeja").locatedBy("//*[text()='Regresar']");
 
     public static Target LINK_VOLVER_BANDEJA = Target.the("volver a la bandeja").locatedBy("//*[contains(text(),'Volver')]");
 

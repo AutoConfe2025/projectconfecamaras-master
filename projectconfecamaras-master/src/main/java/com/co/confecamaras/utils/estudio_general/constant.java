@@ -16,6 +16,8 @@ public class constant {
     public static final String ADVERTENCIA_ARCHIVAR_NO_ARCHIVADOS="Seguro de marcar el trámite como archivado (739407) ?";
     public static final String ADVERTENCIA_ARCHIVAR_REVISION_DESISTIMIENTOS="El código de barras 14259614 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
     public static final String ADVERTENCIA_ARCHIVAR_="El código de barras 739451 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
+    public static final String ADVERTENCIA_ARCHIVAR2="El código de barras 739455 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
+    public static final String ADVERTENCIA_ARCHIVAR3="El código de barras 739027 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
     public static final String EXITO_ARCHIVAR="Proceso Finalizado: Archivar trámiteNuevo estado : 16 - ARCHIVADOUsuario : Regresar a la bandeja";
     public static final String EXITO_ARCHIVAR_CONTROL_CALIDAD="Proceso Finalizado: Archivar trámiteNuevo estado : 16 - ARCHIVADOUsuario : Regresar a la bandeja";
 }

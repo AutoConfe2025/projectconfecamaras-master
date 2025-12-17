@@ -20,8 +20,7 @@ public class TransaccionesRuesTask implements Task {
     private String fecha_inicio = "20240101";
     @Override
     public <T extends Actor> void performAs(T actor) {
-        String main_window = BrowseTheWeb.as(actor).getDriver().getWindowHandle();
-        actor.remember("second_main_window", main_window);
+
         actor.attemptsTo(
                 WaitInteractions.untilAppears(TransaccionesRUESPage.SLC_ESTADOS),
                 LogEvent.recordevent(Reportes.INFO, "Información de busqueda: [estado - " + estado + "] - [operacion - " + tipo_operacion + "] - [fecha inicial- " + fecha_inicio + "]"),
