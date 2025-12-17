@@ -22,11 +22,11 @@ public class MultiplePDF implements Task {
                 WaitUntil.the(BOTON_VER_PDF, isVisible()).forNoMoreThan(30).seconds(),
                 Scroll.to(PDF_1),
                 Click.on(PDF_1),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA),
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS),
                 WaitUntil.the(BOTON_VER_PDF, isVisible()).forNoMoreThan(30).seconds(),
                 Scroll.to(PDF_2),
                 Click.on(PDF_2),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA));
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS));
     }
 
     public static MultiplePDF multiple(){

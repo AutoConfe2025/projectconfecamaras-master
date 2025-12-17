@@ -7,16 +7,18 @@ import com.co.confecamaras.utils.News.evidencias.Reportes;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Scroll;
 import org.junit.Assert;
 
 public class FinalizarDigitacionTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        if (actor.asksFor(ElementoElegible.para(DigitacionPage.LINK_FIN_DIGITACION))) {
+        if (actor.asksFor(ElementoElegible.para(DigitacionPage.ENLACE_FINALIZAR_DIGITACION))) {
             Reportes.reportEvent(Reportes.PASSED, "El registro puede ser eliminado");
             actor.attemptsTo(
-                    Click.on(DigitacionPage.LINK_FIN_DIGITACION),
+                    Scroll.to(DigitacionPage.ENLACE_FINALIZAR_DIGITACION),
+                    Click.on(DigitacionPage.ENLACE_FINALIZAR_DIGITACION),
                     WaitSeconds.seconds(2),
                     Click.on(DigitacionPage.BTN_VOLVER)
 

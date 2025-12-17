@@ -9,6 +9,7 @@ import org.junit.Assert;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Comparator;
 
 @Subject("Validar finalización real de una descarga")
 public class ControlDescargas implements Task {
@@ -16,23 +17,38 @@ public class ControlDescargas implements Task {
     private final String rutaDescarga;
     private final int maxSegundosEspera;
     private final int tiempoEntreIntentosMs = 1000;
+    private final long tiempoMinimoModificacion;
 
+    // Mantenemos esto aunque no lo usemos, por si el navegador lo usa internamente.
     private static final String[] EXTENSIONES_TEMPORALES = {
             ".crdownload", ".part", ".tmp", ".download"
     };
 
+    // Constructor 1 (DEFAULT)
     public ControlDescargas(String rutaDescarga, int maxSegundosEspera) {
+        this(rutaDescarga, maxSegundosEspera, 0);
+    }
+
+    // Constructor 2 (Principal: Acepta el tiempo de inicio para ignorar archivos viejos)
+    public ControlDescargas(String rutaDescarga, int maxSegundosEspera, long tiempoMinimoModificacion) {
         this.rutaDescarga = rutaDescarga;
         this.maxSegundosEspera = maxSegundosEspera;
+        this.tiempoMinimoModificacion = tiempoMinimoModificacion;
+    }
+
+    // Fábrica 3 (NUEVA: CON TIEMPO DE INICIO - Usada en VerRutaTask)
+    public static ControlDescargas hastaTerminar(String rutaDescarga, int segundos, long tiempoInicioMs) {
+        return new ControlDescargas(rutaDescarga, segundos, tiempoInicioMs);
+    }
+
+    public static ControlDescargas hastaTerminar(String rutaDescarga, int segundos) {
+        return new ControlDescargas(rutaDescarga, segundos);
     }
 
     public static ControlDescargas hastaTerminar(String rutaDescarga) {
         return new ControlDescargas(rutaDescarga, 60);
     }
 
-    public static ControlDescargas hastaTerminar(String rutaDescarga, int segundos) {
-        return new ControlDescargas(rutaDescarga, segundos);
-    }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -52,59 +68,34 @@ public class ControlDescargas implements Task {
                 "Validando descargas en: " + rutaDescarga
         ));
 
-        long tiempoInicio = System.currentTimeMillis();
+        long tiempoInicioLoop = System.currentTimeMillis();
         long tiempoMaximo = maxSegundosEspera * 1000;
 
-        File ultimoArchivoDescargado = null;
-        long ultimoTamano = -1;
-        int ciclosIguales = 0;
-
-        while (System.currentTimeMillis() - tiempoInicio < tiempoMaximo) {
+        while (System.currentTimeMillis() - tiempoInicioLoop < tiempoMaximo) {
 
             File[] archivos = carpeta.listFiles();
             if (archivos == null) archivos = new File[]{};
 
-            // 1. Buscar archivos temporales aún activos
-            boolean existeArchivoTemporal = Arrays.stream(archivos)
-                    .anyMatch(file -> Arrays.stream(EXTENSIONES_TEMPORALES)
-                            .anyMatch(file.getName()::endsWith));
-
-            if (existeArchivoTemporal) {
-                dormir();
-                continue;
-            }
-
-            // 2. Obtener el archivo más reciente
+            // 1. Obtener el archivo más reciente que sea NUEVO (modificado después del clic)
             File archivoFinal = Arrays.stream(archivos)
                     .filter(File::isFile)
-                    .max((a, b) -> Long.compare(a.lastModified(), b.lastModified()))
+                    // Filtramos por tiempo: El archivo debe ser más nuevo que el momento del clic.
+                    .filter(file -> file.lastModified() >= tiempoMinimoModificacion)
+                    // Filtramos cualquier archivo que aún tenga una extensión temporal por si acaso.
+                    .filter(file -> !Arrays.stream(EXTENSIONES_TEMPORALES).anyMatch(file.getName().toLowerCase()::endsWith))
+                    // Obtenemos el más reciente de los archivos FILTRADOS
+                    .max(Comparator.comparingLong(File::lastModified))
                     .orElse(null);
 
-            if (archivoFinal == null) {
-                dormir();
-                continue;
+            if (archivoFinal != null) {
+                // ARCHIVO NUEVO DETECTADO. Asumimos que la descarga ha terminado.
+                // Ya no verificamos el tamaño ni la estabilización (para evitar el bloqueo de Acrobat).
+                actor.attemptsTo(LogEvent.recordevent(
+                        Reportes.PASSED,
+                        "Descarga finalizada (Detección por Archivo Nuevo): " + archivoFinal.getName()
+                ));
+                return; // Éxito: Salimos del bucle
             }
-
-            // 3. Verificar si ya NO está creciendo
-            long tamActual = archivoFinal.length();
-
-            if (archivoFinal.equals(ultimoArchivoDescargado) && tamActual == ultimoTamano) {
-                ciclosIguales++;
-
-                // Si durante 3 ciclos no cambia => descarga completada
-                if (ciclosIguales >= 3) {
-                    actor.attemptsTo(LogEvent.recordevent(
-                            Reportes.PASSED,
-                            "Descarga finalizada: " + archivoFinal.getName()
-                    ));
-                    return;
-                }
-            } else {
-                ciclosIguales = 0;
-            }
-
-            ultimoArchivoDescargado = archivoFinal;
-            ultimoTamano = tamActual;
 
             dormir();
         }

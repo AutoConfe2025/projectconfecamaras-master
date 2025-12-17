@@ -16,7 +16,7 @@ public class IngresoVerCertificado implements Task {
         actor.attemptsTo(
                 WaitUntil.the(BOTON_VER_CERTIFICADO, isVisible()).forNoMoreThan(30).seconds(),
                 Click.on(BOTON_VER_CERTIFICADO),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

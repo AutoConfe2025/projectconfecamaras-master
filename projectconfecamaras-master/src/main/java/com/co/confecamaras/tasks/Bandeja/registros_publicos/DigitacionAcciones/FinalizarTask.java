@@ -11,7 +11,7 @@ public class FinalizarTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        if (actor.asksFor(ElementoElegible.para(DigitacionPage.LINK_FIN_DIGITACION)))
+        if (actor.asksFor(ElementoElegible.para(DigitacionPage.ENLACE_FINALIZAR_DIGITACION)))
             Reportes.reportEvent(Reportes.PASSED,"El registro puede ser eliminado");
         else {
             Reportes.reportEvent(Reportes.FAILED,"No se puede eliminar el registro");

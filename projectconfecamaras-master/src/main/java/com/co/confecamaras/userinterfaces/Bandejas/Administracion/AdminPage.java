@@ -42,4 +42,19 @@ public class AdminPage {
     public static final Target BOTON_CANCELAR_MODAL = Target.the("Boton Cancelar en Modal o Seccion")
             .located(By.xpath("//*[@id='page-top']//button[text()='Cancelar']"));
 
+    public static final Target CAMPO_FECHA_INICIO = Target.the("Campo de entrada Fecha Inicio")
+            .located(By.id("_fecini"));
+    public static final Target CAMPO_FECHA_INICIAL = Target.the("Campo de entrada Fecha Inicial")
+            .located(By.xpath("//*[@id='_fechainicial']"));
+    public static final Target CAMPO_FECHA_LIMITE = Target.the("Campo de entrada Fecha Limite")
+            .located(By.xpath("//*[@id='_fechalimite']"));
+    public static final Target CAMPO_EMAIL_USUARIO_SISTEMA = Target.the("Campo de entrada Email Usuario Sistema")
+            .located(By.xpath("//*[@id='_emailusuariosistema']"));
+    public static final Target ENLACE_BORRAR = Target.the("Enlace Borrar por Onmouseover Tip")
+            .located(By.xpath("//*[@id='frameSecundarioCentral']//a[contains(@onmouseover, 'Borrar')]"));
+
+    public static final Target CAMPO_MATRICULA = Target.the("Campo de entrada Matricula")
+            .located(By.xpath("//*[@id='_matricula']"));
+    public static final Target ENLACE_SINCRONIZAR_CERTIFICAS = Target.the("Enlace Sincronizar Certificas por Onmouseover")
+            .located(By.xpath("//*[@id='frameSecundarioCentral']//a[contains(@onmouseover, 'Sincronizar certificas')]"));
 }
