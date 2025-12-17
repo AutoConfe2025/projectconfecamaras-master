@@ -31,7 +31,7 @@ public class ValidaArchivarEstudio implements Task {
 
         actor.should(
                 seeThat("Mensaje advertencia archivar",
-                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(ADVERTENCIA_ARCHIVAR_1))
+                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(ADVERTENCIA_ARCHIVAR_CONTROL_CALIDAD))
         );
 
         actor.attemptsTo(
@@ -42,7 +42,7 @@ public class ValidaArchivarEstudio implements Task {
 
         actor.should(
                 seeThat("Mensaje archivado correctamente",
-                        of(MENSAJE_ARCHIVAR_PROCESO_FINALIZADO), containsString(EXITO_ARCHIVAR))
+                        of(MENSAJE_ARCHIVAR_PROCESO_FINALIZADO), containsString(EXITO_ARCHIVAR_CONTROL_CALIDAD))
         );
     }
 

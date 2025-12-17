@@ -3,6 +3,7 @@ package com.co.confecamaras.stepdefinitions.bandeja.expedientes_revision;
 import com.co.confecamaras.tasks.Bandeja.general.BusquedaSoloBandeja;
 import com.co.confecamaras.tasks.Bandeja.general.IngresarCodioBarras;
 import com.co.confecamaras.tasks.Bandeja.general.IngresoCertificadoAntiguo;
+import com.co.confecamaras.tasks.Bandeja.general.SeleccionOpcionConOpcion;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.es.Entonces;
@@ -15,6 +16,11 @@ public class General {
     @Entonces("ingreso solo bandeja {string}")
     public void ingresoSoloBandeja(String bandeja){
         theActorInTheSpotlight().attemptsTo(BusquedaSoloBandeja.SoloBandeja(bandeja));
+    }
+
+    @Entonces("ingreso solo bandeja {string} seleccionada {string}")
+    public void ingresoSoloBandejaSeleccionada(String bandeja,String opcion){
+        theActorInTheSpotlight().attemptsTo(SeleccionOpcionConOpcion.conOpcionLocalizador(bandeja, opcion));
     }
 
     @Then("ingreso el codigo de barras {string}")

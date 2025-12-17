@@ -17,5 +17,5 @@ public class FirmaRegistrolMercantilEsadl {
             .locatedBy("//input[@id='_clavefirmado']");
 
     public static final Target BOTON_FIRMAR = Target.the("campo para ingreso de clave de firmado")
-            .locatedBy("//input[@class='myButton']");
+            .locatedBy("//button[@class='btn btn-primary float-center']");
 }

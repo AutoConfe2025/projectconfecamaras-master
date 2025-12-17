@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
         glue = "com.co.confecamaras.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
         , tags = "@MantenimientoeinformesmovimientosRUES"
+
 )
 
 public class ConfecamarasSIIRunner {

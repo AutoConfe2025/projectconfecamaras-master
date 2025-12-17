@@ -14,7 +14,7 @@ Antecedentes: ingreso plataforma confecamaras
   @LiquidacionRenovacionNitCedula
   Escenario: proceso de liquidacion renovacion por Nit o cedula
     Y ingreso al sistema SII3 como usuario publico
-    Cuando realizo el proceso por "Identicación"
+    Cuando realizo el proceso por "Identificación"
     Entonces valido el proceso de matricula por identificacion
 
   @LiquidacionRenovacionProponente
