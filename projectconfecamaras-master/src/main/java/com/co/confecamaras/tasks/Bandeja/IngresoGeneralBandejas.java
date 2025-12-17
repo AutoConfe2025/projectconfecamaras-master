@@ -1,7 +1,9 @@
 package com.co.confecamaras.tasks.Bandeja;
 
 import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
+import com.co.confecamaras.interactions.News.PressKey;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
+import com.co.confecamaras.utils.News.Acciones.TypeKey;
 import com.co.confecamaras.utils.sikulli.SafeActions;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
@@ -9,6 +11,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.openqa.selenium.Keys;
 
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
 import static com.co.confecamaras.userinterfaces.sikuli.bandejas.EstadoGeneral.BOTON_BUSQUEDA;
@@ -24,6 +27,7 @@ public class IngresoGeneralBandejas implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
         actor.attemptsTo(
                 QueryGeneralBaseDatos.cambiarEstado(codigoBarras, estadoFinal),
                 SafeActions.click(BOTON_CONTROL, BOTON_BUSQUEDA),
@@ -32,7 +36,8 @@ public class IngresoGeneralBandejas implements Task {
                 WaitUntil.the(SELECCION_OPCION_GENERAL, isVisible()).forNoMoreThan(10).seconds(),
                 SafeActions.click(SELECCION_OPCION_GENERAL, OPCION_OFICIOS_REQUERIMIENTOS),
                 SwitchToNewWindow.switchToNewTab(),
-                Enter.theValue(codigoBarras).into(CAMPO_BUSQUEDA)
+                Enter.theValue(codigoBarras).into(CAMPO_BUSQUEDA_COD_BARRAS_INICIAL),
+                PressKey.press(TypeKey.TAB)
         );
     }
 

@@ -10,7 +10,6 @@ Característica: validacion de bandeja recursos de reposicion
     Y ingreso al sistema SII3 como usuario publico
     Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
     Entonces valido el proceso de descarga del PDF
-    Y valido el proceso de descarga multi PDF
 
   @ValidacionBandejaControlCalidadAgregarComentario
   Escenario: ingreso a la bandeja recursos agergar comentario
@@ -66,6 +65,3 @@ Característica: validacion de bandeja recursos de reposicion
     Y ingreso al sistema SII3 como usuario admin
     Cuando Cuando ingreso a la bandeja "739268" "38" "control de calidad"
     Entonces valido el proceso de descarga del PDF
-
-
-

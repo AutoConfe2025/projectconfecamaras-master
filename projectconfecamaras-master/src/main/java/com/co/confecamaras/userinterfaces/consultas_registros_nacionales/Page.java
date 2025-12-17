@@ -11,13 +11,13 @@ public class Page {
             .locatedBy("//button[@class='btn btn-primary']");
 
     public static final Target BOTON_ACCION = Target.the("boton accion")
-            .locatedBy("(//span[@role='button'])[1]");
+            .locatedBy("(//td[@class='text-center'])[5]");
 
     public static final Target BOTON_ACCION_2 = Target.the("boton accion 2")
-            .locatedBy("(//span[@role='button'])[2]");
+            .locatedBy("(//td[@class='text-center'])[10]");
 
     public static final Target BOTON_ACCION_3 = Target.the("boton accion 3")
-            .locatedBy("(//span[@role='button'])[3]");
+            .locatedBy("(//td[@class='text-center'])[15]");
         public static final Target BOTON_CERRAR = Target.the("boton cerrar")
             .locatedBy("//button[@class='swal2-cancel swal2-styled']");
 }

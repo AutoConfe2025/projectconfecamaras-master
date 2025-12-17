@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/Bandejas/estudio_general.feature",
+        features = "src/test/resources/features/Bandejas/control_de_calidad.feature",
         glue = "com.co.confecamaras.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
-        , tags = "@ValidacionBandejaEstudioGeneralArchivar"
+       , tags = "@ValidacionBandejaControlCalidadPDF"
 )
 
 public class ConfecamarasSIIRunner {

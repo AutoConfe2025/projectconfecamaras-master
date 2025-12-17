@@ -10,6 +10,10 @@ public class PaginaPrincial {
     public static final Target CAMPO_INGRESO_BUSQUEDA_CONTROL = Target.the("campo de ingreso de busqueda")
             .located(By.xpath("//input[@class='w-100 p-inputtext p-component']"));
 
+    public static Target opcionServicios(String numero) {
+        return Target.the("Opción Servicios número " + numero)
+                .located(By.xpath("(//span[contains(text(),'Servicios')])[" + numero + "]"));
+    }
     public static final Target SELECCION_OPCION_GENERAL = Target.the("opcion de estudio general bandejas")
             .located(By.xpath("//span[@class='opcion']"));
 
@@ -18,6 +22,9 @@ public class PaginaPrincial {
 
     public static final Target CAMPO_BUSQUEDA = Target.the("boton refrescar")
             .located(By.xpath("//input[@type='search']"));
+
+    public static final Target CAMPO_BUSQUEDA_COD_BARRAS_INICIAL = Target.the("boton refrescar")
+            .located(By.xpath("//input[@id='codigobarrasinicial']"));
 
     public static final Target BOTON_VER_RUTA = Target.the("Boton opcion ver ruta")
             .located(By.xpath("//a[@data-original-title='Ver ruta']"));
