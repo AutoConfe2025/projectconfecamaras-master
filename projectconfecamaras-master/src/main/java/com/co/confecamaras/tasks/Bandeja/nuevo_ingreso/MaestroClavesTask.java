@@ -1,7 +1,10 @@
 package com.co.confecamaras.tasks.Bandeja.nuevo_ingreso;
 
+import com.co.confecamaras.interactions.News.LogEvent;
+import com.co.confecamaras.interactions.News.RefreshPage;
 import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.WaitInteractions;
+import com.co.confecamaras.utils.News.evidencias.Reportes;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -21,11 +24,11 @@ public class MaestroClavesTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        int min = 1;
-        int max = 1000000;
 
-        // 2. Generar el número aleatorio
+
         Random random = new Random();
+        int min = 1;
+        int max = 999;
         int idAleatorio = random.nextInt(max - min + 1) + min;
 
         // 3. Convertir el ID a String para la interacción Enter
@@ -34,9 +37,10 @@ public class MaestroClavesTask implements Task {
         actor.attemptsTo(
                 WaitInteractions.untilAppears(BOTON_NUEVA_OPCION),
                 Click.on(BOTON_NUEVA_OPCION),
-                Enter.theValue(idOpcion).into(CAMPO_ID_OPCION),
+                Enter.theValue("00."+idOpcion).into(CAMPO_ID_OPCION),
+                LogEvent.recordevent(Reportes.INFO, "Se ingreso el valor: "+"00."+idOpcion ),
                 WaitSeconds.seconds(2),
-                Enter.theValue("QA").into(CAMPO_NOMBRE_),
+                Enter.theValue("QA "+idOpcion).into(CAMPO_NOMBRE_),
                 WaitSeconds.seconds(2),
                 Enter.theValue("QA").into(CAMPO_PATH_SCRIPT),
                 WaitSeconds.seconds(2),
@@ -83,25 +87,21 @@ public class MaestroClavesTask implements Task {
                 Scroll.to(BOTON_GRABAR_OPCION),
                 WaitSeconds.seconds(3),
                 Click.on(BOTON_GRABAR_OPCION),
-                Click.on(BOTON_ACEPTAR_SWAL)
+                Click.on(BOTON_ACEPTAR_SWAL),
+                WaitSeconds.seconds(3),
+                RefreshPage.refresh(),
+                WaitSeconds.seconds(3),
+                RefreshPage.refresh()
         );
-
+        actor.attemptsTo(
+                Enter.theValue(idOpcion).into(CAMPO_FILTRAR)
+        );
         actor.should(
-                // 1. Pregunta por el texto del Target robusto:
                 seeThat(
                         Text.of(CELDA_RESULTADO_PRIMERA_FILA_COLUMNA_QA),
                         // Verificamos que el texto obtenido sea igual a "QA"
-                        Matchers.equalTo("QA")
+                        Matchers.equalTo("QA "+idOpcion)
                 )
-        );
-        actor.attemptsTo(
-                WaitInteractions.untilAppears(BOTON_ELIMINAR_OPCION),
-                Click.on(BOTON_ELIMINAR_OPCION),
-                WaitSeconds.seconds(3),
-                Click.on(BOTON_SI_SWAL),
-                WaitSeconds.seconds(2),
-                Click.on(BOTON_ACEPTAR_SWAL)
-
         );
         actor.attemptsTo(
                 WaitInteractions.untilAppears(BOTON_INACTIVAR_OPCION),
@@ -112,6 +112,16 @@ public class MaestroClavesTask implements Task {
                 Click.on(BOTON_ACEPTAR_SWAL)
 
         );
+        actor.attemptsTo(
+                WaitInteractions.untilAppears(BOTON_ELIMINAR_OPCION),
+                Click.on(BOTON_ELIMINAR_OPCION),
+                WaitSeconds.seconds(3),
+                Click.on(BOTON_SI_SWAL),
+                WaitSeconds.seconds(2),
+                Click.on(BOTON_ACEPTAR_SWAL)
+
+        );
+
     }
 
     public static MaestroClavesTask rues() {

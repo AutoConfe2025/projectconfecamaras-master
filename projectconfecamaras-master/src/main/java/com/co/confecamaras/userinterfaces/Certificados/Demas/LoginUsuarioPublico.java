@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.targets.Target;
 public class LoginUsuarioPublico extends PageObject {
 
     public static Target TXT_CAMARA = Target.the("Cuadro de texto para Seleccionar la camara de comercio").
-            located(By.xpath("//input[@class='a']"));
+            located(By.xpath("//*[@id='orderList']/div[1]/div[2]/div[2]/div/input[@placeholder='Buscar...']"));
     public static Target BTN_CAMARA = Target.the("Seleccionar Icono camara para ingresar ").
             located(By.xpath("//span[@class='text-dark textCamara']"));
     public static Target TXT_USUARIO = Target.the("Ingresar el usuario en el cuadro de texto").
