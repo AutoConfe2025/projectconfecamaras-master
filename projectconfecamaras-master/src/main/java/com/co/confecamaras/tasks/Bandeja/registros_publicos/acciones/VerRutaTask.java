@@ -11,7 +11,6 @@ import com.co.confecamaras.interactions.News.LogEvent;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;
 import com.co.confecamaras.utils.News.evidencias.BaseEvidencias;
 import com.co.confecamaras.utils.News.evidencias.Reportes;
-import com.co.confecamaras.utils.News.gestion_archivos.GuardarArchivo;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -46,11 +45,14 @@ public class VerRutaTask implements Task {
 
         actor.attemptsTo(
                 Scroll.to(AccionesPage.TABLA_ANEXOS),
-                Click.on(AccionesPage.TABLA_ANEXOS),
-                //Click.on(AccionesPage.TABLA_ANEXOS_RESULTADOS.of(String.valueOf(i))),
-                GuardarArchivo.guardar(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
-        );
+                Click.on(AccionesPage.TABLA_ANEXOS)
+                );
+        long tiempoDescargaInicio = System.currentTimeMillis();
+                actor.attemptsTo(
+                        LogEvent.recordevent(Reportes.INFO, "Iniciando monitoreo de descarga en carpeta del sistema."),
+                        ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA, 120, tiempoDescargaInicio)
+                );
+
 
         actor.attemptsTo(WaitSeconds.seconds(1), CloseCurrentWindowAndSwitchBack.closeAndSwitchBack());
 

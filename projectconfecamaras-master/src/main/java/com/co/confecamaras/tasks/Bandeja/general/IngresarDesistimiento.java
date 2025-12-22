@@ -16,7 +16,7 @@ public class IngresarDesistimiento implements Task {
         actor.attemptsTo(
                 WaitUntil.the(BOTON_VER_DESISTIMIENTO, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_VER_DESISTIMIENTO),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
         );
     }
 

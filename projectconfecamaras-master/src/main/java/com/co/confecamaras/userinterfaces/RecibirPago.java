@@ -34,7 +34,7 @@ public class RecibirPago extends PageObject {
             .located(By.id("generarLiquidacion"));
 
     public static final Target LBL_NUMERO_RECUPERACION_RP = Target.the("Mensaje numero de recuperacion")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/div/div[22]/div/div[2]/div/div/table/tbody/tr[1]/td[2]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/div/div[22]/div/div[2]/div/div/table/tbody/tr[1]/td[2]"));
 
     public static final Target BTN_OK_RP = Target.the("Boton ok")
             .located(By.xpath("//button[text()='OK']"));

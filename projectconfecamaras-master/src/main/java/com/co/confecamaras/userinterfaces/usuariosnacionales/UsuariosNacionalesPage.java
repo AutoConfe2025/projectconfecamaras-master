@@ -24,7 +24,7 @@ public class UsuariosNacionalesPage {
             .located(By.cssSelector("#tablesuscriptions > tbody > tr > td:nth-child(9) > p > small > a:nth-child(3)"));
 
     public static final Target BTN_ACEPTAR = Target.the("Boton para aceptar el envio de nueva cotraseña")
-            .located(By.cssSelector("#page-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
+            .located(By.cssSelector("#AdminPage-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
 
 
     //Ingresar nuevamente usuario a buscar
@@ -33,7 +33,7 @@ public class UsuariosNacionalesPage {
             .located(By.cssSelector("#tablesuscriptions > tbody > tr.odd > td:nth-child(9) > p > small > a:nth-child(2)"));
 
     public static final Target BTN_ACEPTAR_ELIMINAR = Target.the("Boton para confirmar la eliminacion de un usuario")
-            .located(By.cssSelector("#page-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
+            .located(By.cssSelector("#AdminPage-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
 
     public static final Target TEXTO_USUARIO_NO_ENCONTRADO = Target.the("Icono para eliminar usuario elegido")
             .located(By.cssSelector("#tablesuscriptions > tbody > tr > td"));

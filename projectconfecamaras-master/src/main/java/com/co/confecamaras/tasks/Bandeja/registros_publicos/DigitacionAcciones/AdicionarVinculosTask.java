@@ -51,9 +51,10 @@ public class AdicionarVinculosTask implements Task {
                     SelectFromOptions.byVisibleText(TIPO_CARGO_DESEADO).from(DigitacionPage.SLC_CARGO),
                     Scroll.to(DigitacionPage.BTN_GRABAR),
                     Click.on(DigitacionPage.BTN_GRABAR),
-
-                    Click.on(DigitacionPage.BTN_VOLVER)
+                                        Click.on(DigitacionPage.BTN_VOLVER),
+                    WaitSeconds.seconds(2)
             );
+            Reportes.reportEvent(Reportes.PASSED, "Adicionar Vinculos a Finalizado");
         }
     }
     public static AdicionarVinculosTask adicionar(){

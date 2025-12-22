@@ -1,5 +1,7 @@
 package com.co.confecamaras.tasks.Bandeja.compraventa;
 
+import com.co.confecamaras.interactions.News.LogEvent;
+import com.co.confecamaras.utils.News.evidencias.Reportes;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -21,7 +23,9 @@ public class ValidarEstudioCompraventa implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+
                 WaitUntil.the(BOTON_ESTUDIO, isVisible()).forNoMoreThan(10).seconds(),
+                LogEvent.recordevent(Reportes.INFO, "Se ingreso a estudio "),
                 Click.on(BOTON_ESTUDIO),
                 WaitUntil.the(OPCION_INSCRIBIR_ACTOS, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(OPCION_INSCRIBIR_ACTOS),
@@ -31,7 +35,8 @@ public class ValidarEstudioCompraventa implements Task {
                 Click.on(OPCION_TERMINAR_INSCRIPCION),
                 WaitUntil.the(BOTON_CONFIRMAR_, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_CONFIRMAR_),
-                WaitUntil.the(MENSAJE_INSCRIPCION_TERMINADA, isVisible()).forNoMoreThan(10).seconds()
+                WaitUntil.the(MENSAJE_INSCRIPCION_TERMINADA, isVisible()).forNoMoreThan(10).seconds(),
+                LogEvent.recordevent(Reportes.PASSED,"Se finalizo Estudio correctamnete")
         );
 
         actor.should(
@@ -41,7 +46,8 @@ public class ValidarEstudioCompraventa implements Task {
 
         actor.attemptsTo(
                 Click.on(BOTON_CERRAR_MENSAJE),
-                Click.on(OPCION_REGRESAR_BANDEJA)
+                Click.on(OPCION_REGRESAR_BANDEJA),
+                LogEvent.recordevent(Reportes.INFO, "Se Regreso a la bandeja")
 
 
         );

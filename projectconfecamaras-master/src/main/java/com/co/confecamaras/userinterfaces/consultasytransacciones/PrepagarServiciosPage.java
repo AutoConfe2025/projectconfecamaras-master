@@ -64,7 +64,7 @@ public class PrepagarServiciosPage {
             .located(By.xpath("//button[@type='button' and text()='Generar recibo']"));
 
     public static Target BTN_GENERAR_RECIBO_ACEPTAR = Target.the("Input para ingresar cantidad a recargar")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[9]/div/div/div[2]/button[2]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[9]/div/div/div[2]/button[2]"));
 
     public static Target BTN_PDF = Target.the("Input para ingresar cantidad a recargar")
             .located(By.xpath("//a[@target='_blank' and text()='Descargar']"));
