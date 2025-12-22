@@ -29,7 +29,7 @@ public class ValidacionDescargaPDF implements Task {
                 WaitUntil.the(BOTON_VER_PDF, isVisible()).forNoMoreThan(30).seconds(),
                 Scroll.to(BOTON_VER_PDF),
                 Click.on(BOTON_VER_PDF),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
         );
     }
 

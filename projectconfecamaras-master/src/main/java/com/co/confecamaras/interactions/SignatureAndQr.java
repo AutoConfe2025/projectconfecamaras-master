@@ -24,7 +24,7 @@ public class SignatureAndQr implements Interaction {
 
     public void firmar(){
         Actions builder = new Actions(getWebdriverManager().getCurrentDriver());
-        WebElement canvasElement = getWebdriverManager().getCurrentDriver().findElement(By.xpath("//form[@id=\"formularioFirmaManuscrita\"]//canvas"));
+        WebElement canvasElement = getWebdriverManager().getCurrentDriver().findElement(By.xpath("//div[@class='padFirmado']"));
 
         Action signature = builder.moveToElement(canvasElement,20,-50)
                 .clickAndHold()

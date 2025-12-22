@@ -43,7 +43,7 @@ public class RevisionCfeStepDefinitions {
         CONFECAMARAS.wasAbleTo(NavigateTo.confecamarasHomePage());
     }
 
-    @When("Confecamaras ingresa sus credenciales correctas en el home page")
+    @When("Confecamaras ingresa sus credenciales correctas en el home AdminPage")
     public void confecamarasIngresaSusCredencialesCorrectasEnElHomePage() {
         CONFECAMARAS.wasAbleTo(HacerLoginDatosExcel.enConfecamaraSII(data.get("NumeroCamara"), data.get("Usuario"), data.get("Identificacion"), data.get("Clave")));
     }

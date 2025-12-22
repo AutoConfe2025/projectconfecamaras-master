@@ -110,16 +110,16 @@ public class LiquidacionRenovacionPage {
 
 
     public static final Target BTN_FACTURA = Target.the("Gneerar factura")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/div/div[28]/div/div[4]/div/a[2]/button"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/div/div[28]/div/div[4]/div/a[2]/button"));
 
     public static final Target BTN_CONTINUAR_LIQUIDACION = Target.the("Boton para continuar con el proceso")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[8]/div/div/div[2]/button[2]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[8]/div/div/div[2]/button[2]"));
 
     public static final Target BTN_GENERAR_RECIBO = Target.the("Boton para generar recibo")
             .located(By.xpath("//*[@id=\"_divBotones2\"]/div/div/div/div/a[1]/button"));
 
     public static final Target BTN_CONTINUAR_GENERAR_RECIBO = Target.the("Boton para continuar el proceso")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[8]/div/div/div[2]/button[2]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[8]/div/div/div[2]/button[2]"));
     public static final Target SERVICIO_TEXTO = Target.the("Total a pagar")
             .located(By.xpath("//td[@style='width: 50%;' and text()='$ -251,000']"));
 

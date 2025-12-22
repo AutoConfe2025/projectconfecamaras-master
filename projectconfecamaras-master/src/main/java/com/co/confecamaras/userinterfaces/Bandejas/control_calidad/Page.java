@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class Page {
 
-    public static final Target BOTON_REGRESAR = Target.the ("boton regresar de modulo").locatedBy("//a[contains(text(), 'Regresar')]");
+    public static final Target BOTON_REGRESAR = Target.the ("boton regresar de modulo").locatedBy("//button[contains(text(), 'Regresar')]");
     public static final Target PDF_1 = Target.the ("PDF 1").locatedBy("(//p[@class='text-dark text-left']//a[text()='Ver'])[2]");
     public static final Target PDF_2 = Target.the ("PDF 2").locatedBy("(//p[@class='text-dark text-left']//a[text()='Ver'])[3]");
     public static final Target BOTON_VER_CERTIFICADO = Target.the ("Boton ver certificado").locatedBy("//a[@data-original-title='Ver certificado']");

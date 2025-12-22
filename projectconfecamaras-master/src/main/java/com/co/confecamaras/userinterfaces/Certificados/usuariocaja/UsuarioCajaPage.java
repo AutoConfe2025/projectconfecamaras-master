@@ -58,6 +58,6 @@ public class UsuarioCajaPage {
     public static Target VALOR_VUELTAS = Target.the("")
             .located(By.xpath("(//strong[normalize-space()='$0.00'])[1]"));
     public static final Target LINK_DESCARGA_RECIBO = Target.the("Enlace para descargar el recibo")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/center/div/div[5]/div/div/div/div/div/table/tbody/tr[3]/td[2]/a"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/center/div/div[5]/div/div/div/div/div/table/tbody/tr[3]/td[2]/a"));
 
 }

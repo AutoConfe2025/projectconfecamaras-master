@@ -1,5 +1,7 @@
 package com.co.confecamaras.tasks.maestros;
 
+import com.co.confecamaras.interactions.News.PressKey;
+import com.co.confecamaras.utils.News.Acciones.TypeKey;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -22,23 +24,18 @@ public class NuevoRegistro implements Task {
                 Click.on(CAMPO_ID),
                 Enter.keyValues(ID).into(CAMPO_ID),
                 Click.on(CAMPO_GRUPO),
-                Enter.theValue(GRUPO).into(CAMPO_GRUPO),
+                WaitUntil.the(OPCION_SI_CAMPO_GRUPO, isPresent()).forNoMoreThan(2).seconds(),
+                Click.on(OPCION_SI_CAMPO_GRUPO),
                 Click.on(CAMPO_TITULO),
                 Enter.theValue(TITULO).into(CAMPO_TITULO),
                 Click.on(LISTA_AYUDA),
-                Click.on(AYUDA_SELECCION)
-        );
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        actor.attemptsTo(
+                Click.on(AYUDA_SELECCION),
                 WaitUntil.the(CAMPO_DESCRIPCION, isClickable()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_DESCRIPCION),
                 Enter.keyValues(DESCRIPCION).into(CAMPO_DESCRIPCION),
-                Click.on(BOTON_GRABAR)
+                Click.on(BOTON_GRABAR),
+                WaitUntil.the(BOTON_ACEPTAR_MENSAJE_INFORMATIVO, isPresent()).forNoMoreThan(2).seconds(),
+                Click.on(BOTON_ACEPTAR_MENSAJE_INFORMATIVO)
         );
     }
 

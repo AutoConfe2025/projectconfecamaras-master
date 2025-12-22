@@ -20,7 +20,7 @@ public class IngresoEscanear implements Task {
                 SwitchToNewWindow.switchToNewTab(),
                 WaitUntil.the(BOTON_VER_RECIBO_CAJA, isVisible()).forNoMoreThan(30).seconds(),
                 Click.on(BOTON_VER_RECIBO_CAJA),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

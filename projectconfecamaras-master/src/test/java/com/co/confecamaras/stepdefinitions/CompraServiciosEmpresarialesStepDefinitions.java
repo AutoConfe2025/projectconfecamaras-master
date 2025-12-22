@@ -44,7 +44,7 @@ public class CompraServiciosEmpresarialesStepDefinitions {
         TESTER_UNO.wasAbleTo(NavigateTo.confecamarasHomePage());
     }
 
-    @When("^Tester_uno ingresa sus credenciales correctas en el home page$")
+    @When("^Tester_uno ingresa sus credenciales correctas en el home AdminPage$")
     public void tester_unoIngresaSusCredencialesCorrectasEnElHomePage() {
         TESTER_UNO.wasAbleTo(HacerLoginDatosExcel.enConfecamaraSII(data.get("NumeroCamara"), data.get("Usuario"), data.get("Identificacion"), data.get("Clave")));
     }

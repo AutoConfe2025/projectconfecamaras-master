@@ -41,7 +41,7 @@ public class ReingresoTramitesBloqueStepDefinitions {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasHomePage());
     }
 
-    @Cuando("Confecamaras ingresa las credenciales asignadas en el home page")
+    @Cuando("Confecamaras ingresa las credenciales asignadas en el home AdminPage")
     public void confecamarasIngresaLasCredencialesAsignadasEnElHomePage() {
         withCurrentActor(HacerLoginDatosExcel.enConfecamaraSII(data.get("NumeroCamara"), data.get("Usuario"),
                 data.get("Identificacion"), data.get("Clave")));

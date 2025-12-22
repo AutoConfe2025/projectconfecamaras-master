@@ -113,7 +113,8 @@ public class DigitacionPage {
     // ----------------------------------------------------------------------------------------------------------------------------------------//
     public static Target LINK_ENVIO_INFO_ALCALDIA = Target.the("envio informacion a la alcaldia").locatedBy("(//*[text()='Envío información a la alcaldía'])[1]");
     // ----------------------------------------------------------------------------------------------------------------------------------------//
-    public static Target LINK_FIN_DIGITACION = Target.the("finalizar digitalizacion").locatedBy("//*[@id='tablecb']/tbody/tr/td[10]//a[@data-original-title='Finalizar digitación']");
+    public static final Target ENLACE_FINALIZAR_DIGITACION = Target.the("Enlace Finalizar digitación")
+            .located(By.xpath("//a[text()='Finalizar digitación']"));
     public static Target SLC_ESTADO = Target.the("seleccionar estado ").locatedBy("#_estado");
     // ----------------------------------------------------------------------------------------------------------------------------------------//
     // ELEMENTOS QUE PUEDEN SER USADOS MULTIPLES VECES

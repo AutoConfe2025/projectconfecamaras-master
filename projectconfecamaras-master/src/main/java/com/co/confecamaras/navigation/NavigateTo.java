@@ -8,7 +8,8 @@ import net.serenitybdd.screenplay.actions.Open;
 
 public class NavigateTo {
     public static Performable confecamarasHomePage() {
-        return Task.where("{0} opens the Confecamaras home page",
-                Open.browserOn().the(ConfecamarasHomePage.class), LogEvent.recordevent(Reportes.INFO,"*** Inicializando navegador"));
+        return Task.where("{0} abre la página de inicio de Confecamaras",
+                Open.browserOn().the(ConfecamarasHomePage.class),
+                LogEvent.recordevent(Reportes.INFO,"*** Inicializando navegador"));
     }
 }

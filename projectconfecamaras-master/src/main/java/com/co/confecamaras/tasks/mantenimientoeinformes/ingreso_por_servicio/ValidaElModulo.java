@@ -28,7 +28,7 @@ public class ValidaElModulo implements Task {
                 Click.on(BOTON_CONSULTAR),
                 AceptAlert.aceptar(),
                 Click.on(RELACION_MOVIENTO_POR_SERVICIOS),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

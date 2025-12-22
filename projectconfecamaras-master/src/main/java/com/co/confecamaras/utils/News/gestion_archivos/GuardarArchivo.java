@@ -32,7 +32,7 @@ public class GuardarArchivo implements Task {
     private static void setClipboardData(String data) {
         StringSelection stringSelection = new StringSelection(data);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-        BaseEvidencias.RUTA_DESCARGA = data;
+        BaseEvidencias.RUTA_EVIDENCIAS = data;
         try {
             Robot robot = new Robot();
             Thread.sleep(1000);

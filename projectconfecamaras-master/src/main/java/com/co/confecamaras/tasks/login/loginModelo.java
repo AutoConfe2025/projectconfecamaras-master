@@ -23,6 +23,7 @@ public class loginModelo implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
         actor.attemptsTo(
                 LogEvent.recordevent(Reportes.INFO, "Se ingresó a la cámara: [" + usuario.getCamara() + "]..."),
                 SafeActions.click(TXT_CAMARA, BUSCAR_CAMARA),
