@@ -20,8 +20,6 @@ import net.serenitybdd.screenplay.actions.JavaScriptClick;
 
 
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
-import net.serenitybdd.screenplay.conditions.Check;
-import net.serenitybdd.screenplay.questions.Visibility;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 

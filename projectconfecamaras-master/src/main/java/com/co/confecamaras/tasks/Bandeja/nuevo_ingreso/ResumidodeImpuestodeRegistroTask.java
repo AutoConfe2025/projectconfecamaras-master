@@ -36,7 +36,7 @@ public class ResumidodeImpuestodeRegistroTask implements Task {
                 WaitSeconds.seconds(2),
                 Click.on(BOTON_CERRAR_CUSTOM_MODAL),
                 WaitSeconds.seconds(2),
-                LogEvent.recordevent(Reportes.INFO, "Se finalizo correctamnete  correctamente" )
+                LogEvent.recordevent(Reportes.PASSED, "Se finalizo correctamnete  correctamente" )
         );
 
     }

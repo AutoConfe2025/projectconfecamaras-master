@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "com.co.confecamaras.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
-        , tags = "@PQR"
+        , tags = "@ExtraccióndeAfiliadosEstablecimientos"
 )
 
 public class ConfecamarasSIIRunner {
