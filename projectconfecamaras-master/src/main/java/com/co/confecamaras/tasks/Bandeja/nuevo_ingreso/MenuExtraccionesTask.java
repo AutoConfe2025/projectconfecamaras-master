@@ -49,7 +49,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(ELACE_CONTEO_INSCRIPCIONES).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(ELACE_CONTEO_INSCRIPCIONES),
@@ -60,7 +59,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(EXPORTACION_EXPERIAN).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(EXPORTACION_EXPERIAN),
@@ -71,7 +69,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(EXTRACCION_INFORMA_COLOMBIA).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(EXTRACCION_INFORMA_COLOMBIA),
@@ -82,7 +79,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(RELACION_PAGOS_VIRTUALES_FORZADOS).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(RELACION_PAGOS_VIRTUALES_FORZADOS),
@@ -93,7 +89,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(RESUMEN_REGISTROS_TABLA).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(RESUMEN_REGISTROS_TABLA),
@@ -104,7 +99,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(INFORME_PRODUCTIVIDAD_FINAL).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(INFORME_PRODUCTIVIDAD_FINAL),
@@ -115,7 +109,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(INFORME_PRODUCTIVIDAD_ACTUAL).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(INFORME_PRODUCTIVIDAD_ACTUAL),
@@ -126,7 +119,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(ESTADOS_LIDA).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(ESTADOS_LIDA),
@@ -137,7 +129,6 @@ public class MenuExtraccionesTask implements Task {
 
         );
         actor.attemptsTo(
-
                 Scroll.to(BARRAS_FRANKLIN).andAlignToBottom(),
                 WaitSeconds.seconds(1),
                 Click.on(BARRAS_FRANKLIN),
@@ -147,11 +138,6 @@ public class MenuExtraccionesTask implements Task {
                 LogEvent.recordevent(Reportes.PASSED, "Se verifico correctamente \"Barras - Franklin" )
 
         );
-
-
-
-
-
     }
 
     public static MenuExtraccionesTask EstadisticasyExtracciones() {

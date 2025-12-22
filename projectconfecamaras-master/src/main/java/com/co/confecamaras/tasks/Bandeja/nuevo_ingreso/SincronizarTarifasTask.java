@@ -18,13 +18,7 @@ public class SincronizarTarifasTask implements Task {
                 SwitchToNewWindow.switchToNewTab(),
                 WaitSeconds.seconds(3),
                 LogEvent.recordevent(Reportes.INFO, "Se ingreso correctammete a Sincronizar  Tarifas " )
-
-
-
-
         );
-
-
 
 
     }

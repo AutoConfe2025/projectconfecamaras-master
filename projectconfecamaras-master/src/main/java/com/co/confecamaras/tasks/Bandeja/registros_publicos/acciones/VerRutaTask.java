@@ -11,7 +11,6 @@ import com.co.confecamaras.interactions.News.LogEvent;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;
 import com.co.confecamaras.utils.News.evidencias.BaseEvidencias;
 import com.co.confecamaras.utils.News.evidencias.Reportes;
-import com.co.confecamaras.utils.News.gestion_archivos.GuardarArchivo;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
