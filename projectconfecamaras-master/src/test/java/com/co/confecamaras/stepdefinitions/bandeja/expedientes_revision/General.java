@@ -18,9 +18,9 @@ public class General {
         theActorInTheSpotlight().attemptsTo(BusquedaSoloBandeja.SoloBandeja(bandeja));
     }
 
-    @Entonces("ingreso solo bandeja {string} seleccionada {string}")
-    public void ingresoSoloBandejaSeleccionada(String bandeja,String opcion){
-        theActorInTheSpotlight().attemptsTo(SeleccionOpcionConOpcion.conOpcionLocalizador(bandeja, opcion));
+    @Entonces("ingreso solo bandeja {string} seleccionada {string} {string}")
+    public void ingresoSoloBandejaSeleccionada(String bandeja,String texto,String opcion){
+        theActorInTheSpotlight().attemptsTo(SeleccionOpcionConOpcion.conOpcionLocalizador(bandeja,texto, opcion));
     }
 
     @Then("ingreso el codigo de barras {string}")

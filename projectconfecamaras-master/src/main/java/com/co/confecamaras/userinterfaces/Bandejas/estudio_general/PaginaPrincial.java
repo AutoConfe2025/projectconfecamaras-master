@@ -10,9 +10,9 @@ public class PaginaPrincial {
     public static final Target CAMPO_INGRESO_BUSQUEDA_CONTROL = Target.the("campo de ingreso de busqueda")
             .located(By.xpath("//input[@class='w-100 p-inputtext p-component']"));
 
-    public static Target opcionServicios(String numero) {
-        return Target.the("Opción Servicios número " + numero)
-                .located(By.xpath("(//span[contains(text(),'Servicios')])[" + numero + "]"));
+    public static Target opcionServicios(String texto, String numero) {
+        return Target.the("Opción Servicios número " +texto+ "'numero'" + numero)
+                .located(By.xpath("(//span[contains(text(),'" + texto + "')])[" + numero + "]"));
     }
     public static final Target SELECCION_OPCION_GENERAL = Target.the("opcion de estudio general bandejas")
             .located(By.xpath("//span[@class='opcion']"));
