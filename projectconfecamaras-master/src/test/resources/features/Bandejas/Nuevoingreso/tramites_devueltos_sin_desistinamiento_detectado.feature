@@ -7,7 +7,7 @@ Característica: Validar Proceso tramites devueltos sin destinamineto detectados
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @TramitesdevueltosSindesitinamientodetectado
+  @TramitesdevueltosSindesitinamientodetectado @SII4
   Escenario: Tramites devueltos sin destinamiento detectado
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Tramites Devueltos SIN Desistimiento Decretado

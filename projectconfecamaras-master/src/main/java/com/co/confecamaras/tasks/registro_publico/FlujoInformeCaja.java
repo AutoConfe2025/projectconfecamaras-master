@@ -50,7 +50,7 @@ public class FlujoInformeCaja implements Task {
                 WaitUntil.the(BOTON_SI_GENERA_INFORME, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_SI_GENERA_INFORME),
                 SalirDelSitioWeb.salir(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA),
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA),
 
                 //salir
                 SafeActions.click(BOTON_CONTROL, BOTON_BUSQUEDA),

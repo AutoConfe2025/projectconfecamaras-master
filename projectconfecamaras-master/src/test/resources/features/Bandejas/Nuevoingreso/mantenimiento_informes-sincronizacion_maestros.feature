@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @Mantenimientoeinformessincronizacion_maestros
+  @Mantenimientoeinformessincronizacion_maestros @SII4
   Escenario: Mantenimiento e informes sincronizacion maestros
     Y ingreso al sistema SII3 como admin20
     Cuando Buscamos por el boton principal de busqueda la bandeja Sincronización Maestros desde JSP7
