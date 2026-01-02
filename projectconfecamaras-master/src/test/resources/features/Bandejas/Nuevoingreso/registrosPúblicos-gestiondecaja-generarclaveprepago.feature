@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @GenerarClavePrepago
+  @GenerarClavePrepago @SII4
   Escenario:  Registros Públicos - Gestión de caja -  Genera clave prepago
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Genera clave prepago

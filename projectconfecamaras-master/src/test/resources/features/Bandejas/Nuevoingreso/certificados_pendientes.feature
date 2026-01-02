@@ -5,7 +5,7 @@ Característica: Validar certicados pendientes
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @CertificadosPendientes
+  @CertificadosPendientes @SII4
   Escenario: Validar certificados pendientes
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Certificados pendientes

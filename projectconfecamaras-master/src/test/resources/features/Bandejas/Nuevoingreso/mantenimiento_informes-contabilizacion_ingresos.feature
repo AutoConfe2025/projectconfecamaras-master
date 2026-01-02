@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @MantenimientoeinformesContabilizaciónIngresos
+  @MantenimientoeinformesContabilizaciónIngresos @SII4
   Escenario: Mantenimiento e informes Contabilización Ingresos
     Y ingreso al sistema SII3 como admin20
     Cuando Buscamos por el boton principal de busqueda la bandeja Contabilización Ingresos (JSP7)

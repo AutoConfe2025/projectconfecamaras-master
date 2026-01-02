@@ -5,7 +5,7 @@ Característica: revision de proceso de registros publicos servicios
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidacionRevisionPorNumeroDelRecibo
+  @Servicios @SII4
   Escenario: valido el flujo de
     Y ingreso al sistema SII3 como usuario publico16
     Cuando ingreso solo bandeja "Servicios" seleccionada "3"
