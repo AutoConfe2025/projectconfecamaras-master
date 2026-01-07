@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/registros_publicos/resumen_ingresos_fecha_sede.feature",
+        features = "src/test/resources/features/registros_publicos/relacion_devoluciones_sii.feature",
         glue = "com.co.confecamaras.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 //       , tags = "@ValidoFlujoExtraccionLibrosActos"
