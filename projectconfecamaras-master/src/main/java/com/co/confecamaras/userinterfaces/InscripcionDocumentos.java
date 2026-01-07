@@ -48,7 +48,6 @@ public class InscripcionDocumentos extends PageObject {
             .located(By.id("_usuarioX"));
 
     public static final Target BTN_ASIGNAR_ID = Target.the("Boton asignar")
-            //.located(By.xpath("//input[@onmouseover=\"Tip('Asignar usuario')\"]"));
             .located(By.xpath("//button[@id='submit']"));
 
     public static final Target LBL_PROCESO_FINALIZADO_ID = Target.the("Ver proceso finalizado")

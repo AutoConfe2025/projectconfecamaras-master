@@ -61,6 +61,8 @@ public class PaginaPrincial {
 
     public static final Target BOTON_ESTUDIO = Target.the("boton estudio")
             .located(By.xpath("//a[@data-original-title='Estudiar']"));
+    public static final Target OPCION_INSCRIBIR_ACTOS = Target.the("Inscribir actos")
+            .located(By.xpath("//a[contains(normalize-space(.), 'Inscribir actos')]"));
 
     public static final Target OPCION_TERMINAR_INSCRIPCION = Target.the("terminar inscripcion")
             .located(By.xpath("//a[contains(normalize-space(.), 'Terminar inscripción')]"));

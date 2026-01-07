@@ -1,5 +1,6 @@
 package com.co.confecamaras.userinterfaces.Bandejas.registros_publicos;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class DigitacionPage {
@@ -33,6 +34,7 @@ public class DigitacionPage {
     public static Target SLC_ORGANIZACION = Target.the("seleccionar organizacion").locatedBy("#organizacion");
     public static Target SLC_CATEGORIA = Target.the("seleccionar categoria").locatedBy("#categoria");
     public static Target SLC_ESTADO_MATRICULA = Target.the("seleccionar estado de matricula").locatedBy("#estadomatricula");
+    public static Target SLC_ESTADO_DATOS_MATRICULA = Target.the("seleccionar estado de matricula").locatedBy("#estadodatosmatricula");
     public static Target INP_FECHA_MATRICULA = Target.the("ingresar fecha de matricula").locatedBy("#fechamatricula");
     public static Target SLC_EXTINCION_DOMINIO = Target.the("Esta inmerso en procesos de extinción de dominio").locatedBy("#extinciondominio");
     public static Target SLC_DB_GENERO = Target.the("seleccionar genero").locatedBy("#sexo");
@@ -111,13 +113,21 @@ public class DigitacionPage {
     // ----------------------------------------------------------------------------------------------------------------------------------------//
     public static Target LINK_ENVIO_INFO_ALCALDIA = Target.the("envio informacion a la alcaldia").locatedBy("(//*[text()='Envío información a la alcaldía'])[1]");
     // ----------------------------------------------------------------------------------------------------------------------------------------//
-    public static Target LINK_FIN_DIGITACION = Target.the("finalizar digitalizacion").locatedBy("(//*[text()='Finalizar digitación'])[1]");
+    public static Target LINK_FIN_DIGITACION = Target.the("finalizar digitalizacion").locatedBy("//*[@id='tablecb']/tbody/tr/td[10]//a[@data-original-title='Finalizar digitación']");
+    public static Target SLC_ESTADO = Target.the("seleccionar estado ").locatedBy("#_estado");
     // ----------------------------------------------------------------------------------------------------------------------------------------//
     // ELEMENTOS QUE PUEDEN SER USADOS MULTIPLES VECES
     public static Target BTN_VOLVER = Target.the("volver").locatedBy("//*[contains(text(),'Volver')]");
+    public static final Target BOTON_CONTINUAR = Target.the("Boton Continuar")
+            .located(By.xpath("//div[contains(@class, 'modal-footer')]//button[text()='Continuar']"));
+    public static final Target BOTON_CANCELAR = Target.the("Boton Cancelar")
+            .located(By.xpath("//div[contains(@class, 'modal-footer')]//button[text()='Cancelar']"));
+
+
     public static Target BTN_REGRESAR = Target.the("regresar").locatedBy("//*[contains(text(),'Regresar')]");
     public static Target BTN_RECARGAR = Target.the("recargar").locatedBy("//*[contains(text(),'Recargar')]");
     public static Target BTN_GUARDAR = Target.the("boton de guardar").locatedBy("//button[text()='Grabar']");
     public static Target BTN_GRABAR = Target.the("grabar informacion").locatedBy("//*[contains(text(),'Grabar')]");
+    public static Target BTN_VOLVER_DIGITACION = Target.the("grabar informacion").locatedBy("//*[contains(text(),'Volver a digitación')]");
     public static Target LINK_NUEVO_REGISTRO = Target.the("Nuevo registro").locatedBy("//*[contains(text(),'Nuevo')]");
 }

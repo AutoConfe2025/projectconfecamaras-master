@@ -43,8 +43,7 @@ public class VerRutaTask implements Task {
             Reportes.reportEvent(Reportes.FAILED, "No coincide el numero de barras: " + codigo_barras);
             Assert.fail("No coincide el numero de barras: " + codigo_barras);
         }
-        //List<WebElementFacade> filas = AccionesPage.TABLA_ANEXOS.resolveAllFor(actor);
-        //for (int i = 0; i <= filas.size(); i++) {
+
         actor.attemptsTo(
                 Scroll.to(AccionesPage.TABLA_ANEXOS),
                 Click.on(AccionesPage.TABLA_ANEXOS),
@@ -52,7 +51,7 @@ public class VerRutaTask implements Task {
                 GuardarArchivo.guardar(),
                 ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
         );
-        //}
+
         actor.attemptsTo(WaitSeconds.seconds(1), CloseCurrentWindowAndSwitchBack.closeAndSwitchBack());
 
     }
