@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.questions.Visibility;
 
 import static com.co.confecamaras.userinterfaces.Bandejas.control_calidad.Page.*;
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
+import static com.co.confecamaras.userinterfaces.registros_publicos.ExtraccionLibrosActosPage.*;
 
 
 public class ValidaComentarioPresente{
@@ -25,6 +26,5 @@ public class ValidaComentarioPresente{
     public static Question<Boolean> validaExpedienteNo() {
         return Visibility.of(EXPEDIENTE_NO);
     }
-
 
 }

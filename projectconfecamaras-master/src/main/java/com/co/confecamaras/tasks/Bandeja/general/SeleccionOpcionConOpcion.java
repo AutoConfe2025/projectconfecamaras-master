@@ -16,7 +16,9 @@ import static com.co.confecamaras.userinterfaces.sikuli.bandejas.EstadoGeneral.I
 public class SeleccionOpcionConOpcion implements Task {
 
     private final String bandeja;
+    private final String texto;
     private final String opcion;
+
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -25,12 +27,12 @@ public class SeleccionOpcionConOpcion implements Task {
                 SafeActions.click(BOTON_CONTROL, BOTON_BUSQUEDA),
                 SafeActions.click(CAMPO_INGRESO_BUSQUEDA_CONTROL, ICONO_BUSQUEDA_NOMBRE),
                 Enter.theValue(bandeja).into(CAMPO_INGRESO_BUSQUEDA_CONTROL),
-                Click.on(PaginaPrincial.opcionServicios(opcion))
+                Click.on(PaginaPrincial.opcionServicios(texto,opcion))
         );
 
     }
 
-    public static SeleccionOpcionConOpcion conOpcionLocalizador(String bandeja, String opcion){
-        return new SeleccionOpcionConOpcion(bandeja, opcion);
+    public static SeleccionOpcionConOpcion conOpcionLocalizador(String bandeja,String texto, String opcion){
+        return new SeleccionOpcionConOpcion(bandeja,texto, opcion);
     }
 }

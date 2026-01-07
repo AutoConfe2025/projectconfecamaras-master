@@ -43,6 +43,12 @@ public class login {
         withCurrentActor(loginModelo.enConfecamaras(usuario));
     }
 
+    @And("ingreso al sistema SII3 como usuario publico16 admin")
+    public void ingresoAlSistemaSII3ComoUsuarioPublico16Admin(){
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioDefault16Admin();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
+
     @And("ingreso al sistema SII3 como usuario admin")
     public void ingresoAlSistemaSII3ComoUsuarioAdmin(){
         UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioAdmin20();
