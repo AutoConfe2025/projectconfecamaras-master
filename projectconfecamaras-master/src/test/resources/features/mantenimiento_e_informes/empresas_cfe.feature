@@ -5,7 +5,7 @@ Característica: revision de empresas CFE
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoAdministracionServiciosRues
+  @Empresas_CFE @SII4
   Escenario: valido el flujo de empresas CFE
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Empresas CFE"

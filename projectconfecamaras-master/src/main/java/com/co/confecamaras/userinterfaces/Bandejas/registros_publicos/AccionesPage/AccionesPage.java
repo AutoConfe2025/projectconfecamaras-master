@@ -39,11 +39,11 @@ public class AccionesPage {
     // VER RUTA
     public static final Target TABLA_ANEXOS = Target.the("tramites anexos").locatedBy("//strong[text()='Anexos al trámite']/following::div[1]//p[1]/a");
     public static final Target ENLACE_VER_EXPEDINETE = Target.the("Enlace Ver Expedinete")
-            .located(By.xpath("//*[@id='page-top']/div[2]/div/div/div[10]/div/p[1]/a"));
+            .located(By.xpath("//*[@id='AdminPage-top']/div[2]/div/div/div[10]/div/p[1]/a"));
     public static final Target TABLA_ANEXOS_RESULTADOS = Target.the("tramites anexos").locatedBy("//strong[text()='Anexos al trámite']/following::div[1]//p[{0}]/a");
 
     // VER COMENTARIO
-    public static final Target COMENTARIOS_ALMACENADOS = Target.the("comentarios almacenados").locatedBy("//*[@id='page-top']/div[2]//div[2]/div");
+    public static final Target COMENTARIOS_ALMACENADOS = Target.the("comentarios almacenados").locatedBy("//*[@id='AdminPage-top']/div[2]//div[2]/div");
 
     // ADICIONAR COMENTARIO
     public static final Target TITULO_ADICIONAR_COMS = Target.the("titulo adicionar comentario").locatedBy("//p[contains(text(),'Adición de comentarios')]");
@@ -57,7 +57,7 @@ public class AccionesPage {
     public static final Target TABLA_OBSERVACIONES = Target.the("tabla escanear").locatedBy("//table[@id='tableanx']/tbody/tr/td[1]");
 
     //FINALIZAR ESCANEO Y DIGITALIZACION
-    public static final Target MSG_POPUP = Target.the("popup finalizar").locatedBy("//*[@id='page-top']/div[8]");
+    public static final Target MSG_POPUP = Target.the("popup finalizar").locatedBy("//*[@id='AdminPage-top']/div[8]");
     public static final Target MSG_POPUP_PUBLICAR = Target.the("popup publicar").locatedBy("//div[@class='bootbox-body']");
     public static final Target MSG_POPUP_FINALIZAR = Target.the("texto de finalizacion").locatedBy("//div[contains(text(),'{0}')]");
     public static final Target BTN_CERRAR_POPUP = Target.the("cerrar alerta").locatedBy("(//button[text()='×'])[3]");

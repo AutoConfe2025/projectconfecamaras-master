@@ -17,7 +17,7 @@ public class MttoLiquidacionPage {
     public static final Target VALOR_ESTADO = Target.the("Valor del estado original")
             .located(By.xpath("//*[@id=\"idestado\"]/option[3]"));
     public static final Target GRABAR_DATOS_BASICOS = Target.the("Boton para guardar datos")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/div/div/div[1]/div/div/a[25]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/div/div/div[1]/div/div/a[25]"));
 
     public static final Target BTN_ACEPTAR_ = Target.the("Boton para aceptar el grabado de datos")
             .located(By.xpath("//button[text()='OK']"));

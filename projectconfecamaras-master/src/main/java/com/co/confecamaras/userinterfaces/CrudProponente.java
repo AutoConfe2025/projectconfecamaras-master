@@ -48,10 +48,10 @@ public class CrudProponente extends PageObject {
     //public static final Target BTN_ICONO_HOME = Target.the("Selecciona el botn HOME")
     //        .located(By.xpath("(//i[@class='fa fa-home small'])[1]"));
 
-    public static By DESCARGAR_RECIBO_BTN = By.xpath("//*[@id=\"page-top\"]/div[2]/div/center/div/div[5]/div/div/div/div/div/table/tbody/tr[3]/td[2]/a");
+    public static By DESCARGAR_RECIBO_BTN = By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/center/div/div[5]/div/div/div/div/div/table/tbody/tr[3]/td[2]/a");
 
     public static final Target VAL_DESCARGA = Target.the("")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/center/div/div[5]/div/div/div/div/div/table/tbody/tr[3]/td[2]/a"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/center/div/div[5]/div/div/div/div/div/table/tbody/tr[3]/td[2]/a"));
 
     // --------- INCRIPCION PROPONENTE ------------ //
 

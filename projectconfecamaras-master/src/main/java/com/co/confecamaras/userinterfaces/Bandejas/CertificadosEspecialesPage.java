@@ -4,19 +4,42 @@ import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
 public class CertificadosEspecialesPage {
+
+    public static final Target CAMPO_ID = Target.the("Campo de entrada ID General")
+            .located(By.xpath("//*[@id='_id']"));
+    public static final Target CAMPO_DESCRIPCION = Target.the("Campo de entrada Descripcion")
+            .located(By.xpath("//*[@id='_descripcion']"));
+
+    public static final Target DROPDOWN_TIPO_REGISTRO = Target.the("Dropdown Tipo de Registro")
+            .located(By.id("_tiporegistro"));
+    public static final Target DROPDOWN_ID_SERVICIO = Target.the("Dropdown ID de Servicio")
+            .located(By.id("_idservicio"));
+    public static final Target DROPDOWN_ESTADO = Target.the("Dropdown Estado")
+            .located(By.id("_estado"));
     public static Target SELECT_TIPO_CONSULTA = Target.the("Menu desplegable para seleccionar el tipo de consulta")
             .located(By.id("selectS"));
     public static Target INPUT_INFORMACION_USQUEDA = Target.the("Input para ingresar informacion a buscar sea una matricula, expediente, etc")
             .located(By.id("criterio"));
+    public static final Target ICONO_CARGAR_MODELO_FILA_1 = Target.the("Icono Cargar Modelo de la fila 1")
+            .located(By.xpath("//*[@id='gridbox']/div[2]/table/tbody/tr[2]/td[9]/a"));
 
+    public static final Target SUBIDA_ARCHIVOS = Target.the("Dropzone para subir archivos (Mueva aqui)")
+            .located(By.xpath("//*[@id='my-awesome-dropzone']//span[text()='Mueva aqui el archivo que desea cargar']"));
     //CLICKCONTINUAR
+
+    public static final Target ENLACE_TERMINAR_CARGA = Target.the("Enlace Terminar Carga")
+            .located(By.xpath("//*[@id='divLoadFile']//a[text()='Terminar' and contains(@onmouseover, 'Terminar la Carga')]"));
+    public static final Target ICONO_VER_PLANTILLA = Target.the("Icono Ver Plantilla por Title")
+            .located(By.xpath("//*[@id='gridbox']/div[2]/table/tbody/tr[2]/td[6]"));
+    public static final Target ICONO_BORRAR = Target.the("Icono Borrar por Title")
+            .located(By.xpath("//*[@id='gridbox']/div[2]/table/tbody/tr[2]/td[8]/a"));
 
     public static Target BTN_CONTINUAR_ = Target.the("Boton para continuar con la consulta")
             .located(By.xpath("//*[@id=\"consultaExpediente\"]/div/div[3]/button[1]"));
 
     public static Target BTN_ACCIONES_ = Target.the("Boton para desplegar acciones")
             .located(By.cssSelector("#tablaConsultaExpedientes > tbody > tr:nth-child(1) > td:nth-child(1) > a > i"));
-
+       //*[@id='gridbox']//img[@title='CargarModelo'])[1]
     public static Target TRAMITES_REGISTRO_MERCABTIL = Target.the("Apartado para ingresar al espacio de tramites y registros mercantiles")
             .located(By.xpath("//*[@id=\"modalAuxiliar\"]/div/div/div[2]/div[1]/div[3]/div/div[1]"));
 
@@ -56,7 +79,7 @@ public class CertificadosEspecialesPage {
             .located(By.xpath("//button[@type='button' and @class='btn btn-success']"));
 
     public static Target LBL_RECIBO_OPERACION_CAMARA = Target.the("Label donde se muestra recibo")
-            .located(By.xpath("//*[@id=\"page-top\"]/div[2]/div/center/div/div[2]/div/div/div/div/div/table/tbody/tr[1]/td[2]"));
+            .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/center/div/div[2]/div/div/div/div/div/table/tbody/tr[1]/td[2]"));
     public static Target BTN_OK_CONTINUAR = Target.the("Boton para continar copn el tramite")
             .located(By.xpath("//button[@type='button' and text()='OK']"));
 

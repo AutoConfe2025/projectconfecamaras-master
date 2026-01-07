@@ -15,7 +15,7 @@ public class IngresoCertificadoAntiguo implements Task {
         actor.attemptsTo(
                 Click.on(CERTIFICADO_ANTIGUO),
                 AceptAlert.aceptar(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

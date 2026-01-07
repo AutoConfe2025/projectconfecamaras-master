@@ -7,7 +7,7 @@ Característica: Validar Proceso de compraventas
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @Compraventas
+  @Compraventas @SII4
   Escenario: Compraventas
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Compraventas

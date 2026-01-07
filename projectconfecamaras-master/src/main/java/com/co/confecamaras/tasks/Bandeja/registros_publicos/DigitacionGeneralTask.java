@@ -1,12 +1,14 @@
 package com.co.confecamaras.tasks.Bandeja.registros_publicos;
 
 import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
+import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.DigitacionAcciones.*;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.AdicionarComentariosTask;
 import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.VerRutaTask;
 import com.co.confecamaras.tasks.Consulta.ConsultaGrillaTask;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;
+import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.DigitacionPage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.Task;
@@ -14,6 +16,8 @@ import net.serenitybdd.screenplay.actions.JavaScriptClick;
 
 
 import com.co.confecamaras.questions.Consulta.ResultadoConsultaNoEncontrado;
+import net.serenitybdd.screenplay.actions.Scroll;
+
 import static org.hamcrest.Matchers.is;
 
 
@@ -39,6 +43,8 @@ public class DigitacionGeneralTask implements Task {
                 ConsultaGrillaTask.consultar(codigo_barras),
                 JavaScriptClick.on(AccionesPage.LINK_ACCION.of("Digitar informacion")),
                 AdicionarVinculosTask.adicionar(),
+                WaitSeconds.seconds(2),
+                Scroll.to(DigitacionPage.ENLACE_FINALIZAR_DIGITACION),
                 FinalizarDigitacionTask.finalizar()
 
 

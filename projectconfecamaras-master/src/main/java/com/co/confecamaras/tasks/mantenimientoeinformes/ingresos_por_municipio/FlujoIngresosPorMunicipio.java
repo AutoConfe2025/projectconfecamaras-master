@@ -34,7 +34,7 @@ public class FlujoIngresosPorMunicipio implements Task {
                 Click.on(BOTON_GENERAR),
                 AceptAlert.aceptar(),
                 Click.on(BOTON_RELACION_MOVIMIENTOS_MUNICIPIO),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
 
         );
     }

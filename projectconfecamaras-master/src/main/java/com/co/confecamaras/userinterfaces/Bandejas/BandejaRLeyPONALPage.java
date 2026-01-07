@@ -58,10 +58,10 @@ public class BandejaRLeyPONALPage {
     public static final Target VER_SOPORTE_NOTIFCACION_SMS = Target.the("Link para ver el recibo")
             .located(By.xpath("(//a[contains(text(),'Ver')])[6]"));
     public static final Target VER_SOPORTE_MOTIFICACION_EMAIL = Target.the("Link para ver recibo notificacion")
-            .located(By.cssSelector("#page-top > div.container-fluid.align-items-center > div > div > div:nth-child(20) > div > p:nth-child(4) > a"));
+            .located(By.cssSelector("#AdminPage-top > div.container-fluid.align-items-center > div > div > div:nth-child(20) > div > p:nth-child(4) > a"));
 
     public static final Target VER_SOPORTE_NOTIFICACION_SMS = Target.the("Link para ver el soporte notificacion via sms")
-            .located(By.cssSelector("#page-top > div.container-fluid.align-items-center > div > div > div:nth-child(20) > div > p:nth-child(7) > a"));
+            .located(By.cssSelector("#AdminPage-top > div.container-fluid.align-items-center > div > div > div:nth-child(20) > div > p:nth-child(7) > a"));
 
     //Cerrar pestaña
     //Fin ver RUTA
@@ -148,16 +148,16 @@ public class BandejaRLeyPONALPage {
 
     //Hacer scroll
     public static final Target BTN_GRABAR = Target.the("Boton para grabar")
-            .located(By.cssSelector("#page-top > div.container-fluid.align-items-center > div > div > div:nth-child(12) > div > div > div > a:nth-child(1) > button"));
+            .located(By.cssSelector("#AdminPage-top > div.container-fluid.align-items-center > div > div > div:nth-child(12) > div > div > div > a:nth-child(1) > button"));
     //Hacer scroll
     public static final Target BTN_VER_DEOLVER = Target.the("Boton ver")
-            .located(By.cssSelector("#page-top > div.container-fluid.align-items-center > div > div > div:nth-child(14) > div > div > div > a:nth-child(1) > button"));
+            .located(By.cssSelector("#AdminPage-top > div.container-fluid.align-items-center > div > div > div:nth-child(14) > div > div > div > a:nth-child(1) > button"));
 
     public static final Target BTN_APLICAR = Target.the("Boton para aplicar")
-            .located(By.cssSelector("#page-top > div.container-fluid.align-items-center > div > div > div:nth-child(14) > div > div > div > a:nth-child(3) > button"));
+            .located(By.cssSelector("#AdminPage-top > div.container-fluid.align-items-center > div > div > div:nth-child(14) > div > div > div > a:nth-child(3) > button"));
 
     public static final Target BTN_CONTUNUAR = Target.the("Boton para continuar")
-            .located(By.cssSelector("#page-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
+            .located(By.cssSelector("#AdminPage-top > div.bootbox.modal.fade.bootbox-confirm.show > div > div > div.modal-footer > button.btn.btn-success"));
 
     public static final Target TEXTO_DEVOLUCION_REGISTRADA = Target.the("Mensaje informativo de que la devoluvion fue registrada exitosamente")
             .located(By.xpath("//p[text()='Mensaje informativo']"));

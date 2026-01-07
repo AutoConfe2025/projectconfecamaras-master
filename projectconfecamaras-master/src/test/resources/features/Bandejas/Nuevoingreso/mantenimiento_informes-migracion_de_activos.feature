@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @Mantenimientoeinformesmigraciondeactivos
+  @Mantenimientoeinformesmigraciondeactivos @SII4
   Escenario: Mantenimiento e informes migraciondeactivos
     Y ingreso al sistema SII3 como admin20
     Cuando Buscamos por el boton principal de busqueda la bandeja Migración de Activos a JSP7

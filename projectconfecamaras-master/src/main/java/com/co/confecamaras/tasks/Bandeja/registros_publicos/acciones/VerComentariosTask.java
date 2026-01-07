@@ -28,9 +28,10 @@ public class VerComentariosTask implements Task {
                     JavaScriptClick.on(AccionesPage.LINK_ACCION.of(ver_comentario)),
                     ChangeToLastWindow.changeToLastWindow(),
                     LogEvent.recordevent(Reportes.INFO, "Se ingreso a la accion: " + ver_comentario),
-                    WaitSeconds.seconds(1),
+                    WaitSeconds.seconds(10),
                     CloseCurrentWindowAndSwitchBack.closeAndSwitchBack(),
-                    WaitSeconds.seconds(1)
+                    WaitSeconds.seconds(1),
+                    LogEvent.recordevent(Reportes.PASSED,"Se realizo  correctamnete  la accion ver Comentarios")
             );
         }
     }

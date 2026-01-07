@@ -11,6 +11,6 @@ public class ConsultarExpedienteConstants {
     public static final String PROPONENTE = "2496";
     public static final String MATRICULA_EXP_PROPONENTE = "143882";
     public static final String PALABRA = "AUTOMATIZACION";
-    public static final String NOMBRE = "ALAN RIOS MARIN";
+    public static final String NOMBRE = "RIOS MARIN ALAN";
 
 }
