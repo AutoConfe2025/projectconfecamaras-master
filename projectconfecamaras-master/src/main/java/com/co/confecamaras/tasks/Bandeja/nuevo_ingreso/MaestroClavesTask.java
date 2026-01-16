@@ -17,7 +17,7 @@ import org.hamcrest.Matchers;
 
 import java.util.Random;
 
-import static com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.MaestroClavesPage.*;
+import static com.co.confecamaras.userinterfaces.Bandejas.MantenimientoTablasBasicas.MaestroClavesPage.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class MaestroClavesTask implements Task {
@@ -124,7 +124,7 @@ public class MaestroClavesTask implements Task {
 
     }
 
-    public static MaestroClavesTask rues() {
+    public static MaestroClavesTask tablasBasicas() {
         return new MaestroClavesTask();
     }
 }

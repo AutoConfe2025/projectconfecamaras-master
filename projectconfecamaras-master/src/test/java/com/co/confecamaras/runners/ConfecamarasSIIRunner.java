@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "com.co.confecamaras.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
-        , tags = "@mantenimiento_tablas_basicas_maestro_claves"
+        , tags = "@ImportarPagoBancosExcel"
 )
 
 public class ConfecamarasSIIRunner {

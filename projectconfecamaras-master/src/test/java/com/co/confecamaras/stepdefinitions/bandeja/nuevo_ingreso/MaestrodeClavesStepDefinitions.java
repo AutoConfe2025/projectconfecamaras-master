@@ -9,6 +9,6 @@ public class MaestrodeClavesStepDefinitions {
 
     @Entonces("realizara acciones de Maestro de Claves")
     public void realizaraAccionesDeMaestroDeClaves() {
-        OnStage.theActorInTheSpotlight().attemptsTo(MaestroClavesTask.rues());
+        OnStage.theActorInTheSpotlight().attemptsTo(MaestroClavesTask.tablasBasicas());
     }
 }

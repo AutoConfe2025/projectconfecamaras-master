@@ -44,10 +44,22 @@ public class AdminPage {
 
     public static final Target CAMPO_FECHA_INICIO = Target.the("Campo de entrada Fecha Inicio")
             .located(By.id("_fecini"));
+    public static final Target CAMPO_FECHA_FIN = Target.the("Campo de entrada Fecha Inicio")
+            .located(By.id("_fecfin"));
+
+    public static final Target BTN_GENERAR = Target.the("Boton generar")
+            .located(org.openqa.selenium.By.xpath("//a[@onmouseover=\"Tip('Generar')\"]"));
+    public static final Target LINK_DESCARGAR_CSV = Target.the("Enlace Descargar CSV")
+            .located(By.xpath("//*[@id='frameSecundarioCentral']//a[contains(text(), 'Descargar CSV')]"));
+    public static final Target LINK_DESCARGAR_ARCHIVO = Target.the("Enlace Descargar archivo")
+            .located(By.xpath("//form[@id='formMensajes']//a[contains(text(), 'Descargar archivo')]"));
+
     public static final Target CAMPO_FECHA_INICIAL = Target.the("Campo de entrada Fecha Inicial")
             .located(By.xpath("//*[@id='_fechainicial']"));
     public static final Target CAMPO_FECHA_LIMITE = Target.the("Campo de entrada Fecha Limite")
             .located(By.xpath("//*[@id='_fechalimite']"));
+    public static final Target CAMPO_FECHA_FINAL = Target.the("Campo de entrada Fecha Limite")
+            .located(By.xpath("//*[@id='_fechafinal']"));
     public static final Target CAMPO_EMAIL_USUARIO_SISTEMA = Target.the("Campo de entrada Email Usuario Sistema")
             .located(By.xpath("//*[@id='_emailusuariosistema']"));
     public static final Target ENLACE_BORRAR = Target.the("Enlace Borrar por Onmouseover Tip")
@@ -57,4 +69,5 @@ public class AdminPage {
             .located(By.xpath("//*[@id='_matricula']"));
     public static final Target ENLACE_SINCRONIZAR_CERTIFICAS = Target.the("Enlace Sincronizar Certificas por Onmouseover")
             .located(By.xpath("//*[@id='frameSecundarioCentral']//a[contains(@onmouseover, 'Sincronizar certificas')]"));
+
 }

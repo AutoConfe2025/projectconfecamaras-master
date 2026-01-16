@@ -1,4 +1,4 @@
-package com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage;
+package com.co.confecamaras.userinterfaces.Bandejas.MantenimientoTablasBasicas;
 
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
