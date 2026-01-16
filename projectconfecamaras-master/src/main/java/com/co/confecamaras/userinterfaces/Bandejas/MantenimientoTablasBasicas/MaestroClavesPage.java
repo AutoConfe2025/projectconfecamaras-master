@@ -1,4 +1,4 @@
-package com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage;
+package com.co.confecamaras.userinterfaces.Bandejas.MantenimientoTablasBasicas;
 
 import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
@@ -70,15 +70,16 @@ public class MaestroClavesPage {
 
     public static final Target CELDA_RESULTADO_PRIMERA_FILA_COLUMNA_QA =
             Target.the("Celda de la primera fila y columna 2 (QA)")
-                    // Empezamos desde la tabla, vamos al cuerpo, fila 1, columna 2
                     .locatedBy("//table[contains(@class, 'p-datatable-table')]/tbody/tr[1]/td[2]");
     public static final Target BOTON_ELIMINAR_OPCION = Target.the("Boton Eliminar Opcion por Tooltip")
             .located(By.xpath("//*[@id='formGenerico']//button[@data-pr-tooltip='Eliminar opción']"));
 
-     public static final Target BOTON_SI_SWAL = Target.the("Boton SI en Modal de Confirmación")
+    public static final Target BOTON_SI_SWAL = Target.the("Boton SI en Modal de Confirmación")
             .located(By.xpath("//button[contains(@class, 'swal2-confirm') and text()='Sí']"));
     public static final Target BOTON_ACEPTAR_SWAL = Target.the("Boton Aceptar en Modal de Confirmación")
             .located(By.xpath("//button[contains(@class, 'swal2-confirm') and text()='Aceptar']"));
+    public static final Target CAMPO_FILTRAR = Target.the("Campo para filtrar formulario")
+            .located(By.xpath("//*[@id='formGenerico']/div/div[2]/div[2]/div/div[1]/div/div/input[@placeholder='Filtrar']"));
     public static final Target BOTON_INACTIVAR_OPCION = Target.the("Boton Inactivar Opcion por Tooltip (Primero)")
             .located(By.xpath("(//*[@id='formGenerico']//button[@data-pr-tooltip='Inactivar opción '])[1]"));
 }

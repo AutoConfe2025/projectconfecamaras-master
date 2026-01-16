@@ -3,10 +3,12 @@ package com.co.confecamaras.userinterfaces.mantenimientoeinformes;
 import net.serenitybdd.screenplay.targets.Target;
 import org.openqa.selenium.By;
 
-public class DetalladoDeImpuestoPage {
-    public static Target INPUT_FECHA_INICIAL_DETALLADO = Target.the("Input para ingresar fecha inicial")
-            .located(By.id("_fechaini"));
+public class ComparativoRenovacionesPage {
+    public static Target INPUT_ANO_RENOVACION = Target.the("Input para ingresar Ano de renovacion")
+            .located(By.id("_anoren"));
 
+    public static final Target INPUT_EMAIL_CONTROL = Target.the("Escribir email")
+            .located(By.id("_emailusuariosistema"));
     public static Target INPUT_FECHA_FINAL_DETALLADO = Target.the("Input para ingresar fecha final")
             .located(By.id("_fechafin"));
 
