@@ -8,12 +8,8 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
-import net.serenitybdd.screenplay.actions.ScrollTo;
 
 import static com.co.confecamaras.userinterfaces.Bandejas.Administracion.AdminPage.*;
-import static com.co.confecamaras.userinterfaces.Bandejas.CertificadosEspecialesPage.CAMPO_ID;
-import static com.co.confecamaras.userinterfaces.Bandejas.Jsp7.GeneralPage.ENLACE_GRABAR;
-import static com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.MaestroClavesPage.CAMPO_PATH_SCRIPT;
 
 
 public class TYCTask implements Task {
