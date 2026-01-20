@@ -1,6 +1,5 @@
 package com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones;
 
-
 import com.co.confecamaras.interactions.News.ChangeToLastWindow;
 import com.co.confecamaras.interactions.News.CloseCurrentWindowAndSwitchBack;
 import com.co.confecamaras.interactions.News.WaitSeconds;

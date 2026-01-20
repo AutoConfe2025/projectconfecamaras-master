@@ -6,24 +6,27 @@ import com.co.confecamaras.utils.News.evidencias.BaseEvidencias;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.confecamaras.userinterfaces.registros_publicos.MatrizServicioPage.*;
+import static com.co.confecamaras.userinterfaces.general.GeneralPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
-public class FlujoMAtrizServicios implements Task {
+public class RelacionPlacasAsignadas implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(BOTON_GENERAR_ACARCHIVO, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_GENERAR_ACARCHIVO),
+                WaitUntil.the(CAMPO_FECHA_INICIAL_DATA_PICKER,isPresent()).forNoMoreThan(10).seconds(),
+                Enter.theValue("2025-12-01").into(CAMPO_FECHA_INICIAL_DATA_PICKER),
+                WaitUntil.the(CAMPO_FECHA_FINAL_DATA_PICKER,isPresent()).forNoMoreThan(10).seconds(),
+                Enter.theValue("2025-12-31").into(CAMPO_FECHA_FINAL_DATA_PICKER),
+                Click.on(BTN_GENERAR_DATA_PICKER),
                 AceptAlert.aceptar(),
-                Click.on(BOTON_DESCARGAR_ACARCHIVO),
                 ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 
-    public static FlujoMAtrizServicios matrizServicios(){
-        return new FlujoMAtrizServicios();
+    public static RelacionPlacasAsignadas relacionPlacas(){
+        return new RelacionPlacasAsignadas();
     }
 }

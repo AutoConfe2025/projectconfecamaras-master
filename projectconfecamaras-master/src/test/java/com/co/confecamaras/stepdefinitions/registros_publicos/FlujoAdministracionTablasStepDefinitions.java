@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class FlujoAdministracionTablas {
+public class FlujoAdministracionTablasStepDefinitions {
 
     @Then("se realiza el proceso adminitracion de tablas")
     public void seRealizaElProcesoAdminitracionDeTablas() {

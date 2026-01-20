@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class RlacionCorreccionesPage {
 
-    public static final Target CAMPO_FECHA_INICIAL = Target.the("campo de ingreso de fecha inicial")
+    public static final Target CAMPO_FECHA_INICIAL_RELACION = Target.the("campo de ingreso de fecha inicial")
             .locatedBy("//input[@id='_fecini']");
 
     public static final Target CAMPO_FECHA_FINAL = Target.the("campo de ingreso de fecha final")
@@ -15,4 +15,8 @@ public class RlacionCorreccionesPage {
 
     public static final Target BTN_DESCARGAR_ARCHIVO = Target.the("boton descargar archivo")
             .locatedBy("//a[contains(text(), 'Descargar archivo')]");
+
+    public static final Target PRIMER_FECHA = Target.the("primer fecha")
+            .locatedBy("(//div[contains(text(),'1')])[1]");
+
 }

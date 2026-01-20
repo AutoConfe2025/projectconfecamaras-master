@@ -12,6 +12,9 @@ public class ValidaComentarioPresente{
     public static Question<Boolean> ahora() {
         return Visibility.of(TARJETA_COMENTARIOS);
     }
+    public static Question<Boolean> tarjetaCompleta() {
+        return Visibility.of(TARJETA_COMENTARIOS_COMPLETA);
+    }
     public static Question<Boolean> validaDigitacion() {
         return Visibility.of(VALIDA_TITULO_DIGITACION);
     }

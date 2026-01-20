@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class FlujoRelacionDevoluciones {
+public class FlujoRelacionDevolucionesStepDefinitions {
 
     @Then("hago el flujo de relacion de devoluciones")
     public void hagoElFlujoDeRelacionDeDevoluciones(){

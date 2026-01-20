@@ -30,7 +30,7 @@ public class FlujoEstadisticasPorServicio implements Task {
                 Click.on(BOTON_GENERAR_POR_SERVICIOS),
                 WaitUntil.the(DESCARGAR_CSV_POR_SERVICIO, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(DESCARGAR_CSV_POR_SERVICIO),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

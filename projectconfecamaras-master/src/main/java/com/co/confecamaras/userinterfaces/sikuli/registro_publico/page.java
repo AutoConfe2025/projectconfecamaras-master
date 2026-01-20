@@ -6,7 +6,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum page implements Element {
 
-    BOTON_REGENERAR_SELLO_SIKULLI("pagina_principal/OpcionCamara.png");
+    BOTON_REGENERAR_SELLO_SIKULLI("pagina_principal/OpcionCamara.png"),
+    BOTON_CONTINUAR_IMAGEN_SIKULLI("registro_publico/BotonContinuarImagen.png");
 
     private static final String BASE_PATH =
             System.getProperty("user.dir") + "/src/test/resources/sikuli_imagenes/";
