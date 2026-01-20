@@ -26,7 +26,7 @@ public class RelacionCorrecciones implements Task {
                 Click.on(BTN_GENERAR_RELACION_CORRECCION),
                 AceptAlert.aceptar(),
                 Click.on(BTN_DESCARGAR_ARCHIVO),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

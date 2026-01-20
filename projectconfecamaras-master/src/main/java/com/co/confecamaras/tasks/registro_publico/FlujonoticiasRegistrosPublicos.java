@@ -28,7 +28,7 @@ public class FlujonoticiasRegistrosPublicos implements Task {
                 Click.on(BOTON_CONTINUAR_NOTICIA),
                 Click.on(BOTON_REGENERAR_SELLO),
                 AceptAlert.aceptar(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA),
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA),
                 Click.on(BOTON_CONSULTAR_LIBROS)
         );
     }

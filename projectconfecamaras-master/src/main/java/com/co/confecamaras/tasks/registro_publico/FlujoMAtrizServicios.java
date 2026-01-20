@@ -19,7 +19,7 @@ public class FlujoMAtrizServicios implements Task {
                 Click.on(BOTON_GENERAR_ACARCHIVO),
                 AceptAlert.aceptar(),
                 Click.on(BOTON_DESCARGAR_ACARCHIVO),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

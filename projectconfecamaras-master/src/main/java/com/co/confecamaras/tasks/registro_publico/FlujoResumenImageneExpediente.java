@@ -20,11 +20,11 @@ public class FlujoResumenImageneExpediente implements Task {
                 AceptAlert.aceptar(),
                 WaitUntil.the(BOTON_RELACION_MATRICULA,isPresent()).forNoMoreThan(30).seconds(),
                 Click.on(BOTON_RELACION_MATRICULA),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA),
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA),
                 Click.on(BOTON_RELACION_MATRICULA_SISTEMA),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA),
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA),
                 Click.on(BOTON_RELACION_PROPONENTE),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
 
         );
     }

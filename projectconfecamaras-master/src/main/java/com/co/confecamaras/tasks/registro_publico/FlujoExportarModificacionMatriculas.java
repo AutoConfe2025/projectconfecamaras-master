@@ -29,7 +29,7 @@ public class FlujoExportarModificacionMatriculas implements Task {
                 AceptAlert.aceptar(),
                 WaitUntil.the(BTN_DESCARGAR_CSV,isPresent()).forNoMoreThan(240).seconds(),
                 Click.on(BTN_DESCARGAR_CSV),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 

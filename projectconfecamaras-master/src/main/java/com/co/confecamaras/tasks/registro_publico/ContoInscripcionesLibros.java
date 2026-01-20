@@ -30,7 +30,7 @@ public class ContoInscripcionesLibros implements Task {
                 AceptAlert.aceptar(),
                 WaitUntil.the(BOTON_DESCARGAR_CSV,isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_DESCARGAR_CSV),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 
