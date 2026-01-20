@@ -33,4 +33,7 @@ public class ExtraccionLibrosActosPage {
 
     public static final Target MENSAJE_INFORMATIVO_EXTRACCION_ACTOS_EXITOSO = Target.the("boton generar flotante en alerta")
             .locatedBy("(//p[@class='text-dark text-center'])[2]");
+
+    public static final Target MENSAJE_GENERACION_REPORTE_EE = Target.the("mensaje de generacion de reporte EE")
+            .locatedBy("//body[contains(text(),'Proceso de registro y publicacion de Contratos Multas y Sanciones iniciado')]");
 }

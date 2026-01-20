@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class FlujoRelacionCorrecciones {
+public class FlujoRelacionCorreccionesStepDefinitions {
 
     @Then("diligencio el formulario para el flujo de relacion de correcciones")
     public void diligencioElFormularioParaElFlujoDeRelacionDeCorrecciones(){

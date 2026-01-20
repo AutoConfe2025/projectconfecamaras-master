@@ -12,6 +12,7 @@ public enum liquidacion_renovacion implements Element {
     OPCION_CONSULTA_REGISTRO_PUBLICO_SIKULLI("liquidacion_renovacion/ConsultaRegistroPublico.png"),
     OPCION_LIQUIDACION_RENOVACION_SIKULLI("liquidacion_renovacion/OpcionLiquidacionRenovacion.png"),
     OPCION_NOMBRE_SIKULLI("liquidacion_renovacion/OpcionNombre.png"),
+    TITULO("registro_publico/campo_relacion_liquiaciones.png"),
 
 
 

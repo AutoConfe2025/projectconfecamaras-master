@@ -38,6 +38,9 @@ public class PaginaPrincial {
     public static final Target TARJETA_COMENTARIOS = Target.the("Tarjeta de comentarios")
             .located(By.xpath("(//div[@class='card-body'])[2]"));
 
+    public static final Target TARJETA_COMENTARIOS_COMPLETA = Target.the("Tarjeta de comentarios completa")
+            .located(By.xpath("//div[@class='card-body']"));
+
     public static final Target VALIDA_TITULO_DIGITACION = Target.the("titulo de digitacion")
             .located(By.xpath("//p[contains(text(),'DIGITACIÓN CODIGO BARRAS')]"));
 
@@ -101,5 +104,8 @@ public class PaginaPrincial {
             .located(By.xpath("//div[@class='bootbox-body']"));
 
     public static final Target MENSAJE_ARCHIVAR_PROCESO_FINALIZADO = Target.the("mensaje archivar exitoso")
+            .located(By.xpath("(//p[@class='text-dark text-center'])[2]"));
+
+    public static final Target MENSAJE_INFORMATIVO = Target.the("mensaje informativo")
             .located(By.xpath("(//p[@class='text-dark text-center'])[2]"));
 }

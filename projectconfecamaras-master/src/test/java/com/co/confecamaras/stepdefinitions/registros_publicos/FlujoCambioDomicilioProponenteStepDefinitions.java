@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class FlujoCambioDomicilioProponente {
+public class FlujoCambioDomicilioProponenteStepDefinitions {
 
     @Then("realizo el flujo de cambio de domicilio de proponentes {string}")
     public void realizoElFlujoDeCambioDeDomicilioDeProponentes(String nit) {

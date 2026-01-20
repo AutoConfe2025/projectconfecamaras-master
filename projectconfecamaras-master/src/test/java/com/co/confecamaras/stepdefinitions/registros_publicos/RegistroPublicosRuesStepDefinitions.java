@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class RegistroPublicosRues {
+public class RegistroPublicosRuesStepDefinitions {
 
     @And("lleno el formulario de mantenimiento de servicios RUES")
     public void llenoElFormularioDeMantenimientoDeServiciosRues() {

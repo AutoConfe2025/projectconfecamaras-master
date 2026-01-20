@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class IngresoFormulario {
+public class IngresoFormularioStepDefinitions {
 
     @And("lleno el formulario de agregar servicio")
     public void llenoElFormularioDeAgregarServicio() {
