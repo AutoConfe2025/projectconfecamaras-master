@@ -17,7 +17,7 @@ import static com.co.confecamaras.userinterfaces.EstadisticasYExtracciones.Impor
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 
-public class ImportarPagoBancosExcelTask implements Task {
+public class ImportarPagoEnBancosAsobancaria2001Task implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
@@ -26,27 +26,31 @@ public class ImportarPagoBancosExcelTask implements Task {
                 SwitchToNewWindow.switchToNewTab(),
                 WaitUntil.the(SELECT_BANCO, isVisible()).forNoMoreThan(20).seconds(),
 
-                SelectFromOptions.byVisibleText("Banco de Occidente")
+                SelectFromOptions.byVisibleText("Banco de Bogotá")
                         .from(SELECT_BANCO),
-                SelectFromOptions.byVisibleText(" AGUIRRE OROZCO YESSICA ( YAO-CAJ)")
-                        .from(SELECT_OPERADOR),
-                Enter.theValue("2026-01-15").into(INPUT_FECHA_RECIBIDOS),
+                SelectFromOptions.byVisibleText("ATH PRINCIPAL ( 20ATH)")
+                        .from(SELECT_USUARIO),
+                SelectFromOptions.byVisibleText("Contado")
+                        .from(SELECT_FORMA_PAGO),
+                SelectFromOptions.byVisibleText("Pagada en caja")
+                        .from(SELECT_ESTADO_FINAL),
+                Enter.theValue("2026-01-15").into(INPUT_FECHA_),
                 Enter.theValue("2026-01-15").into(INPUT_FECHA_RENOVACION),
                 Click.on(BTN_CARGAR_ARCHIVO_TARIFAS),
                 WaitSeconds.seconds(2),
-                Click.on(BTN_GENERAR_TODOS),
+                Click.on(BTN_GENERAR_TODOS_DOS),
                 WaitSeconds.seconds(2),
-                Click.on(BTN_EXPORTAR_EXCEL),
+                Click.on(BTN_EXPORTAR),
                 WaitSeconds.seconds(2)
 
 
         );
 
-        actor.attemptsTo(LogEvent.recordevent(Reportes.PASSED, "Finalizo correctamente Importar Pago Bancos Excel"));
+        actor.attemptsTo(LogEvent.recordevent(Reportes.PASSED, "Finalizo correctamente Importar Pago En Bancos Asobancaria 2001"));
     }
 
-    public static ImportarPagoBancosExcelTask estadisticasYextracciones() {
-        return new ImportarPagoBancosExcelTask();
+    public static ImportarPagoEnBancosAsobancaria2001Task estadisticasYextracciones() {
+        return new ImportarPagoEnBancosAsobancaria2001Task();
     }
 }
 

@@ -23,7 +23,7 @@ public class FlujoResumenIngresoPorFecha implements Task {
                 Enter.theValue("2025-12-01").into(FECHA_FIN),
                 Click.on(FECHA_FIN),
                 Click.on(BOTON_CONSULTAR_POR_SEDE_FECHA),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 
