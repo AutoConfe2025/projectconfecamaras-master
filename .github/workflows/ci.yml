@@ -51,7 +51,7 @@ jobs:
       - name: Ejecutar Serenity
         run: |
           ./gradlew clean test aggregate \
-            -Dserenity.features=$FEATURE_PATH
+            -Dcucumber.features=$FEATURE_PATH
 
       # 6️⃣ Subir reporte Serenity como artifact
       - name: Subir reporte Serenity
