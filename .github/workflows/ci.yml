@@ -1,12 +1,12 @@
-name: CI - Ejecutar Feature por Nombre
+name: CI - Ejecutar Feature con Reporte Serenity
 
 on:
   workflow_dispatch:
     inputs:
       feature_name:
-        description: 'Nombre del feature (ej: login.feature)'
+        description: 'indicar el nombre del archivo .feature a ejecutar'
         required: true
-        default: 'login.feature'
+        default: ''
 
 jobs:
   ejecutar-feature:
@@ -32,5 +32,17 @@ jobs:
     - name: Paso 4 - Ejecutar feature seleccionado
       run: |
         FEATURE_PATH="src/test/resources/features/${{ github.event.inputs.feature_name }}"
-        echo "Ejecutando feature: $FEATURE_PATH"
-        ./gradlew clean test -Dcucumber.features="$FEATURE_PATH"
+
+        if [ ! -f "$FEATURE_PATH" ]; then
+          echo "❌ Feature no encontrado: $FEATURE_PATH"
+          exit 1
+        fi
+
+        ./gradlew clean test aggregate -Dcucumber.features="$FEATURE_PATH"
+
+    - name: Paso 5 - Publicar reporte Serenity
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: serenity-report
+        path: projectconfecamaras-master/target/site/serenity
