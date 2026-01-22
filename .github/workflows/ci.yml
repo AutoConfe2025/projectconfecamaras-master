@@ -1,4 +1,4 @@
-name: Serenity - Ejecutar Feature y Publicar Reporte
+name: Proyecto confecamaras
 
 on:
   workflow_dispatch:
