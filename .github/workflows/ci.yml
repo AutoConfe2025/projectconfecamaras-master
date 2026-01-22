@@ -1,4 +1,4 @@
-name: Proyecto confecamaras
+name: Serenity - Ejecutar Feature Específico
 
 on:
   workflow_dispatch:
@@ -47,24 +47,27 @@ jobs:
 
           echo "FEATURE_PATH=$FEATURE_PATH" >> $GITHUB_ENV
 
-      # 5️⃣ Ejecutar Serenity (TEST + AGGREGATE)
+      # 5️⃣ Ejecutar Serenity (OBLIGATORIO aggregate)
       - name: Ejecutar Serenity
         run: |
           ./gradlew clean test aggregate \
             -Dserenity.features=$FEATURE_PATH
 
-      # 6️⃣ Copiar reporte a carpeta pública
-      - name: Preparar reporte para GitHub Pages
+      # 6️⃣ Subir reporte Serenity como artifact
+      - name: Subir reporte Serenity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: serenity-report
+          path: projectconfecamaras-master/target/site/serenity
+
+      # 7️⃣ Mostrar link claro para el QA
+      - name: Mostrar link del reporte
         if: always()
         run: |
-          rm -rf docs
-          mkdir -p docs/serenity
-          cp -R target/site/serenity/* docs/serenity
-
-      # 7️⃣ Publicar en GitHub Pages
-      - name: Publicar reporte Serenity
-        if: always()
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: projectconfecamaras-master/docs
+          echo "## 📊 Reporte Serenity" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "👉 Para ver el reporte:" >> $GITHUB_STEP_SUMMARY
+          echo "1. Baja hasta **Artifacts**" >> $GITHUB_STEP_SUMMARY
+          echo "2. Descarga **serenity-report**" >> $GITHUB_STEP_SUMMARY
+          echo "3. Abre **index.html**" >> $GITHUB_STEP_SUMMARY
