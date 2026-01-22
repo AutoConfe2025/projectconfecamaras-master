@@ -1,48 +1,55 @@
-name: CI - Ejecutar Feature con Reporte Serenity
+name: Serenity - Ejecutar Feature Específico
 
 on:
   workflow_dispatch:
     inputs:
-      feature_name:
-        description: 'indicar el nombre del archivo .feature a ejecutar'
+      feature_folder:
+        description: "Carpeta del feature (ej: registros_publicos)"
         required: true
-        default: ''
+        type: string
+      feature_file:
+        description: "Archivo feature (ej: simulacion_pagos_electronicos.feature)"
+        required: true
+        type: string
 
 jobs:
-  ejecutar-feature:
+  serenity-tests:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: projectconfecamaras-master
-
     steps:
-    - name: Paso 1 - Descargar el código
-      uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-    - name: Paso 2 - Instalar Java 11
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '11'
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
 
-    - name: Paso 3 - Dar permisos a Gradle
-      run: chmod +x gradlew
+      - name: Dar permisos a Gradle
+        run: chmod +x gradlew
 
-    - name: Paso 4 - Ejecutar feature seleccionado
-      run: |
-        FEATURE_PATH="src/test/resources/features/registros_publicos/${{ github.event.inputs.feature_name }}"
+      - name: Validar feature seleccionado
+        run: |
+          FEATURE_PATH="src/test/resources/features/${{ github.event.inputs.feature_folder }}/${{ github.event.inputs.feature_file }}"
 
-        if [ ! -f "$FEATURE_PATH" ]; then
-          echo "❌ Feature no encontrado: $FEATURE_PATH"
-          exit 1
-        fi
+          echo "🔍 Feature a ejecutar: $FEATURE_PATH"
 
-        ./gradlew clean test aggregate -Dcucumber.features="$FEATURE_PATH"
+          if [ ! -f "$FEATURE_PATH" ]; then
+            echo "❌ Feature no encontrado"
+            exit 1
+          fi
 
-    - name: Paso 5 - Publicar reporte Serenity
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: serenity-report
-        path: projectconfecamaras-master/target/site/serenity
+          echo "FEATURE_PATH=$FEATURE_PATH" >> $GITHUB_ENV
+
+      - name: Ejecutar Serenity
+        run: |
+          ./gradlew clean test aggregate \
+            -Dserenity.features=$FEATURE_PATH
+
+      - name: Publicar reporte Serenity
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: serenity-report
+          path: target/site/serenity
