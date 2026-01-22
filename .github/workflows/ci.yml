@@ -16,6 +16,10 @@ jobs:
   serenity-tests:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: projectconfecamaras-master
+
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
@@ -44,7 +48,7 @@ jobs:
 
       - name: Ejecutar Serenity
         run: |
-          ./gradlew clean test aggregate \
+          ./gradlew clean test \
             -Dserenity.features=$FEATURE_PATH
 
       - name: Publicar reporte Serenity
@@ -52,4 +56,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: serenity-report
-          path: target/site/serenity
+          path: projectconfecamaras-master/target/site/serenity
