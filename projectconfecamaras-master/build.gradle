@@ -5,7 +5,7 @@ plugins {
     id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'
 }
 
-defaultTasks 'clean', 'test', 'aggregate'
+defaultTasks 'clean', 'test'
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
@@ -91,9 +91,6 @@ test {
         println "🧹 Limpiando reportes Serenity antiguos..."
         delete fileTree(dir: "target/site/serenity")
     }
-
-    // Usa la task aggregate ya creada por Serenity
-    finalizedBy "aggregate"
 }
 
 serenity {
