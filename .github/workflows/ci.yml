@@ -3,9 +3,16 @@ name: CI - Confecamaras Automation
 on:
   push:
     branches: [ "main" ]
+
   pull_request:
     branches: [ "main" ]
+
   workflow_dispatch:
+    inputs:
+      cucumber_tags:
+        description: 'Tags de Cucumber a ejecutar (ej: @login, @facturacion, @login and not @wip)'
+        required: true
+        default: '@login'
 
 jobs:
   ejecutar-pruebas:
@@ -25,8 +32,10 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
-    - name: Paso 3 - Permisos Gradle
+    - name: Paso 3 - Dar permisos a Gradle
       run: chmod +x gradlew
 
-    - name: Paso 4 - Ejecutar pruebas
-      run: ./gradlew clean test
+    - name: Paso 4 - Ejecutar pruebas por tags
+      run: |
+        echo "Ejecutando pruebas con tags: ${{ github.event.inputs.cucumber_tags }}"
+        ./gradlew clean test -Dcucumber.filter.tags="${{ github.event.inputs.cucumber_tags }}"
