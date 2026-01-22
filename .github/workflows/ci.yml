@@ -1,12 +1,12 @@
-name: CI - Ejecutar Feature Específico
+name: CI - Ejecutar Feature por Nombre
 
 on:
   workflow_dispatch:
     inputs:
-      feature_path:
-        description: 'Ruta del feature (ej: src/test/resources/features/login.feature)'
+      feature_name:
+        description: 'Nombre del feature (ej: login.feature)'
         required: true
-        default: 'src/test/resources/features/login.feature'
+        default: 'login.feature'
 
 jobs:
   ejecutar-feature:
@@ -31,5 +31,6 @@ jobs:
 
     - name: Paso 4 - Ejecutar feature seleccionado
       run: |
-        echo "Ejecutando feature: ${{ github.event.inputs.feature_path }}"
-        ./gradlew clean test -Dcucumber.features="${{ github.event.inputs.feature_path }}"
+        FEATURE_PATH="src/test/resources/features/${{ github.event.inputs.feature_name }}"
+        echo "Ejecutando feature: $FEATURE_PATH"
+        ./gradlew clean test -Dcucumber.features="$FEATURE_PATH"
