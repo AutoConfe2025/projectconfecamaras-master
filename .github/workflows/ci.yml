@@ -31,7 +31,7 @@ jobs:
 
     - name: Paso 4 - Ejecutar feature seleccionado
       run: |
-        FEATURE_PATH="src/test/resources/features/${{ github.event.inputs.feature_name }}"
+        FEATURE_PATH="src/test/resources/features/registros_publicos/${{ github.event.inputs.feature_name }}"
 
         if [ ! -f "$FEATURE_PATH" ]; then
           echo "❌ Feature no encontrado: $FEATURE_PATH"
