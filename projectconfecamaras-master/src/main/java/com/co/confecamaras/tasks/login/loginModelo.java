@@ -11,6 +11,9 @@ import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 
 import static com.co.confecamaras.userinterfaces.Certificados.Demas.LoginUsuarioPublico.*;
 import static com.co.confecamaras.userinterfaces.sikuli.PaginaPrincipal.BUSCAR_CAMARA;
