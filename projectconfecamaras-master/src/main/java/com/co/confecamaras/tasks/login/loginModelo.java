@@ -26,6 +26,8 @@ public class loginModelo implements Interaction {
 
         actor.attemptsTo(
                 LogEvent.recordevent(Reportes.INFO, "Se ingresó a la cámara: [" + usuario.getCamara() + "]..."),
+                WaitUntil.the(target, isVisible()).forNoMoreThan(15).seconds();
+                WaitUntil.the(target, isEnabled()).forNoMoreThan(15).seconds();
                 SafeActions.click(TXT_CAMARA, BUSCAR_CAMARA),
                 SafeActions.enter(usuario.getCamara(), TXT_CAMARA, BUSCAR_CAMARA),
                 SafeActions.click(BTN_CAMARA, CAMPO_INGRESO_CAMARA_COMERCIO),
