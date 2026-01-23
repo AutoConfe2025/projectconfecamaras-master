@@ -14,6 +14,7 @@ public class HealeniumDriverProvider implements DriverSource {
     public WebDriver newDriver() {
 
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
         options.addArguments("--start-maximized");
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-infobars");
