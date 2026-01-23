@@ -1,18 +1,11 @@
-package com.co.confecamaras.runners;
-
-import io.cucumber.junit.CucumberOptions;
-import net.serenitybdd.cucumber.CucumberWithSerenity;
-import org.junit.runner.RunWith;
-
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        glue = "com.co.confecamaras.stepdefinitions",
-        plugin = {
-                "pretty"
-        }
+        features = "src/test/resources/features",
+        glue = "com.co.confecamaras",
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        plugin = {"pretty"}
 )
 public class ConfecamarasSIIRunner {
-
     /*------Tag General------*/
     // @general
     // @Certificados ok
