@@ -19,17 +19,14 @@ jobs:
         working-directory: projectconfecamaras-master
 
     steps:
-      # 1️⃣ Checkout
       - name: Checkout código
         uses: actions/checkout@v4
 
-      # 2️⃣ Instalar OpenVPN
       - name: Instalar OpenVPN
         run: |
           sudo apt update
           sudo apt install -y openvpn
 
-      # 3️⃣ Crear archivos VPN
       - name: Configurar VPN
         run: |
           echo "${{ secrets.OPENVPN_CONFIG }}" > vpn.ovpn
@@ -37,26 +34,21 @@ jobs:
           echo "${{ secrets.OPENVPN_PASS }}" >> vpn-auth.txt
           chmod 600 vpn.ovpn vpn-auth.txt
 
-      # 4️⃣ Conectar a la VPN
       - name: Conectar VPN
         run: |
           sudo openvpn --config vpn.ovpn --auth-user-pass vpn-auth.txt --daemon
           sleep 20
-          ip a
           ip route
 
-      # 5️⃣ Java
       - name: Configurar Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
-      # 6️⃣ Gradle
       - name: Dar permisos a Gradle
         run: chmod +x gradlew
 
-      # 7️⃣ Validar feature
       - name: Validar feature seleccionado
         run: |
           FEATURE_PATH="src/test/resources/features/${{ github.event.inputs.feature_folder }}/${{ github.event.inputs.feature_file }}"
@@ -69,13 +61,11 @@ jobs:
 
           echo "FEATURE_PATH=$FEATURE_PATH" >> $GITHUB_ENV
 
-      # 8️⃣ Ejecutar Serenity
       - name: Ejecutar Serenity
         run: |
-          ./gradlew clean test aggregate \
-            -Dcucumber.features=$FEATURE_PATH
+          ./gradlew clean test aggregate --continue \
+            -Dserenity.features=$FEATURE_PATH
 
-      # 9️⃣ Subir reporte
       - name: Subir reporte Serenity
         if: always()
         uses: actions/upload-artifact@v4
@@ -83,14 +73,13 @@ jobs:
           name: serenity-report
           path: projectconfecamaras-master/target/site/serenity
 
-      # 🔟 Mostrar instrucciones QA
-      - name: Mostrar link del reporte
+      - name: Mostrar instrucciones QA
         if: always()
         run: |
           echo "## 📊 Reporte Serenity" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "👉 Pasos para el QA:" >> $GITHUB_STEP_SUMMARY
-          echo "1. Ir a la ejecución del pipeline" >> $GITHUB_STEP_SUMMARY
+          echo "1. Abrir la ejecución del pipeline" >> $GITHUB_STEP_SUMMARY
           echo "2. Bajar hasta **Artifacts**" >> $GITHUB_STEP_SUMMARY
           echo "3. Descargar **serenity-report**" >> $GITHUB_STEP_SUMMARY
           echo "4. Abrir **index.html**" >> $GITHUB_STEP_SUMMARY
