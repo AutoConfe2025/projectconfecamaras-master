@@ -1,4 +1,4 @@
-name: Serenity con VPN (OpenVPN)
+name: Proyecto confecamaras
 
 on:
   workflow_dispatch:
