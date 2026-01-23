@@ -18,34 +18,35 @@ jobs:
       run:
         working-directory: projectconfecamaras-master
 
-    services:
-      hlm-postgres:
+ services:
+  hlm-postgres:
         image: postgres:13
         env:
-          POSTGRES_DB: healenium
-          POSTGRES_USER: healenium
-          POSTGRES_PASSWORD: healenium
+            POSTGRES_DB: healenium
+            POSTGRES_USER: healenium
+            POSTGRES_PASSWORD: healenium
         ports:
-          - 5432:5432
+            - 5432:5432
         options: >-
           --health-cmd="pg_isready -U healenium"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
 
-      hlm-backend:
-        image: healenium/hlm-backend:latest
-        env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://hlm-postgres:5432/healenium
-          SPRING_DATASOURCE_USERNAME: healenium
-          SPRING_DATASOURCE_PASSWORD: healenium
-        ports:
-          - 7878:7878
-        options: >-
-          --health-cmd="curl -f http://localhost:7878/actuator/health || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=10
+  hlm-backend:
+    image: healenium/hlm-backend:3.4.7
+    env:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://hlm-postgres:5432/healenium
+      SPRING_DATASOURCE_USERNAME: healenium
+      SPRING_DATASOURCE_PASSWORD: healenium
+    ports:
+      - 7878:7878
+    options: >-
+      --health-cmd="curl -f http://localhost:7878/actuator/health || exit 1"
+      --health-interval=10s
+      --health-timeout=5s
+      --health-retries=10
+
 
     steps:
       - name: Checkout código
