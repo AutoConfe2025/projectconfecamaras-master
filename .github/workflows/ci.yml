@@ -14,40 +14,12 @@ jobs:
   serenity-tests:
     runs-on: ubuntu-latest
 
+    env:
+      HEALENIUM_ENABLED: false
+
     defaults:
       run:
         working-directory: projectconfecamaras-master
-
-    services:
-      hlm-postgres:
-        image: postgres:13
-        env:
-          POSTGRES_DB: healenium
-          POSTGRES_USER: healenium
-          POSTGRES_PASSWORD: healenium
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd="pg_isready -U healenium"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=5
-
-      hlm-backend:
-        image: healenium/hlm-backend:3.4.7
-        env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://hlm-postgres:5432/healenium
-          SPRING_DATASOURCE_USERNAME: healenium
-          SPRING_DATASOURCE_PASSWORD: healenium
-          SPRING_LIQUIBASE_DEFAULT_SCHEMA: public
-          SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA: public
-        ports:
-          - 7878:7878
-        options: >-
-          --health-cmd="curl -f http://localhost:7878/actuator/health || exit 1"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=10
 
     steps:
       - name: Checkout código
@@ -70,19 +42,6 @@ jobs:
           sudo openvpn --config vpn.ovpn --auth-user-pass vpn-auth.txt --daemon
           sleep 20
           ip route
-
-      - name: Esperar Healenium Backend
-        run: |
-          echo "⏳ Esperando Healenium backend..."
-          for i in {1..20}; do
-            if curl -s http://localhost:7878/actuator/health | grep -q UP; then
-              echo "✅ Healenium backend listo"
-              exit 0
-            fi
-            sleep 5
-          done
-          echo "❌ Healenium backend no respondió"
-          exit 1
 
       - name: Configurar Java 21
         uses: actions/setup-java@v4
