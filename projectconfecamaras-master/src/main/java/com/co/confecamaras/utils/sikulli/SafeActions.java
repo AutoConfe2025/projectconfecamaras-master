@@ -7,6 +7,7 @@ import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.WebElement;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
@@ -16,8 +17,27 @@ import org.slf4j.LoggerFactory;
 import java.nio.file.Paths;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class SafeActions {
+
+    /* =========================================================
+       ============ CONFIGURACIÓN GLOBAL ========================
+       ========================================================= */
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SafeActions.class);
+    private static final int DOM_TIMEOUT_SECONDS = 20;
+    private static final int SIKULI_TIMEOUT_SECONDS = 5;
+
+    private static boolean isCI() {
+        return "true".equalsIgnoreCase(System.getenv("CI"))
+            || "false".equalsIgnoreCase(System.getenv("HEALENIUM_ENABLED"));
+    }
+
+    /* =========================================================
+       ================== FACTORY METHODS =======================
+       ========================================================= */
 
     public static Interaction enter(String value, Target target, Element element) {
         return instrumented(SafeEnter.class, value, target, element);
@@ -27,9 +47,12 @@ public class SafeActions {
         return instrumented(SafeClick.class, target, element);
     }
 
+    /* =========================================================
+       ================= SAFE ENTER =============================
+       ========================================================= */
+
     public static class SafeEnter implements Interaction {
 
-        private static final Logger LOGGER = LoggerFactory.getLogger(SafeEnter.class);
         private final String value;
         private final Target target;
         private final Element element;
@@ -41,65 +64,59 @@ public class SafeActions {
         }
 
         @Override
-        @Step("{0} intenta ingresar '#value' en #target usando Healenium o Sikuli si es necesario")
+        @Step("{0} ingresa '#value' en #target usando DOM y fallback controlado")
         public <T extends Actor> void performAs(T actor) {
-            boolean success = false;
-            boolean repairedWithHealenium = false;
-            boolean repairedWithSikuli = false;
 
             try {
-                try {
-                    LOGGER.info("➡️ Intentando escribir '{}' en el elemento {}", value, target.getName());
-                    WebElement webElement = target.resolveFor(actor);
-                    webElement.clear();
-                    webElement.sendKeys(value);
-                    LOGGER.info("✅ Entrada por DOM exitosa.");
-                    success = true;
-                } catch (Exception e) {
-                    LOGGER.warn("⚠️ Falló el ingreso por DOM. Intentando con SikuliX... Error: {}", e.getMessage());
-                }
+                LOGGER.info("⌨️ Intentando escribir '{}' en {}", value, target.getName());
 
-                if (!success) {
-                    try {
-                        String absolutePath = Paths.get(element.getImagePath()).toAbsolutePath().toString();
-                        LOGGER.info("🖥️ Usando SikuliX con la imagen: {}", absolutePath);
+                WaitUntil.the(target, isVisible())
+                        .forNoMoreThan(DOM_TIMEOUT_SECONDS).seconds();
 
-                        Screen screen = new Screen();
-                        Pattern imagePattern = new Pattern(absolutePath);
+                WebElement webElement = target.resolveFor(actor);
+                webElement.clear();
+                webElement.sendKeys(value);
 
-                        screen.wait(imagePattern, 5);
-                        screen.click(imagePattern);
-                        screen.type(value);
+                LOGGER.info("✅ Entrada DOM exitosa");
+                return;
 
-                        LOGGER.info("✅ Entrada con SikuliX exitosa.");
-                        success = true;
-                        repairedWithSikuli = true;
-                    } catch (Exception sikuliError) {
-                        LOGGER.error("❌ Fallo también con SikuliX: {}", sikuliError.getMessage(), sikuliError);
-                    }
-                }
+            } catch (Exception domError) {
+                LOGGER.warn("⚠️ DOM falló tras espera real: {}", domError.getMessage());
+            }
 
-                // 🟠 Marcar solo si realmente se usó una herramienta de reparación
-                if (repairedWithHealenium) {
-                    markAsCompromised("Healenium", "Elemento reparado automáticamente durante ingreso.");
-                } else if (repairedWithSikuli) {
-                    markAsCompromised("Sikuli", "Entrada realizada con imagen debido a falla del DOM.");
-                }
+            if (isCI()) {
+                throw new RuntimeException("❌ Entrada fallida en CI. Sikuli deshabilitado.");
+            }
 
-                if (!success) {
-                    throw new RuntimeException("❌ No se pudo ingresar el valor '" + value + "' ni con DOM ni con SikuliX.");
-                }
+            ejecutarSikuliEnter(value);
+        }
 
-            } catch (Exception finalError) {
-                LOGGER.error("‼️ Error final en SafeEnter: {}", finalError.getMessage(), finalError);
-                throw finalError;
+        private void ejecutarSikuliEnter(String value) {
+            try {
+                String absolutePath = Paths.get(element.getImagePath()).toAbsolutePath().toString();
+                LOGGER.info("🖥️ Sikuli ENTER con imagen {}", absolutePath);
+
+                Screen screen = new Screen();
+                Pattern pattern = new Pattern(absolutePath);
+
+                screen.wait(pattern, SIKULI_TIMEOUT_SECONDS);
+                screen.click(pattern);
+                screen.type(value);
+
+                marcarReparacion("Sikuli", "Ingreso visual por falla persistente del DOM");
+
+            } catch (Exception e) {
+                throw new RuntimeException("❌ Fallo definitivo en Sikuli ENTER", e);
             }
         }
     }
 
+    /* =========================================================
+       ================= SAFE CLICK =============================
+       ========================================================= */
+
     public static class SafeClick implements Interaction {
 
-        private static final Logger LOGGER = LoggerFactory.getLogger(SafeClick.class);
         private final Target target;
         private final Element element;
 
@@ -109,69 +126,62 @@ public class SafeActions {
         }
 
         @Override
-        @Step("{0} intenta hacer clic en #target usando Healenium o Sikuli si es necesario")
+        @Step("{0} hace clic en #target usando DOM y fallback controlado")
         public <T extends Actor> void performAs(T actor) {
-            boolean success = false;
-            boolean repairedWithHealenium = false;
-            boolean repairedWithSikuli = false;
 
             try {
-                try {
-                    LOGGER.info("➡️ Intentando hacer clic en el elemento {}", target.getName());
-                    WebElement webElement = target.resolveFor(actor);
-                    webElement.click();
-                    LOGGER.info("✅ Click por DOM exitoso.");
-                    success = true;
-                } catch (Exception e) {
-                    LOGGER.warn("⚠️ Falló el click por DOM. Intentando con SikuliX... Error: {}", e.getMessage());
-                }
+                LOGGER.info("🖱️ Intentando click DOM en {}", target.getName());
 
-                if (!success) {
-                    try {
-                        String absolutePath = Paths.get(element.getImagePath()).toAbsolutePath().toString();
-                        LOGGER.info("🖱️ Usando SikuliX para hacer clic en la imagen: {}", absolutePath);
+                WaitUntil.the(target, isClickable())
+                        .forNoMoreThan(DOM_TIMEOUT_SECONDS).seconds();
 
-                        Screen screen = new Screen();
-                        Pattern imagePattern = new Pattern(absolutePath);
+                target.resolveFor(actor).click();
 
-                        screen.wait(imagePattern, 5);
-                        screen.click(imagePattern);
+                LOGGER.info("✅ Click DOM exitoso");
+                return;
 
-                        LOGGER.info("✅ Click con SikuliX exitoso.");
-                        success = true;
-                        repairedWithSikuli = true;
-                    } catch (Exception sikuliError) {
-                        LOGGER.error("❌ Fallo también con SikuliX: {}", sikuliError.getMessage(), sikuliError);
-                    }
-                }
+            } catch (Exception domError) {
+                LOGGER.warn("⚠️ DOM no respondió tras espera real: {}", domError.getMessage());
+            }
 
-                // 🟠 Solo marcar como comprometido si hubo reparación real
-                if (repairedWithHealenium) {
-                    markAsCompromised("Healenium", "Elemento reparado automáticamente durante clic.");
-                } else if (repairedWithSikuli) {
-                    markAsCompromised("Sikuli", "Click realizado con imagen debido a falla del DOM.");
-                }
+            if (isCI()) {
+                throw new RuntimeException("❌ Click fallido en CI. Sikuli deshabilitado.");
+            }
 
-                if (!success) {
-                    throw new RuntimeException("❌ No se pudo hacer clic ni con DOM ni con SikuliX.");
-                }
+            ejecutarSikuliClick();
+        }
 
-            } catch (Exception finalError) {
-                LOGGER.error("‼️ Error final en SafeClick: {}", finalError.getMessage(), finalError);
-                throw finalError;
+        private void ejecutarSikuliClick() {
+            try {
+                String absolutePath = Paths.get(element.getImagePath()).toAbsolutePath().toString();
+                LOGGER.info("🖱️ Sikuli CLICK con imagen {}", absolutePath);
+
+                Screen screen = new Screen();
+                Pattern pattern = new Pattern(absolutePath);
+
+                screen.wait(pattern, SIKULI_TIMEOUT_SECONDS);
+                screen.click(pattern);
+
+                marcarReparacion("Sikuli", "Click visual por falla persistente del DOM");
+
+            } catch (Exception e) {
+                throw new RuntimeException("❌ Fallo definitivo en Sikuli CLICK", e);
             }
         }
     }
 
-    private static void markAsCompromised(String tool, String reason) {
-        String message = String.format(
-                "🧩 Caso comprometido — Reparado automáticamente con <b>%s</b><br>📋 Motivo: %s",
-                tool, reason
-        );
+    /* =========================================================
+       ================== REPORTING =============================
+       ========================================================= */
 
+    private static void marcarReparacion(String tool, String reason) {
         Serenity.recordReportData()
                 .withTitle("🔧 Reparación automática detectada")
-                .andContents(message);
+                .andContents(
+                        "🧩 Caso comprometido<br>" +
+                        "<b>Herramienta:</b> " + tool + "<br>" +
+                        "<b>Motivo:</b> " + reason
+                );
 
         RepairTracker.markRepaired(tool, reason);
     }
