@@ -36,7 +36,7 @@ jobs:
       hlm-backend:
         image: healenium/hlm-backend:3.4.7
         env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://hlm-postgres:5432/healenium
+          SPRING_DATASOURCE_URL: jdbc:postgresql://hlm-postgres:5432/healenium?currentSchema=public
           SPRING_DATASOURCE_USERNAME: healenium
           SPRING_DATASOURCE_PASSWORD: healenium
         ports:
