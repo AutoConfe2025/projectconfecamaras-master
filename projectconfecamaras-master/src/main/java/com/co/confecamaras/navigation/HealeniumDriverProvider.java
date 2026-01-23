@@ -22,17 +22,22 @@ public class HealeniumDriverProvider implements DriverSource {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
-        WebDriver delegate = new ChromeDriver(options);
+        WebDriver baseDriver = new ChromeDriver(options);
 
-        // Carga del archivo healenium.properties
+        boolean healeniumEnabled = Boolean.parseBoolean(
+                System.getenv().getOrDefault("HEALENIUM_ENABLED", "true")
+        );
+
+        if (!healeniumEnabled) {
+            return baseDriver; // 🔥 CI sin Healenium
+        }
+
         Config config = ConfigFactory.load("healenium.properties");
-
-        // Crear Self Healing Driver
-        return SelfHealingDriver.create(delegate, config);
+        return SelfHealingDriver.create(baseDriver, config);
     }
 
     @Override
     public boolean takesScreenshots() {
-        return true; // importante para que Serenity capture
+        return true;
     }
 }
