@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      CI: true
       HEALENIUM_ENABLED: false
 
     defaults:
@@ -64,10 +65,11 @@ jobs:
 
           echo "FEATURE_PATH=$FEATURE_PATH" >> $GITHUB_ENV
 
-      - name: Ejecutar Serenity
+      - name: Ejecutar Serenity (UN SOLO FEATURE)
         run: |
           ./gradlew clean test aggregate --continue \
-            -Dserenity.features=$FEATURE_PATH
+            -Dcucumber.features=$FEATURE_PATH \
+            -Dci=true
 
       - name: Subir reporte Serenity
         if: always()
