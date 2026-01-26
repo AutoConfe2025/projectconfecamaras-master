@@ -14,10 +14,13 @@ public class HealeniumDriverProvider implements DriverSource {
     public WebDriver newDriver() {
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
+
+        // Headless SOLO en CI
+        if ("true".equalsIgnoreCase(System.getenv("CI"))) {
+            options.addArguments("--headless=new");
+        }
+
         options.addArguments("--start-maximized");
-        options.addArguments("--remote-allow-origins=*");
-        options.addArguments("--disable-infobars");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -29,7 +32,7 @@ public class HealeniumDriverProvider implements DriverSource {
         );
 
         if (!healeniumEnabled) {
-            return baseDriver; // 🔥 CI sin Healenium
+            return baseDriver;
         }
 
         Config config = ConfigFactory.load("healenium.properties");

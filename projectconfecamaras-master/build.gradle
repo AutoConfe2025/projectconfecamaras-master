@@ -77,21 +77,22 @@ dependencies {
 test {
     useJUnit()
 
-    // Asegura que Serenity descubra los test runners
-    include '**/*Test.class', '**/*Tests.class', '**/*Runner.class'
+    include '**/*Runner.class'
+
+    systemProperty "serenity.conf", "src/test/resources/serenity.conf"
+    systemProperties System.getProperties()
 
     testLogging {
         showStandardStreams = true
         events "passed", "skipped", "failed"
     }
 
-    systemProperties System.getProperties()
-
     doFirst {
         println "🧹 Limpiando reportes Serenity antiguos..."
         delete fileTree(dir: "target/site/serenity")
     }
 }
+
 
 serenity {
     outputDirectory = file("target/site/serenity")
