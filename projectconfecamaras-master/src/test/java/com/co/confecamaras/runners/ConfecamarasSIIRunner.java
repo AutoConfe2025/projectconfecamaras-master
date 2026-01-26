@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/registros_publicos/simulacion_pagos_electronicos.feature",
+        features = "src/test/resources/features",
         glue = "com.co.confecamaras",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = "pretty"
