@@ -5,6 +5,10 @@ import net.serenitybdd.screenplay.targets.Target;
 public class GeneralPage {
 
     //CAMPOS DE ACCION
+    public static final Target CAMPO_FECHA_INICIAL_CAMPO = Target.the("Fecha inicial de data campo")
+            .locatedBy("//input[@id='_fechainicial']");
+    public static final Target CAMPO_FECHA_FINAL_CAMPO = Target.the("Fecha final de data campo")
+            .locatedBy("//input[@id='_fechafinal']");
 
     public static final Target CAMPO_FECHA_INICIAL_DATA_PICKER = Target.the("Fecha inicial de data picker")
             .locatedBy("//input[@id='_fecini']");
@@ -47,6 +51,9 @@ public class GeneralPage {
 
     public static final Target BOTON_CONSULTAR_AREF = Target.the("boton consultar cuando es a ref")
             .locatedBy("//a[contains(text(),'Consultar')]");
+
+    public static final Target BOTON_CONSULTAR_MY_BOTON = Target.the("boton consultar cuando es a mybutton")
+            .locatedBy("//input[@class='myButton']");
 
     public static final Target BOTON_CONTINUAR_IMAGEN = Target.the("boton de continuar cuando es tipo imagen")
             .locatedBy("//input[@type='124152']");
