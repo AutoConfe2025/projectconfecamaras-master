@@ -92,6 +92,7 @@ test {
         delete fileTree(dir: "target/site/serenity")
     }
 }
+test.finalizedBy(aggregate)
 
 
 serenity {
@@ -109,5 +110,17 @@ configurations.all {
     resolutionStrategy {
         force 'com.google.guava:guava:33.3.1-jre'
         exclude group: 'org.slf4j', module: 'slf4j-simple'
+    }
+}
+
+tasks.named("aggregate") {
+    doLast {
+        def reportPath = file("target/site/serenity/index.html").absolutePath
+        println ""
+        println "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        println "📊 REPORTE SERENITY GENERADO"
+        println "👉 file://${reportPath}"
+        println "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        println ""
     }
 }
