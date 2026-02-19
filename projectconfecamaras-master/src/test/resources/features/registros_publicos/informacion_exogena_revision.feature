@@ -5,7 +5,7 @@ Característica: revision de flujo de modulo de registros publicos informacion e
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoFlujoInformacionExogenaRevision
+  @ValidoFlujoInformacionExogenaRevision @SII4
   Escenario: valido el flujo de informeacion exogena revision
     Y ingreso al sistema SII3 como usuario admin
     Cuando ingreso solo bandeja "Información Exógena - Revisión"

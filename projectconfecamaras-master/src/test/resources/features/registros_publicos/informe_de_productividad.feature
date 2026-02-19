@@ -5,7 +5,7 @@ Característica: revision de flujo de informe de productividad
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoFlujoInformeProductividad
+  @ValidoFlujoInformeProductividad @SII4
   Escenario: valido el flujo de informe de productividad
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Informe de productividad"

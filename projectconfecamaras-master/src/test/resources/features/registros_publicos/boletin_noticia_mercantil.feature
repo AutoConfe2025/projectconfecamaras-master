@@ -5,7 +5,7 @@ Característica: revision de flujo de modulo de registros publicos boletin de no
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoFlujoBoletinNoticiaMercantil
+  @ValidoFlujoBoletinNoticiaMercantil @SII4
   Escenario: valido el flujo de boletin de noticia mercantil
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Boletin Noticia Mercantil"

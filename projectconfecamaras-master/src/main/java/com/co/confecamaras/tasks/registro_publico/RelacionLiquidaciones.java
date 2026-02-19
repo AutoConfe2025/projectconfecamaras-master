@@ -22,9 +22,9 @@ public class RelacionLiquidaciones implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_FECHA_INICIAL,isPresent()).forNoMoreThan(10).seconds(),
-                Enter.theValue("2025-01-01").into(CAMPO_FECHA_INICIAL),
+                Enter.theValue("2026-01-01").into(CAMPO_FECHA_INICIAL),
 //                ClickConSikuli.en(TITULO),
-                Enter.theValue("2026-12-31").into(CAMPO_FECHA_FIN),
+                Enter.theValue("2026-01-31").into(CAMPO_FECHA_FIN),
                 Click.on(CAMPO_SOLO_PAGADAS),
                 Enter.theValue("S").into(CAMPO_SOLO_PAGADAS),
                 Click.on(CAMPO_SOLO_FIRMADAS),

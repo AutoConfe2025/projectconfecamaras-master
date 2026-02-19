@@ -5,7 +5,7 @@ Característica: revision de flujo de modulo de registros publicos registrar y p
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoFlujoRegistrarPublicarReporte
+  @ValidoFlujoRegistrarPublicarReporte @SII4
   Escenario: valido el flujo de registrar publicar reporte EE
     Y ingreso al sistema SII3 como usuario admin
     Cuando ingreso solo bandeja "Registrar y Publicar Reporte E.E."

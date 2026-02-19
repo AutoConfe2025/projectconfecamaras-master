@@ -9,4 +9,4 @@ Característica: Validar certicados pendientes
   Escenario: Validar certificados pendientes
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Certificados pendientes
-    Entonces validara las acciones de certificados pendientes relacionados al recibo S001052591
+    Entonces validara las acciones de certificados pendientes relacionados al recibo S000961101

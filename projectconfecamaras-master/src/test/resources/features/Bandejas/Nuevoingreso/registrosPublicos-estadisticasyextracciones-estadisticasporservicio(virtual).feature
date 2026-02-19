@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @EstadísticasPorServicioVirtual
+  @EstadísticasPorServicioVirtual @SII4
   Escenario:  Registros Públicos - Estadísticas y Extracciones - Resumen de Ingresos por sede
     Y ingreso al sistema SII3 como admin16
     Cuando Buscamos por el boton principal de busqueda la bandeja Estadísticas por Servicio (Virtual)

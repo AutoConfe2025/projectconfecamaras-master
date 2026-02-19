@@ -5,7 +5,7 @@ Característica: revision de flujo de modulo de registros auditorias asignar cod
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoFlujoAsignarCodigoBarras
+  @ValidoFlujoAsignarCodigoBarras @SII4
   Escenario: valido el flujo de de barras a inscripciones
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Asignar Códigos Barras a Inscripciones"
