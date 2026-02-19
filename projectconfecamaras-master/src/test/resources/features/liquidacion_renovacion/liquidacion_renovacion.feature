@@ -15,16 +15,16 @@ Antecedentes: ingreso plataforma confecamaras
   Escenario: proceso de liquidacion renovacion por Nit o cedula
     Y ingreso al sistema SII3 como usuario publico
     Cuando realizo el proceso por "Identificación"
-    Entonces valido el proceso de matricula por identificacion
+#    Entonces valido el proceso de matricula por identificacion **** se necesita nueva data para poder llegar al final de la validacion****
 
   @LiquidacionRenovacionProponente @SII4
   Escenario: proceso de liquidacion renovacion por proponente
     Y ingreso al sistema SII3 como usuario publico
     Cuando realizo el proceso usando "Proponente"
-    Entonces valido el proceso de matricula por proponente
+#    Entonces valido el proceso de matricula por proponente **** se necesita nueva data para poder llegar al final de la validacion****
 
   @LiquidacionRenovacionPalabra @SII4
   Escenario: proceso de liquidacion renovacion por palabras
     Y ingreso al sistema SII3 como usuario publico
     Cuando realizo el proceso con "Palabras"
-    Entonces valido el proceso de matricula por palabras
+#    Entonces valido el proceso de matricula por palabras **** se necesita nueva data para poder llegar al final de la validacion****

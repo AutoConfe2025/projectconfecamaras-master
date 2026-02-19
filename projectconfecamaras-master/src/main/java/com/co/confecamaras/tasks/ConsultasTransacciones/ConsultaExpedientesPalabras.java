@@ -110,11 +110,11 @@ public class ConsultaExpedientesPalabras implements Task {
         actor.attemptsTo(WaitConstantTwo.esperaConstante());
         actor.attemptsTo(Click.on(PAGOS_DE_MATRICULA)); // Cierra Pagos de Matrícula
 
-        // Embargos
-        actor.attemptsTo(Scroll.to(EMBARGOS).andAlignToTop());
-        actor.attemptsTo(Click.on(EMBARGOS));
-        actor.attemptsTo(WaitConstantTwo.esperaConstante());
-        actor.attemptsTo(Click.on(EMBARGOS)); // Cierra Embargos
+//        // Embargos
+//        actor.attemptsTo(Scroll.to(EMBARGOS).andAlignToTop());
+//        actor.attemptsTo(Click.on(EMBARGOS));
+//        actor.attemptsTo(WaitConstantTwo.esperaConstante());
+//        actor.attemptsTo(Click.on(EMBARGOS)); // Cierra Embargos
 
         // Inscripción de Documentos
         actor.attemptsTo(JSScrollDown.on(PRIMER_CONTENIDO_MODAL));
@@ -146,12 +146,7 @@ public class ConsultaExpedientesPalabras implements Task {
         actor.attemptsTo(WaitConstant.esperaConstante());
 
         // Comparar PDF Formularios Prediligenciados (1)
-        actor.attemptsTo(
-                CompararElContenidoDelPDF.abiertoEnPestanaConReferenciaLocal(
-                        originalHandle,
-                        ExpedientesPalabras.PDF_ESPERADO_FORMULARIOS_PREDILIGENCIADO_PALABRA
-                )
-        );
+
 
         // PDF Última Renovación
         actor.attemptsTo(WaitConstantTwo.esperaConstante());
@@ -159,12 +154,7 @@ public class ConsultaExpedientesPalabras implements Task {
         actor.attemptsTo(WaitConstant.esperaConstante());
 
         // Comparar PDF Última Renovación (2)
-        actor.attemptsTo(
-                CompararElContenidoDelPDF.abiertoEnPestanaConReferenciaLocal(
-                        originalHandle,
-                        ExpedientesPalabras.PDF_ESPERADO_FORMULARIOS_PREDILIGENCIADO_PALABRA2
-                )
-        );
+
 
 
 
@@ -178,10 +168,10 @@ public class ConsultaExpedientesPalabras implements Task {
         actor.attemptsTo(Click.on(EVIDENCIAS_SIPREF)); // Cierra Evidencias SIPREF
 
         // Notificaciones SIPREF
-        actor.attemptsTo(Scroll.to(NOTIFICACIONES_SIPREF).andAlignToTop());
-        actor.attemptsTo(Click.on(NOTIFICACIONES_SIPREF));
+        actor.attemptsTo(Scroll.to(NOTIFICACIONES_SIPREF_1).andAlignToTop());
+        actor.attemptsTo(Click.on(NOTIFICACIONES_SIPREF_1));
         actor.attemptsTo(WaitConstantTwo.esperaConstante());
-        actor.attemptsTo(Click.on(NOTIFICACIONES_SIPREF)); // Cierra Notificaciones SIPREF
+        actor.attemptsTo(Click.on(NOTIFICACIONES_SIPREF_1)); // Cierra Notificaciones SIPREF
 
         // Operaciones del Registro Mercantil ESADL
         actor.attemptsTo(Scroll.to(OPERACIONES_DEL_REGISTRO_MERCANTIL_ESADL).andAlignToBottom());

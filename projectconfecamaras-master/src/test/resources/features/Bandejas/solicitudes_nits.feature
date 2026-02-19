@@ -24,7 +24,7 @@ Característica: validacion de bandeja recursos de reposicion
     Entonces ingreso la "01/05/2025" en erroneas y realizo las validaciones
 
   @ValidacionBandejaNitsSolicitudNits @SII4
-  Escenario: ingreso a la bandeja nits y valido la seccion de erroneas
+  Escenario: ingreso a la bandeja nits y valido la seccion de solicitudes nits
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso a la bandeja "Solicitudes de Nits"
     Entonces ingreso la "01/05/2025" en comerciantes sin NIT y realizo las validaciones

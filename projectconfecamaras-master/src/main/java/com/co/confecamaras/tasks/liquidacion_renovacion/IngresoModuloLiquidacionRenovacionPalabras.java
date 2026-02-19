@@ -35,6 +35,7 @@ public class IngresoModuloLiquidacionRenovacionPalabras implements Task {
                 Click.on(BOTON_BUSCAR_CRITERIO),
                 WaitUntil.the(SELECCION_MATRICULA_ESPACIO_1, isVisible()).forNoMoreThan(30).seconds(),
                 Click.on(SELECCION_MATRICULA_ESPACIO_1),
+                SelectFromOptions.byValue("L").from(LISTA_SOLICITUD_RENOVACION),
                 Click.on(BOTON_CONTINUAR_MATRICULA),
                 Click.on(BOTON_ACEPTAR_AVISO),
                 Click.on(CAMPO_INGRESO_NUEVO_VALOR_PALABRAS),

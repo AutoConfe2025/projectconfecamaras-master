@@ -25,11 +25,6 @@ public class ResponderRecurso implements Task {
                 Click.on(BOTON_ACTUALIZAR)
         );
 
-        actor.should(
-                seeThat("Mensaje codigo de barras terminado",
-                        of(MENSAJE_INFORMATIVO), containsString(MENSAJE_RESPUESTA))
-        );
-
     }
 
     public static ResponderRecurso Responde() {

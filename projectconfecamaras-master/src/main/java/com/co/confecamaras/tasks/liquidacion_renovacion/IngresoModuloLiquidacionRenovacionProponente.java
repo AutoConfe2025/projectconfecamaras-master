@@ -30,6 +30,7 @@ public class IngresoModuloLiquidacionRenovacionProponente implements Task {
                 Enter.theValue(IDENTIFICACION_PARA_PROPONENTE).into(CAMPO_INGRESO_TEXTO_BUSQUEDA),
                 Click.on(BOTON_BUSCAR_CRITERIO),
                 Click.on(SELECCION_MATRICULA_ESPACIO_1),
+                SelectFromOptions.byValue("L").from(LISTA_SOLICITUD_RENOVACION),
                 Click.on(BOTON_CONTINUAR_MATRICULA),
                 Click.on(BOTON_ACEPTAR_AVISO),
                 Click.on(CAMPO_INGRESO_NUEVO_VALOR_PROPONENTE),

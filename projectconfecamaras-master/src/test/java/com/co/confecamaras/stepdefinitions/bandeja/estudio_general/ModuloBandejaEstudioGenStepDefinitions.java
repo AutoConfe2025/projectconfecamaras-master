@@ -1,5 +1,6 @@
 package com.co.confecamaras.stepdefinitions.bandeja.estudio_general;
 
+import com.co.confecamaras.tasks.Bandeja.TramitesNoArchivadosT;
 import com.co.confecamaras.tasks.Bandeja.estudio_general.*;
 import com.co.confecamaras.tasks.Bandeja.general.IngresoRuta;
 import com.co.confecamaras.tasks.Bandeja.recursos_reposicion.ValidarArchivar;
@@ -27,6 +28,11 @@ public class ModuloBandejaEstudioGenStepDefinitions {
     @Entonces("valido los comentarios de la bandeja")
     public void validoLosComentariosDeLaBandeja() {
         theActorInTheSpotlight().attemptsTo(ValidacionComentarios.validaComentarios());
+    }
+
+    @Entonces("valido los comentarios de la bandeja tramites")
+    public void validoLosComentariosDeLaBandejaTramites() {
+        theActorInTheSpotlight().attemptsTo(TramitesNoArchivadosT.noArchivados());
     }
 
     @Entonces("ingreso un nuevo comentario")

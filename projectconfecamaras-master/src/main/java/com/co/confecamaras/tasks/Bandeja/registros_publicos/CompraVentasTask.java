@@ -57,8 +57,6 @@ public class CompraVentasTask implements Task {
                 AdicionarComentariosTask.adicionar("Ver comentarios", "Adicionar comentarios", codigo_barras, "TEST COMENTARIO AUTOMATIZACION"),
                 ConsultaGrillaTask.consultar(codigo_barras),
                 ValidarEstudioCompraventa.ValidoEstudio(),
-                JavaScriptClick.on(AccionesPage.LINK_ACCION.of("Devolver/Requerir")),
-                LogEvent.recordevent(Reportes.INFO, "Se realizo la accion Devolver/Requerir"),
                 WaitInteractions.untilBeEnable(BTN_OK),
                 Click.on(AccionesPage.BTN_OK),
                 LogEvent.recordevent(Reportes.PASSED,"Se finalizo accion Devolver/Requerir Correctamente"),
@@ -66,7 +64,6 @@ public class CompraVentasTask implements Task {
                 WaitInteractions.untilBeEnable(BTN_FINALIZAR_ESTUDIO),
                 Click.on(BTN_FINALIZAR_ESTUDIO),
                 LogEvent.recordevent(Reportes.INFO, "Se dio click en finalizar estudio"),
-
                 WaitInteractions.untilBeEnable(BTN_CANCELAR_F),
                 Click.on(BTN_CANCELAR_F),
                 WaitInteractions.untilBeEnable(BTN_FINALIZAR_ESTUDIO),
@@ -77,26 +74,6 @@ public class CompraVentasTask implements Task {
                 Click.on(BTN_ASIGNAR_DIDM),
                 Click.on(DigitacionPage.BTN_VOLVER),
                 LogEvent.recordevent(Reportes.PASSED, "Se termino correctamnete el finalizar estudio")
-        );
-
-        actor.attemptsTo(
-                QueryGeneralBaseDatos.cambiarEstado(codigo_barras,estado),
-                SwitchToNewWindow.switchToNewTab(),
-                WaitSeconds.seconds(10),
-                Click.on(BTN_REFRESCAR),
-
-                ConsultaGrillaTask.consultar(codigo_barras),
-                WaitSeconds.seconds(10),
-
-
-                JavaScriptClick.on(AccionesPage.LINK_ACCION.of("Desistimiento voluntario")),
-                LogEvent.recordevent(Reportes.INFO, "Se realizo la accion Desistimiento voluntario"),
-
-                WaitInteractions.untilBeEnable(BTN_CANCELAR_F),
-                Click.on(BTN_CANCELAR_F),
-                ConsultaGrillaTask.consultar(codigo_barras),
-                 Click.on(BOTON_ARCHIVAR_TRAMITE),
-                LogEvent.recordevent(Reportes.PASSED, "Se realizo la accion Archivar tramite")
         );
 
         actor.should(

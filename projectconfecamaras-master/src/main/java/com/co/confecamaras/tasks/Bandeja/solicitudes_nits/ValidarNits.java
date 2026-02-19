@@ -48,7 +48,7 @@ public class ValidarNits implements Task {
                 ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA),
                 WaitUntil.the(OPCION_VER_VALIDACIONES_MARCASS, isVisible()).forNoMoreThan(10).seconds(),
                 Click.on(OPCION_VER_VALIDACIONES_MARCASS),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA)
         );
     }
 
