@@ -27,10 +27,14 @@ public class PaginaIngresoModulos {
             .locatedBy("(//a[@data-pr-tooltip='Seleccionar matrícula' and contains(@class, 'btn_seleccionar')])[1]");
     public static final Target BOTON_CONTINUAR_MATRICULA = Target.the("boton continuar con la matricula seleccionada")
             .locatedBy("//button[@class='btn btn-info']");
+
+    public static final Target LISTA_SOLICITUD_RENOVACION = Target.the("lista de solicitud renovacion")
+            .locatedBy("//select[@id='procesartodas']");
+
     public static final Target BOTON_ACEPTAR_AVISO = Target.the("boton aceptar")
             .locatedBy("//button[@class='swal2-confirm swal2-styled']");
     public static final Target CAMPO_INGRESO_NUEVO_VALOR = Target.the("campo para ingresar el nuevo valor")
-            .locatedBy("//input[@id='activos_105266']");
+            .locatedBy("(//input[contains(@id,'activos')])[1]");
 
     public static final Target CAMPO_INGRESO_NUEVO_VALOR_IDENTIFICACION = Target.the("campo para ingresar el nuevo valor identificacion")
             .locatedBy("//input[@id='activos_S0000393']");
@@ -38,7 +42,7 @@ public class PaginaIngresoModulos {
             .locatedBy("//input[@id='activos_80304']");
 
     public static final Target CAMPO_INGRESO_NUEVO_VALOR_PALABRAS = Target.the("campo para ingresar el nuevo valor palabras")
-            .locatedBy("//input[@id='activos_15025']");
+            .locatedBy("//input[contains(@name, 'activos')]");
 
     public static final Target CAMPO_CANTIDAD_CERTIFICADOS = Target.the("cantidad de certificados")
             .locatedBy("//input[@id='cantidadcertificados']");

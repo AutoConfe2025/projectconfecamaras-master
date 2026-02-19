@@ -15,7 +15,6 @@ public class HealeniumDriverProvider implements DriverSource {
 
         ChromeOptions options = new ChromeOptions();
 
-        // Headless SOLO en CI
         if ("true".equalsIgnoreCase(System.getenv("CI"))) {
             options.addArguments("--headless=new");
         }

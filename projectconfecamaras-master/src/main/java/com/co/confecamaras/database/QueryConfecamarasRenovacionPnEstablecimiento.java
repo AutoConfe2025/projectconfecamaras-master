@@ -21,7 +21,7 @@ public class QueryConfecamarasRenovacionPnEstablecimiento {
                 "ON e.matricula = i.matricula \n" +
                 "AND e.ctrestmatricula = 'MA'\n" +
                 "WHERE i.matricula <> ''\n" +
-                "AND i.ultanoren = '2024'\n" +
+                "AND i.ultanoren = '2025'\n" +
                 "AND i.organizacion = '01' \n" +
                 "AND i.ctrestmatricula = 'MA'\n" +
                 "AND i.actcte < '10000000'\n" +

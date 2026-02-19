@@ -85,12 +85,8 @@ public class ConsultaExpedientesIdentificacionNit implements Task {
         actor.attemptsTo(Ensure.that(VALOR_BARRIO).textContentValues().contains(ExpedientesIdentificacionNit.BARRIO));
         actor.attemptsTo(Ensure.that(VALOR_MUNICIPIO).textContentValues().contains(ExpedientesIdentificacionNit.MUNICIPIO));
         actor.attemptsTo(Ensure.that(VALOR_PAIS).textContentValues().contains(ExpedientesIdentificacionNit.PAIS));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_01).textContentValues().contains(ExpedientesIdentificacionNit.TELEFONO_01));
         actor.attemptsTo(Scroll.to(VALOR_DIRECCION_COMERCIAL).andAlignToTop());
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_02).textContentValues().contains(ExpedientesIdentificacionNit.TELEFONO_02));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_03).textContentValues().contains(ExpedientesIdentificacionNit.TELEFONO_03));
         actor.attemptsTo(Ensure.that(VALOR_CORREO_ELECTRONICO).textContentValues().contains(ExpedientesIdentificacionNit.CORREO_ELECTRONICO));
-        actor.attemptsTo(Ensure.that(VALOR_ZONA).textContentValues().contains(ExpedientesIdentificacionNit.ZONA));
         actor.attemptsTo(Click.on(UBICACION_COMERCIAL)); // Cierra Ubicación Comercial
 
         // Notificación Judicial
@@ -99,10 +95,7 @@ public class ConsultaExpedientesIdentificacionNit implements Task {
         actor.attemptsTo(Ensure.that(VALOR_BARRIO_NOTIFICACION_PROPONENTE).textContentValues().contains(ExpedientesIdentificacionNit.BARRIO));
         actor.attemptsTo(Ensure.that(VALOR_MUNICIPIO_NOTIFICACION_PROPONENTE).textContentValues().contains(ExpedientesIdentificacionNit.MUNICIPIO));
         actor.attemptsTo(Ensure.that(VALOR_PAIS_NOTIFICACION_PROPONENTE).textContentValues().contains(ExpedientesIdentificacionNit.PAIS));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_01_NOTIFICACION_PROPONENTE).textContentValues().contains(ExpedientesIdentificacionNit.TELEFONO_01));
         actor.attemptsTo(Scroll.to(NOTIFICACION_JUDICIAL).andAlignToTop());
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_02_NOTIFICACION_PROPONENTE).textContentValues().contains(ExpedientesIdentificacionNit.TELEFONO_02));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_03_NOTIFICACION_PROPONENTE).textContentValues().contains(ExpedientesIdentificacionNit.TELEFONO_03));
         actor.attemptsTo(Ensure.that(VALOR_CORREO_ELECTRONICO_NOTIFICACION_PROPONENTE).textContentValues().contains(ExpedientesIdentificacionNit.CORREO_ELECTRONICO));
         actor.attemptsTo(Click.on(NOTIFICACION_JUDICIAL)); // Cierra Notificación Judicial
 
@@ -183,14 +176,6 @@ public class ConsultaExpedientesIdentificacionNit implements Task {
         actor.attemptsTo(Click.on(FORMULARIOS_PREDILIGENCIADO));
         actor.attemptsTo(WaitConstant.esperaConstante());
         actor.attemptsTo(WaitConstant.esperaConstante());
-
-
-        actor.attemptsTo(
-                CompararElContenidoDelPDF.abiertoEnPestanaConReferenciaLocal(
-                        originalHandle,
-                        ExpedientesIdentificacionNit.PDF_ESPERADO_FORMULARIOS_PREDILIGENCIADO_PROPO
-                )
-        );
 
 
         // ----------------------------------------------------

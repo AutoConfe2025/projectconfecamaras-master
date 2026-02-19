@@ -36,7 +36,7 @@ public class IngresoGeneralBandejas implements Task {
                 WaitUntil.the(SELECCION_OPCION_GENERAL, isVisible()).forNoMoreThan(10).seconds(),
                 SafeActions.click(SELECCION_OPCION_GENERAL, OPCION_OFICIOS_REQUERIMIENTOS),
                 SwitchToNewWindow.switchToNewTab(),
-                Enter.theValue(codigoBarras).into(CAMPO_BUSQUEDA_COD_BARRAS_INICIAL),
+                Enter.theValue(codigoBarras).into(CAMPO_BUSQUEDA_COD_BARRAS_INICIAL_1),
                 PressKey.press(TypeKey.TAB)
         );
     }

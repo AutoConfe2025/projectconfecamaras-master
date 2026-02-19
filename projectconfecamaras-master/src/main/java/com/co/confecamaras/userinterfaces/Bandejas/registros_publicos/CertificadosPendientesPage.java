@@ -13,4 +13,7 @@ public class CertificadosPendientesPage {
             .located(By.xpath("//*[@id='tablecb']/tbody/tr/td[11]//a[@data-original-title='Consultar expediente']"));
     public static final Target ENLACE_CONSULTAR_FORMATO_NUEVO = Target.the("Enlace Consultar formato nuevo por Tooltip")
             .located(By.xpath("//*[@id='tablecb']/tbody/tr/td[11]//a[@data-original-title='Consulta formato nuevo']"));
+
+    public static final Target ENLACE_ENVIAR_CERTIFICADO = Target.the("Enlace Consultar formato nuevo por Tooltip")
+            .located(By.xpath("//a[//a[contains(@data-original-title,'Consultar expediente')]][3]"));
 }

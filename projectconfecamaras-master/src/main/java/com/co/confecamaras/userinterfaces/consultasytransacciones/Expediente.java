@@ -226,8 +226,7 @@ public class Expediente {
             .located(By.xpath("//h6[.//span[text()='Representación legal y otros vínculos']]"));
 
     public static final Target VALOR_R_IDENTIFICACION= Target.the("Valor de autorizo Envio de Emails")
-            .located(By.xpath("//*[contains(@id, '_content_19')]/div/div/div/div/table/tbody/tr/td[1]/div/span"));
-    //*[@id="pr_id_242_content_19"]/div/div/div/div/table/tbody/tr/td[1]/div/span
+            .located(By.xpath("(//*[contains(@id, '_content_19')]/div/div/div/div/table/tbody/tr/td[1]/div/span)[1]"));
 
     public static final Target VALOR_R_NOMBRE= Target.the("Valor de autorizo Envio de Emails")
             .located(By.xpath("//*[contains(@id, '_content_19')]/div/div/div/div/table/tbody/tr/td[2]/div/span"));
@@ -260,10 +259,13 @@ public class Expediente {
     public static final Target FORMULARIOS_Y_EXPEDIENTE_GRAFICO = Target.the("Formularios y expediente gráfico")
             .located(By.xpath("//h6[.//span[text()='Formularios y expediente gráfico']]"));
     public static final Target FORMULARIOS_PREDILIGENCIADO = Target.the("Formularios y expediente gráfico")
-            .located(By.xpath("(//*[starts-with(@id, 'pr_id_') and contains(@id, '_content_')])[1]/div/div/div/div/table/tbody/tr[2]/td[2]/div/span/span"));
+            .located(By.xpath("(//span[@class='btn btn-outline-primary btn-sm'])[2]"));
 
     public static final Target NOTIFICACIONES_SIPREF = Target.the("Notificaciones (SIPREF) - Email")
             .located(By.xpath("//h6[.//span[text()='Notificaciones (SIPREF) - Email']]"));
+
+    public static final Target NOTIFICACIONES_SIPREF_1 = Target.the("Notificaciones (SIPREF) - Email (1)")
+            .located(By.xpath("//h6[.//span[text()='Notificaciones (SIPREF) - Email (1)']]"));
 
     public static final Target REFERENCIAS_COMERCIALES = Target.the("Referencias comerciales y/o crediticias")
             .located(By.xpath("//h6[.//span[text()='Referencias comerciales y/o crediticias']]"));
@@ -272,7 +274,7 @@ public class Expediente {
             .located(By.xpath("//h6[.//span[text()='Evidencias SIPREF']]"));
 
     public static final Target CONSULTA_RENOVADO = Target.the("Formularios y expediente gráfico")
-            .located(By.xpath("(//*[starts-with(@id, 'pr_id_') and contains(@id, '_content_')])[1]/div/div/div/div/table/tbody/tr[4]/td[2]/div/span/span"));
+            .located(By.xpath("(//span[@class='btn btn-outline-primary btn-sm'])[3]"));
 
 
     public static final Target FORM_ULTIMA_RENOVACION = Target.the("Formularios y expediente gráfico")

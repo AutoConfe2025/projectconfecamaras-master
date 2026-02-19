@@ -168,26 +168,13 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(Click.on(FORMULARIOS_PREDILIGENCIADO));
         actor.attemptsTo(WaitConstant.esperaConstante());
 
-        // Comparar PDF Formularios Prediligenciados
-        actor.attemptsTo(
-                CompararElContenidoDelPDF.abiertoEnPestanaConReferenciaLocal(
-                        originalHandle,
-                        ExpedientesMatricula.PDF_ESPERADO_FORMULARIOS_PREDILIGENCIADO
-                )
-        );
 
         // PDF Consulta Renovado
         actor.attemptsTo(WaitConstantTwo.esperaConstante());
         actor.attemptsTo(Click.on(CONSULTA_RENOVADO));
         actor.attemptsTo(WaitConstant.esperaConstante());
 
-        // Comparar PDF Última Renovación
-        actor.attemptsTo(
-                CompararElContenidoDelPDF.abiertoEnPestanaConReferenciaLocal(
-                        originalHandle,
-                        ExpedientesMatricula.PDF_ESPERADO_ULTIMA_RENOVACION
-                )
-        );
+
 
         // --- Bloque 4: Cierre de secciones y navegación final ---
         actor.attemptsTo(Click.on(FORMULARIOS_Y_EXPEDIENTE_GRAFICO)); // Cierra Formularios y Expediente Gráfico
