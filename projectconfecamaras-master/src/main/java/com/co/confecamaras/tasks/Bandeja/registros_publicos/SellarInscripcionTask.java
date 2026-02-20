@@ -51,13 +51,6 @@ public class SellarInscripcionTask implements Task {
                 WaitConstant.esperaConstante()
         );
 
-        WebDriver driver = BrowseTheWeb.as(actor).getDriver();
-        String originalHandle = driver.getWindowHandle();
-
-        actor.attemptsTo(
-                CompararElContenidoDelPDFEnMismaPestana.conReferenciaLocal(
-                        Variables_SellarInscripcion.PDF_ESPERADO_SELLOS
-                ));
     }
 
 

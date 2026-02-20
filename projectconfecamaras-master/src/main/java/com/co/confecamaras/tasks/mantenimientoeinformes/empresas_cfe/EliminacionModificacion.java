@@ -26,14 +26,6 @@ public class EliminacionModificacion implements Task {
                 Enter.theValue(CORREO).into(CAMPO_CORREO_1),
                 Click.on(CAMPO_TELEFONO_1_1),
                 Enter.theValue(NUMERO).into(CAMPO_TELEFONO_1_1),
-//                Click.on(CAMPO_DIRECCION_COMERCIAL),
-//                Enter.theValue(CIRECCION_COMERCIAL).into(CAMPO_DIRECCION_COMERCIAL),
-//                Click.on(LISTA_MUNICIPIO),
-//                Click.on(OPCION_MANIZALES_MUNICIPIO),
-//                Click.on(CAMPO_DIRECCION_NOTIFICACION),
-//                Enter.theValue(CIRECCION_COMERCIAL).into(CAMPO_DIRECCION_NOTIFICACION),
-//                Click.on(LISTA_DIRECCION_MUNICIPIO),
-//                Click.on(OPCION_MANIZALES_DIRECCION_MUNICIPIO),
                 Scroll.to(BOTON_GRABAR_),
                 Click.on(BOTON_GRABAR_)
         );

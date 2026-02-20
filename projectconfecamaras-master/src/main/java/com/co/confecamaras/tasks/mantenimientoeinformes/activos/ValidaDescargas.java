@@ -21,7 +21,7 @@ public class ValidaDescargas implements Task {
                 AceptAlert.aceptar(),
                 WaitUntil.the(BOTON_DESCRAGR_EXCEL, isVisible()).forNoMoreThan(60).seconds(),
                 Click.on(BOTON_DESCRAGR_EXCEL),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS),
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA),
                 ActionBackPage.ahora(),
                 RefreshPage.ahora(),
                 Click.on(BOTON_IMPORTAR_EXCEL),

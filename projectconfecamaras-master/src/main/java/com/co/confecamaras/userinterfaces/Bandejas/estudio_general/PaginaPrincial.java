@@ -20,11 +20,14 @@ public class PaginaPrincial {
     public static final Target BOTON_REFRESCAR = Target.the("boton refrescar")
             .located(By.xpath("//a[contains(@href, 'recargarcodigosbarras')]"));
 
-    public static final Target CAMPO_BUSQUEDA = Target.the("boton refrescar")
+    public static final Target CAMPO_BUSQUEDA = Target.the("campo busqueda")
             .located(By.xpath("//input[@type='search']"));
 
-    public static final Target CAMPO_BUSQUEDA_COD_BARRAS_INICIAL = Target.the("boton refrescar")
+    public static final Target CAMPO_BUSQUEDA_COD_BARRAS_INICIAL = Target.the("codigo barras inicial")
             .located(By.xpath("//input[@id='codigobarrasinicial']"));
+
+    public static final Target CAMPO_BUSQUEDA_COD_BARRAS_INICIAL_1 = Target.the("campo de ingreso de codigo de barras inicial")
+            .located(By.xpath("//input[@type='search']"));
 
     public static final Target BOTON_VER_RUTA = Target.the("Boton opcion ver ruta")
             .located(By.xpath("//a[@data-original-title='Ver ruta']"));
@@ -33,6 +36,9 @@ public class PaginaPrincial {
             .located(By.xpath("(//p[@class='text-dark text-left']//a[text()='Ver'])[1]"));
 
     public static final Target BOTON_COMENTARIOS = Target.the("Boton para ver los comentarios")
+            .located(By.xpath("//a[@data-original-title='Ver comentarios']"));
+
+    public static final Target BOTON_COMENTARIOS_1 = Target.the("Boton para ver los comentarios")
             .located(By.xpath("//a[@data-original-title='Ver comentarios']"));
 
     public static final Target TARJETA_COMENTARIOS = Target.the("Tarjeta de comentarios")
@@ -51,7 +57,7 @@ public class PaginaPrincial {
             .located(By.xpath("//select[@id='_tipo']"));
 
     public static final Target SELECCION_OPCION_PRUEBAS = Target.the("opcion pruebas")
-            .located(By.xpath("//option[contains(@value, '100')]"));
+            .located(By.xpath("//option[contains(@value, '99')]"));
 
     public static final Target CUADRO_AGREGAR_COMENTARIO = Target.the("cuadro para agregar comentario")
             .located(By.xpath("//textarea[@id= '_comentario']"));

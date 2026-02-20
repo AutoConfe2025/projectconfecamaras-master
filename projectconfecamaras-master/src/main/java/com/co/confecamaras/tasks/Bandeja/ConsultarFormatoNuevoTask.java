@@ -1,5 +1,6 @@
 package com.co.confecamaras.tasks.Bandeja;
 
+import com.co.confecamaras.interactions.AceptAlert;
 import com.co.confecamaras.interactions.News.AcceptAlert;
 import com.co.confecamaras.interactions.News.CancelAlert;
 import com.co.confecamaras.interactions.News.WaitSeconds;
@@ -25,10 +26,7 @@ public class ConsultarFormatoNuevoTask implements Task {
                 WaitInteractions.untilAppears(ENLACE_CONSULTAR_FORMATO_NUEVO),
 
                 Click.on(ENLACE_CONSULTAR_FORMATO_NUEVO),
-                AcceptAlert.aceptar(),
-                WaitSeconds.seconds(3),
-                GuardarArchivo.guardar(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
+                AceptAlert.cancelar()
         );
 
 

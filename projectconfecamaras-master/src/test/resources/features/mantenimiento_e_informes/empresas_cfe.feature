@@ -10,4 +10,4 @@ Característica: revision de empresas CFE
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Empresas CFE"
     Y realizo el proceso de creacion de nueva entidad
-    Entonces realizo proceso de modificacion y eliminacion
+#    Entonces realizo proceso de modificacion y eliminacion **** por falla en ambiente se realiza la creacion pero no llega a modificacion o eliminacion

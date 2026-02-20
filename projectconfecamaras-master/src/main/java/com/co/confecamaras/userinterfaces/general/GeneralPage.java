@@ -69,4 +69,7 @@ public class GeneralPage {
 
     public static final Target BOTON_REGRESAR_AREF = Target.the("boton crear con a ref de link")
             .locatedBy("//a[contains(text(),'Regresar')]");
+
+    public static final Target BOTON_REGRESAR_AREF_MIN = Target.the("boton crear con a ref de link con regresar en minuscula")
+            .locatedBy("//a[contains(text(),'regresar')]");
 }

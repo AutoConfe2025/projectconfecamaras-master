@@ -15,18 +15,14 @@ public class HealeniumDriverProvider implements DriverSource {
 
         ChromeOptions options = new ChromeOptions();
 
-        boolean isCI = "true".equalsIgnoreCase(System.getenv("CI"));
-
-        if (isCI) {
-            // 🔴 OBLIGATORIO en GitHub Actions
+        if ("true".equalsIgnoreCase(System.getenv("CI"))) {
             options.addArguments("--headless=new");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--disable-gpu");
         }
 
         options.addArguments("--start-maximized");
-        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
         WebDriver baseDriver = new ChromeDriver(options);
 
@@ -34,7 +30,7 @@ public class HealeniumDriverProvider implements DriverSource {
                 System.getenv().getOrDefault("HEALENIUM_ENABLED", "true")
         );
 
-        if (!healeniumEnabled || isCI) {
+        if (!healeniumEnabled) {
             return baseDriver;
         }
 

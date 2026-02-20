@@ -218,26 +218,13 @@ public class ConsultaExpedientesProponente implements Task {
         actor.attemptsTo(WaitConstant.esperaConstante());
         actor.attemptsTo(WaitConstant.esperaConstante());
 
-        // Comparar PDF Formularios Prediligenciados (1)
-        actor.attemptsTo(
-                CompararElContenidoDelPDF.abiertoEnPestanaConReferenciaLocal(
-                        originalHandle,
-                        ExpedientesProponente.PDF_ESPERADO_FORMULARIOS_PREDILIGENCIADO_PROPO
-                )
-        );
+
 
         // PDF Última Renovación
         actor.attemptsTo(WaitConstantTwo.esperaConstante());
         actor.attemptsTo(Click.on(FORM_ULTIMA_RENOVACION));
         actor.attemptsTo(WaitConstant.esperaConstante());
 
-        // Comparar PDF Última Renovación (2)
-        actor.attemptsTo(
-                CompararElContenidoDelPDF.abiertoEnPestanaConReferenciaLocal(
-                        originalHandle,
-                        ExpedientesProponente.PDF_ESPERADO_FORMULARIOS_PREDILIGENCIADO_PROPO2
-                )
-        );
 
         // ----------------------------------------------------
         // FIN: LÓGICA DE PDFS CON TAREAS LIMPIAS

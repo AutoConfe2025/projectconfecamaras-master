@@ -18,9 +18,9 @@ public class ValidacionComentarios implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(BOTON_COMENTARIOS),
+                Click.on(BOTON_COMENTARIOS_1),
                 SwitchToNewWindow.switchToNewTab(),
-                WaitUntil.the(TARJETA_COMENTARIOS, isVisible()).forNoMoreThan(30).seconds()
+                WaitUntil.the(TARJETA_COMENTARIOS_COMPLETA, isVisible()).forNoMoreThan(30).seconds()
         );
 
         actor.should(

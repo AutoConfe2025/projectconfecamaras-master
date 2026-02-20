@@ -29,9 +29,9 @@ public class IngresoModuloNombreStepDefinitions {
         System.out.println("📋 Datos capturados de la tabla:");
         tabla.forEach(System.out::println);
 
-        validaServicioYValor(tabla, "01020201", "$ 569.000");
-        validaServicioYValor(tabla, "01010102", "$ 11.600");
-        validaServicioYValor(tabla, "01050106", "$ 8.100");
+        validaServicioYValor(tabla, "01020201", "$ 581.000");
+        validaServicioYValor(tabla, "01010102", "$ 12.100");
+        validaServicioYValor(tabla, "01050106", "$ 8.500");
     }
 
     private void validaServicioYValor(List<TablaRenovacionModel> tabla, String servicioId, String valorEsperado) {

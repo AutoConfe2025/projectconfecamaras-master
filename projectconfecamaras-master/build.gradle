@@ -79,7 +79,6 @@ test {
 
     include '**/*Runner.class'
 
-    systemProperty "serenity.conf", "src/test/resources/serenity.conf"
     systemProperties System.getProperties()
 
     testLogging {

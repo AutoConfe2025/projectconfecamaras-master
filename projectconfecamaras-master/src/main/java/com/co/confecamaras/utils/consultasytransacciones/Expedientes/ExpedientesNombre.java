@@ -3,7 +3,7 @@ package com.co.confecamaras.utils.consultasytransacciones.Expedientes;
 public class ExpedientesNombre {
 
     public static final String MATRICULA_MERCANTIL = "501292";
-    public static final String NOMBRE_RAZON_SOCIAL = "RIOS MARIN ALAN";
+    public static final String NOMBRE_RAZON_SOCIAL = "ALVARO ELIAS GUTIERREZ RAMIREZ";
     public static final String NOMBRE_RAZON_SOCIAL_PALABRA = "CAFETERIA AUTOMATIZACION";
     public static final String ESTADO_MATRICULA = "MA - MATRICULA ACTIVA";
     public static final String ESTADO_DATOS = "REVISADO";
@@ -14,7 +14,7 @@ public class ExpedientesNombre {
     public static final String ORGANIZACION_JURIDICA2 = "Establecimiento de Comercio";
     public static final String CATEGORIA = "Arrendando";
     public static final String TIPO_LOCAL = "Propietario único";
-    public static final String ADAPTACION_NUEVO_FORMATO = "Vigente";
+    public static final String ADAPTACION_NUEVO_FORMATO = "N";
     public static final String ADAPTACION_NUEVO_FORMATO2 = "Revisado";
     public static final String INSCRIPCION_PROPONENTE = "2544";
     public static final String ESTADO = "00 Activo";
@@ -38,7 +38,7 @@ public class ExpedientesNombre {
 
     public static final String ANIO_DATOS = "2025";
     public static final String ANIO_DATOS2 = "2024";
-    public static final String FECHA_DATOS = "2025-11-04";
+    public static final String FECHA_DATOS = "2025-03-29";
     public static final String FECHA_DATOS2 = "2024-07-19";
     public static final String PERSONAL_OCUPADO = "1";
     public static final String PERSONAL_OCUPADO2 = "5";
