@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @DepuraciónLiquidacionesNoTerminadas
+  @DepuraciónLiquidacionesNoTerminadas @SII4
   Escenario: Registros Públicos - Administración - Depuración liquidaciones no terminadas
     Y ingreso al sistema SII3 como admin20
     Cuando Buscamos por el boton principal de busqueda la bandeja Depuración liquidaciones no terminadas

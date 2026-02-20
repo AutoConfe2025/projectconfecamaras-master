@@ -5,7 +5,7 @@ Característica: Validar que permita la revision
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @AuditoriaRues
+  @AuditoriaRues @SII4
   Esquema del escenario: Registros Públicos - Estadísticas y Extracciones - Auditoria RUES con la Letra <letra>
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Auditoria RUES (1)

@@ -69,7 +69,7 @@ public class FlujoInformeCaja implements Task {
                 Click.on(LISTA_TIPO_SALIDA),
                 Click.on(OPCION_PDF_TIPO_SALIDA),
                 Click.on(CAMPO_FECHA_INICIAL),
-                Enter.theValue("04/12/2025").into(CAMPO_FECHA_INICIAL),
+                Enter.theValue("10/02/2026").into(CAMPO_FECHA_INICIAL),
                 Click.on(BOTON_CONSULTAR_CAJA),
                 WaitUntil.the(BOTON_SI_GENERA_INFORME, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_SI_GENERA_INFORME),

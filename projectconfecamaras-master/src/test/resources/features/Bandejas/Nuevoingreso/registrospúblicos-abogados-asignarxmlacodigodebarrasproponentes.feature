@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @AsignarXMLacódigodebarras_proponentes
+  @AsignarXMLacódigodebarras_proponentes @SII4
   Escenario:  Registros Públicos - Abogados - Asignar XML a código de barras (proponentes)
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Asignar XML a código de barras (proponentes)

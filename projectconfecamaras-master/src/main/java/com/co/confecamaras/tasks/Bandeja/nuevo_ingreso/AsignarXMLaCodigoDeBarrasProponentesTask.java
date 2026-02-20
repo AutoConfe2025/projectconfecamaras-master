@@ -30,8 +30,8 @@ public class AsignarXMLaCodigoDeBarrasProponentesTask implements Task {
 
 
                 WaitSeconds.seconds(1),
-                Enter.theValue("Tj8E4M").into(CAMPO_NUMERO_RECUPERACION),
-                Enter.theValue("739179").into(CAMPO_CODIGO_BARRAS),
+                Enter.theValue("WGQVOX").into(CAMPO_NUMERO_RECUPERACION),
+                Enter.theValue("750683").into(CAMPO_CODIGO_BARRAS),
                 Click.on(BOTON_CONTINUAR_ASIGNAR),
                 WaitSeconds.seconds(1),
                 Click.on(SEGUNDO_BOTON_CONTINUAR),
