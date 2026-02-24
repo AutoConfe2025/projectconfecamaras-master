@@ -1,16 +1,16 @@
 package com.co.confecamaras.stepdefinitions.renovaciones;
 
-import com.co.confecamaras.tasks.renovaciones.esadl_catorce_caja.FlujoEsadlCatorceCaja;
 import com.co.confecamaras.tasks.renovaciones.persona_natural_establecimiento_caja.RecibirPago;
+import com.co.confecamaras.tasks.renovaciones.renovacion_age_caja.FormularioAgeCaja;
 import io.cucumber.java.en.Then;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class FlujoEsadlCatorceCajaStepDefinitions {
+public class FlujoRenoAgevacionStepDefinitions {
 
-    @Then("realizo el flujo de esadl con caja")
-    public void realizoElFlujoDeEsadlCatorceConCaja() {
-        theActorInTheSpotlight().attemptsTo(FlujoEsadlCatorceCaja.EsadlCaja());
+    @Then("realizo el flujo de renovacion Age")
+    public void realizoElFlujoDeRenovacionAge(){
+        theActorInTheSpotlight().attemptsTo(FormularioAgeCaja.renovacionAgeCaja());
         theActorInTheSpotlight().attemptsTo(RecibirPago.flujoRecibePago());
     }
 }

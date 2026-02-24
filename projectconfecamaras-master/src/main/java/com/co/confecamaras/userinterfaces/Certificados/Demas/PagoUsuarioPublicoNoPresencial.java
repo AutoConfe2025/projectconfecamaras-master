@@ -12,7 +12,7 @@ public class PagoUsuarioPublicoNoPresencial extends PageObject {
             located(By.cssSelector("div[class='modal-dialog modal-dialog-centered modal-lg1200'] div[class='modal-footer'] button[type='button']"));
 
     public static Target BOTON_CONTINUAR = Target.the("Boton continuar para pago no presencial como usuario publico").
-            located(By.id("submit"));
+            locatedBy("//button[contains(.,'Continuar')]");
 
     public static Target MENU_DESPLEGABLE_TIPO_DE_CLIENTE = Target.the("Menu desplegable para escoger el tipo de cliente").
             located(By.xpath("//option[normalize-space()='Persona natural']"));
@@ -137,6 +137,18 @@ public class PagoUsuarioPublicoNoPresencial extends PageObject {
             located(By.cssSelector("button[type='submit']"));
     public static Target BTN_VOLVER_COMERCIO = Target.the("Boton Volver al comercio").
             located(By.cssSelector("button[class='btn']"));
+
+    public static Target MENU_DES_TIPO_PERSONA = Target.the("Menu desplegable Tipo persona").
+            located(By.xpath("//*[@id=\"tipoPersona\"]/div/span"));
+
+    public static Target BTN_PN = Target.the("Clic en el saltar recaptcha").
+            located(By.xpath("//*[@id=\"tipoPersona\"]/div/div[3]/div/ul/p-dropdownitem[1]/li"));
+
+    public static Target MENU_DES_BANCO_PSE = Target.the("Menu desplegable Tipo persona").
+            located(By.xpath("//*[@id=\"banco\"]/div/span"));
+
+    public static Target BTN_BANCO = Target.the("Clic en el boton Atras").
+            located(By.xpath("//*[@id=\"banco\"]/div/div[3]/div/ul/p-dropdownitem[2]"));
     //public static Target XXXXX = Target.the("").located(By.);
     //public static Target XXXXX = Target.the("").located(By.);
     //public static Target XXXXX = Target.the("").located(By.);

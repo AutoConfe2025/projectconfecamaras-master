@@ -56,10 +56,6 @@ public class FlujoSegundoFormularioPersonaNaturalEstablecimientoCaja implements 
             );
 
         }
-
-        actor.attemptsTo(
-                SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO)
-        );
     }
 
     public static FlujoSegundoFormularioPersonaNaturalEstablecimientoCaja SegundoFormulario() {
