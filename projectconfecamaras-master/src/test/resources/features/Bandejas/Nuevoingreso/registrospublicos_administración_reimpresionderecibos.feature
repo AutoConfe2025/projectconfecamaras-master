@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @administracion_ReimpresiondeRecibos
+  @administracion_ReimpresiondeRecibos  @SII4
   Escenario: Registros Públicos - Administración - Reimpresión de Recibos
     Y ingreso al sistema SII3 como admin16
     Cuando query para traer datos numOperacion numRecibo

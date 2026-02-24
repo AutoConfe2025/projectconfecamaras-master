@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @ImportarPagoBancosExcel
+  @ImportarPagoBancosExcel @SII4
   Escenario:  Registros Públicos - Estadísticas y Extracciones -  Importar pago bancos excel
     Y ingreso al sistema SII3 como admin20
     Cuando Buscamos por el boton principal de busqueda la bandeja Importar pago en bancos Renovación (excel)

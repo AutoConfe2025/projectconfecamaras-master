@@ -5,7 +5,7 @@ Característica: revision de flujo de consulta de registros publicos expediente 
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoFlujoExpedienteGrafico
+  @ValidoFlujoExpedienteGrafico @SII4
   Escenario: valido el flujo de expediente grafico
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Expediente gráfico"

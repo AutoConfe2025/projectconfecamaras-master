@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @MaestroDeTramitesSinCosto
+  @MaestroDeTramitesSinCosto @SII4
   Escenario: Maestro de trámites sin costo
     Y ingreso al sistema SII3 como admin16
     Cuando Buscamos por el boton principal de busqueda la bandeja Maestro de trámites sin costo

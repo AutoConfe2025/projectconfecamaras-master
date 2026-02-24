@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @Administraciónzonasycomunas
+  @Administraciónzonasycomunas @SII4
   Escenario: Registros Públicos - Administración - zonas y comunas
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Zonas y comunas

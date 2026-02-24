@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @ResumidodeImpuestodeRegistro
+  @ResumidodeImpuestodeRegistro @SII4
   Escenario:  Registros Públicos - Gestión de caja -  Resumido de Impuesto de Registro
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Resumido de Impuesto de Registro

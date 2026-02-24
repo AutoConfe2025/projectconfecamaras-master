@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @MenuExtracciones
+  @MenuExtracciones @SII4
   Escenario:  Registros Públicos - Estadísticas y Extracciones - Menú extracciones
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Menú extracciones
