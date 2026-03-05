@@ -8,9 +8,11 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.Certificados.Demas.PagoUsuarioPublicoNoPresencial.*;
 import static com.co.confecamaras.userinterfaces.ServiciosVirtuales.PagarElectronicamentePage.BTN_PSE;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 
 public class PagoUsuarioPublicoNoPresencial implements Interaction {
@@ -22,20 +24,20 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
         if(actor.asksFor(ElementoElegible.para(BOTON_CONTINUAR))){
             actor.attemptsTo(
                     Click.on(BOTON_CONTINUAR),
-                    WaitSeconds.seconds(1)
+                    WaitSeconds.seconds(10)
             );
 
         } else {
             actor.attemptsTo(
                     Switch.toNewWindow(),
                     Click.on(BOTON_CONTINUAR),
-                    WaitSeconds.seconds(1)
+                    WaitSeconds.seconds(10)
             );
         }
 
         if(actor.asksFor(ElementoElegible.para(BOTON_CERRAR))){
             actor.attemptsTo(
-                    WaitInteractions.untilBeEnable(BOTON_CERRAR),
+                    WaitUntil.the(BOTON_CERRAR,isPresent()).forNoMoreThan(10).seconds(),
                     Click.on(BOTON_CERRAR)
             );
         }
@@ -81,7 +83,7 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
                 Click.on(MENU_DESPLE_PAIS),
                 Enter.theValue("COLOMBIA").into(TXT_PAIS),
                 Click.on(BTN_COLOMBIA),
-                WaitSeconds.seconds(1),
+                WaitSeconds.seconds(10),
                 Click.on(MENU_DESPLEGABLE_CIUDAD),
                 Enter.theValue("Bogo").into(TXT_CIUDAD),
                 Click.on(BTN_BOGOTA),

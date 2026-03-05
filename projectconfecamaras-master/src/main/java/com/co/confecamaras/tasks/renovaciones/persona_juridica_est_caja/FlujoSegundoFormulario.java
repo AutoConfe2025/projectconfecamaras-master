@@ -27,9 +27,16 @@ public class FlujoSegundoFormulario implements Task {
                 Scroll.to(BOTON_ALAMCENAR),
                 Click.on(BOTON_ALAMCENAR),
                 WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
-                Click.on(BOTON_MENSAJE_INFORMACION),
-                WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
-                Click.on(BOTON_MENSAJE_INFORMACION),
+                Click.on(BOTON_MENSAJE_INFORMACION));
+
+        if (BOTON_MENSAJE_INFORMACION.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
+                    Click.on(BOTON_MENSAJE_INFORMACION)
+            );
+        }
+
+        actor.attemptsTo(
                 WaitUntil.the(BOTON_PRIMER_PDF, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(BOTON_PRIMER_PDF),
                 WaitUntil.the(CUADRO_GENERADO_PDF, isPresent()).forNoMoreThan(20).seconds(),
@@ -45,13 +52,12 @@ public class FlujoSegundoFormulario implements Task {
                 WaitUntil.the(BOTON_RECIBIR_PAGO_1, isPresent()).forNoMoreThan(10).seconds(),
                 Scroll.to(BOTON_RECIBIR_PAGO_1),
                 Click.on(BOTON_RECIBIR_PAGO_1),
-                ClickIfPresent.on(BOTON_ACEPTAR_ALERTA),
                 SwitchToNewWindow.switchToNewTab(),
                 SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO)
         );
     }
 
-    public static FlujoSegundoFormulario SegundoFLujoFormulario(){
+    public static FlujoSegundoFormulario SegundoFLujoFormulario() {
         return new FlujoSegundoFormulario();
     }
 }

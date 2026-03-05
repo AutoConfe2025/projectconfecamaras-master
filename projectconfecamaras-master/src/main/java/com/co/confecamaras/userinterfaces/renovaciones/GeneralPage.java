@@ -34,6 +34,8 @@ public class GeneralPage {
     public static final Target CAMPO_NUEVO_VALOR_ESTABLECIMIENTO = Target.the("campo nuevo valor establecimiento")
             .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[2]");
 
+    public static final Target CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO = Target.the("checkbox seleccionar segundo tramite")
+            .locatedBy("(//input[@class='form-check-input checkrenovacion'])[2]");
     public static final Target BOTON_CONTINUAR_RENOVACION_1 = Target.the("boton continuar renovacion despues de valor")
             .locatedBy("//button[@class='btn btn-primary ml-2 mr-2']");
 }

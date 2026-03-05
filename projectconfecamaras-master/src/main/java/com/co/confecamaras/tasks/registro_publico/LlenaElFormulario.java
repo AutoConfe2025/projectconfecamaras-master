@@ -1,16 +1,23 @@
 package com.co.confecamaras.tasks.registro_publico;
 
+import com.co.confecamaras.interactions.SwitchToNewWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.registros_publicos.page.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class LlenaElFormulario implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                SwitchToNewWindow.switchToNewTab(),
+                WaitUntil.the(BOTON_NUEVO_SERVICIO,isPresent()).forNoMoreThan(40).seconds(),
+                Scroll.to(BOTON_NUEVO_SERVICIO),
                 Click.on(BOTON_NUEVO_SERVICIO),
                 Click.on(CAMPO_INPUT_GEN),
                 Enter.theValue("0").into(CAMPO_INPUT_GEN),

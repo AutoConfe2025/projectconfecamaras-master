@@ -109,6 +109,17 @@ public class FlujoPnEstCajaPage {
 
     //CAMPOS DE RECIBIR PAGO
 
+    public static final Target CAMPO_NOMBRE_RECIBO = Target.the("campo de nombre en el recibo")
+            .locatedBy("//input[@id='_nombre1cliente']");
+
+    public static final Target CAMPO_SEGUNDO_NOMBRE_RECIBO = Target.the("campo de nombre en el recibo")
+            .locatedBy("//input[@id='_nombre2cliente']");
+
+    public static final Target CAMPO_PRIMER_APELLIDO_RECIBO = Target.the("campo de primer apellido en el recibo")
+            .locatedBy("//input[@id='_apellido1cliente']");
+
+    public static final Target CAMPO_SEGUNDO_APELLIDO_RECIBO = Target.the("campo de segundo apellido en el recibo")
+            .locatedBy("//input[@id='_apellido2cliente']");
     public static final Target CAMPO_IDENTIFICACION = Target.the("campo de identificacion verificar identificacion")
             .locatedBy("//input[@id='_identificacioncliente']");
 
