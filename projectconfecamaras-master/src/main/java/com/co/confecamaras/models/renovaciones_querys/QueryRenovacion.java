@@ -64,7 +64,32 @@ public enum QueryRenovacion {
           AND i.ciiu1 <> 'A0111'
           AND i.acttot < 10000000000
         LIMIT 1
+        """),
+
+    SUC_CAJA("""
+        SELECT i.matricula
+        FROM sii_manizales.mreg_est_inscritos i
+        WHERE i.matricula <> ''
+          AND i.ultanoren = '2025'
+          AND i.organizacion = '03'
+          AND i.categoria = '2'
+          AND i.ctrestmatricula = 'MA'
+          AND i.actcte < 200000000
+        LIMIT 1
+        """),
+
+    AGE_CAJA("""
+        SELECT i.matricula
+        FROM sii_manizales.mreg_est_inscritos i
+        WHERE i.matricula <> ''
+          AND i.ultanoren = '2025'
+          AND i.organizacion = '03'
+          AND i.categoria = '3'
+          AND i.ctrestmatricula = 'MA'
+          AND i.actcte < 99000000
+        LIMIT 1
         """);
+
 
     private final String sql;
 

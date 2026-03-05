@@ -67,4 +67,10 @@ public class login {
         withCurrentActor(loginModelo.enConfecamaras(usuario));
     }
 
+    @And("ingreso al sistema SII3 como usuario publico externo")
+    public void ingresoAlSistemaSII3ComoUsuarioAPublicoExterno(){
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioPublicoExterno1();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
+
 }

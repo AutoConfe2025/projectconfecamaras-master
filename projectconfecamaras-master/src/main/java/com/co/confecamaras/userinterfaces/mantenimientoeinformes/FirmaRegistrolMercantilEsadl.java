@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.targets.Target;
 public class FirmaRegistrolMercantilEsadl {
 
     public static final Target BOTON_FIRMAR_INSCRIPCION = Target.the("boton de firmar inscripcion")
-            .locatedBy("//*[@id=\"tableinsfir\"]/tbody/tr[1]/td[10]/p/small/a[3]");
+            .locatedBy("(//a[@data-original-title='Firmar'])[1]");
 
     public static final Target CLAVE_FIRMADO = Target.the("clave de firmado")
             .locatedBy("//*[@id=\"formMregFirmaInscripciones\"]/div/div[7]/div/div[5]/div/h4");

@@ -85,4 +85,13 @@ public class UsuarioPublicoModel {
                 .contrasena("2837279")
                 .build();
     }
+
+    public static UsuarioPublicoModel usuarioPublicoExterno1() {
+        return UsuarioPublicoModel.builder()
+                .camara("20")
+                .usuario("analistaqa@confecamaras.org.co")
+                .identificacion("1026265083")
+                .contrasena("mqVC9(d54Qy@")
+                .build();
+    }
 }

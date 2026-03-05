@@ -1,5 +1,7 @@
-package com.co.confecamaras.tasks.renovaciones.persona_juridica_est_caja;
+package com.co.confecamaras.tasks.renovaciones.renovacion_persona_juridica_publico;
 
+import com.co.confecamaras.interactions.SwitchToNewWindow;
+import com.co.confecamaras.interactions.WaitInterrupted5Segundos;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -11,15 +13,17 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPjEstCajaPage.*;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.*;
+import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.BOTON_RECIBIR_PAGO_1;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
-public class FlujoPrimerFormulario implements Task {
+public class PrimerFormularioPublico implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(BOTON_FORMULARIO_1, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_FORMULARIO_1),
-                WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(10).seconds(),
+                WaitInterrupted5Segundos.esperaConstante5(),
+                WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(40).seconds(),
                 Scroll.to(LISTA_SELECION_AUTORIZACIONES),
                 SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES)
         );
@@ -57,17 +61,9 @@ public class FlujoPrimerFormulario implements Task {
                 WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(BOTON_MENSAJE_INFORMACION)
         );
-
-        if (BOTON_MENSAJE_INFORMACION.isVisibleFor(actor)) {
-            actor.attemptsTo(
-                    WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
-                    Click.on(BOTON_MENSAJE_INFORMACION)
-            );
-        }
-
     }
 
-    public static FlujoPrimerFormulario FormularioUnoPJ() {
-        return new FlujoPrimerFormulario();
+    public static PrimerFormularioPublico primerFormularioP() {
+        return new PrimerFormularioPublico();
     }
 }

@@ -56,10 +56,16 @@ public class PrimerFormulario implements Task {
                 SelectFromOptions.byValue("N").from(LISTA_ETNIA_DIRECTIVOS),
                 Scroll.to(BOTON_ALAMCENAR),
                 Click.on(BOTON_ALAMCENAR),
-                WaitUntil.the(BOTON_MENSAJE_INFORMACION,isPresent()).forNoMoreThan(20).seconds(),
-                Click.on(BOTON_MENSAJE_INFORMACION),
-                WaitUntil.the(BOTON_MENSAJE_INFORMACION,isPresent()).forNoMoreThan(20).seconds(),
-                Click.on(BOTON_MENSAJE_INFORMACION),
+                WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
+                Click.on(BOTON_MENSAJE_INFORMACION));
+
+        if (BOTON_MENSAJE_INFORMACION.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
+                    Click.on(BOTON_MENSAJE_INFORMACION)
+            );
+        }
+        actor.attemptsTo(
                 WaitUntil.the(BOTON_PRIMER_PDF, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(BOTON_PRIMER_PDF),
                 WaitUntil.the(CUADRO_GENERADO_PDF, isPresent()).forNoMoreThan(20).seconds(),
@@ -74,7 +80,7 @@ public class PrimerFormulario implements Task {
         );
     }
 
-    public static PrimerFormulario PrimerFormularioSinEstablecimiento(){
+    public static PrimerFormulario PrimerFormularioSinEstablecimiento() {
         return new PrimerFormulario();
     }
 }

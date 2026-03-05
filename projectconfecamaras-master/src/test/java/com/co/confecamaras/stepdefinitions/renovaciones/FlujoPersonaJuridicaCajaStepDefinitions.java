@@ -5,6 +5,7 @@ import com.co.confecamaras.tasks.nuevas_conexiones.RunDataBaseQueryRenovacionPnE
 import com.co.confecamaras.tasks.renovaciones.FlujoHastaValoresSinEstablecimiento;
 import com.co.confecamaras.tasks.renovaciones.persona_juridica_caja.PrimerFormulario;
 import com.co.confecamaras.tasks.renovaciones.persona_natural_establecimiento_caja.RecibirPago;
+import com.co.confecamaras.tasks.renovaciones.renovacion_persona_juridica_publico.RenovacionPersonaJuridicaPublico;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -16,7 +17,7 @@ public class FlujoPersonaJuridicaCajaStepDefinitions {
     public void realizoElFlujoDeValoresSinEstablecimiento(String valor, String query){
         QueryRenovacion queryEnum = QueryRenovacion.from(query);
         theActorInTheSpotlight().attemptsTo(RunDataBaseQueryRenovacionPnEstablecimiento.query(queryEnum.getSql()));
-        theActorInTheSpotlight().attemptsTo(FlujoHastaValoresSinEstablecimiento.FlujoSinEstablecimiento(valor));
+        theActorInTheSpotlight().attemptsTo(RenovacionPersonaJuridicaPublico.renovacionPJPublico(valor));
     }
 
     @Then("realizo el flujo de renovacion persona juridica caja")

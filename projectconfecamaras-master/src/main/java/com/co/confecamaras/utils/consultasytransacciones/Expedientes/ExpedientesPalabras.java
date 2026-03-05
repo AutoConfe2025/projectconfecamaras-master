@@ -12,7 +12,7 @@ public class ExpedientesPalabras {
     public static final String ADAPTACION_NUEVO_FORMATO2 = "En revisión";
 
     public static final String DIRECCION = "CALLE 20 12 71";
-    public static final String BARRIO2 = "00022 - ALTO TABLAZO";
+    public static final String BARRIO2 = "00089 - CENTRO";
 
     public static final String MUNICIPIO = "RIOSUCIO";
     public static final String MUNICIPIO2 = "MANIZALES";
@@ -28,6 +28,6 @@ public class ExpedientesPalabras {
     public static final String ANIO_DATOS2 = "2026";
     public static final String FECHA_DATOS = "2023-03-06";
     public static final String FECHA_DATOS2 = "2023-03-06";
-    public static final String PERSONAL_OCUPADO2 = "1";
+    public static final String PERSONAL_OCUPADO2 = "0";
     public static final String VALOR_COMERCIAL = "20,000,000";
 }
