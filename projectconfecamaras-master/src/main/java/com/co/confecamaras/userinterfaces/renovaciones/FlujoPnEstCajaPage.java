@@ -14,6 +14,9 @@ public class FlujoPnEstCajaPage {
     public static final Target CAMPO_VALOR_ACTIVO_TOTAL = Target.the("campo donde se encuentra el valor del activo")
             .locatedBy("//input[@id='acttot_2026']");
 
+    public static final Target CAMPO_VALOR_COMERCIAL_VINCULADOS = Target.the("campo valor comercial activos vinculados")
+            .locatedBy("//input[@id='actvin_2026']");
+
     public static final Target CAMPO_ACTIVO_CORRIENTE = Target.the("campo de activo corriente")
             .locatedBy("//input[@id='actcte_2026']");
 
@@ -106,6 +109,17 @@ public class FlujoPnEstCajaPage {
 
     //CAMPOS DE RECIBIR PAGO
 
+    public static final Target CAMPO_NOMBRE_RECIBO = Target.the("campo de nombre en el recibo")
+            .locatedBy("//input[@id='_nombre1cliente']");
+
+    public static final Target CAMPO_SEGUNDO_NOMBRE_RECIBO = Target.the("campo de nombre en el recibo")
+            .locatedBy("//input[@id='_nombre2cliente']");
+
+    public static final Target CAMPO_PRIMER_APELLIDO_RECIBO = Target.the("campo de primer apellido en el recibo")
+            .locatedBy("//input[@id='_apellido1cliente']");
+
+    public static final Target CAMPO_SEGUNDO_APELLIDO_RECIBO = Target.the("campo de segundo apellido en el recibo")
+            .locatedBy("//input[@id='_apellido2cliente']");
     public static final Target CAMPO_IDENTIFICACION = Target.the("campo de identificacion verificar identificacion")
             .locatedBy("//input[@id='_identificacioncliente']");
 
@@ -150,6 +164,9 @@ public class FlujoPnEstCajaPage {
 
     public static final Target BOTON_RECIBIR_PAGO_1 = Target.the("boton para recibir el pago")
             .locatedBy("//button[@id='botones_ren1']");
+
+    public static final Target BOTON_RECIBIR_PAGO_TEXTO = Target.the("boton para recibir el pago por texto")
+            .locatedBy("//button[contains(.,'Pago Electrónico')]");
 
     public static final Target ALERTA_CAJERO = Target.the("alerta del cajero")
             .locatedBy("//div[@id='modal_body']");

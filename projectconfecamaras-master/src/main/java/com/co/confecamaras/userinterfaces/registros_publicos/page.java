@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class page {
     public static final Target BOTON_NUEVO_SERVICIO = Target.the("boton de agregar un nuevo servicio")
-            .locatedBy("//button[@class='btn btn-primary mb-2 add_servicio']");
+            .locatedBy("//a[.//button[contains(text(),'Nuevo')]]");
 
     public static final Target CAMPO_INPUT_GEN = Target.the("campo de servicio")
             .locatedBy("(//input[@class='form-control p-inputtext p-component'])[1]");

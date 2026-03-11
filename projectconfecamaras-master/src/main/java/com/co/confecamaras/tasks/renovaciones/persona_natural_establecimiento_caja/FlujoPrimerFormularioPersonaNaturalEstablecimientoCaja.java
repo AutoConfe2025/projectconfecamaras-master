@@ -59,14 +59,19 @@ public class FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja implements T
                 Enter.theValue("QA").into(CAMPO_CUAL),
                 Scroll.to(BOTON_ALAMCENAR),
                 Click.on(BOTON_ALAMCENAR),
-                WaitUntil.the(BOTON_MENSAJE_INFORMACION,isPresent()).forNoMoreThan(20).seconds(),
-                Click.on(BOTON_MENSAJE_INFORMACION),
-                WaitUntil.the(BOTON_MENSAJE_INFORMACION,isPresent()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(BOTON_MENSAJE_INFORMACION)
         );
+
+        if (BOTON_MENSAJE_INFORMACION.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
+                    Click.on(BOTON_MENSAJE_INFORMACION)
+            );
+        }
     }
 
-    public static FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja FlujoNaturalCaja(){
+    public static FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja FlujoNaturalCaja() {
         return new FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja();
     }
 }

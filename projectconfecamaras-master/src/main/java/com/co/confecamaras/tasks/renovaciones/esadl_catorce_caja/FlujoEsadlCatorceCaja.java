@@ -1,6 +1,5 @@
-package com.co.confecamaras.tasks.renovaciones.Esadl_catorce_caja;
+package com.co.confecamaras.tasks.renovaciones.esadl_catorce_caja;
 
-import com.co.confecamaras.interactions.ClickIfPresent;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
