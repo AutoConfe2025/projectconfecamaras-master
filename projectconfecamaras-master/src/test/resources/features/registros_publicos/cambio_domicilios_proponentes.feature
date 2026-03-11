@@ -5,7 +5,7 @@ Característica: revision de proceso cambio de domicilio de proponentes
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @CambioDomicilioProponente
+  @CambioDomicilioProponente @SII4
   Escenario: valido el flujo de cambio de domicilio de proponentes
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Cambio domicilio proponentes"

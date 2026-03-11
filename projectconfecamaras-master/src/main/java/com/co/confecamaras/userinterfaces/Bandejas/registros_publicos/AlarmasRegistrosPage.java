@@ -8,5 +8,7 @@ public class AlarmasRegistrosPage {
             locatedBy("//div[@id='frameSecundarioCentral']/center/table//div");
 
     public static final Target BTN_SINCRONIZAR = Target.the("verifica si hay alarmas").
-            locatedBy("//span[normalize-space()='\"Sincronizar Alarmas\"']");
+            locatedBy("//img[contains(@src, 'btnSincronizarAlarmas.png')]");
+
+
 }

@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @DetalladoDePagosPorSII
+  @DetalladoDePagosPorSII @SII4
   Escenario:  Registros Públicos - Estadísticas y Extracciones -  Detallado de Pagos por SII
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja Detallado de Pagos por SII

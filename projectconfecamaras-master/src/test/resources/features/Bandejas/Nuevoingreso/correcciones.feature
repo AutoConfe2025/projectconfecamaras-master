@@ -7,7 +7,7 @@ Característica: Validar Correcciones
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @Correcciones
+  @Correcciones @SII4
   Escenario: correcciones
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Correcciones
