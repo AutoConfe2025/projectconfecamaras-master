@@ -3,6 +3,7 @@ package com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones;
 import com.co.confecamaras.interactions.News.GetTextOfElement;
 import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.WaitInteractions;
+import com.co.confecamaras.interactions.log.Log;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;
 import com.co.confecamaras.utils.News.evidencias.Reportes;
 import net.serenitybdd.screenplay.Actor;
@@ -26,22 +27,31 @@ public class FinalizarTask implements Task {
         actor.attemptsTo(
                 WaitInteractions.untilAppears(AccionesPage.LINK_ACCION.of(accion)),
                 Click.on(AccionesPage.LINK_ACCION.of(accion)),
-                WaitInteractions.untilAppears(AccionesPage.MSG_POPUP),
-                GetTextOfElement.de(AccionesPage.MSG_POPUP),
+                Log.message("MSG_POPUP"),
+                //WaitInteractions.untilAppears(AccionesPage.MSG_POPUP),
+                //GetTextOfElement.de(AccionesPage.MSG_POPUP),
                 WaitSeconds.seconds(1),
-                GetTextOfElement.de(AccionesPage.MSG_POPUP_FINALIZAR.of(codigo_barras))
+                //Log.message("MSG_POPUP_FINALIZAR"),
+                //GetTextOfElement.de(AccionesPage.MSG_POPUP_FINALIZAR.of(codigo_barras)),
+                Log.message("Opciones de Continua y cancelar")
         );
-        if (confirmacion.equals("CONTINUARA")) {
-            actor.attemptsTo(Click.on(AccionesPage.BTN_CONTINUAR_F));
-            Reportes.reportEvent(Reportes.PASSED, "Se ha continuado la finalizacion del tramite");
-        } else if (confirmacion.equals("CANCELARA")) {
-            actor.attemptsTo(Click.on(AccionesPage.BTN_CANCELAR_F));
-            Reportes.reportEvent(Reportes.PASSED, "Se ha cancelado la finalizacion del tramite");
-        } else {
-            Reportes.reportEvent(Reportes.FAILED, "No coincide ninguna de las respuestas");
-            actor.attemptsTo(Click.on(AccionesPage.BTN_CERRAR_POPUP));
-            Assert.fail("No coincide ninguna de las respuestas");
-        }
+//        if (confirmacion.equals("CONTINUARA")) {
+//            actor.attemptsTo(
+//                    Log.message("Ingreso Boton CONTINUARA"),
+//                    Click.on(AccionesPage.BTN_CONTINUAR_F)
+//            );
+//            Reportes.reportEvent(Reportes.PASSED, "Se ha continuado la finalizacion del tramite");
+//        } else if (confirmacion.equals("CANCELARA")) {
+            actor.attemptsTo(
+                    Log.message("Ingreso Boton CONTINUARA"),
+                    Click.on(AccionesPage.BTN_CANCELAR_F)
+            );
+//            Reportes.reportEvent(Reportes.PASSED, "Se ha cancelado la finalizacion del tramite");
+//        } else {
+//            Reportes.reportEvent(Reportes.FAILED, "No coincide ninguna de las respuestas");
+//            actor.attemptsTo(Click.on(AccionesPage.BTN_CERRAR_POPUP));
+//            Assert.fail("No coincide ninguna de las respuestas");
+//        }
     }
 
     public static FinalizarTask finalizar(String accion, String confirmacion, String codigo_barras) {

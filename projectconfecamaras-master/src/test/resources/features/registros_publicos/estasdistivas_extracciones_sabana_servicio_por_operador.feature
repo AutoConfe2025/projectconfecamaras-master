@@ -5,7 +5,7 @@ Característica: revision de flujo de estadisticas y extracciones saba de servic
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidoFlujoEstadisticasExtraccionesSabanaServicioPorOperador
+  @ValidoFlujoEstadisticasExtraccionesSabanaServicioPorOperador @SII4
   Escenario: valido el flujo de estadisticas y extracciones saba de servicios por operador
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Sábana de servicios por operador"

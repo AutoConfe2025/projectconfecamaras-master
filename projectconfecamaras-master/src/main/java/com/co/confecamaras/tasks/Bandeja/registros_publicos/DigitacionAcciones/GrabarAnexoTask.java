@@ -2,6 +2,7 @@ package com.co.confecamaras.tasks.Bandeja.registros_publicos.DigitacionAcciones;
 
 import com.co.confecamaras.interactions.News.CloseCurrentWindowAndSwitchBackHome;
 import com.co.confecamaras.interactions.News.RefreshPage;
+import com.co.confecamaras.interactions.log.Log;
 import com.co.confecamaras.questions.Elementos.ElementoElegible;
 import com.co.confecamaras.tasks.Consulta.ConsultaGrillaTask;
 import com.co.confecamaras.tasks.Consulta.ConsultaModuloTask;
@@ -26,6 +27,7 @@ public class GrabarAnexoTask implements Task {
     public <T extends Actor> void performAs(T actor) {
         if(actor.asksFor(ElementoElegible.para(DigitacionPage.LINK_GRAB_ANEXO))){
             actor.attemptsTo(
+                    Log.message("Ingreso IF LINK_GRAB_ANEXO"),
                     Click.on(DigitacionPage.LINK_GRAB_ANEXO),
                     Click.on(DigitacionPage.BTN_GRABAR),
                     CloseCurrentWindowAndSwitchBackHome.closeAndSwitchBackHome(),

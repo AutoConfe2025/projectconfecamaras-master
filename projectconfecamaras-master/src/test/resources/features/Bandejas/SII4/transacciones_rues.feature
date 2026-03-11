@@ -6,7 +6,7 @@ Característica: Validar que permita la revision
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @Transacciones_Rues
+  @Transacciones_Rues @SII4
   Escenario: Transacciones Rues
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Transacciones RUES

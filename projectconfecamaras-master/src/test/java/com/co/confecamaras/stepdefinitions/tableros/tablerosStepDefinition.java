@@ -33,10 +33,10 @@ public class tablerosStepDefinition {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasHomePage());
     }
 
-    @Cuando("ingrese al sistema SII3 como usuario publico")
-    public void ingreseAlSistemaSII3ComoUsuarioPublico(Map<String, String> data) {
-        withCurrentActor(LoginUsuarioPublico.enConfecamaras(data));
-    }
+//    @Cuando("ingrese al sistema SII3 como usuario publico")
+//    public void ingreseAlSistemaSII3ComoUsuarioPublico(Map<String, String> data) {
+//        withCurrentActor(LoginUsuarioPublico.enConfecamaras(data));
+//    }
 
     @Cuando("busque los tableros de gestion")
     public void busqueLosTablerosDeGestion() {
@@ -67,16 +67,4 @@ public class tablerosStepDefinition {
     public void podraVerElTableroComparativoIngresoPorGrupoDeIngreso() {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(TituloTableroCinco.esIgual(), Matchers.is(TablerosTitulos.TEXTO_COMPARATIVO_GRUPO_INGRESO)));
     }
-
-    //IsaacGomez - se implemento para que realice la busqueda de un modulo
-    @Y("^consultara (.+) que abrira una nueva ventana$")
-    public void consultaraModuloQueAbriraUnaNuevaVentana(String modulo) {
-        theActorInTheSpotlight().attemptsTo(ConsultaModuloTask.consultarModulo(modulo));
-    }
-    //IsaacGomez - se implemento para que realice el ingreso al navegador y a confecamaras
-    @Dado("^el (.+) requiere ver la informacion en Confecamaras$")
-    public void usuarioRequiereVerLaInformacionEnConfecamaras(String actor) {
-        theActorCalled(actor).attemptsTo(NavigateTo.confecamarasHomePage());
-    }
-
 }

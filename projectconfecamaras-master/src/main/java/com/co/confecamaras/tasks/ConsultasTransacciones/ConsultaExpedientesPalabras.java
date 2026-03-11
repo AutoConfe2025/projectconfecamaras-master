@@ -22,7 +22,7 @@ import org.openqa.selenium.WebDriver;
 import static com.co.confecamaras.userinterfaces.consultasytransacciones.Expediente.*;
 import static com.co.confecamaras.utils.consultasytransacciones.ConsultarExpedienteConstants.PALABRA;
 
-public class ConsultaExpedientesPalabras implements Task {
+public class  ConsultaExpedientesPalabras implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
 
