@@ -16,6 +16,9 @@ public class LoginUsuarioPublico extends PageObject {
             located(By.id("identificacion"));
     public static Target TXT_CLAVE = Target.the("Ingresar en el cuadro de texto la clave").
             located(By.id("pass"));
+
+    public static Target BOTON_CERRAR_MENSAJE_EXTERNO_MATRICULA = Target.the("boton de cerrar mensaje cuando se ingresa con url y matricula")
+            .locatedBy("//button[contains(text(), 'Cerrar')]");
     public static Target BTN_INGRESAR = Target.the("Seleccionar el Boton Ingresar").
             located(By.xpath("//button[normalize-space()='Ingresar']"));
 }

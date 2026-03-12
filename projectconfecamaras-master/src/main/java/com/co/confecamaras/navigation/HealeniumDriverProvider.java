@@ -15,10 +15,6 @@ public class HealeniumDriverProvider implements DriverSource {
 
         ChromeOptions options = new ChromeOptions();
 
-        if ("true".equalsIgnoreCase(System.getenv("CI"))) {
-            options.addArguments("--headless=new");
-        }
-
         options.addArguments("--start-maximized");
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
@@ -26,16 +22,11 @@ public class HealeniumDriverProvider implements DriverSource {
 
         WebDriver baseDriver = new ChromeDriver(options);
 
-        boolean healeniumEnabled = Boolean.parseBoolean(
-                System.getenv().getOrDefault("HEALENIUM_ENABLED", "true")
-        );
-
-        if (!healeniumEnabled) {
-            return baseDriver;
-        }
-
         Config config = ConfigFactory.load("healenium.properties");
-        return SelfHealingDriver.create(baseDriver, config);
+
+        WebDriver healingDriver = SelfHealingDriver.create(baseDriver, config);
+
+        return healingDriver;
     }
 
     @Override

@@ -37,7 +37,7 @@ ext {
 dependencies {
     implementation "com.mysql:mysql-connector-j:${mySql}"
 
-    // SERENITY 4.x
+    // SERENITY
     implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-junit:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
@@ -46,6 +46,8 @@ dependencies {
     implementation "net.serenity-bdd:serenity-screenplay-rest:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-model:${serenityVersion}"
+
+    implementation "io.cucumber:cucumber-junit:7.15.0"
 
     // HEALENIUM
     implementation 'com.epam.healenium:healenium-web:3.5.6'
