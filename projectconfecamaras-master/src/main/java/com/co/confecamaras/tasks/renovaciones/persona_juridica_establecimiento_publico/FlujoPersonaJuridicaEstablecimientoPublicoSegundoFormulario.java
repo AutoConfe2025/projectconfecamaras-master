@@ -1,6 +1,5 @@
-package com.co.confecamaras.tasks.renovaciones.persona_juridica_est_caja;
+package com.co.confecamaras.tasks.renovaciones.persona_juridica_establecimiento_publico;
 
-import com.co.confecamaras.interactions.ClickIfPresent;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -13,7 +12,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
-public class FlujoSegundoFormulario implements Task {
+public class FlujoPersonaJuridicaEstablecimientoPublicoSegundoFormulario implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -48,16 +47,11 @@ public class FlujoSegundoFormulario implements Task {
                 Click.on(BOTON_SEGUNDO_PDF),
                 WaitUntil.the(CUADRO_GENERADO_PDF, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(CUADRO_GENERADO_PDF),
-                Click.on(BOTON_CERRAR_PDF),
-                WaitUntil.the(BOTON_RECIBIR_PAGO_1, isPresent()).forNoMoreThan(10).seconds(),
-                Scroll.to(BOTON_RECIBIR_PAGO_1),
-                Click.on(BOTON_RECIBIR_PAGO_1),
-                SwitchToNewWindow.switchToNewTab(),
-                SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO)
+                Click.on(BOTON_CERRAR_PDF)
         );
     }
 
-    public static FlujoSegundoFormulario SegundoFLujoFormulario() {
-        return new FlujoSegundoFormulario();
+    public static FlujoPersonaJuridicaEstablecimientoPublicoSegundoFormulario segundoFormulario(){
+        return new FlujoPersonaJuridicaEstablecimientoPublicoSegundoFormulario();
     }
 }

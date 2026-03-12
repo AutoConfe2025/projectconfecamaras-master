@@ -11,6 +11,12 @@ public class FlujoPnEstCajaPage {
     public static final Target LISTA_SELECION_AUTORIZACIONES = Target.the("lista de seleccion de autorizaciones")
             .locatedBy("//select[@id='ctrmennot']");
 
+    public static final Target LISTA_SELECION_TIPO_DE_LOCAL = Target.the("lista de seleccion de autorizaciones")
+            .locatedBy("//select[@id='tipolocal']");
+
+    public static final Target LISTA_SELECION_TIPO_DE_LOCAL_NO_PROPIO = Target.the("lista de seleccion de autorizaciones")
+            .locatedBy("(//option[@value='0'])[2]");
+
     public static final Target CAMPO_VALOR_ACTIVO_TOTAL = Target.the("campo donde se encuentra el valor del activo")
             .locatedBy("//input[@id='acttot_2026']");
 

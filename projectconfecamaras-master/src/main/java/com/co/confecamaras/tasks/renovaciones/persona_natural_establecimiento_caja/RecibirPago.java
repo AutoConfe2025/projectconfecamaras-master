@@ -61,6 +61,7 @@ public class RecibirPago implements Task {
                 Click.on(BOTON_CONTINUAR_GENERAR_RECIBO),
                 WaitUntil.the(TEXTO_RESUMEN_TRANSACCION, isPresent()).forNoMoreThan(120).seconds(),
                 CloseSecondTab.now(),
+
                 WaitUntil.the(OPCION_SERVICIOS, isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(OPCION_SERVICIOS),
                 WaitUntil.the(OPCION_SOPORTES, isPresent()).forNoMoreThan(10).seconds(),

@@ -33,16 +33,11 @@ public class FormularioAgeCaja implements Task {
                 Click.on(BOTON_PRIMER_PDF),
                 WaitUntil.the(CUADRO_GENERADO_PDF, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(CUADRO_GENERADO_PDF),
-                Click.on(BOTON_CERRAR_PDF),
-                WaitUntil.the(BOTON_RECIBIR_PAGO_1, isPresent()).forNoMoreThan(10).seconds(),
-                Scroll.to(BOTON_RECIBIR_PAGO_1),
-                Click.on(BOTON_RECIBIR_PAGO_1),
-                SwitchToNewWindow.switchToNewTab(),
-                SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO)
+                Click.on(BOTON_CERRAR_PDF)
         );
     }
 
-    public static FormularioAgeCaja renovacionAgeCaja(){
+    public static FormularioAgeCaja renovacionAgeCaja() {
         return new FormularioAgeCaja();
     }
 }
