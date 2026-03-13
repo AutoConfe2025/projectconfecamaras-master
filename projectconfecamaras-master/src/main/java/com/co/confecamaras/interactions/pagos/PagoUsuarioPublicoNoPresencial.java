@@ -21,7 +21,7 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
 
     public <T extends Actor> void performAs(T actor) {
 
-        if(actor.asksFor(ElementoElegible.para(BOTON_CONTINUAR))){
+        if (actor.asksFor(ElementoElegible.para(BOTON_CONTINUAR))) {
             actor.attemptsTo(
                     Click.on(BOTON_CONTINUAR),
                     WaitSeconds.seconds(10)
@@ -35,9 +35,9 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
             );
         }
 
-        if(actor.asksFor(ElementoElegible.para(BOTON_CERRAR))){
+        if (actor.asksFor(ElementoElegible.para(BOTON_CERRAR))) {
             actor.attemptsTo(
-                    WaitUntil.the(BOTON_CERRAR,isPresent()).forNoMoreThan(10).seconds(),
+                    WaitUntil.the(BOTON_CERRAR, isPresent()).forNoMoreThan(10).seconds(),
                     Click.on(BOTON_CERRAR)
             );
         }
@@ -53,7 +53,7 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
                 WaitSeconds.seconds(2)
         );
 
-        if(actor.asksFor(ElementoElegible.para(BTN_OK_FALTA_INFORMACION))){
+        if (actor.asksFor(ElementoElegible.para(BTN_OK_FALTA_INFORMACION))) {
             actor.attemptsTo(
                     Click.on(BTN_OK_FALTA_INFORMACION),
                     Enter.theValue("1026265084").into(TXT_IDENTIFICACIO_CLIENTE),
@@ -64,11 +64,32 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
                     Enter.theValue("ALBERTO").into(TXT_SEGUNDO_NOMBRE),
                     Enter.theValue("CALLE 199 C # 18-37 QA").into(TXT_DIRECCION),
                     SelectFromOptions.byVisibleText("MANZANARES (CAL)").from(MENUDES_MUNICIPIO),
-                    Enter.theValue("6707475").into(TXT_TELEFONO_FIJO),
+                    Enter.theValue("6707475").into(TXT_TELEFONO_FIJO)
+            );
+
+            if (actor.asksFor(ElementoElegible.para(TXT_MOVIL))) {
+                actor.attemptsTo(
+                        Click.on(TXT_MOVIL),
+                        Clear.field(TXT_MOVIL),
+                        Click.on(TXT_MOVIL),
+                        Enter.theValue("3165376606").into(TXT_MOVIL)
+                );
+            }
+
+            if (actor.asksFor(ElementoElegible.para(TXT_CONFIRMACION_CORREO))) {
+                actor.attemptsTo(
+                        Click.on(TXT_CONFIRMACION_CORREO),
+                        Clear.field(TXT_CONFIRMACION_CORREO),
+                        Click.on(TXT_CONFIRMACION_CORREO),
+                        Enter.theValue("analistaqa@confecamaras.org.co").into(TXT_CONFIRMACION_CORREO)
+                );
+            }
+
+
+            actor.attemptsTo(
                     Click.on(BTN_PAGAR_PSE),
                     WaitSeconds.seconds(2)
             );
-
         }
 
         /************************TU COMPRA ************************************/
@@ -76,8 +97,19 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
         actor.attemptsTo(
                 WaitInteractions.untilAppears(MENU_DESPLE_TIPO_DOCUMENTO),
                 Click.on(MENU_DESPLE_TIPO_DOCUMENTO),
-                Click.on(MENU_DESPLE_CC),
-                Scroll.to(TXT_CELULAR_PAGO),
+                Click.on(MENU_DESPLE_CC)
+        );
+
+        if (TXT_TELEFONO_PAGO.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    Scroll.to(TXT_TELEFONO_PAGO),
+                    Clear.field(TXT_TELEFONO_PAGO),
+                    Enter.theValue("6707475").into(TXT_TELEFONO_PAGO),
+                    Scroll.to(TXT_CELULAR_PAGO)
+            );
+        }
+
+        actor.attemptsTo(
                 Enter.theValue("3165376606").into(TXT_CELULAR_PAGO),
                 Scroll.to(MENU_DESPLE_PAIS),
                 Click.on(MENU_DESPLE_PAIS),
@@ -103,7 +135,7 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
                 Switch.toDefaultContext()
         );
 
-        if(actor.asksFor(ElementoElegible.para(MENU_DESPLEGABLE_CUOTA))){
+        if (actor.asksFor(ElementoElegible.para(MENU_DESPLEGABLE_CUOTA))) {
             actor.attemptsTo(
                     WaitInteractions.untilBeEnable(MENU_DESPLEGABLE_CUOTA),
                     Click.on(MENU_DESPLEGABLE_CUOTA),
@@ -112,7 +144,7 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
                     WaitSeconds.seconds(7)
             );
 
-            if(actor.asksFor(ElementoElegible.para(BTN_FINALIZAR))){
+            if (actor.asksFor(ElementoElegible.para(BTN_FINALIZAR))) {
                 actor.attemptsTo(
                         WaitInteractions.untilBeEnable(BTN_FINALIZAR),
                         JavaScriptClick.on(BTN_FINALIZAR),
@@ -127,6 +159,8 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
                         WaitInteractions.untilAppears(MENU_DESPLE_TIPO_DOCUMENTO),
                         Click.on(MENU_DESPLE_TIPO_DOCUMENTO),
                         Click.on(MENU_DESPLE_CC),
+                        Scroll.to(TXT_TELEFONO_PAGO),
+                        Enter.theValue("6707475").into(TXT_TELEFONO_PAGO),
                         Scroll.to(TXT_CELULAR_PAGO),
                         Enter.theValue("3165376606").into(TXT_CELULAR_PAGO),
                         Scroll.to(MENU_DESPLE_PAIS),
@@ -184,9 +218,12 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
             /************************FIN PLACETOPLAY ************************************/
 
     }
+
+
     public static PagoUsuarioPublicoNoPresencial enConfecamaras() {
         return Tasks.instrumented(PagoUsuarioPublicoNoPresencial.class);
 
     }
 
 }
+

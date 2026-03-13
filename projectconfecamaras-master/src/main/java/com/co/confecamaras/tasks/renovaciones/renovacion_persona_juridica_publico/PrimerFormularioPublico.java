@@ -1,6 +1,7 @@
 package com.co.confecamaras.tasks.renovaciones.renovacion_persona_juridica_publico;
 
 import com.co.confecamaras.interactions.SwitchToNewWindow;
+import com.co.confecamaras.interactions.WaitConstant;
 import com.co.confecamaras.interactions.WaitInterrupted5Segundos;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -20,7 +21,8 @@ public class PrimerFormularioPublico implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(BOTON_FORMULARIO_1, isPresent()).forNoMoreThan(10).seconds(),
+                WaitInterrupted5Segundos.esperaConstante5(),
+                WaitUntil.the(BOTON_FORMULARIO_1, isPresent()).forNoMoreThan(60).seconds(),
                 Click.on(BOTON_FORMULARIO_1),
                 WaitInterrupted5Segundos.esperaConstante5(),
                 WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(40).seconds(),

@@ -62,12 +62,18 @@ public class PagoUsuarioPublicoNoPresencial extends PageObject {
             located(By.xpath("//button[normalize-space()='Pagar con PSE o Tarjeta de Crédito']"));
     public static Target VALIDACION_PASARELA_DE_PAGO = Target.the("").
             located(By.xpath("(//span[@class='ui-button-text ui-c'][normalize-space()='Continuar'])[1]"));
-//    public static Target MENU_DESPLE_TIPO_DOCUMENTO = Target.the("Menu desplegable Tipo documento").
-//            located(By.id("tipoDocumento"));
+
     public static Target MENU_DESPLE_TIPO_DOCUMENTO = Target.the("Menu desplegable Tipo documento").
         locatedBy("//span[contains(text(),'Seleccione Tipo de Documento')]");
+
+    public static Target MENU_DESPLE_TIPO_DOCUMENTO_2 = Target.the("Menu desplegable Tipo documento").
+            locatedBy("//span[contains(text(),'Seleccione Tipo de Documento')]");
+  
     public static Target MENU_DESPLE_CC = Target.the("Menu desplegable CEDULA DE CIUDADANIA").
             located(By.xpath("//li[@aria-label='Cédula Ciudadania']"));
+
+    public static Target TXT_TELEFONO_PAGO = Target.the("Cuadro de texto numero telefono").
+            locatedBy("//input[@id='telefonoComprador']");
     public static Target TXT_CELULAR_PAGO = Target.the("Cuadro de texto numero Celular").
             located(By.id("celularComprador"));
 
