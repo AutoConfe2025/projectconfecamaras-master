@@ -114,11 +114,12 @@ public class DigitacionPage {
     public static Target LINK_ENVIO_INFO_ALCALDIA = Target.the("envio informacion a la alcaldia").locatedBy("(//*[text()='Envío información a la alcaldía'])[1]");
     // ----------------------------------------------------------------------------------------------------------------------------------------//
     public static final Target ENLACE_FINALIZAR_DIGITACION = Target.the("Enlace Finalizar digitación")
-            .located(By.xpath("//a[text()='Finalizar digitación']"));
+            .located(By.xpath("//a[contains(@href, 'finalizarDigitacion')]"));
     public static Target SLC_ESTADO = Target.the("seleccionar estado ").locatedBy("#_estado");
     // ----------------------------------------------------------------------------------------------------------------------------------------//
     // ELEMENTOS QUE PUEDEN SER USADOS MULTIPLES VECES
     public static Target BTN_VOLVER = Target.the("volver").locatedBy("//*[contains(text(),'Volver')]");
+    public static Target BTN_VOLVER_BANDEJA = Target.the("Volver a la bandeja").locatedBy("//*[contains(text(),'Volver a la bandeja')]");
     public static final Target BOTON_CONTINUAR = Target.the("Boton Continuar")
             .located(By.xpath("//div[contains(@class, 'modal-footer')]//button[text()='Continuar']"));
     public static final Target BOTON_CANCELAR = Target.the("Boton Cancelar")

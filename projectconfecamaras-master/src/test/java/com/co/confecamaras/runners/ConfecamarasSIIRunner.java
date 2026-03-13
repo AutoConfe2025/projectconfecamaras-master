@@ -9,8 +9,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "com.co.confecamaras",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        plugin = "pretty"
-//        , tags = ""
+        plugin = "pretty",
+            tags = "@DigitacionRegEsadl"
 )
 public class ConfecamarasSIIRunner {
 
