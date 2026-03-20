@@ -11,8 +11,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.BOTON_RECIBIR_PAGO_TEXTO;
 import static com.co.confecamaras.userinterfaces.renovaciones.FujoPnEstPublicoPage.*;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class FlujoFirmaElectronica implements Task {
     @Override
@@ -42,7 +41,7 @@ public class FlujoFirmaElectronica implements Task {
                 Click.on(BOTON_ACEPTAR_FIRMADO_ELECTRONICO),
                 WaitUntil.the(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO, isPresent()).forNoMoreThan(50).seconds(),
                 Click.on(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO),
-                WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO, isPresent()).forNoMoreThan(50).seconds(),
+                WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO, isVisible()).forNoMoreThan(50).seconds(),
                 Scroll.to(BOTON_RECIBIR_PAGO_TEXTO),
                 Click.on(BOTON_RECIBIR_PAGO_TEXTO)
         );

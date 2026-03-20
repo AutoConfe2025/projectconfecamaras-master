@@ -1,22 +1,25 @@
-package com.co.confecamaras.tasks.renovaciones.persona_natural_establecimiento_caja;
+package com.co.confecamaras.tasks.renovaciones.actividad_no_comercial;
 
 import com.co.confecamaras.interactions.CloseSecondTab;
+import com.co.confecamaras.interactions.SwitchToNewWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Clear;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Scroll;
+import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
-public class RecibirPago implements Task {
+public class FlujoRecibosRenovacionComercial implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
-
         actor.attemptsTo(
+                WaitUntil.the(BOTON_RECIBIR_PAGO, isPresent()).forNoMoreThan(10).seconds(),
+                Scroll.to(BOTON_RECIBIR_PAGO),
+                Click.on(BOTON_RECIBIR_PAGO),
+                SwitchToNewWindow.switchToNewTab(),
+                SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO),
+
                 WaitUntil.the(CAMPO_IDENTIFICACION, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_IDENTIFICACION),
                 Clear.field(CAMPO_IDENTIFICACION),
@@ -42,7 +45,6 @@ public class RecibirPago implements Task {
                 Clear.field(CAMPO_SEGUNDO_APELLIDO_RECIBO),
                 Enter.theValue("MAYORGA").into(CAMPO_SEGUNDO_APELLIDO_RECIBO),
 
-
                 Scroll.to(CAMPO_CELULAR_VERIFICACION),
                 Click.on(CAMPO_CELULAR_VERIFICACION),
                 Clear.field(CAMPO_CELULAR_VERIFICACION),
@@ -53,6 +55,12 @@ public class RecibirPago implements Task {
                 Enter.theValue("analistaqa@confecamaras.org.co").into(CAMPO_CORREO_VERIFICACION),
                 Click.on(CAMPO_CORREO_VERIFICACION_CONFIRMACION),
                 Enter.theValue("analistaqa@confecamaras.org.co").into(CAMPO_CORREO_VERIFICACION_CONFIRMACION),
+                Click.on(CAMPO_DIRECCION_COMERCIAL),
+                Enter.theValue("CL 123 - 123- 24").into(CAMPO_DIRECCION_COMERCIAL),
+                Click.on(CAMPO_CODIGO_POSTAL),
+                Enter.theValue("1111111").into(CAMPO_CODIGO_POSTAL),
+                Scroll.to(BOTON_DUPLICAR),
+                Click.on(BOTON_DUPLICAR),
                 Scroll.to(BOTON_GENERAR_RECIBO),
                 Click.on(BOTON_GENERAR_RECIBO),
                 WaitUntil.the(BOTON_CONTINUAR_GENERAR_RECIBO, isPresent()).forNoMoreThan(10).seconds(),
@@ -79,7 +87,7 @@ public class RecibirPago implements Task {
         );
     }
 
-    public static RecibirPago flujoRecibePago() {
-        return new RecibirPago();
+    public static FlujoRecibosRenovacionComercial flujoRecibePago() {
+        return new FlujoRecibosRenovacionComercial();
     }
 }
