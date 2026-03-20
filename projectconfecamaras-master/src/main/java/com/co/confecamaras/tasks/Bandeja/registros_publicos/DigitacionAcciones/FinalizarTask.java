@@ -1,5 +1,7 @@
 package com.co.confecamaras.tasks.Bandeja.registros_publicos.DigitacionAcciones;
 
+import com.co.confecamaras.interactions.News.WaitSeconds;
+import com.co.confecamaras.interactions.log.Log;
 import com.co.confecamaras.questions.Elementos.ElementoElegible;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.DigitacionPage;
 import com.co.confecamaras.utils.News.evidencias.Reportes;
@@ -11,6 +13,8 @@ public class FinalizarTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        actor.attemptsTo(
+        );
         if (actor.asksFor(ElementoElegible.para(DigitacionPage.ENLACE_FINALIZAR_DIGITACION)))
             Reportes.reportEvent(Reportes.PASSED,"El registro puede ser eliminado");
         else {
