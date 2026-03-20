@@ -93,6 +93,9 @@ test {
         delete fileTree(dir: "target/site/serenity")
     }
 }
+
+test { outputs.upToDateWhen { false } }
+
 test.finalizedBy(aggregate)
 
 

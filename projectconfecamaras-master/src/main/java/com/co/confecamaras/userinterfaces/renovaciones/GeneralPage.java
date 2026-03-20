@@ -31,11 +31,36 @@ public class GeneralPage {
     public static final Target CAMPO_NUEVO_VALOR_PERSONA = Target.the("campo nuevo valor persona")
             .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[1]");
 
+    public static final Target CAMPO_NUEVO_VALOR_PERSONA_2 = Target.the("campo nuevo valor persona numero dos varios anios")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[2]");
+
+    public static final Target CAMPO_NUEVO_VALOR_PERSONA_3 = Target.the("campo nuevo valor persona numero tres varios anios")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[3]");
+
+    public static final Target CAMPO_NUEVO_VALOR_PERSONA_4 = Target.the("campo nuevo valor persona numero cuatro inactiva")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[4]");
+
     public static final Target CAMPO_NUEVO_VALOR_ESTABLECIMIENTO = Target.the("campo nuevo valor establecimiento")
             .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[2]");
 
+    public static final Target CAMPO_NUEVO_VALOR_ESTABLECIMIENTO_VARIOS_ANIOS = Target.the("campo nuevo valor establecimiento para varios años")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[4]");
+    public static final Target CAMPO_NUEVO_VALOR_ESTABLECIMIENTO_VARIOS_ANIOS_2 = Target.the("campo nuevo valor establecimiento para varios años dos")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[5]");
+
+    public static final Target CAMPO_NUEVO_VALOR_ESTABLECIMIENTO_VARIOS_ANIOS_3 = Target.the("campo nuevo valor establecimiento para varios años tres")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[6]");
+
+    public static final Target CAMPO_NUEVO_VALOR_ESTABLECIMIENTO_INACTIVA_3 = Target.the("campo nuevo valor establecimiento para varios años tres")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[7]");
+
+    public static final Target CAMPO_NUEVO_VALOR_ESTABLECIMIENTO_INACTIVA_4 = Target.the("campo nuevo valor establecimiento para varios años tres")
+            .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[8]");
     public static final Target CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO = Target.the("checkbox seleccionar segundo tramite")
             .locatedBy("(//input[@class='form-check-input checkrenovacion'])[2]");
     public static final Target BOTON_CONTINUAR_RENOVACION_1 = Target.the("boton continuar renovacion despues de valor")
             .locatedBy("//button[@class='btn btn-primary ml-2 mr-2']");
+
+    public static final Target MENSAJE_RENOVACION_INACTIVO = Target.the("mensaje que se muestra con renovacion inactiva")
+            .locatedBy("(//div[@class='contenedorInfoPrincipal'])[2]");
 }

@@ -1,5 +1,8 @@
 package com.co.confecamaras.tasks.Bandeja.nuevo_ingreso;
 
+import com.co.confecamaras.interactions.AceptAlert;
+import com.co.confecamaras.interactions.CloseCurrentTab;
+import com.co.confecamaras.interactions.CloseSecondTab;
 import com.co.confecamaras.interactions.News.GetTextOfElement;
 import com.co.confecamaras.interactions.News.LogEvent;
 import com.co.confecamaras.interactions.News.WaitSeconds;
@@ -26,40 +29,39 @@ public class TransaccionesRuesAccionesTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(BTN_OPCIONES_PRIMER_RESULTADO),
                 Click.on(OPCION_RUTA_NACIONAL),
                 LogEvent.recordevent(Reportes.PASSED, "Acción: Consulta de ruta nacional"),
                 WaitSeconds.seconds(3),
-                Click.on(BTN_CERRAR_MODAL)
+                SwitchToWindow.at(2),
+//                Click.on(BTN_CERRAR_MODAL)
+                CloseCurrentTab.now()
         );
+
         actor.attemptsTo(
+                SwitchToWindow.at(1),
                 Click.on(BTN_OPCIONES_PRIMER_RESULTADO),
-                Click.on(OPCION_SINCRONIZAR_ESTADOS),
                 LogEvent.recordevent(Reportes.PASSED, "Acción: Sincronizar estados con RUES"),
-                WaitSeconds.seconds(3)
+                WaitSeconds.seconds(3),
+                SwitchToWindow.at(2),
+                CloseCurrentTab.now()
 
 
         );
+
         actor.attemptsTo(
-                Click.on(BTN_OPCIONES_PRIMER_RESULTADO),
+                SwitchToWindow.at(1),
                 Click.on(OPCION_SOLICITAR_CAMBIO_ESTADO),
+                AceptAlert.aceptar(),
                 LogEvent.recordevent(Reportes.PASSED, "Acción: Solicitar cambio de estado"),
                 WaitSeconds.seconds(3),
-                Click.on(BTN_CERRAR_MODAL)
-
-
+                Click.on(BOTON_VOLVER_A_BANDEJA)
         );
+
         actor.attemptsTo(
-                Click.on(BTN_OPCIONES_PRIMER_RESULTADO),
+                SwitchToWindow.at(1),
                 Click.on(OPCION_VISOR_IMAGENES),
                 LogEvent.recordevent(Reportes.PASSED, "Vísor de imágenes"),
-                WaitSeconds.seconds(3),
-
-//                GuardarArchivo.guardar(),
-//                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS)
-                Click.on(BTN_CERRAR_MODAL)
-
-
+                WaitSeconds.seconds(3)
         );
     }
 

@@ -17,20 +17,42 @@ public class FlujoPnEstCajaPage {
     public static final Target LISTA_SELECION_TIPO_DE_LOCAL_NO_PROPIO = Target.the("lista de seleccion de autorizaciones")
             .locatedBy("(//option[@value='0'])[2]");
 
+    public static final Target CAMPO_FECHA_INICIO_ACTIVIDAD_SEGUNDARIA = Target.the("campo fecha de inicio de actividad segundaria")
+            .locatedBy("//input[@id='feciniact2']");
+
     public static final Target CAMPO_VALOR_ACTIVO_TOTAL = Target.the("campo donde se encuentra el valor del activo")
             .locatedBy("//input[@id='acttot_2026']");
 
     public static final Target CAMPO_VALOR_COMERCIAL_VINCULADOS = Target.the("campo valor comercial activos vinculados")
             .locatedBy("//input[@id='actvin_2026']");
 
+    public static final Target BUTTON_CIIU_MAYOR_INGRESO = Target.the("boton de ciiu para generar mejores ingresos")
+            .locatedBy("//input[@id='ciiutamanoempresarial_1']");
     public static final Target CAMPO_ACTIVO_CORRIENTE = Target.the("campo de activo corriente")
             .locatedBy("//input[@id='actcte_2026']");
+
+    public static final Target CAMPO_ACTIVO_CORRIENTE_2025 = Target.the("campo de activo corriente 2025")
+            .locatedBy("//input[@id='actcte_2025']");
+
+    public static final Target CAMPO_ACTIVO_CORRIENTE_2024 = Target.the("campo de activo corriente 2025")
+            .locatedBy("//input[@id='actcte_2024']");
 
     public static final Target CAMPO_PASIVO_CORRIENTE = Target.the("campo de pasivo corriente")
             .locatedBy("//input[@id='pascte_2026']");
 
+    public static final Target CAMPO_PASIVO_CORRIENTE_2025 = Target.the("campo de pasivo corriente 2024")
+            .locatedBy("//input[@id='pascte_2025']");
+
+    public static final Target CAMPO_PASIVO_CORRIENTE_2024 = Target.the("campo de pasivo corriente 2025")
+            .locatedBy("//input[@id='pascte_2024']");
+
     public static final Target CAMPO_PERSONAL_OCUPADO = Target.the("campo de personal ocupado")
             .locatedBy("//input[@id='personal_2026']");
+
+    public static final Target CAMPO_PERSONAL_OCUPADO_2025 = Target.the("campo de personal ocupado 2025")
+            .locatedBy("//input[@id='personal_2025']");
+    public static final Target CAMPO_PERSONAL_OCUPADO_2024 = Target.the("campo de personal ocupado 2024")
+            .locatedBy("//input[@id='personal_2024']");
 
     public static final Target LISTA_PERSONAL_OCUPADO_ADMINISTRATIVO = Target.the("campo de personal ocupado administrativo")
             .locatedBy("//select[@id='etnias_cargdir_participacion']");
@@ -90,14 +112,37 @@ public class FlujoPnEstCajaPage {
 
     public static final Target LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO = Target.the("lista de seleccion de tipo de documento al generar recibo")
             .locatedBy("//select[@id='_idtipoidentificacioncliente']");
+
+    public static final Target LISTA_SELECCION_MUNICIPIO = Target.the("lista de seleccion de municipio al generar recibo")
+            .locatedBy("//select[@id='_idtipoidentificacioncliente']");
     public static final Target BOTON_FORMULARIO_2 = Target.the("boton de ingreso al formulario segundo")
             .locatedBy("(//button[@class='btn btn-outline-primary btn-sm'])[3]");
 
     public static final Target CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO = Target.the("campo de ingreso de valor vinculado al establecimiento")
             .locatedBy("//input[@id='actvin_2026']");
 
+    public static final Target CAMPO_DIRECCION_COMERCIAL = Target.the("campo de direccion comercial")
+            .locatedBy("//input[@id='_direccion']");
+
+    public static final Target CAMPO_CODIGO_POSTAL = Target.the("campo de direccion comercial")
+            .locatedBy("//input[@id='_codposcom']");
+
+    public static final Target BOTON_DUPLICAR = Target.the("boton duplicar")
+            .locatedBy("//a[contains(text(),'Duplicar')]");
+    public static final Target CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO_2025 = Target.the("campo de ingreso de valor vinculado al establecimiento")
+            .locatedBy("//input[@id='actvin_2025']");
+
+    public static final Target CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO_2024 = Target.the("campo de ingreso de valor vinculado al establecimiento")
+            .locatedBy("//input[@id='actvin_2024']");
+
     public static final Target CAMPO_PERSONAL_OCUPADO_SEGUNDO_FORM = Target.the("campo personal ocupado 2 formulario")
             .locatedBy("//input[@id='personal_2026']");
+
+    public static final Target CAMPO_PERSONAL_OCUPADO_SEGUNDO_FORM_2025 = Target.the("campo personal ocupado 2 formulario")
+            .locatedBy("//input[@id='personal_2025']");
+
+    public static final Target CAMPO_PERSONAL_OCUPADO_SEGUNDO_FORM_2024 = Target.the("campo personal ocupado 2 formulario")
+            .locatedBy("//input[@id='personal_2024']");
 
     public static final Target BOTON_PRIMER_PDF = Target.the("boton de ver pdf generado")
             .locatedBy("(//button[@class='btn btn-outline-primary btn-sm'])[2]");
