@@ -15,7 +15,7 @@ public class QueryComfecamarasRenovarAniosAnteriores {
     String queryDoc = "SELECT matricula \n" +
             "FROM sii_manizales.mreg_est_inscritos\n" +
             "WHERE organizacion = '01'\n" +
-            "AND ultanoren = '2022'\n" +
+            "AND ultanoren = '2023'\n" +
             "and ctrestmatricula = 'MA'\n" +
             "AND acttot < '5000000'\n" +
             "LIMIT 1\n";
