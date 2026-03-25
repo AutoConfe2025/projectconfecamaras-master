@@ -26,7 +26,18 @@ public class FlujoFormularioRenovacionSuc implements Task {
                 Scroll.to(CAMPO_VALOR_COMERCIAL_VINCULADOS),
                 Enter.theValue(valorNuevo).into(CAMPO_VALOR_COMERCIAL_VINCULADOS),
                 Click.on(CAMPO_PERSONAL_OCUPADO),
-                Enter.theValue("100").into(CAMPO_PERSONAL_OCUPADO),
+                Enter.theValue("100").into(CAMPO_PERSONAL_OCUPADO)
+        );
+
+        if (!LISTA_SELECION_TIPO_DE_LOCAL.resolveAllFor(actor).isEmpty()) {
+            actor.attemptsTo(
+                    Scroll.to(LISTA_SELECION_TIPO_DE_LOCAL),
+                    Click.on(LISTA_SELECION_TIPO_DE_LOCAL),
+                    Click.on(LISTA_SELECION_TIPO_DE_LOCAL_NO_PROPIO)
+            );
+        }
+
+        actor.attemptsTo(
                 Scroll.to(BOTON_ALAMCENAR),
                 Click.on(BOTON_ALAMCENAR),
                 WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),

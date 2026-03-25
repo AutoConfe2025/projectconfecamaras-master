@@ -14,9 +14,13 @@ public class TransaccionesRUESPage {
 
     // CONSULTA DE RUTA NACIONAL
     // NOTA PARA LLEGAR A ESTE LOCALIZADOR HAY QUE ENTRAR PRIMERO A UN FRAME Y LUEGO A OTRO
+
+    public static Target CAMPO_FECHA_RUES = Target.the("campo fecha para ingresar rues").
+            locatedBy("//input[@id='_fecha']");
+
+
     public static Target TXT_NUMERO_UNICO = Target.the("numero unico de consulta").
             locatedBy("//strong[text()='numero_unico_consulta:']/../following-sibling::td");
-    //*[@id="pr_id_141_content"]/div/div[1]/div/div[2]/div[1]/div[2]/p
 
     // CARGAR IMAGENES
     public static Target FORM_CARGAR_ARCHIVO = Target.the("subir archivo").
@@ -34,11 +38,11 @@ public class TransaccionesRUESPage {
             .locatedBy("//button[contains(@class, 'btn-primary') and text()=' Consultar']");
     public static final Target BTN_OPCIONES_PRIMER_RESULTADO =
             Target.the("Botón de opciones/acciones del primer resultado")
-                    .locatedBy("//*[@id='tablaConsultaTransacciones']/div[2]/table/tbody/tr[1]/td[1]/div/div/a");
+                    .locatedBy("/html/body/center/div[2]/div/table[2]/tbody/tr/td/table/tbody/tr/td/div/center/table[7]/tbody/tr/td/div/div[2]/table/tbody/tr[2]/td[14]/a[2]");
 
     public static final Target OPCION_RUTA_NACIONAL =
             Target.the("Opción 'Consultar Ruta Nacional'")
-                    .locatedBy("//li[contains(., 'Consultar Ruta Nacional')]");
+                    .locatedBy("/html/body/center/div[2]/div/table[2]/tbody/tr/td/table/tbody/tr/td/div/center/table[7]/tbody/tr/td/div/div[2]/table/tbody/tr[2]/td[14]/a[1]");
 
     public static final Target OPCION_SINCRONIZAR_ESTADOS =
             Target.the("Opción 'Sincronizar estados con RUES'")
@@ -46,7 +50,11 @@ public class TransaccionesRUESPage {
 
     public static final Target OPCION_SOLICITAR_CAMBIO_ESTADO =
             Target.the("Opción 'Solicitar cambio de estado'")
-                    .locatedBy("//*[@aria-label='Solicitar cambio de estado']");
+                    .locatedBy("/html/body/center/div[2]/div/table[2]/tbody/tr/td/table/tbody/tr/td/div/center/table[7]/tbody/tr/td/div/div[2]/table/tbody/tr[2]/td[14]/a[3]");
+
+    public static final Target BOTON_VOLVER_A_BANDEJA =
+            Target.the("volver a bandeja")
+                    .locatedBy("//a[contains(text(),'Regresar a la bandeja')]");
 
     public static final Target OPCION_CARGAR_IMAGENES =
             Target.the("Opción 'Cargar imagenes del trámite (15)'")
@@ -54,7 +62,7 @@ public class TransaccionesRUESPage {
 
     public static final Target OPCION_VISOR_IMAGENES =
             Target.the("Opción 'Vísor de imágenes'")
-                    .locatedBy("//*[@aria-label='Vísor de imágenes']");
+                    .locatedBy("/html/body/center/div[2]/div/table[2]/tbody/tr/td/table/tbody/tr/td/div/center/table[7]/tbody/tr/td/div/div[2]/table/tbody/tr[2]/td[14]/a[4]");
     public static final Target BTN_CERRAR_MODAL =
             Target.the("Botón Cerrar Modal dentro de Dialogo")
                     .locatedBy("//div[@role='dialog']//button[@data-pc-section='closebutton']");

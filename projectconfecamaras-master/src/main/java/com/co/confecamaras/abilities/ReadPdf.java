@@ -1,4 +1,3 @@
-package com.co.confecamaras.abilities;
 
 
 import net.serenitybdd.screenplay.Ability;
