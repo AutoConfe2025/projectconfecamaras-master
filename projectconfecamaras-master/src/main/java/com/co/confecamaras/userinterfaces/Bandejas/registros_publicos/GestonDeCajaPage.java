@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class GestonDeCajaPage {
+
     public static final Target BOTON_CONSULTAR = Target.the("Boton Consultar")
             .located(By.xpath("//*[@id='formGenerico']//button[contains(text(), 'Consultar')]"));
     public static final Target BOTON_SI_CONFIRMACION = Target.the("Boton SI de la Confirmacion")

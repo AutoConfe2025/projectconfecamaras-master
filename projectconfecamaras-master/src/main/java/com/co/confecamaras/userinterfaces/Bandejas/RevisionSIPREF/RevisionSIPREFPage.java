@@ -8,7 +8,7 @@ public class RevisionSIPREFPage {
     public static final Target CAMPO_FECHA_INICIAL = Target.the("Campo de Fecha Inicial")
             .located(By.id("fechainicial"));
     public static final Target ICONO_ENVIAR_SMS = Target.the("Icono de enviar SMS")
-            .located(By.xpath("//*[@id='tablecb']/tbody/tr[1]/td[11]/p/small/a[1]"));
+            .located(By.xpath("(//a[@data-original-title='Enviar SMS'])[1]"));
     public static final Target ICONO_MARCAR_COMO_REVISADO = Target.the("Icono de Marcar como revisado")
             .located(By.xpath("//*[@id='tablecb']/tbody/tr[1]/td[11]/p/small/a[2]"));
 
