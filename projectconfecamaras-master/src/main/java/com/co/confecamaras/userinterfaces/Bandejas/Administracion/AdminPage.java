@@ -31,6 +31,9 @@ public class AdminPage {
     //TYC
     public static final Target ENLACE_EDITAR_TRANSACCION = Target.the("Enlace Editar Transaccion por data-original-title")
             .located(By.xpath("(//*[@id='tabletransacciones']//a[@data-original-title='Editar'])[1]"));
+
+    public static final Target CAMPO_NOMBRE = Target.the("Campo nombre planilla")
+            .located(By.xpath("//*[@id='nombre']"));
     public static final Target CAMPO_ENLACE = Target.the("Campo de entrada Enlace")
             .located(By.xpath("//*[@id='enlace']"));
     public static final Target BOTON_CONTINUAR_TRANSACCION = Target.the("Boton Continuar Transaccion")

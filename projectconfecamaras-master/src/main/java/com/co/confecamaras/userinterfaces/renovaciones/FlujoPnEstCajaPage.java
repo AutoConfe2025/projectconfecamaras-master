@@ -28,6 +28,10 @@ public class FlujoPnEstCajaPage {
 
     public static final Target BUTTON_CIIU_MAYOR_INGRESO = Target.the("boton de ciiu para generar mejores ingresos")
             .locatedBy("//input[@id='ciiutamanoempresarial_1']");
+
+    public static final Target LISTA_SELECCION_DIAN = Target.the("lista de seleccion DIAN")
+            .locatedBy("//select[@id='admondian']");
+
     public static final Target CAMPO_ACTIVO_CORRIENTE = Target.the("campo de activo corriente")
             .locatedBy("//input[@id='actcte_2026']");
 
@@ -77,6 +81,12 @@ public class FlujoPnEstCajaPage {
 
     public static final Target LISTA_CUENTA_EMPLEADOS_ETNICOS = Target.the("lista de seleccion de si cuenta con empleados de grupos etnicos")
             .locatedBy("//select[@id='etnias_pnat_pertenencia_empleados']");
+
+    public static final Target LISTA_CUENTA_EMPLEADOS_ETNICOS_1 = Target.the("lista de seleccion de si cuenta con empleados de grupos etnicos")
+            .locatedBy("//select[@id='etnias_empleados_participacion']");
+
+    public static final Target LISTA_AUTORIZA_USO_INFORMACION = Target.the("lista de seleccion de si autoriza uso de la informacion")
+            .locatedBy("//select[@id='etnias_pnat_permite_uso_informacion']");
 
     public static final Target CAMPO_GITANOS = Target.the("campo gitanos")
             .locatedBy("//input[@id='etnias_empleados_rom_participacion']");
@@ -155,8 +165,27 @@ public class FlujoPnEstCajaPage {
 
     public static final Target CONTENEDOR_PDF = Target.the("contenedor")
             .locatedBy("//div[@class='col-lg-12 py-2 text-center']");
+
     public static final Target BOTON_CERRAR_PDF = Target.the("boton de ver pdf generado dos")
             .locatedBy("//button[@class='p-dialog-header-icon p-dialog-header-close p-link']");
+
+    public static final Target BOTON_INSERTAR_PDF_1 = Target.the("boton para ingreso de relacion trabajadores")
+            .locatedBy("(//button[@class='btn btn-outline-primary btn-sm'])[5]");
+
+    public static final Target BOTON_INSERTAR_PDF_2 = Target.the("boton para ingreso de declaracion de la persona")
+            .locatedBy("(//button[@class='btn btn-outline-primary btn-sm'])[6]");
+
+    public static final Target CAMPO_INGRESO_RUTA_PDF = Target.the("campo de ingreso de pdf")
+            .locatedBy("//input[@id='anexo']");
+
+    public static final Target CAMPO_OBSERVACIONES = Target.the("campo de ingreso de observaciones")
+            .locatedBy("//textarea[@id='descripcion']");
+
+    public static final Target CAMPO_ENTIDAD_PERSONA_QUE_EXPIDE = Target.the("campo de ingreso de persdona o entidad que expide")
+            .locatedBy("//input[@id='origendoc']");
+
+    public static final Target BOTON_CARGAR_DOCUMENTO = Target.the("boton cargar documento")
+            .locatedBy("//button[@class='btn btn-primary mr-2']");
 
     //CAMPOS DE RECIBIR PAGO
 
@@ -218,6 +247,9 @@ public class FlujoPnEstCajaPage {
 
     public static final Target BOTON_RECIBIR_PAGO_TEXTO = Target.the("boton para recibir el pago por texto")
             .locatedBy("//button[contains(.,'Pago Electrónico')]");
+
+    public static final Target BOTON_RECIBIR_PAGO_TEXTO_2 = Target.the("boton para recibir el pago por texto 2")
+            .locatedBy("//button[contains(.,'Recibir Pago')]");
 
     public static final Target ALERTA_CAJERO = Target.the("alerta del cajero")
             .locatedBy("//div[@id='modal_body']");
