@@ -23,7 +23,8 @@ public class FlujoEsadlCatorceCaja implements Task {
                 Click.on(BOTON_FORMULARIO_1),
                 WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(10).seconds(),
                 Scroll.to(LISTA_SELECION_AUTORIZACIONES),
-                SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES)
+                SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES),
+                SelectFromOptions.byValue("N").from(LISTA_EMPRENDIMIENTO_SOCIAL)
         );
 
         String valorCapturado = Attribute.of(CAMPO_VALOR_ACTIVO_TOTAL)

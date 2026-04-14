@@ -22,8 +22,8 @@ Característica: Validar Proceso tramites devueltos sin destinamineto detectados
   Escenario: ingreso a la bandeja archivar
     Y ingreso al sistema SII3 como usuario publico
     Cuando Cuando ingreso a la bandeja "742982" "06" "Tramites Devueltos SIN Desistimiento Decretado"
-    Entonces  realizo el proceso para archivar el tramite "739268" "06"
+    Entonces  realizo el proceso para archivar el tramite "742982" "06"
 
 #  se comenta codigo inicial de automatizacion por validacion de refactorizacion
 #    Cuando Buscamos por el boton principal de busqueda la bandeja Tramites Devueltos SIN Desistimiento Decretado
-#    Entonces validar las acciones de tramites devueltos sin desistimiento detectado con codigo de barras "744143" "06"
+#    Entonces validar las acciones de tramites   devueltos sin desistimiento detectado con codigo de barras "744143" "06"

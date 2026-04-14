@@ -14,9 +14,9 @@ public class FlujoRecibosRenovacionComercial implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(BOTON_RECIBIR_PAGO, isPresent()).forNoMoreThan(10).seconds(),
-                Scroll.to(BOTON_RECIBIR_PAGO),
-                Click.on(BOTON_RECIBIR_PAGO),
+                WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO_2, isPresent()).forNoMoreThan(10).seconds(),
+                Scroll.to(BOTON_RECIBIR_PAGO_TEXTO_2),
+                Click.on(BOTON_RECIBIR_PAGO_TEXTO_2),
                 SwitchToNewWindow.switchToNewTab(),
                 SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO),
 

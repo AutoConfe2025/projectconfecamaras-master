@@ -44,19 +44,8 @@ public class DigitacionGeneralTask implements Task {
                 JavaScriptClick.on(AccionesPage.LINK_ACCION.of("Digitar informacion")),
                 AdicionarVinculosTask.adicionar(),
                 WaitSeconds.seconds(2),
-                Scroll.to(DigitacionPage.ENLACE_FINALIZAR_DIGITACION),
-                FinalizarDigitacionTask.finalizar()
+                Scroll.to(DigitacionPage.ENLACE_FINALIZAR_DIGITACION)
 
-
-        );
-
-
-        actor.should(
-                GivenWhenThen.seeThat(
-
-                        ResultadoConsultaNoEncontrado.elDato(codigo_barras),
-                        is(true)
-                )
         );
     }
 

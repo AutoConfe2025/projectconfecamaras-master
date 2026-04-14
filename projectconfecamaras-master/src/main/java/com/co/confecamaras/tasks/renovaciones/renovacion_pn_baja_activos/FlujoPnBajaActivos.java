@@ -42,20 +42,32 @@ public class FlujoPnBajaActivos implements Task {
                 .named("value")
                 .answeredBy(actor);
 
+        String valorBaja= "500000000";
+        valorCapturado = valorCapturado.replaceAll("[^0-9]", "");
+        valorBaja = valorBaja.replaceAll("[^0-9]", "");
+
+        long valor1 = Long.parseLong(valorCapturado);
+        long activos = Long.parseLong(valorBaja);
+
+        long resultado = valor1 - activos;
+
+        String resultadoFinal = String.valueOf(resultado);
+
         actor.remember("valorNuevo", valorCapturado);
 
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_NUEVO_VALOR_PERSONA, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NUEVO_VALOR_PERSONA),
-                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA),
+                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA),
                 Click.on(CAMPO_NUEVO_VALOR_PERSONA_2),
-                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA_2),
+                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_2),
                 Click.on(CAMPO_NUEVO_VALOR_PERSONA_3),
-                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA_3),
+                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_3),
                 Click.on(CAMPO_NUEVO_VALOR_PERSONA_4),
-                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA_4),
+                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_4),
                 Scroll.to(BOTON_CONTINUAR_RENOVACION_1),
-                Click.on(BOTON_CONTINUAR_RENOVACION_1)
+                Click.on(BOTON_CONTINUAR_RENOVACION_1),
+                Click.on(BOTON_ACEPTAR_MENSAJE_IMPORTANTE)
         );
     }
 

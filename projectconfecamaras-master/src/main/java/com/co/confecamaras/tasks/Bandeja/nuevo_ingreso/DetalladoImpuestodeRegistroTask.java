@@ -25,13 +25,7 @@ public class DetalladoImpuestodeRegistroTask implements Task {
                 );
 
         long tiempoDescargaInicio = System.currentTimeMillis();
-        actor.attemptsTo(
-                Click.on(BOTON_DESCARGAR_MODAL),
-                LogEvent.recordevent(Reportes.INFO, "Iniciando monitoreo de descarga en carpeta del sistema."),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA, 120, tiempoDescargaInicio),
-                Click.on(BOTON_OK)
 
-        );
         actor.attemptsTo(
                 WaitSeconds.seconds(2),
                 Enter.theValue("05122025").into(CAMPO_FECHA_INICIAL),
@@ -39,8 +33,6 @@ public class DetalladoImpuestodeRegistroTask implements Task {
                 LogEvent.recordevent(Reportes.INFO, "Se ingreso la fecha correctamente" ),
                 WaitSeconds.seconds(1),
                 Click.on(BOTON_CONSULTAR)
-
-
         );
 
         actor.attemptsTo(
@@ -48,14 +40,8 @@ public class DetalladoImpuestodeRegistroTask implements Task {
                 LogEvent.recordevent(Reportes.INFO, "Iniciando monitoreo de descarga en carpeta del sistema."),
                 ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA, 120, tiempoDescargaInicio),
                 Click.on(BOTON_OK)
-
         );
-
-
-
-
     }
-
     public static DetalladoImpuestodeRegistroTask Gestiondecaja() {
         return new DetalladoImpuestodeRegistroTask();
     }

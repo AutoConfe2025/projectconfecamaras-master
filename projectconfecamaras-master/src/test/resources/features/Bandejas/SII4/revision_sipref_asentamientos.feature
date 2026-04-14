@@ -1,13 +1,12 @@
 # language: es
-Característica: Validar que permita la revision
-  de revision SIPREF Asentamientos
+Característica: Validar que permita la revision de revision SIPREF Asentamientos
 
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
   @RevisionSIPREF_Asentamientos @SII4
-  Escenario: Tramites devueltos sin destinamiento detectado
+  Escenario: revision sipref asentamientos
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Revision SIPREF (Asentamientos)
     Entonces validar las acciones de revision sipref asentamientos

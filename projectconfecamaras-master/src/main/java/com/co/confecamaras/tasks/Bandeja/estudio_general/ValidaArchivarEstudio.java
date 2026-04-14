@@ -31,7 +31,8 @@ public class ValidaArchivarEstudio implements Task {
 
         actor.should(
                 seeThat("Mensaje advertencia archivar",
-                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(ADVERTENCIA_ARCHIVAR_CONTROL_CALIDAD))
+                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO),
+                        containsString(mensajeAdvertenciaArchivar(codigo_barras)))
         );
 
         actor.attemptsTo(

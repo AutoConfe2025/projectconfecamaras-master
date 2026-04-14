@@ -37,7 +37,7 @@ public class IngresoPorCuentaTask implements Task {
                 Click.on(ENLACE_RELACION_MOVIMIENTOS_CUENTA),
 
                 GuardarArchivo.guardar(),
-                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_EVIDENCIAS),
+                ControlDescargas.hastaTerminar(BaseEvidencias.RUTA_DESCARGA_SISTEMA),
                 LogEvent.recordevent(Reportes.PASSED, "Se descargado el Archivo correctamente "),
                 WaitSeconds.seconds(3)
 

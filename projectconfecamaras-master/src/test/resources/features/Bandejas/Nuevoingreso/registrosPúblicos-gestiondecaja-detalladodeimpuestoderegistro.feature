@@ -9,5 +9,5 @@ Característica: Validar que permita la revision
   @DetalladodeImpuestodeRegistro @SII4
   Escenario:  Registros Públicos - Gestión de caja - Detallado de Impuesto de Registro
     Y ingreso al sistema SII3 como usuario publico
-    Cuando Buscamos por el boton principal de busqueda la bandeja Detallado de impuesto de registro
+    Cuando ingreso solo bandeja "Detallado de Impuesto de Registro" seleccionada "Detallado de Impuesto de Registro" "2"
     Entonces realizara acciones de Detallado de Impuesto de Registro

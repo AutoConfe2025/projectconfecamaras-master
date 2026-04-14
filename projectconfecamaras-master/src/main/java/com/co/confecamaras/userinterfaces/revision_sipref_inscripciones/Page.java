@@ -14,10 +14,10 @@ public class Page {
             .locatedBy("(//button[@class='btn btn-primary btn-md'])[1]");
 
     public static final Target BOTON_CEULAR = Target.the("boton celular")
-            .locatedBy("(//button[@class='btn btn-primary btn-md'])[2]");
+            .locatedBy("(//button[@class='btn btn-primary btn-md'])[1]");
 
     public static final Target BOTON_REGRESAR= Target.the("boton regresar")
-            .locatedBy("(//button[@class='btn btn-primary btn-md'])[3]");
+            .locatedBy("//button[contains(text(),'Regresar')]");
 
     public static final Target BOTON_MARCAR_COMO_REVISADO= Target.the("boton marcar como revisado")
             .locatedBy("(//a[@data-original-title='Marcar como revisado'])[1]");

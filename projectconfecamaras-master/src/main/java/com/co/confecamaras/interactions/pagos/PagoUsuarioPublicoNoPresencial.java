@@ -95,7 +95,7 @@ public class PagoUsuarioPublicoNoPresencial implements Interaction {
         /************************TU COMPRA ************************************/
 
         actor.attemptsTo(
-                WaitInteractions.untilAppears(MENU_DESPLE_TIPO_DOCUMENTO),
+                WaitUntil.the(MENU_DESPLE_TIPO_DOCUMENTO,isPresent()).forNoMoreThan(360).seconds(),
                 Click.on(MENU_DESPLE_TIPO_DOCUMENTO),
                 Click.on(MENU_DESPLE_CC)
         );

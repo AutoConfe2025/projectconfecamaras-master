@@ -72,7 +72,7 @@ public class CambioDomicilio implements Task {
 
         actor.attemptsTo(
                 DoFirmaSobreCanvas.enElCanvas("//canvas[@data-testid='canvas-element']"),
-                ContinueMainFlow.now()
+                CloseCurrentWindow.now()
         );
 
 

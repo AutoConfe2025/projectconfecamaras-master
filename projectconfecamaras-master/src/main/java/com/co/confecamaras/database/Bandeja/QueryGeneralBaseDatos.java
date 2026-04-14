@@ -14,7 +14,7 @@ import static com.co.confecamaras.models.DataBase.getCon;
 @AllArgsConstructor
 public class QueryGeneralBaseDatos implements Task {
 
-    private final String codigoBarras;
+    private final String CodigoBarrasCapturado;
     private final String estadoFinal;
     private final String base;
 
@@ -25,7 +25,7 @@ public class QueryGeneralBaseDatos implements Task {
         System.out.println("--- Ejecutando Tarea de Actualización de BD ---");
         System.out.println("Parámetros: ");
         System.out.println("  > Base de Datos (Esquema): " + base);
-        System.out.println("  > Código de Barras (WHERE): " + codigoBarras);
+        System.out.println("  > Código de Barras (WHERE): " + CodigoBarrasCapturado);
         System.out.println("  > Estado Final (SET): " + estadoFinal);
 
         try {
@@ -38,7 +38,7 @@ public class QueryGeneralBaseDatos implements Task {
 
                 // 3. Establecer los parámetros y ejecutar
                 stmt.setString(1, estadoFinal);
-                stmt.setString(2, codigoBarras);
+                stmt.setString(2, CodigoBarrasCapturado);
 
                 // Log 3: Ejecutando el update
                 System.out.println("  > Ejecutando sentencia UPDATE...");
