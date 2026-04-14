@@ -7,9 +7,6 @@ import net.serenitybdd.screenplay.actors.OnStage;
 
 public class IngresoBusquedaPrincipalBandejaDefinitions {
 
-
-
-
     private static final String DETALLADO_IMPUSTO = "Detallado de Impuesto de Registro";
     private static final String RESUMIDO_IMPUSTO = "Resumido de Impuesto de Registro";
 

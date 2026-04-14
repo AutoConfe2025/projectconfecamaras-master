@@ -14,12 +14,14 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.WebDriver;
 
 import static com.co.confecamaras.userinterfaces.consultasytransacciones.Expediente.*;
 
 import static com.co.confecamaras.userinterfaces.consultasytransacciones.Expediente.VALOR_MUNICIPIO_NOTIFICACION_PROPONENTE;
 import static com.co.confecamaras.utils.consultasytransacciones.ConsultarExpedienteConstants.NOMBRE;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class ConsultaExpedientesNombre implements Task {
     @Override
@@ -39,6 +41,7 @@ public class ConsultaExpedientesNombre implements Task {
         actor.attemptsTo(Click.on(BTN_NUMERO_MATRICULA_NOMBRE));
 
         // Asersiones de Matrícula y Razón Social
+        actor.attemptsTo(WaitUntil.the(VALOR_MATRICULA_MERCANTIL,isPresent()).forNoMoreThan(10).seconds());
         actor.attemptsTo(Ensure.that(VALOR_MATRICULA_MERCANTIL).textContentValues().contains(ExpedientesNombre.MATRICULA_MERCANTIL));
         actor.attemptsTo(Ensure.that(VALOR_NOMBRE_RAZON_SOCIAL).textContentValues().contains(ExpedientesNombre.NOMBRE_RAZON_SOCIAL));
 

@@ -40,7 +40,7 @@ public class PrimerFormulario implements Task {
                 Enter.theValue("1").into(CAMPO_CANTIDAD_MUJERES_OCUPADAS),
                 Scroll.to(LISTA_PERTENECE_GRUPO_ETNICO),
                 SelectFromOptions.byValue("E").from(LISTA_PERTENECE_GRUPO_ETNICO),
-                SelectFromOptions.byValue("N").from(LISTA_CUENTA_EMPLEADOS_ETNICOS),
+                SelectFromOptions.byValue("N").from(LISTA_CUENTA_EMPLEADOS_ETNICOS_1),
                 Scroll.to(BOTON_ALAMCENAR),
                 Click.on(BOTON_ALAMCENAR),
                 WaitUntil.the(BOTON_MENSAJE_INFORMACION,isPresent()).forNoMoreThan(20).seconds(),

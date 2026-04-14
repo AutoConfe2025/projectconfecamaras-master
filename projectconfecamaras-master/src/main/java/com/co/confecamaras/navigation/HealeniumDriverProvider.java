@@ -19,6 +19,9 @@ public class HealeniumDriverProvider implements DriverSource {
         options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-notifications");
 
         WebDriver baseDriver = new ChromeDriver(options);
 

@@ -1,5 +1,5 @@
 # language: es
-Característica: Validar que permita la revision
+Característica: Validar que permita la revision ingresos por cuenta
   de revision Mantenimiento e informes - Ingresos por Cuentas
 
   Antecedentes: Ingreso al aplicativo

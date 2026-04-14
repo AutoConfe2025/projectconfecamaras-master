@@ -1,11 +1,13 @@
 package com.co.confecamaras.tasks.renovaciones.persona_natural_est_publico;
 
+import com.co.confecamaras.questions.Elementos.ElementoElegible;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.questions.Attribute;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static com.co.confecamaras.userinterfaces.CamaraComercioVeinte.BTN_ESTUDIO_REGMTIL;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
@@ -20,9 +22,19 @@ public class FlujoPrimerFormulario implements Task {
                 SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES)
         );
 
+        if (actor.asksFor(ElementoElegible.para(BUTTON_CIIU_MAYOR_INGRESO))) {
+            actor.attemptsTo(
+                    Scroll.to(BUTTON_CIIU_MAYOR_INGRESO).andAlignToBottom(),
+                    Click.on(BUTTON_CIIU_MAYOR_INGRESO),
+                    SelectFromOptions.byValue("10").from(LISTA_SELECCION_DIAN)
+            );
+        }
+
         String valorCapturado = Attribute.of(CAMPO_VALOR_ACTIVO_TOTAL)
                 .named("value")
                 .answeredBy(actor);
+
+        actor.remember("valorCapturadoValores", valorCapturado);
 
         actor.attemptsTo(
                 Enter.theValue(valorCapturado).into(CAMPO_ACTIVO_CORRIENTE),
@@ -36,15 +48,15 @@ public class FlujoPrimerFormulario implements Task {
                 Enter.theValue("1").into(CAMPO_CANTIDAD_MUJERES_OCUPADAS),
                 Scroll.to(LISTA_PERTENECE_GRUPO_ETNICO),
                 SelectFromOptions.byValue("E").from(LISTA_PERTENECE_GRUPO_ETNICO),
-                SelectFromOptions.byValue("N").from(LISTA_CUENTA_EMPLEADOS_ETNICOS),
+                SelectFromOptions.byValue("N").from(LISTA_CUENTA_EMPLEADOS_ETNICOS_1),
                 Scroll.to(BOTON_ALAMCENAR),
                 Click.on(BOTON_ALAMCENAR),
-                WaitUntil.the(BOTON_MENSAJE_INFORMACION,isPresent()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(BOTON_MENSAJE_INFORMACION)
         );
     }
 
-    public static FlujoPrimerFormulario flujoPrimerFormularioExterno(){
+    public static FlujoPrimerFormulario flujoPrimerFormularioExterno() {
         return new FlujoPrimerFormulario();
     }
 }

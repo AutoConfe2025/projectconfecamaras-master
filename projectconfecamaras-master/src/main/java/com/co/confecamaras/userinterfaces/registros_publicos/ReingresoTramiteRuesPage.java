@@ -47,5 +47,5 @@ public class ReingresoTramiteRuesPage {
             .locatedBy("//input[@id='_evidenciarnec']");
 
     public static final Target BOTON_DOCUMENTO_CARGADO = Target.the("boton de carga de documento")
-            .locatedBy("(//img[@src])[5]");
+            .locatedBy("//a[(*)]");
 }

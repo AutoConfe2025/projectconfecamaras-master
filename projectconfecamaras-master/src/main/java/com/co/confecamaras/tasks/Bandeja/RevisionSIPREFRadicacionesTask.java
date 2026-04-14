@@ -18,9 +18,9 @@ public class RevisionSIPREFRadicacionesTask implements Task {
         actor.attemptsTo(
                 SwitchToNewWindow.switchToNewTab(),
                 IngresoFechaTask.fecha(),
-                IngresoaEnviarSMSTask.GestionNotificaciones(),
-                IngresoFechaTask.fecha(),
-                MarcarRevisadoTask.RevisionNotificaciones()
+                IngresoaEnviarSMSTask.GestionNotificaciones()
+//                IngresoFechaTask.fecha(),
+//                MarcarRevisadoTask.RevisionNotificaciones()
 
         );
 

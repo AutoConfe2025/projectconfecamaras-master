@@ -10,6 +10,7 @@ import com.co.confecamaras.utils.News.evidencias.Reportes;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 
 
@@ -24,6 +25,8 @@ public class ResumidodeImpuestodeRegistroTask implements Task {
         actor.attemptsTo(
                 WaitSeconds.seconds(2),
                 LogEvent.recordevent(Reportes.INFO, "Se ingreso correctammete a Resumido de Impuesto de Registro " ),
+                Enter.theValue("01/01/2026").into(CAMPO_FECHA_INICIAL),
+                Enter.theValue("27/03/2026").into(CAMPO_FECHA_FINAL),
                 Click.on(BOTON_CONSULTAR),
                 WaitSeconds.seconds(1),
                 Click.on(BOTON_SI_CONFIRMACION)

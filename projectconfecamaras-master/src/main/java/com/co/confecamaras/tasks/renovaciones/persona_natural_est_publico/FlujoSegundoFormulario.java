@@ -18,6 +18,7 @@ public class FlujoSegundoFormulario implements Task {
         actor.attemptsTo(
                 WaitUntil.the(BOTON_FORMULARIO_2, isPresent()).forNoMoreThan(40).seconds(),
                 Click.on(BOTON_FORMULARIO_2),
+                WaitUntil.the(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO, isPresent()).forNoMoreThan(40).seconds(),
                 Scroll.to(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),
                 Click.on(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),
                 Enter.theValue("21.000.000").into(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),

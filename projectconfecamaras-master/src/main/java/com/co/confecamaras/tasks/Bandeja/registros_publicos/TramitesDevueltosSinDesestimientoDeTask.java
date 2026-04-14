@@ -1,10 +1,11 @@
 package com.co.confecamaras.tasks.Bandeja.registros_publicos;
 
 import com.co.confecamaras.database.Bandeja.QueryGeneralBaseDatos;
-import com.co.confecamaras.interactions.News.ManagePageAlert;
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.interactions.waitinteractions.WaitInteractions;
-import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.*;
+import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.AdicionarComentariosTask;
+import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.ArchivarTask;
+import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.VerRutaConExpedienteAnexosask;
 import com.co.confecamaras.tasks.Consulta.ConsultaGrillaTask;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;
 import net.serenitybdd.screenplay.Actor;
@@ -23,16 +24,17 @@ public class TramitesDevueltosSinDesestimientoDeTask implements Task {
         this.codigo_barras = codigo_barras;
         this.estado = estado;
     }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                QueryGeneralBaseDatos.cambiarEstado(codigo_barras,estado),
+                QueryGeneralBaseDatos.cambiarEstado(codigo_barras, estado),
                 SwitchToNewWindow.switchToNewTab(),
                 ConsultaGrillaTask.consultar(codigo_barras),
                 VerRutaConExpedienteAnexosask.verRuta("Ver ruta", codigo_barras),
                 AdicionarComentariosTask.adicionar("Ver comentarios", "Adicionar comentarios", codigo_barras, "TEST COMENTARIO AUTOMATIZACION"),
-               JavaScriptClick.on(AccionesPage.LINK_ACCION.of("Desistir")),
-               WaitInteractions.untilBeEnable(BTN_CANCELAR_F),
+                JavaScriptClick.on(AccionesPage.LINK_ACCION.of("Desistir")),
+                WaitInteractions.untilBeEnable(BTN_CANCELAR_F),
                 Click.on(BTN_CANCELAR_F),
                 ArchivarTask.archivar()
         );

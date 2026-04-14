@@ -8,12 +8,13 @@ import com.co.confecamaras.utils.sikulli.SafeActions;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.questions.Attribute;
+import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.openqa.selenium.Keys;
 
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
+import static com.co.confecamaras.userinterfaces.renovaciones.GeneralPage.CAMPO_NUEVO_VALOR_PERSONA;
 import static com.co.confecamaras.userinterfaces.sikuli.bandejas.EstadoGeneral.BOTON_BUSQUEDA;
 import static com.co.confecamaras.userinterfaces.sikuli.bandejas.EstadoGeneral.ICONO_BUSQUEDA_NOMBRE;
 import static com.co.confecamaras.userinterfaces.sikuli.bandejas.OficiosRequerimientos.OPCION_OFICIOS_REQUERIMIENTOS;
@@ -41,7 +42,7 @@ public class IngresoGeneralBandejas implements Task {
         );
     }
 
-    public static IngresoGeneralBandejas ingresoBandeja(String codigoBarras, String estadoFinal, String bandeja) {
+    public static IngresoGeneralBandejas    ingresoBandeja(String codigoBarras, String estadoFinal, String bandeja) {
         return new IngresoGeneralBandejas(codigoBarras, estadoFinal, bandeja);
     }
 }

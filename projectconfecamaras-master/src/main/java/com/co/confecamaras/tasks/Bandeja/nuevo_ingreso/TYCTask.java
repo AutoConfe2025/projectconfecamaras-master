@@ -22,21 +22,15 @@ public class TYCTask implements Task {
                 WaitSeconds.seconds(2),
                 Click.on(ENLACE_EDITAR_TRANSACCION),
                 WaitSeconds.seconds(2),
+                Click.on(CAMPO_NOMBRE),
+                Enter.theValue("DIEGO ALBERTO RIOS MAYORGA").into(CAMPO_NOMBRE),
                 Scroll.to(CAMPO_ENLACE),
-                Enter.theValue("QA").into(CAMPO_ENLACE),
+                Enter.theValue("https://qa.co").into(CAMPO_ENLACE),
                 Scroll.to(BOTON_CONTINUAR_TRANSACCION),
                 Click.on(BOTON_CONTINUAR_TRANSACCION),
-                WaitSeconds.seconds(2),
-
-                Click.on(BOTON_OK_MODAL_PRINCIPAL),
-                WaitInteractions.untilDisappears(BOTON_OK_MODAL_PRINCIPAL),
-                Scroll.to(CAMPO_ENLACE),
-                Enter.theValue("").into(CAMPO_ENLACE),
-                Click.on(BOTON_CONTINUAR_TRANSACCION)
-
-
-
+                WaitSeconds.seconds(2)
         );
+
         actor.attemptsTo(
                 Click.on(PRIMER_ENLACE_BORRAR),
                 WaitSeconds.seconds(2),
@@ -44,7 +38,6 @@ public class TYCTask implements Task {
                 WaitSeconds.seconds(2)
 
         );
-
     }
 
     public static TYCTask administracion() {

@@ -23,6 +23,7 @@ public class FlujoFormularioRenovacionSuc implements Task {
                 WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(10).seconds(),
                 Scroll.to(LISTA_SELECION_AUTORIZACIONES),
                 SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES),
+                SelectFromOptions.byValue("00001").from(LISTA_SELECCION_BARRIO),
                 Scroll.to(CAMPO_VALOR_COMERCIAL_VINCULADOS),
                 Enter.theValue(valorNuevo).into(CAMPO_VALOR_COMERCIAL_VINCULADOS),
                 Click.on(CAMPO_PERSONAL_OCUPADO),

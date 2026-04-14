@@ -26,44 +26,9 @@ public class IngresoaEnviarSMSTask implements Task {
                 WaitInteractions.untilBeEnable(ICONO_ENVIAR_SMS),
                 Click.on(ICONO_ENVIAR_SMS),
                 LogEvent.recordevent(Reportes.INFO, "Se ingreso a la accion: EnviarSMS "),
-                WaitSeconds.seconds(5)
-
-        );
-
-//        actor.should(
-//                seeThat(
-//
-//                        ConsultaEmails.paraElTarget(RevisionSIPREFPage.MENSAJE_SIN_NOTIFICACION_GENERICO).asksFor(),
-//                        is(true)
-//                )
-//        );
-        actor.attemptsTo(
-
+                WaitSeconds.seconds(5),
                 WaitInteractions.untilBeEnable(BOTON_NOTIFICAR_EMAILS),
-
-
-
-                Scroll.to(BOTON_NOTIFICAR_EMAILS),
-                Click.on(BOTON_NOTIFICAR_EMAILS),
-
-                WaitSeconds.seconds(5)
-        );
-
-//        actor.should(
-//                seeThat(
-//
-//                        ConsultaEmails.paraElTarget(RevisionSIPREFPage.MENSAJE_CON_NOTIFICACION_GENERICO).asksFor(),
-//                        is(true)
-//                )
-//                );
-        actor.attemptsTo(
-                WaitInteractions.untilBeEnable(BOTON_NOTIFICAR_CELULAR),
-                Scroll.to(BOTON_NOTIFICAR_CELULAR),
-                Click.on(BOTON_NOTIFICAR_CELULAR),
-
-                WaitSeconds.seconds(3),
                 Scroll.to(BOTON_REGRESAR),
-
                 Click.on(BOTON_REGRESAR)
         );
     }

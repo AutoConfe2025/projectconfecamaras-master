@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.targets.Target;
 
 public class GestonDeCajaPage {
+
     public static final Target BOTON_CONSULTAR = Target.the("Boton Consultar")
             .located(By.xpath("//*[@id='formGenerico']//button[contains(text(), 'Consultar')]"));
     public static final Target BOTON_SI_CONFIRMACION = Target.the("Boton SI de la Confirmacion")
@@ -11,9 +12,9 @@ public class GestonDeCajaPage {
     public static final Target BOTON_OK = Target.the("Boton OK del Modal/Dialogo")
             .located(By.xpath("//button[text()='OK']"));
     public static final Target CAMPO_FECHA_INICIAL = Target.the("Campo de entrada Fecha Inicial")
-            .located(By.xpath("//*[@id='fechaInicial']"));
+            .located(By.xpath("//input[@id='fechaInicial']"));
     public static final Target CAMPO_FECHA_FINAL = Target.the("Campo de entrada Fecha Final")
-            .located(By.xpath("//*[@id='fechaFinal']"));
+            .located(By.xpath("//input[@id='fechaFinal']"));
     public static final Target BOTON_DESCARGAR_MODAL = Target.the("Boton Descargar del Modal/Dialogo")
             .located(By.xpath("//button[text()='Descargar']"));
     public static final Target BOTON_CERRAR_CUSTOM_MODAL = Target.the("Boton Cerrar del Custom Modal")

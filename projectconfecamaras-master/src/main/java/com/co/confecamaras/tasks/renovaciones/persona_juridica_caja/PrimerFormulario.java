@@ -71,16 +71,17 @@ public class PrimerFormulario implements Task {
                 WaitUntil.the(CUADRO_GENERADO_PDF, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(CUADRO_GENERADO_PDF),
                 Click.on(BOTON_CERRAR_PDF),
-                WaitUntil.the(BOTON_RECIBIR_PAGO_1, isPresent()).forNoMoreThan(10).seconds(),
-                Scroll.to(BOTON_RECIBIR_PAGO_1),
-                Click.on(BOTON_RECIBIR_PAGO_1),
-                //ClickIfPresent.on(BOTON_ACEPTAR_ALERTA),
+                WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO_2, isPresent()).forNoMoreThan(10).seconds(),
+                Scroll.to(BOTON_RECIBIR_PAGO_TEXTO_2),
+                Click.on(BOTON_RECIBIR_PAGO_TEXTO_2),
+                ClickIfPresent.on(BOTON_ACEPTAR_ALERTA),
                 SwitchToNewWindow.switchToNewTab(),
+                WaitUntil.the(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO,isPresent()).forNoMoreThan(10).seconds(),
                 SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO)
         );
     }
 
-    public static PrimerFormulario PrimerFormularioSinEstablecimiento() {
+    public static PrimerFormulario  PrimerFormularioSinEstablecimiento() {
         return new PrimerFormulario();
     }
 }

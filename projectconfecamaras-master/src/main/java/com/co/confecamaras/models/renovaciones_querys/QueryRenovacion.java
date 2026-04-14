@@ -90,6 +90,18 @@ public enum QueryRenovacion {
             LIMIT 1
             """),
 
+    AGE_CAJA_1("""
+            SELECT i.matricula
+            FROM sii_manizales.mreg_est_inscritos i
+            WHERE i.matricula <> ''
+              AND i.ultanoren = '2026'
+              AND i.organizacion = '03'
+              AND i.categoria = '3'
+              AND i.ctrestmatricula = 'MA'
+              AND i.actcte < 99000000
+            LIMIT 1
+            """),
+
     VARIOS_ANIOS("""
             SELECT matricula
                    FROM sii_manizales.mreg_est_inscritos
@@ -125,12 +137,85 @@ public enum QueryRenovacion {
 
     ACTIVIDAD_NO_COMERCIAL_("""
                 SELECT matricula
-                              FROM sii_manizales.mreg_est_inscritos\s
-                              WHERE organizacion = '01'\s
-                              and ctrestmatricula = 'MA'\s
+                              FROM sii_manizales.mreg_est_inscritos
+                              WHERE organizacion = '01'
+                              and ctrestmatricula = 'MA'
                               and ultanoren = '2025'
                               AND ciiu1='A0111'
                               LIMIT 1
+            """),
+
+    PERSONA_NATURAL_BAJA_ACTIVOS("""
+                SELECT i.matricula
+                                                            from sii_manizales.mreg_est_inscritos i
+                                                            INNER JOIN sii_manizales.mreg_est_propietarios mep ON mep.matriculapropietario = i.matricula
+                                                            WHERE i.matricula <> ''
+                                                            AND i.ultanoren = '2025'
+                                                            AND i.organizacion = '01'
+                                                            AND i.ctrestmatricula = 'MA'
+                                                            AND i.actcte > '200000000'
+                                                            AND i.actcte < '500000000'
+                                                            GROUP BY i.matricula
+                                                            having count(mep.matriculapropietario) = 1
+                                                            LIMIT 1
+            """),
+
+    PERSONA_NATURAL_BAJA_AFILIADA("""
+                SELECT i.matricula
+                                                            from sii_manizales.mreg_est_inscritos i
+                                                            INNER JOIN sii_manizales.mreg_est_propietarios mep
+                                                            ON mep.matriculapropietario = i.matricula
+                                                            INNER JOIN sii_manizales.mreg_est_inscritos e
+                                                            ON e.matricula = mep.matricula
+                                                            and e.ctrestmatricula = 'MA'
+                                                            and e.ultanoren = '2025'
+                                                            WHERE i.matricula <> ''
+                                                            AND i.ultanoren = '2025'
+                                                            AND i.organizacion = '01'
+                                                            AND i.ctrestmatricula = 'MA'
+                                                            AND i.ctrafiliacion = '1'
+                                                            AND i.actcte < '10000000'
+                                                            GROUP BY i.matricula
+                                                            having count(mep.matriculapropietario) = 1
+                                                            LIMIT 1
+            """),
+
+    PERSONA_NATURAL_RENOVADA_RELIQUIDACION("""
+                SELECT i.matricula
+                                                 from sii_manizales.mreg_est_inscritos i
+                                                 INNER JOIN sii_manizales.mreg_est_propietarios mep
+                                                 ON mep.matriculapropietario = i.matricula
+                                                 INNER JOIN sii_manizales.mreg_est_inscritos e
+                                                 ON e.matricula = mep.matricula
+                                                 and e.ctrestmatricula = 'MA'
+                                                 and e.ultanoren = '2026'
+                                                 WHERE i.matricula <> ''
+                                                 AND i.ultanoren = '2026'
+                                                 AND i.organizacion = '01'
+                                                 AND i.ctrestmatricula = 'MA'
+                                                 AND i.actcte < '10000000'
+                                                 GROUP BY i.matricula
+                                                 having count(mep.matriculapropietario) = 1
+                                                 LIMIT 1
+            """),
+
+    RENOVACION_1780_CUMPLE("""
+                SELECT i.matricula
+                                                        from sii_manizales.mreg_est_inscritos i
+                                                        INNER JOIN sii_manizales.mreg_est_propietarios mep ON mep.matriculapropietario = i.matricula
+                                                        WHERE i.matricula <> ''
+                                                        AND i.ultanoren = '2025'
+                                                        AND i.fecmatricula > '20250101'
+                                                        AND i.organizacion = '01'\s
+                                                        AND i.ctrestmatricula = 'MA'
+                                                        AND i.ctrbenley1780 ='S'
+                                                        AND i.cumplerequisitos1780 = 'S'
+                                                        AND i.cumplerequisitos1780primren = ''
+                                                        AND i.renunciabeneficios1780 = ''
+                                                        AND i.actcte < '500000000'
+                                                        GROUP BY i.matricula
+                                                        having count(mep.matriculapropietario) = 1
+                                                        LIMIT 1
             """),
 
     ACTIVIDAD_NO_COMERCIAL("""

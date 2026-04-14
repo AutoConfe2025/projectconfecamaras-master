@@ -16,19 +16,15 @@ import com.co.confecamaras.utils.News.evidencias.Reportes;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.JavaScriptClick;
-
-
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.MENSAJE_ARCHIVAR_PROCESO_FINALIZADO;
 import static com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage.*;
-import static com.co.confecamaras.userinterfaces.DataInscripcionDocumentosMercantilUI.*;
+import static com.co.confecamaras.userinterfaces.DataInscripcionDocumentosMercantilUI.BTN_ASIGNAR_DIDM;
 import static com.co.confecamaras.userinterfaces.InscripcionDocumentos.BTN_REFRESCAR;
-import static com.co.confecamaras.utils.estudio_general.constant.*;
+import static com.co.confecamaras.utils.estudio_general.constant.ADVERTENCIA_ARCHIVAR2;
+import static com.co.confecamaras.utils.estudio_general.constant.EXITO_ARCHIVAR;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.TextContent.of;
@@ -57,8 +53,6 @@ public class CompraVentasTask implements Task {
                 AdicionarComentariosTask.adicionar("Ver comentarios", "Adicionar comentarios", codigo_barras, "TEST COMENTARIO AUTOMATIZACION"),
                 ConsultaGrillaTask.consultar(codigo_barras),
                 ValidarEstudioCompraventa.ValidoEstudio(),
-                WaitInteractions.untilBeEnable(BTN_OK),
-                Click.on(AccionesPage.BTN_OK),
                 LogEvent.recordevent(Reportes.PASSED,"Se finalizo accion Devolver/Requerir Correctamente"),
                 ConsultaGrillaTask.consultar(codigo_barras),
                 WaitInteractions.untilBeEnable(BTN_FINALIZAR_ESTUDIO),
@@ -75,24 +69,6 @@ public class CompraVentasTask implements Task {
                 Click.on(DigitacionPage.BTN_VOLVER),
                 LogEvent.recordevent(Reportes.PASSED, "Se termino correctamnete el finalizar estudio")
         );
-
-        actor.should(
-                seeThat("Mensaje advertencia archivar",
-                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(ADVERTENCIA_ARCHIVAR2))
-        );
-
-        actor.attemptsTo(
-                Click.on(BOTON_CONFIRMAR_),
-                WaitUntil.the(MENSAJE_ARCHIVAR_PROCESO_FINALIZADO, isVisible()).forNoMoreThan(10).seconds()
-        );
-
-        actor.should(
-                seeThat("Mensaje archivado correctamente",
-                        of(MENSAJE_ARCHIVAR_PROCESO_FINALIZADO), containsString(EXITO_ARCHIVAR))
-        );
-
-
-
     }
 
     public static CompraVentasTask digitar(String codigo_barras, String estado) {

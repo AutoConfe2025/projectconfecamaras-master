@@ -5,8 +5,12 @@ import org.openqa.selenium.By;
 
 public class PaginaPrincial {
 
+    public static final Target COD_BARRAS_CAPTURAR = Target.the("codigo de barras a capturar")
+            .located(By.xpath("(//p[@style='text-align:left']//small)[1]"));
+
     public static final Target BOTON_CONTROL = Target.the("boton control de busqueda")
             .located(By.xpath("//button[@class='btn_busqueda_header']"));
+
     public static final Target CAMPO_INGRESO_BUSQUEDA_CONTROL = Target.the("campo de ingreso de busqueda")
             .located(By.xpath("//input[@class='w-100 p-inputtext p-component']"));
 
@@ -30,6 +34,9 @@ public class PaginaPrincial {
             .located(By.xpath("//input[@type='search']"));
 
     public static final Target BOTON_VER_RUTA = Target.the("Boton opcion ver ruta")
+            .located(By.xpath("//a[@data-original-title='Ver ruta']"));
+
+    public static final Target BOTON_VER_RUTA_1 = Target.the("Boton opcion ver ruta alterno")
             .located(By.xpath("//a[@data-original-title='Ver ruta']"));
 
     public static final Target BOTON_VER_PDF = Target.the("Boton opcion ver pdf")

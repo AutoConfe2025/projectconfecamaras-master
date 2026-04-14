@@ -13,10 +13,12 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.WebDriver;
 
 import static com.co.confecamaras.userinterfaces.consultasytransacciones.Expediente.*;
 import static com.co.confecamaras.utils.consultasytransacciones.ConsultarExpedienteConstants.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class ConsultaExpedientesMatricula implements Task {
     @Override
@@ -36,6 +38,7 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(Click.on(BTN_NUMERO_MATRICULA));
 
         // Asersiones de Matrícula y Razón Social
+        actor.attemptsTo(WaitUntil.the(VALOR_MATRICULA_MERCANTIL,isPresent()).forNoMoreThan(10).seconds());
         actor.attemptsTo(Ensure.that(VALOR_MATRICULA_MERCANTIL).textContentValues().contains(ExpedientesMatricula.MATRICULA_MERCANTIL));
         actor.attemptsTo(Ensure.that(VALOR_NOMBRE_RAZON_SOCIAL).textContentValues().contains(ExpedientesMatricula.NOMBRE_RAZON_SOCIAL));
 
