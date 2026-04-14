@@ -50,12 +50,19 @@ public class PrimerFormulario implements Task {
                 SelectFromOptions.byValue("N").from(LISTA_CUENTA_EMPLEADOS_ETNICOS_1),
                 Scroll.to(BOTON_ALAMCENAR),
                 Click.on(BOTON_ALAMCENAR),
-                WaitUntil.the(BOTON_MENSAJE_INFORMACION,isPresent()).forNoMoreThan(20).seconds(),
+                WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
                 Click.on(BOTON_MENSAJE_INFORMACION)
         );
+
+        if (BOTON_MENSAJE_INFORMACION.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
+                    Click.on(BOTON_MENSAJE_INFORMACION)
+            );
+        }
     }
 
-    public static PrimerFormulario primerFormularioBajaActivos(){
+    public static PrimerFormulario primerFormularioBajaActivos() {
         return instrumented(PrimerFormulario.class);
     }
 }

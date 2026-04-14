@@ -1,6 +1,6 @@
 # language: es
 
-Característica: flujo de renovacion persona juridica EST caja
+Característica: flujo de renovacion persona juridica caja
 
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras

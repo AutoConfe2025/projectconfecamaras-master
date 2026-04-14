@@ -69,10 +69,10 @@ public class DigitacionRegMtilTask implements Task {
                 SolicitudNitTask.solicitar(),
                 // ACTUALIZACION RUES
                 Log.message("Ingreso ActualizacionRuesTask"),
-                ActualizacionRuesTask.actualizar(),
+                ActualizacionRuesTask.actualizar()
                 // FINALIZAR
-                Log.message("Ingreso FinalizarTask"),
-                FinalizarTask.finalizar()
+//                Log.message("Ingreso FinalizarTask"),
+//                FinalizarTask.finalizar()
         );
     }
 

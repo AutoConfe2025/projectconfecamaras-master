@@ -20,12 +20,12 @@ public class RelacionCorrecciones implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_FECHA_INICIAL_RELACION, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(CAMPO_FECHA_INICIAL_RELACION),
+                Enter.theValue("2026-01-09").into(CAMPO_FECHA_INICIAL_RELACION),
                 PressEsc.toCloseModal(),
 
                 WaitUntil.the(CAMPO_FECHA_FINAL, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(CAMPO_FECHA_FINAL),
                 Enter.theValue("2026-01-09").into(CAMPO_FECHA_FINAL),
+                PressEsc.toCloseModal(),
                 Click.on(BTN_GENERAR_RELACION_CORRECCION),
                 AceptAlert.aceptar(),
                 Click.on(BTN_DESCARGAR_ARCHIVO),

@@ -1,6 +1,5 @@
 # language: es
-Característica: Validar que permita la revision
-  de  Registros Públicos - Estadísticas y Extracciones - Resumen de Ingresos por sede
+Característica: Validar que permita la revision de Registros Públicos - Estadísticas y Extracciones - Resumen de Ingresos por sede
 
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras

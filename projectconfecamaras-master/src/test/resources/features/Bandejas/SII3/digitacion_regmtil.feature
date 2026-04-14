@@ -8,4 +8,4 @@ Característica: Validar el registro Mercantil pendientes de digitación
   Escenario: Digitacion registro mercantil
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Digitacion RegMtil
-    Entonces validara las acciones de mercantil pendiente relacionados al codigo de barras 745590
+    Entonces validara las acciones de mercantil pendiente relacionados al codigo de barras 744732

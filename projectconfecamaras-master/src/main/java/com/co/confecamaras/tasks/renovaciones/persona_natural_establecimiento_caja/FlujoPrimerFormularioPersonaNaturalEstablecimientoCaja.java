@@ -1,7 +1,6 @@
 package com.co.confecamaras.tasks.renovaciones.persona_natural_establecimiento_caja;
 
 import com.co.confecamaras.interactions.IngresarFechaActual;
-import com.co.confecamaras.interactions.SwitchToNewWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -18,8 +17,9 @@ public class FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja implements T
         actor.attemptsTo(
                 WaitUntil.the(BOTON_FORMULARIO_1, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_FORMULARIO_1),
-                WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(10).seconds(),
-                Scroll.to(LISTA_SELECION_AUTORIZACIONES),
+                WaitUntil.the(LISTA_EMPRENDIMIENTO_SOCIAL, isPresent()).forNoMoreThan(10).seconds(),
+                Scroll.to(LISTA_EMPRENDIMIENTO_SOCIAL),
+                SelectFromOptions.byValue("N").from(LISTA_EMPRENDIMIENTO_SOCIAL),
                 SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES),
                 Click.on(CAMPO_FECHA_INICIO_ACTIVIDAD_SEGUNDARIA),
                 IngresarFechaActual.enElCampo(CAMPO_FECHA_INICIO_ACTIVIDAD_SEGUNDARIA)
@@ -44,7 +44,7 @@ public class FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja implements T
                 SelectFromOptions.byValue("INDIGENA").from(LISTA_GRUPO_ETNICO),
                 Click.on(CAMPO_NOMBRE_GRUPO_ETNICO),
                 Enter.theValue("QA").into(CAMPO_NOMBRE_GRUPO_ETNICO),
-                SelectFromOptions.byValue("S").from(LISTA_CUENTA_EMPLEADOS_ETNICOS),
+                SelectFromOptions.byValue("S").from(LISTA_CUENTA_EMPLEADOS_ETNICOS_1),
                 Scroll.to(CAMPO_GITANOS),
                 Click.on(CAMPO_GITANOS),
                 Enter.theValue("1").into(CAMPO_GITANOS),
@@ -71,19 +71,6 @@ public class FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja implements T
             actor.attemptsTo(
                     WaitUntil.the(BOTON_MENSAJE_INFORMACION, isPresent()).forNoMoreThan(20).seconds(),
                     Click.on(BOTON_MENSAJE_INFORMACION)
-            );
-        }
-
-        actor.attemptsTo(
-                WaitUntil.the(BOTON_RECIBIR_PAGO_1, isPresent()).forNoMoreThan(10).seconds(),
-                Scroll.to(BOTON_RECIBIR_PAGO_1),
-                Click.on(BOTON_RECIBIR_PAGO_1),
-                SwitchToNewWindow.switchToNewTab()
-        );
-
-        if(CERRAR_ALERTA_CAJERO.isVisibleFor(actor)){
-            actor.attemptsTo(
-                    Click.on(CERRAR_ALERTA_CAJERO)
             );
         }
     }

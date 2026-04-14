@@ -18,10 +18,12 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.openqa.selenium.WebDriver;
 
 import static com.co.confecamaras.userinterfaces.consultasytransacciones.Expediente.*;
 import static com.co.confecamaras.utils.consultasytransacciones.ConsultarExpedienteConstants.IDENTIFICACION;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class ConsultaExpedientesIdentificacionNit implements Task {
     @Override
@@ -39,6 +41,7 @@ public class ConsultaExpedientesIdentificacionNit implements Task {
         actor.attemptsTo(Click.on(BTN_NUMERO_MATRICULA_IDENTIFICACION));
 
         // Asersiones de Matrícula y Razón Social
+        actor.attemptsTo(WaitUntil.the(VALOR_MATRICULA_MERCANTIL,isPresent()).forNoMoreThan(10).seconds());
         actor.attemptsTo(Ensure.that(VALOR_MATRICULA_MERCANTIL).textContentValues().contains(ConsultarExpedienteConstants.MATRICULA_EXP_IDENTIFICACION));
         actor.attemptsTo(Ensure.that(VALOR_NOMBRE_RAZON_SOCIAL).textContentValues().contains(ExpedientesIdentificacionNit.NOMBRE_RAZON_SOCIAL));
 

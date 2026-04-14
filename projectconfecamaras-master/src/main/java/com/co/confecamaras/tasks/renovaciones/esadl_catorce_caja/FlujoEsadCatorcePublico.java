@@ -13,6 +13,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPjEstCajaPage.*;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.*;
+import static com.codeborne.selenide.Condition.readonly;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class FlujoEsadCatorcePublico implements Task {
@@ -28,19 +29,41 @@ public class FlujoEsadCatorcePublico implements Task {
                 WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(50).seconds()
         );
 
-        if (!LISTA_SELECION_AUTORIZACIONES.resolveAllFor(actor).isEmpty()) {
+        if (LISTA_SELECION_AUTORIZACIONES.resolveFor(actor).isVisible()){
             actor.attemptsTo(
                     Scroll.to(LISTA_SELECION_AUTORIZACIONES),
                     SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES)
             );
+
+        } else {
+            System.out.println("la lista de seleccion no esta disponible");
         }
 
-        if (!LISTA_SELECION_TIPO_DE_LOCAL.resolveAllFor(actor).isEmpty()) {
+        if (CAMPO_NIT_DATOS_IDENTIFICACION.resolveFor(actor).isVisible()
+                && CAMPO_NIT_DATOS_IDENTIFICACION.resolveFor(actor).isEnabled() && readonly ==null) {
+
+            actor.attemptsTo(
+                    Scroll.to(CAMPO_NIT_DATOS_IDENTIFICACION),
+                    Click.on(CAMPO_NIT_DATOS_IDENTIFICACION),
+                    Enter.theValue("8100047502").into(CAMPO_NIT_DATOS_IDENTIFICACION),
+                    SelectFromOptions.byValue("10").from(LISTA_NIT_DATOS_IDENTIFICACION)
+            );
+
+        } else {
+            System.out.println("El campo NIT no está disponible para ingreso");
+        }
+
+
+
+        if (LISTA_SELECION_TIPO_DE_LOCAL.resolveFor(actor).isVisible()) {
             actor.attemptsTo(
                     Scroll.to(LISTA_SELECION_TIPO_DE_LOCAL),
                     Click.on(LISTA_SELECION_TIPO_DE_LOCAL),
                     Click.on(LISTA_SELECION_TIPO_DE_LOCAL_NO_PROPIO)
             );
+
+        } else {
+            System.out.println("la lista de seleccion de local no esta disponible");
         }
 
         actor.attemptsTo(

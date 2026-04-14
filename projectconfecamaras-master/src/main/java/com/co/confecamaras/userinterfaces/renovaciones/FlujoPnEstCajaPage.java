@@ -8,11 +8,24 @@ public class FlujoPnEstCajaPage {
 
     public static final Target BOTON_FORMULARIO_1 = Target.the("boton de ingreso al formulario primero")
             .locatedBy("(//button[@class='btn btn-outline-primary btn-sm'])[1]");
+
     public static final Target LISTA_SELECION_AUTORIZACIONES = Target.the("lista de seleccion de autorizaciones")
             .locatedBy("//select[@id='ctrmennot']");
 
+    public static final Target LISTA_EMPRENDIMIENTO_SOCIAL = Target.the("lista de seleccion de emprendimiento social")
+            .locatedBy("//select[@id='emprendimientosocial']");
+
+    public static final Target LISTA_SELECCION_BARRIO = Target.the("lista de seleccion de barrio")
+            .locatedBy("//select[@id='barriocom']");
+
     public static final Target LISTA_SELECION_TIPO_DE_LOCAL = Target.the("lista de seleccion de autorizaciones")
             .locatedBy("//select[@id='tipolocal']");
+
+    public static final Target CAMPO_NIT_DATOS_IDENTIFICACION = Target.the("campo de ingreso de nit")
+            .locatedBy("//input[@id='nit']");
+
+    public static final Target LISTA_NIT_DATOS_IDENTIFICACION = Target.the("lista de seleccion administracion DIAN")
+            .locatedBy("//select[@id='admondian']");
 
     public static final Target LISTA_SELECION_TIPO_DE_LOCAL_NO_PROPIO = Target.the("lista de seleccion de autorizaciones")
             .locatedBy("(//option[@value='0'])[2]");
@@ -84,6 +97,7 @@ public class FlujoPnEstCajaPage {
 
     public static final Target LISTA_CUENTA_EMPLEADOS_ETNICOS_1 = Target.the("lista de seleccion de si cuenta con empleados de grupos etnicos")
             .locatedBy("//select[@id='etnias_empleados_participacion']");
+
 
     public static final Target LISTA_AUTORIZA_USO_INFORMACION = Target.the("lista de seleccion de si autoriza uso de la informacion")
             .locatedBy("//select[@id='etnias_pnat_permite_uso_informacion']");
@@ -200,6 +214,13 @@ public class FlujoPnEstCajaPage {
 
     public static final Target CAMPO_SEGUNDO_APELLIDO_RECIBO = Target.the("campo de segundo apellido en el recibo")
             .locatedBy("//input[@id='_apellido2cliente']");
+
+    public static final Target BOTON_CERRAR_BAJA_ACTIVO_ALERTA = Target.the("boton de cerrar el mensaje de alerta de baja de activos")
+            .locatedBy("(//button[contains(text(),'Cerrar')])[1]");
+
+    public static final Target LISTA_TIPO_IDENTIFICACION = Target.the("lista de tipo de identificacion")
+            .locatedBy("//select[@id='_idtipoidentificacioncliente']");
+
     public static final Target CAMPO_IDENTIFICACION = Target.the("campo de identificacion verificar identificacion")
             .locatedBy("//input[@id='_identificacioncliente']");
 

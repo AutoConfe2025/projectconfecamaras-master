@@ -7,7 +7,7 @@ Característica: Validar que permita la revision
 
 
   @EstadísticasPorServicioVirtual @SII4
-  Escenario:  Registros Públicos - Estadísticas y Extracciones - Resumen de Ingresos por sede
+  Escenario:  Registros Públicos - Estadísticas y Extracciones - Estadísticas por Servicio (Virtual)
     Y ingreso al sistema SII3 como admin16
     Cuando Buscamos por el boton principal de busqueda la bandeja Estadísticas por Servicio (Virtual)
     Entonces realizara acciones de Estadísticas por Servicio Virtual

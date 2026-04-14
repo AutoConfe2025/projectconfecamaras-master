@@ -23,7 +23,7 @@ public class ReingresoTramiteRues implements Task {
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_NUC, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NUC),
-                Enter.theValue("20252285528").into(CAMPO_NUC),
+                Enter.theValue("20260000171").into(CAMPO_NUC),
                 Click.on(BOTON_CONSULTAR_NUC),
                 WaitUntil.the(CAMPO_NOMBRE_COMPLETO, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NOMBRE_COMPLETO),

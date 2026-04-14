@@ -47,15 +47,23 @@ public class FlujoValoresPnAfliada implements Task {
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_NUEVO_VALOR_PERSONA, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NUEVO_VALOR_PERSONA),
-                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA),
-                Click.on(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO),
-                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO),
+                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA)
+        );
+
+        if (CAMPO_NUEVO_VALOR_ESTABLECIMIENTO.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    Click.on(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO),
+                    Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO)
+            );
+        }
+
+        actor.attemptsTo(
                 Scroll.to(BOTON_CONTINUAR_RENOVACION_1),
                 Click.on(BOTON_CONTINUAR_RENOVACION_1)
         );
     }
 
-    public static FlujoValoresPnAfliada flujoValoresAfiliada(){
+    public static FlujoValoresPnAfliada flujoValoresAfiliada() {
         return instrumented(FlujoValoresPnAfliada.class);
     }
 }
