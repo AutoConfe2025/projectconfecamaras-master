@@ -1,13 +1,11 @@
 # language: es
 Característica: Validar caracteristicas de libros de comercio
 
+  Antecedentes: ingreso plataforma confecamaras
+    Dado Confecamaras ingresa al sistema de confecamaras
+
   @LibrosComercio @BloqueOcho
   Escenario: Validar libros de comercio
-    Dado el Usuario requiere ver la informacion en Confecamaras
-    Cuando ingrese al sistema SII3 como usuario publico
-      | Camara         | 20       |
-      | Usuario        | CAJAQA   |
-      | Identificacion | 11314260 |
-      | Contraseña     | 2837279  |
-    Y consultara Libros de comercio que abrira una nueva ventana
-    Entonces validara las acciones de libros de comercios relacionados al codigo de barras 701377
+    Y ingreso al sistema SII3 como usuario publico
+    Cuando Buscamos por el boton principal de busqueda la bandeja (R) Libros de comercio
+    Entonces validara las acciones de libros de comercios relacionados al codigo de barras 747373
