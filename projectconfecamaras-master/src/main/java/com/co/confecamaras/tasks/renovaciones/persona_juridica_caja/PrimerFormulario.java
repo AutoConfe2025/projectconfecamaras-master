@@ -74,7 +74,7 @@ public class PrimerFormulario implements Task {
                 WaitUntil.the(BOTON_RECIBIR_PAGO_1, isPresent()).forNoMoreThan(10).seconds(),
                 Scroll.to(BOTON_RECIBIR_PAGO_1),
                 Click.on(BOTON_RECIBIR_PAGO_1),
-                ClickIfPresent.on(BOTON_ACEPTAR_ALERTA),
+                //ClickIfPresent.on(BOTON_ACEPTAR_ALERTA),
                 SwitchToNewWindow.switchToNewTab(),
                 SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO)
         );

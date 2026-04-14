@@ -1,5 +1,6 @@
 package com.co.confecamaras.tasks.renovaciones.renovacion_persona_juridica_publico;
 
+import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.waitinteractions.WaitInteractions;
 import com.co.confecamaras.questions.Elementos.ElementoElegible;
 import lombok.AllArgsConstructor;
@@ -55,6 +56,16 @@ public class RenovacionPersonaJuridicaPublico implements Task {
                     WaitUntil.the(CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO, isPresent()).forNoMoreThan(10).seconds(),
                     Click.on(CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO)
             );
+        }
+        for (int i = 0; i <= 50; i++){
+            if(actor.asksFor(ElementoElegible.para(BOTON_CONTINUAR_RENOVACION_1))){
+                int indexFila = i = 50;
+                System.out.println("Espera implicita de 5 segundos " + indexFila + " repeticiones");
+            } else {
+                int indexFila = i+1;
+                actor.attemptsTo(WaitSeconds.seconds(5));
+                System.out.println("Espera implicita de 5 segundos " + indexFila + " repeticiones");
+            }
         }
 
         actor.attemptsTo(
