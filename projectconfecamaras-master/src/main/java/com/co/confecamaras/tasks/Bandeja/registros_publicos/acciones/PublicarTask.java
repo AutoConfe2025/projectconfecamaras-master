@@ -3,6 +3,7 @@ package com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones;
 import com.co.confecamaras.interactions.News.*;
 import com.co.confecamaras.interactions.WaitInteractions;
 import com.co.confecamaras.interactions.cambiarpestana.SwitchToWindow;
+import com.co.confecamaras.interactions.log.Log;
 import com.co.confecamaras.questions.Elementos.ElementoElegible;
 import com.co.confecamaras.tasks.Consulta.ConsultaGrillaTask;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.AccionesPage.AccionesPage;
@@ -36,13 +37,16 @@ public class PublicarTask implements Task {
                     Click.on(INPUT_BUSCAR),
                     WaitSeconds.seconds(2)
             );
-        } else {
+        }
+        if(actor.asksFor(ElementoElegible.para(TITULO_LIBROS_COMERCIO))){
             actor.attemptsTo(
                     //ConsultaGrillaTask.consultar("701377"),
-                    ConsultaGrillaTask.consultar("567377"),
+                    Log.message("Ingreso este codigo de barras 747373"),
+                    ConsultaGrillaTask.consultar("747373"),
                     WaitSeconds.seconds(2)
             );
         }
+
         actor.attemptsTo(
                 WaitInteractions.untilBeEnable(LINK_ACCION_DOS),
                 JavaScriptClick.on(LINK_ACCION_DOS)
