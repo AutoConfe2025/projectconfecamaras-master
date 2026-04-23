@@ -6,11 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/mantenimiento_e_informes/preparacion_de_activos.feature",
+        features = "src/test/resources/features/",
         glue = "com.co.confecamaras",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        plugin = "pretty"
-//        , tags = "@"
+        plugin = "pretty",
+        tags = "@Renovacion1780"
 )
 public class ConfecamarasSIIRunner {
 
