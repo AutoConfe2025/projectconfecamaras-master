@@ -2,6 +2,7 @@ package com.co.confecamaras.tasks.renovaciones.renovacion_1780_cumple;
 
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.interactions.WaitInterrupted5Segundos;
+import com.co.confecamaras.interactions.log.Log;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Clear;
@@ -109,7 +110,8 @@ public class SegunfoFormulario1780 implements Task {
                     Enter.theValue("documento de prueba QA").into(CAMPO_OBSERVACIONES),
                     Enter.theValue("DIEGO ALBERTO RIOS MAYORGA").into(CAMPO_ENTIDAD_PERSONA_QUE_EXPIDE),
                     Click.on(BOTON_CARGAR_DOCUMENTO),
-                    WaitInterrupted5Segundos.esperaConstante5()
+                    WaitInterrupted5Segundos.esperaConstante5(),
+                    Log.message("PASO POR AQUI 1780")
             );
 
         }
