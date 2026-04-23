@@ -4,6 +4,7 @@ import com.co.confecamaras.interactions.CloseSecondTab;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
+import net.serenitybdd.screenplay.waits.Wait;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.*;
@@ -14,7 +15,6 @@ public class RecibirPago implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         if (BOTON_CERRAR_BAJA_ACTIVO_ALERTA.isVisibleFor(actor)) {
-
             actor.attemptsTo(
                     WaitUntil.the(BOTON_CERRAR_BAJA_ACTIVO_ALERTA, isPresent()).forNoMoreThan(10).seconds(),
                     Click.on(BOTON_CERRAR_BAJA_ACTIVO_ALERTA)
@@ -66,8 +66,7 @@ public class RecibirPago implements Task {
                 Click.on(BOTON_CONTINUAR_GENERAR_RECIBO),
                 WaitUntil.the(TEXTO_RESUMEN_TRANSACCION, isPresent()).forNoMoreThan(120).seconds(),
                 CloseSecondTab.now(),
-
-                WaitUntil.the(OPCION_SERVICIOS, isPresent()).forNoMoreThan(120).seconds(),
+                WaitUntil.the(OPCION_SOPORTES, isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(OPCION_SERVICIOS),
                 WaitUntil.the(OPCION_SOPORTES, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(OPCION_SOPORTES),

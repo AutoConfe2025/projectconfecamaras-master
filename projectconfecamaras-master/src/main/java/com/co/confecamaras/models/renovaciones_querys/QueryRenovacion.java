@@ -4,17 +4,18 @@ public enum QueryRenovacion {
 
     PERSONA_NATURAL_EST_CAJA("""
             SELECT i.matricula
-            FROM sii_manizales.mreg_est_inscritos i
-            INNER JOIN sii_manizales.mreg_est_propietarios mep 
-                ON mep.matriculapropietario = i.matricula
-            WHERE i.matricula <> ''
-              AND i.ultanoren = '2025'
-              AND i.organizacion = '01'
-              AND i.ctrestmatricula = 'MA'
-              AND i.actcte < 10000000
-            GROUP BY i.matricula
-            HAVING COUNT(mep.matriculapropietario) = 1
-            LIMIT 1
+                           FROM sii_manizales.mreg_est_inscritos i
+                           INNER JOIN sii_manizales.mreg_est_propietarios mep
+                               ON mep.matriculapropietario = i.matricula
+                           WHERE i.matricula <> ''
+                             AND i.ultanoren = '2025'
+                             AND i.organizacion = '01'
+                             AND i.ctrestmatricula = 'MA'
+                             AND i.actcte < 10000000
+                             AND i.ciiu2 = ""
+                           GROUP BY i.matricula
+                           HAVING COUNT(mep.matriculapropietario) = 1
+                           LIMIT 1
             """),
 
     PERSONA_JURIDICA_EST_CAJA("""
@@ -40,30 +41,42 @@ public enum QueryRenovacion {
             LIMIT 1
             """),
 
-    ESADL_ORG_CATORCE_CAJA("""
-            SELECT i.matricula
-            FROM sii_manizales.mreg_est_inscritos i
-            WHERE i.matricula <> ''
-              AND i.organizacion = '14'
-              AND i.categoria = '1'
-              AND i.ctrestmatricula = 'IA'
-              AND i.ultanoren = '2025'
-              AND i.ciiu1 <> 'A0111'
-              AND i.acttot < 10000000000
-            LIMIT 1
+    ESADL_ORG_CATORCE_CAJA("""                      
+                                SELECT i.matricula
+                                      FROM sii_manizales.mreg_est_inscritos i
+                                      LEFT JOIN sii_manizales.mreg_est_propietarios mep
+                                      ON mep.matriculapropietario = i.matricula
+                                      WHERE i.matricula <> ''
+                                      AND i.organizacion = '14'
+                                      AND i.categoria = '1'
+                                      AND i.ctrestmatricula = 'IA'
+                                      AND i.ultanoren = '2025'
+                                      AND i.ciiu1 <> 'A0111'
+                                      AND i.ciiu2 = ""
+                                      AND i.acttot < 1000000000
+                                      AND i.ctrclaseespeesadl NOT IN ('49', '61')
+                                      GROUP BY i.matricula
+                                      HAVING COUNT(mep.matriculapropietario) = 0
+                                      LIMIT 1;
             """),
 
     ESADL_ORG_DOCE_CAJA("""
             SELECT i.matricula
-            FROM sii_manizales.mreg_est_inscritos i
-            WHERE i.matricula <> ''
-              AND i.organizacion = '12'
-              AND i.categoria = '1'
-              AND i.ctrestmatricula = 'IA'
-              AND i.ultanoren = '2025'
-              AND i.ciiu1 <> 'A0111'
-              AND i.acttot < 10000000000
-            LIMIT 1
+                                         FROM sii_manizales.mreg_est_inscritos i
+                                         LEFT JOIN sii_manizales.mreg_est_propietarios mep
+                                         ON mep.matriculapropietario = i.matricula
+                                         WHERE i.matricula <> ''
+                                         AND i.organizacion = '12'
+                                         AND i.categoria = '1'
+                                         AND i.ctrestmatricula = 'IA'
+                                         AND i.ultanoren = '2025'
+                                         AND i.ciiu1 <> 'A0111'
+                                         AND i.ciiu2 = ""
+                                         AND i.acttot < 1000000000
+                                         AND i.ctrclaseespeesadl NOT IN ('49', '61')
+                                         GROUP BY i.matricula
+                                         HAVING COUNT(mep.matriculapropietario) = 0
+                                         LIMIT 1;
             """),
 
     SUC_CAJA("""

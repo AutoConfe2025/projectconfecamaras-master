@@ -12,7 +12,7 @@ public class ExpedientesProponente {
     public static final String ORGANIZACION_JURIDICA = "Sociedad por Acciones Simplificada";
     public static final String CATEGORIA = "PRINCIPAL";
     public static final String INSCRIPCION_PROPONENTE = "2496";
-    public static final String ESTADO = "00 Activo";
+    public static final String ESTADO = "03 No renovado";
     public static final String AUTORIZO_ENVIO_EMAILS = "N";
     public static final String TAMANIO_EMPRESARIAL = "MEDIANA EMPRESA";
 

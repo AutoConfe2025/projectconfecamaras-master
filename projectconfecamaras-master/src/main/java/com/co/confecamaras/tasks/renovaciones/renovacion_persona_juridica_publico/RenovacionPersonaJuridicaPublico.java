@@ -57,10 +57,17 @@ public class RenovacionPersonaJuridicaPublico implements Task {
             );
         }
 
-        actor.attemptsTo(
-                Scroll.to(BOTON_CONTINUAR_RENOVACION_1),
-                Click.on(BOTON_CONTINUAR_RENOVACION_1)
-        );
+        if (CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO_2.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    WaitUntil.the(CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO_2, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO_2)
+            );
+        } else {
+            actor.attemptsTo(
+                    Scroll.to(BOTON_CONTINUAR_RENOVACION_1),
+                    Click.on(BOTON_CONTINUAR_RENOVACION_1)
+            );
+        }
     }
 
     public static RenovacionPersonaJuridicaPublico renovacionPJPublico(String valor) {

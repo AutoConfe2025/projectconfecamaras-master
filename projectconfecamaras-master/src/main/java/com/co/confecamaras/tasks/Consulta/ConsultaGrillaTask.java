@@ -1,8 +1,8 @@
 package com.co.confecamaras.tasks.Consulta;
 
+import com.co.confecamaras.interactions.News.LogEvent;
 import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.waitinteractions.WaitInteractions;
-import com.co.confecamaras.interactions.News.LogEvent;
 import com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.TramitesReingresadosPage;
 import com.co.confecamaras.utils.News.evidencias.Reportes;
 import net.serenitybdd.core.pages.WebElementFacade;

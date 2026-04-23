@@ -41,6 +41,8 @@ public class IngresoBandejaCaptura implements Task {
                 .replaceAll("[^0-9]", "")
                 .trim();
 
+        actor.remember("codigoBarraCapturado",CodigoBarrasCapturado);
+
         System.out.println("codigo capturado" + CodigoBarrasCapturado);
 
         actor.attemptsTo(

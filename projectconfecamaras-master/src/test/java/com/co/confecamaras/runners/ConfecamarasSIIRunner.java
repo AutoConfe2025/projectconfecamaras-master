@@ -6,11 +6,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/mantenimiento_e_informes/preparacion_de_activos.feature",
+        features = "src/test/resources/features/consultas_y_transacciones/ConsultasRegistrosPublicos/Expedientes.feature",
         glue = "com.co.confecamaras",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
-        plugin = "pretty"
-//        , tags = "@"
+        plugin = {
+                "pretty",
+                "rerun:target/rerun.txt"
+        }
+        ,tags = "@Expedientes_Matricula"
+
 )
 public class ConfecamarasSIIRunner {
 

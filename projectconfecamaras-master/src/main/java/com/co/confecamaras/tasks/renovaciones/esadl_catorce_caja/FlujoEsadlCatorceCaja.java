@@ -19,9 +19,9 @@ public class FlujoEsadlCatorceCaja implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(BOTON_FORMULARIO_1, isPresent()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(BOTON_FORMULARIO_1, isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(BOTON_FORMULARIO_1),
-                WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(LISTA_SELECION_AUTORIZACIONES, isPresent()).forNoMoreThan(120).seconds(),
                 Scroll.to(LISTA_SELECION_AUTORIZACIONES),
                 SelectFromOptions.byValue("NO").from(LISTA_SELECION_AUTORIZACIONES),
                 SelectFromOptions.byValue("N").from(LISTA_EMPRENDIMIENTO_SOCIAL)
