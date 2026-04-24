@@ -5,6 +5,9 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class AccionesPage {
 
+    public static Target TITULO_LIBROS_COMERCIO = Target.the("TITULO bandeja Libros de comercio y sus anotaciones pendientes de registrar").
+            locatedBy("//*[contains(text(), 'Libros de comercio')]");
+
     // PARA BUSCAR ALGUN TIPO DE INFORMACION
 
     public static final Target COD_BARRAS = Target.the("codigo barras captura")
