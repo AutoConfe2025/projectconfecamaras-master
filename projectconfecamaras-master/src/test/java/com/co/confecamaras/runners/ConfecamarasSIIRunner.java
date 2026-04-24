@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "rerun:target/rerun.txt"
         }
-        ,tags = "@"
+//        ,tags = "@"
 
 )
 public class ConfecamarasSIIRunner {
