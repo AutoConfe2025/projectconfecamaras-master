@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         glue = "com.co.confecamaras",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = "pretty",
-        tags = "@Renovacion1780"
+        tags = "@FlujoPersonaJuridicaEstablecimientoPublico"
 )
 public class ConfecamarasSIIRunner {
 
