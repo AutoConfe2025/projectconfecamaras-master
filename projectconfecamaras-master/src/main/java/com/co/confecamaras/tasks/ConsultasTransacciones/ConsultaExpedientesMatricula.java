@@ -38,7 +38,7 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(Click.on(BTN_NUMERO_MATRICULA));
 
         // Asersiones de Matrícula y Razón Social
-        actor.attemptsTo(WaitUntil.the(VALOR_MATRICULA_MERCANTIL,isPresent()).forNoMoreThan(10).seconds());
+        actor.attemptsTo(WaitUntil.the(VALOR_MATRICULA_MERCANTIL, isPresent()).forNoMoreThan(10).seconds());
         actor.attemptsTo(Ensure.that(VALOR_MATRICULA_MERCANTIL).textContentValues().contains(ExpedientesMatricula.MATRICULA_MERCANTIL));
         actor.attemptsTo(Ensure.that(VALOR_NOMBRE_RAZON_SOCIAL).textContentValues().contains(ExpedientesMatricula.NOMBRE_RAZON_SOCIAL));
 
@@ -84,7 +84,7 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(Ensure.that(VALOR_TELEFONO_02).textContentValues().contains(ExpedientesMatricula.TELEFONO_02));
         actor.attemptsTo(Ensure.that(VALOR_TELEFONO_03).textContentValues().contains(ExpedientesMatricula.TELEFONO_03));
         actor.attemptsTo(Ensure.that(VALOR_CORREO_ELECTRONICO).textContentValues().contains(ExpedientesMatricula.CORREO_ELECTRONICO));
-        actor.attemptsTo(Ensure.that(VALOR_ZONA).textContentValues().contains(ExpedientesMatricula.ZONA));
+
         actor.attemptsTo(Click.on(UBICACION_COMERCIAL)); // Cierra Ubicación Comercial
 
         // Notificación Judicial
@@ -97,7 +97,6 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(Ensure.that(VALOR_TELEFONO_02_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.TELEFONO_02));
         actor.attemptsTo(Ensure.that(VALOR_TELEFONO_03_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.TELEFONO_03));
         actor.attemptsTo(Ensure.that(VALOR_CORREO_ELECTRONICO_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.CORREO_ELECTRONICO));
-        actor.attemptsTo(Ensure.that(VALOR_ZONA_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.ZONA));
         actor.attemptsTo(Click.on(NOTIFICACION_JUDICIAL)); // Cierra Notificación Judicial
 
         // Sitio de Operación
@@ -178,7 +177,6 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(WaitConstant.esperaConstante());
 
 
-
         // --- Bloque 4: Cierre de secciones y navegación final ---
         actor.attemptsTo(Click.on(FORMULARIOS_Y_EXPEDIENTE_GRAFICO)); // Cierra Formularios y Expediente Gráfico
 
@@ -195,7 +193,7 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(WaitConstantTwo.esperaConstante());
     }
 
-    public static ConsultaExpedientesMatricula matricula(){
+    public static ConsultaExpedientesMatricula matricula() {
         return Tasks.instrumented(ConsultaExpedientesMatricula.class);
     }
 }

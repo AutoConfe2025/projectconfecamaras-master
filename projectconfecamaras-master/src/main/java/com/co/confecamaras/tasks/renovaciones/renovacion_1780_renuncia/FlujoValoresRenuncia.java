@@ -49,7 +49,17 @@ public class FlujoValoresRenuncia implements Task {
                 Click.on(CAMPO_NUEVO_VALOR_PERSONA),
                 Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA),
                 Click.on(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO),
-                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO),
+                Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO)
+        );
+
+        if (CAMPO_NUEVO_VALOR_PERSONA_3.isVisibleFor(actor)){
+            actor.attemptsTo(
+                    Click.on(CAMPO_NUEVO_VALOR_PERSONA_3),
+                    Enter.theValue(valorCapturado).into(CAMPO_NUEVO_VALOR_PERSONA_3)
+            );
+        }
+
+        actor.attemptsTo(
                 Click.on(BOTON_RENUNCIA_LEY_1780),
                 Click.on(BOTON_MANTIENE_REQUISITOS_LEY_1780),
                 Scroll.to(BOTON_CONTINUAR_RENOVACION_1),

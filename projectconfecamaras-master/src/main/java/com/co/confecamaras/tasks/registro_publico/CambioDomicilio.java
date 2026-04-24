@@ -1,6 +1,7 @@
 package com.co.confecamaras.tasks.registro_publico;
 
 import com.co.confecamaras.interactions.*;
+import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.userinterfaces.FirmadoManuscritoSobre;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
@@ -30,15 +31,9 @@ public class CambioDomicilio implements Task {
                 WaitUntil.the(CAMPO_NIT, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NIT),
                 Enter.theValue(nit).into(CAMPO_NIT),
-                Click.on(BOTON_CONSULTAR_NIT)
+                Click.on(BOTON_CONSULTAR_NIT),
+                WaitInterrupted10Segundos.esperaConstante10()
         );
-
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
 
         String clave = Target.the("clave de recuperación")
                 .locatedBy("//small[@id='recuperacion']")
@@ -50,7 +45,6 @@ public class CambioDomicilio implements Task {
         actor.remember("clave", clave);
 
         actor.attemptsTo(
-
                 WaitUntil.the(BOTON_FIRMA_MANUSCRITA, isPresent()).forNoMoreThan(400).seconds(),
                 Scroll.to(BOTON_FIRMA_MANUSCRITA),
                 Click.on(BOTON_FIRMA_MANUSCRITA),
@@ -61,20 +55,18 @@ public class CambioDomicilio implements Task {
                 Click.on(CAMPO_CELULAR),
                 Enter.theValue("3166537660").into(CAMPO_CELULAR),
                 Click.on(BOTON_GENERAR_QR),
-                ReadQrCode.inThePage(IMG_QR_FIRMA)
-        );
+                //lee el qr
+                ReadQrCode.inThePage(IMG_QR_FIRMA),
+                //pasa al nuevo navegador
+//                SwitchToExternalBrowser.now(),
 
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+                WaitInterrupted10Segundos.esperaConstante10(),
+                DoFirmaSobreCanvas.enElCanvas("//canvas[@data-testid='canvas-element']")
+        );
 
         actor.attemptsTo(
-                DoFirmaSobreCanvas.enElCanvas("//canvas[@data-testid='canvas-element']"),
-                CloseCurrentWindow.now()
+                CloseExternalBrowser.now()
         );
-
 
 
     }

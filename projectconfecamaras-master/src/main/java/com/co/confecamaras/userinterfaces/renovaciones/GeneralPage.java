@@ -31,6 +31,9 @@ public class GeneralPage {
     public static final Target CAMPO_NUEVO_VALOR_PERSONA = Target.the("campo nuevo valor persona")
             .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[1]");
 
+    public static final Target CAMPO_ULTIMOS_ACTIVOS = Target.the("campo nuevos activos")
+            .locatedBy("//*[@id=\"table\"]/tbody/tr/td[2]");
+
     public static final Target CAMPO_NUEVO_VALOR_PERSONA_2 = Target.the("campo nuevo valor persona numero dos varios anios")
             .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[2]");
 
@@ -58,6 +61,9 @@ public class GeneralPage {
             .locatedBy("(//input[@class='form-control-sm form-control pruebacomas'])[8]");
     public static final Target CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO = Target.the("checkbox seleccionar segundo tramite")
             .locatedBy("(//input[@class='form-check-input checkrenovacion'])[2]");
+
+    public static final Target CAMPO_SELECCION_SELECCION_VALOR_ESTABLECIMIENTO_2 = Target.the("checkbox seleccionar segundo tramite")
+            .locatedBy("(//input[@class='form-check-input checkrenovacion'])[3]");
 
     public static final Target BOTON_CUMPLE_REQUISITOS_LEY_1780 = Target.the("boton cumple con los requisitos 1780")
             .locatedBy("(//input[@class='p-inputswitch-input'])[1]");

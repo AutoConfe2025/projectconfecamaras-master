@@ -7,6 +7,7 @@ import com.co.confecamaras.tasks.renovaciones.persona_natural_establecimiento_ca
 import com.co.confecamaras.tasks.renovaciones.renovacion_pn_afiliada.FlujoValoresPnAfliada;
 import com.co.confecamaras.tasks.renovaciones.renovacion_pn_afiliada.SegundoFormularioAfiliacion;
 import com.co.confecamaras.tasks.renovaciones.renovacion_pn_renovada_reliquidacion.PrimerFlujoRenovadaReliquidacion;
+import com.co.confecamaras.tasks.renovaciones.renovacion_pn_renovada_reliquidacion.primerFlujoFull;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -19,6 +20,13 @@ public class FlujoPnAfiliadaStepDefinitions {
         QueryRenovacion queryEnum = QueryRenovacion.from(query);
         theActorInTheSpotlight().attemptsTo(RunDataBaseQueryRenovacionPnEstablecimiento.query(queryEnum.getSql()));
         theActorInTheSpotlight().attemptsTo(FlujoValoresPnAfliada.flujoValoresAfiliada());
+    }
+
+    @Then("realizjo el flujo de persona natural afiliada renovada")
+    public void realizoElFlujoDeBajaDeActivosRenovada() {
+        theActorInTheSpotlight().attemptsTo(primerFlujoFull.flujoReliqui());
+        theActorInTheSpotlight().attemptsTo(SegundoFormularioAfiliacion.SegundoFormAfiliacion());
+        theActorInTheSpotlight().attemptsTo(RecibirPago.flujoRecibePago());
     }
 
     @Then("realizjo el flujo de persona natural afiliada")

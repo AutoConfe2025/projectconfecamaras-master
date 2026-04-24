@@ -6,6 +6,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.questions.Attribute;
+import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.renovaciones.GeneralPage.*;
@@ -26,6 +27,11 @@ public class FlujoValoresSucConsultaExterna implements Task {
         String valorCapturado = Attribute.of(CAMPO_NUEVO_VALOR_PERSONA)
                 .named("value")
                 .answeredBy(actor);
+
+        if (valorCapturado == null || valorCapturado.trim().isEmpty()) {
+
+            valorCapturado = Text.of(CAMPO_ULTIMOS_ACTIVOS).answeredBy(actor);
+        }
 
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_NUEVO_VALOR_PERSONA, isPresent()).forNoMoreThan(10).seconds(),
