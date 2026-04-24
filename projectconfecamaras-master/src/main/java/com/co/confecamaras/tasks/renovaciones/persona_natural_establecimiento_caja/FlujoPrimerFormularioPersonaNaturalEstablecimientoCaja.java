@@ -29,6 +29,8 @@ public class FlujoPrimerFormularioPersonaNaturalEstablecimientoCaja implements T
                 .named("value")
                 .answeredBy(actor);
 
+        actor.remember("valorNuevo",valorCapturado);
+
         actor.attemptsTo(
                 Enter.theValue(valorCapturado).into(CAMPO_ACTIVO_CORRIENTE),
                 Enter.theValue(valorCapturado).into(CAMPO_PASIVO_CORRIENTE),

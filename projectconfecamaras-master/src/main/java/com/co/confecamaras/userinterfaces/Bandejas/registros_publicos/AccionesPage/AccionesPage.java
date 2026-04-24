@@ -9,6 +9,10 @@ public class AccionesPage {
             locatedBy("//*[contains(text(), 'Libros de comercio')]");
 
     // PARA BUSCAR ALGUN TIPO DE INFORMACION
+
+    public static final Target COD_BARRAS = Target.the("codigo barras captura")
+            .locatedBy("");
+
     public static final Target INPUT_BUSCAR = Target.the("buscar reingresados").locatedBy("//input[@type='search']");
 
     public static Target LINK_ACCION = Target.the("ingresar a la acción").

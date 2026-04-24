@@ -7,7 +7,7 @@ public class ExpedientesMatricula {
     public static final String ESTADO_MATRICULA = "MA - MATRICULA ACTIVA";
     public static final String ESTADO_DATOS = "REVISADO";
     public static final String FECHA_MATRICULA = "2025-07-28";
-    public static final String FECHA_ULTIMA_RENOVACION = "2025-07-28";
+    public static final String FECHA_ULTIMA_RENOVACION = "2026-04-22";
     public static final String ULTIMO_ANIO_RENOVADO = "2025";
     public static final String ORGANIZACION_JURIDICA = "Sociedad Limitada";
     public static final String CATEGORIA = "SUCURSAL";

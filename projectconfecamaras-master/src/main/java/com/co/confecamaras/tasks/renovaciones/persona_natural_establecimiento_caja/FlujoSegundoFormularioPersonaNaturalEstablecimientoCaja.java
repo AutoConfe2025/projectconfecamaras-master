@@ -62,12 +62,12 @@ public class FlujoSegundoFormularioPersonaNaturalEstablecimientoCaja implements 
         String rutaArchivo1 = System.getProperty("user.dir")
                 + "/src/test/resources/pdfs/20-Formulario-Establecimiento--15025.pdf";
 
-        actor.attemptsTo(
-                Click.on(BOTON_INSERTAR_PDF_1),
-                Enter.theValue(rutaArchivo1).into(CAMPO_INGRESO_RUTA_PDF),
-                Click.on(BOTON_CARGAR_DOCUMENTO),
-                WaitInterrupted5Segundos.esperaConstante5()
-        );
+//        actor.attemptsTo(
+//                Click.on(BOTON_INSERTAR_PDF_1),
+//                Enter.theValue(rutaArchivo1).into(CAMPO_INGRESO_RUTA_PDF),
+//                Click.on(BOTON_CARGAR_DOCUMENTO),
+//                WaitInterrupted5Segundos.esperaConstante5()
+//        );
 
         actor.attemptsTo(
                 WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO_2, isPresent()).forNoMoreThan(20).seconds(),

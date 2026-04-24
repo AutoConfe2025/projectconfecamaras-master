@@ -26,8 +26,7 @@ public class InformesSSTask implements Task {
                 Enter.theValue("2025").into(INPUT_ANO_INICIAL),
                 Enter.theValue("2025").into(INPUT_ANO_FINAL),
                 WaitSeconds.seconds(2),
-                SelectFromOptions.byVisibleText("Desarrollo")
-                        .from(SELECT_AMBIENTE),
+                SelectFromOptions.byVisibleText("Producción").from(SELECT_AMBIENTE),
                 Enter.theValue("2025").into(INPUT_ANO_SUPERVIVENCIA),
                 Enter.theValue("101015").into(INPUT_CIIU),
                 Enter.theValue("frojasqaconfe@gmail.com").into(INPUT_CIIU),
@@ -35,22 +34,12 @@ public class InformesSSTask implements Task {
                 Click.on(BOTON_EXTRAER),
                 WaitSeconds.seconds(2),
                 Click.on(BTN_ACEPTAR_GENERAR),
-                 WaitSeconds.seconds(2)
+                WaitSeconds.seconds(2)
         );
-
 
         actor.attemptsTo(
-
                 LogEvent.recordevent(Reportes.PASSED, "Finalizo correctamnete Informes SS")
         );
-
-
-
-
-
-
-
-
     }
 
     public static InformesSSTask estadisticasYextracciones() {

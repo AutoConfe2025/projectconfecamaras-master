@@ -5,7 +5,7 @@ plugins {
     id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'
 }
 
-defaultTasks 'clean', 'test'
+defaultTasks 'test', 'aggregate'
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
@@ -89,8 +89,10 @@ test {
     }
 
     doFirst {
-        println "🧹 Limpiando reportes Serenity antiguos..."
-        delete fileTree(dir: "target/site/serenity")
+        if (System.getProperty("clean.report") == "true") {
+            println "🧹 Limpiando reportes Serenity antiguos..."
+            delete fileTree(dir: "target")
+        }
     }
 }
 

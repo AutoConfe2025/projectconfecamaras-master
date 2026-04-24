@@ -35,7 +35,7 @@ public class Activos {
             locatedBy("//select[@ID='ccos']");
 
     public static final Target OPCION_ADMINISTRATIVA_FINANCIERA = Target.the("opcion administrativa y financiera").
-            locatedBy("//option[normalize-space(text())='0001 - ADMINISTRATIVA Y FINANCIERA']");
+            locatedBy("//*[@id=\"ccos\"]/option[2]");
 
     public static final Target LISTA_AREA_DE_TRABAJO = Target.the("lista area de trabajo").
             locatedBy("//select[@id='areatrabajo']");

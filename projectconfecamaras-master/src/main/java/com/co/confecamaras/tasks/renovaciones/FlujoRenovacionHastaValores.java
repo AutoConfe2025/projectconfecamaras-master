@@ -52,9 +52,21 @@ public class FlujoRenovacionHastaValores implements Task {
                 Enter.theValue(valor).into(CAMPO_NUEVO_VALOR_PERSONA),
                 WaitUntil.the(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO),
-                Enter.theValue(valor).into(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO),
+                Enter.theValue(valor).into(CAMPO_NUEVO_VALOR_ESTABLECIMIENTO)
+               );
+
+        if (CAMPO_NUEVO_VALOR_PERSONA_3.isVisibleFor(actor)){
+            actor.attemptsTo(
+                    WaitUntil.the(CAMPO_NUEVO_VALOR_PERSONA_3, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(CAMPO_NUEVO_VALOR_PERSONA_3),
+                    Enter.theValue(valor).into(CAMPO_NUEVO_VALOR_PERSONA_3)
+            );
+        }
+
+        actor.attemptsTo(
                 Scroll.to(BOTON_CONTINUAR_RENOVACION_1),
-                Click.on(BOTON_CONTINUAR_RENOVACION_1));
+                Click.on(BOTON_CONTINUAR_RENOVACION_1)
+        );
 
         if (BOTON_ACEPTAR_MENSAJE_IMPORTANTE.isVisibleFor(actor)) {
             actor.attemptsTo(

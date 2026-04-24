@@ -13,13 +13,6 @@ public class Hooks {
 
     @Before
     public void setup() {
-        // 🧹 Elimina el reporte anterior antes de ejecutar nuevas pruebas
-        File serenityDir = new File("target/site/serenity");
-        if (serenityDir.exists()) {
-            deleteDirectory(serenityDir);
-            System.out.println("🧹 Reporte Serenity anterior eliminado.");
-        }
-
         // 🔄 Reiniciamos el estado del RepairTracker
         RepairTracker.reset();
     }
@@ -43,10 +36,9 @@ public class Hooks {
             var eventBus = StepEventBus.getEventBus();
             var testOutcome = eventBus.getBaseStepListener().getCurrentTestOutcome();
 
-            if (testOutcome != null) {
+            if (testOutcome != null && testOutcome.isFailure()) {
                 testOutcome.setAnnotatedResult(TestResult.COMPROMISED);
                 testOutcome.setTestFailureMessage("Caso comprometido — reparado con " + tool);
-                System.out.println("⚠️ Caso marcado como COMPROMETIDO (" + tool + ")");
             }
         } else {
             System.out.println("✅ Caso ejecutado sin reparaciones. Estado: OK.");

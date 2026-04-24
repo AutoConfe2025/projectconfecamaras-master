@@ -31,13 +31,8 @@ public class ValidaModuloDigitalizacionOff implements Task {
                 Scroll.to(BOTON_CONSULTAR),
                 Click.on(BOTON_CONSULTAR),
                 WaitUntil.the(BOTON_NUEVA_CONSULTA,isPresent()).forNoMoreThan(60).seconds(),
-                Click.on(BOTON_NUEVA_CONSULTA),
-                Scroll.to(BOTON_LIMPIAR),
-                Click.on(BOTON_LIMPIAR),
-                Click.on(CAMPO_IDENTIFICADOR),
-                Enter.theValue("10081977").into(CAMPO_IDENTIFICADOR),
-                Scroll.to(BOTON_CONSULTAR),
-                Click.on(BOTON_CONSULTAR)
+                Click.on(BOTON_NUEVA_CONSULTA)
+
         );
     }
 

@@ -33,8 +33,8 @@ public class FlujoFirmadoElectronico implements Task {
                 Click.on(CAMPO_CLAVE_FIRMANTE),
                 Enter.theValue("2837279").into(CAMPO_CLAVE_FIRMANTE),
                 SelectFromOptions.byValue("A").from(LISTA_AMBIENTE),
-                SelectFromOptions.byValue("N").from(LISTA_AFECTAR_LIQUIDACION),
-                SelectFromOptions.byValue("no").from(LISTA_CONTROL_FIRMANTE),
+                SelectFromOptions.byValue("S").from(LISTA_AFECTAR_LIQUIDACION),
+                SelectFromOptions.byValue("si").from(LISTA_CONTROL_FIRMANTE),
                 Click.on(BOTON_FIRMAR)
         );
 

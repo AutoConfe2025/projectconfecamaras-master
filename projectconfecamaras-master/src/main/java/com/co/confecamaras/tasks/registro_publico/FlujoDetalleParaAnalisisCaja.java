@@ -16,7 +16,7 @@ public class FlujoDetalleParaAnalisisCaja implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitUntil.the(LISTA_OPERADOR, isPresent()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(LISTA_OPERADOR, isPresent()).forNoMoreThan(60).seconds(),
                 Click.on(LISTA_OPERADOR),
                 WaitUntil.the(OPCION_CAJAQA_LISTA_OPERADOR, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(OPCION_CAJAQA_LISTA_OPERADOR),

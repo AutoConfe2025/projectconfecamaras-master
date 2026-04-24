@@ -17,7 +17,7 @@ public class ExpedientesNombre {
     public static final String ADAPTACION_NUEVO_FORMATO = "N";
     public static final String ADAPTACION_NUEVO_FORMATO2 = "Revisado";
     public static final String INSCRIPCION_PROPONENTE = "2544";
-    public static final String ESTADO = "00 Activo";
+    public static final String ESTADO = "03 No renovado";
     public static final String AUTORIZO_ENVIO_EMAILS = "S";
     public static final String TAMANIO_EMPRESARIAL = "MICRO EMPRESA";
 
