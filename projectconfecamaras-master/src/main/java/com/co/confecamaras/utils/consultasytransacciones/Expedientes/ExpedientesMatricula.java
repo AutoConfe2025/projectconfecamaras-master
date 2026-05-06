@@ -27,13 +27,13 @@ public class ExpedientesMatricula {
 
     public static final String CORREO_ELECTRONICO = "frojas@confecamaras.org.co";
     public static final String ZONA ="";
-    public static final String EMPRESA_UBICACION = "2 - Oficina";
+    public static final String EMPRESA_UBICACION = "";
     public static final String NOMBRE_ACTIVIDAD = "K6621";
     public static final String ANIO_DATOS = "2026";
 
-    public static final String FECHA_DATOS = "2025-07-30";
-    public static final String PERSONAL_OCUPADO = "2";
-    public static final String VALOR_COMERCIAL = "50,000,000";
+    public static final String FECHA_DATOS = "2026-04-22";
+    public static final String PERSONAL_OCUPADO = "100";
+    public static final String VALOR_COMERCIAL = "1,438,928,574";
     public static final String R_IDENTIFICACION = "41920614";
     public static final String R_NOMBRE = "ANGEL JIMENEZ CLARA INES";
     public static final String R_VEHICULO = "2170 - ADMINISTRADORA DE SUCURSAL";

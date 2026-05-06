@@ -32,7 +32,7 @@ public class TramitesRegistrosPublicosReingresoGenericoDeTask implements Task {
                 LogEvent.recordevent(Reportes.INFO, "Clic exitoso en 'Reingreso Genérico Trámites'."),
                 SwitchToNewWindow.switchToNewTab(),
                 Enter.theValue(codigo_barras).into(INP_NUMERO_RADICADO),
-                Enter.theValue("UCWET4").into(INP_NUMERO_RECUPERACION),
+                Enter.theValue("QSYAZQ").into(INP_NUMERO_RECUPERACION),
                 Click.on(BTN_CONTINUAR),
                 Scroll.to(INP_CARGA_ARCHIVO),
                 LogEvent.recordevent(Reportes.INFO, "Clic en la zona de carga para generar el input 'file'."),

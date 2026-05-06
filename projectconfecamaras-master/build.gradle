@@ -76,12 +76,34 @@ dependencies {
     implementation 'com.sikulix:sikulixapi:2.0.5'
 }
 
+
+//bloque de ejecucion general guardando historico
+//test {
+//    useJUnit()
+//
+//    include '**/*Runner.class'
+//
+//    systemProperties System.getProperties()
+//
+//    systemProperty "serenity.outputDirectory", "target/site/serenity"
+//
+//    testLogging {
+//        showStandardStreams = true
+//        events "passed", "skipped", "failed"
+//    }
+//}
+
+
 test {
     useJUnit()
 
-    include '**/*Runner.class'
+    if (System.getProperty("runner")) {
+        include "**/${System.getProperty("runner")}.class"
+    }
 
     systemProperties System.getProperties()
+
+    systemProperty "serenity.outputDirectory", "target/site/serenity"
 
     testLogging {
         showStandardStreams = true
@@ -89,10 +111,8 @@ test {
     }
 
     doFirst {
-        if (System.getProperty("clean.report") == "true") {
-            println "🧹 Limpiando reportes Serenity antiguos..."
-            delete fileTree(dir: "target")
-        }
+        println "🧹 Limpiando reportes Serenity..."
+        delete fileTree(dir: "target/site/serenity")
     }
 }
 
@@ -102,7 +122,7 @@ test.finalizedBy(aggregate)
 
 
 serenity {
-    outputDirectory = file("target/site/serenity")
+    outputDirectory = file(System.getProperty("outputDir") ?: "target/site/serenity")
     reports = ["single-page-html"]
 }
 

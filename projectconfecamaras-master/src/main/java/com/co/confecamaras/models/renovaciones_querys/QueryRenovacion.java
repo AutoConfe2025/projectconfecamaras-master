@@ -231,6 +231,45 @@ public enum QueryRenovacion {
                                                         LIMIT 1
             """),
 
+    RENOVACION_1780_NO_CUMPLE("""
+                SELECT i.matricula
+                                                        from sii_manizales.mreg_est_inscritos i
+                                                        INNER JOIN sii_manizales.mreg_est_propietarios mep ON mep.matriculapropietario = i.matricula
+                                                        WHERE i.matricula <> ''
+                                                        AND i.ultanoren = '2025'
+                                                        AND i.fecmatricula > '20250101'
+                                                        AND i.organizacion = '01'\s
+                                                        AND i.ctrestmatricula = 'MA'
+                                                        AND i.ctrbenley1780 ='S'
+                                                        AND i.cumplerequisitos1780 = 'N'
+                                                        AND i.cumplerequisitos1780primren = ''
+                                                        AND i.renunciabeneficios1780 = ''
+                                                        AND i.actcte < '500000000'
+                                                        GROUP BY i.matricula
+                                                        having count(mep.matriculapropietario) = 1
+                                                        LIMIT 1
+            """),
+
+    AGE_PROPIETARIO_FORANEO("""
+                SELECT matricula
+                                                               FROM sii_manizales.mreg_est_inscritos
+                                                               WHERE organizacion = '03'
+                                                               AND categoria = '3'
+                                                               and ultanoren = '2025'
+                                                               and ctrestmatricula = 'MA'
+                                                               LIMIT 1
+            """),
+
+    SUC_PROPIETARIO_FORANEO("""
+                SELECT matricula
+                                                                      FROM sii_manizales.mreg_est_inscritos
+                                                                      WHERE organizacion = '03'
+                                                                      AND categoria = '2'
+                                                                      and ultanoren = '2025'
+                                                                      and ctrestmatricula = 'MA'
+                                                                      LIMIT 1
+            """),
+
     ACTIVIDAD_NO_COMERCIAL("""
                 SELECT i.matricula
                        from sii_manizales.mreg_est_inscritos i
@@ -260,7 +299,36 @@ public enum QueryRenovacion {
                   AND ultanoren = '2025'
                   AND ciiu2='A0111'
                 LIMIT 1
-            """);
+            """),
+
+    RENOVACION_AGIL_DELETE("""
+        DELETE FROM sii_manizales.mreg_liquidacion
+        WHERE emailcontrol = 'alanrios@confecamaras.org.co';
+    """),
+
+    RENOVACION_AGIL_UPDATE("""
+        UPDATE sii_manizales.mreg_est_inscritos
+        SET numid = '1026265084',
+            nit = '10262650841'
+        WHERE matricula = (
+            SELECT matricula FROM (
+                SELECT i.matricula
+                FROM sii_manizales.mreg_est_inscritos i
+                INNER JOIN sii_manizales.mreg_est_propietarios mep
+                    ON mep.matriculapropietario = i.matricula
+                WHERE i.matricula <> ''
+                  AND i.ultanoren = '2025'
+                  AND i.organizacion = '01'
+                  AND i.ctrestmatricula = 'MA'
+                  AND i.actcte < '10000000'
+                GROUP BY i.matricula
+                HAVING COUNT(mep.matriculapropietario) = 1
+                LIMIT 1
+            ) AS subquery
+        );
+    """);
+
+    ;
 
 
     private final String sql;

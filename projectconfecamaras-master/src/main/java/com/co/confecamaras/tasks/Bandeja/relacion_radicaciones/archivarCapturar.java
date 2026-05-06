@@ -7,11 +7,8 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.ehcache.shadow.org.terracotta.statistics.TableSkeleton;
 
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
-import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.MENSAJE_ARCHIVAR_PROCESO_FINALIZADO;
-import static com.co.confecamaras.utils.estudio_general.constant.ADVERTENCIA_ARCHIVAR_RADICACIONES;
 import static com.co.confecamaras.utils.estudio_general.constant.EXITO_ARCHIVAR;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
