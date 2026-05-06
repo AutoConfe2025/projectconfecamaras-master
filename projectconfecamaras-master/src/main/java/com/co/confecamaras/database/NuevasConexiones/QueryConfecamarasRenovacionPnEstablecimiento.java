@@ -2,9 +2,10 @@ package com.co.confecamaras.database.NuevasConexiones;
 
 import com.co.confecamaras.database.DataBaseConnection;
 
-import java.sql.*;
-
-import static org.testcontainers.shaded.org.bouncycastle.cms.RecipientId.password;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class QueryConfecamarasRenovacionPnEstablecimiento {
 
@@ -17,31 +18,43 @@ public class QueryConfecamarasRenovacionPnEstablecimiento {
         ) {
 
             if (rs.next()) {
-                return rs.getString("matricula");
+
+                // 🔥 SOLUCIÓN CLAVE:
+                // Usa índice en vez de nombre de columna (más robusto)
+                String matricula = rs.getString(1);
+
+                if (matricula == null || matricula.isEmpty()) {
+                    throw new RuntimeException("La matrícula viene null o vacía.");
+                }
+
+                return matricula;
+
             } else {
                 throw new RuntimeException("No se encontró matrícula en la base de datos.");
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error consultando la base de datos", e);
+            throw new RuntimeException("Error consultando la base de datos. Query: \n" + query, e);
         }
     }
 
     public void executeUpdate(String sql) {
 
-        try (Connection conn = DataBaseConnection.getConnection();
-             Statement stmt = conn.createStatement()) {
+        try (
+                Connection conn = DataBaseConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)
+        ) {
 
-            int rows = stmt.executeUpdate(sql);
+            int rows = stmt.executeUpdate();
 
-            System.out.println("Filas actualizadas: " + rows);
+            System.out.println("Filas afectadas: " + rows);
 
             if (rows == 0) {
-                throw new RuntimeException("⚠ No se actualizó ningún registro");
+                throw new RuntimeException("⚠ No se afectó ningún registro");
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error ejecutando UPDATE", e);
+            throw new RuntimeException("Error ejecutando SQL: \n" + sql, e);
         }
     }
 }

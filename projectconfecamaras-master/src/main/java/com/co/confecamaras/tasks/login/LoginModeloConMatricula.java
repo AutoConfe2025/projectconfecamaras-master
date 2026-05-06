@@ -1,8 +1,6 @@
 package com.co.confecamaras.tasks.login;
 
-import com.co.confecamaras.interactions.waitinteractions.WaitInteractions;
 import com.co.confecamaras.models.UsuarioPublicoModel;
-import com.co.confecamaras.utils.sikulli.SafeActions;
 import lombok.AllArgsConstructor;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -12,7 +10,6 @@ import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.Certificados.Demas.LoginUsuarioPublico.*;
-import static com.co.confecamaras.userinterfaces.sikuli.PaginaPrincipal.BUSCAR_CAMARA;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 @AllArgsConstructor

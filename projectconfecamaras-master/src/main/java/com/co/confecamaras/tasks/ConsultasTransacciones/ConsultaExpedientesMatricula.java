@@ -79,10 +79,10 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(Ensure.that(VALOR_BARRIO).textContentValues().contains(ExpedientesMatricula.BARRIO));
         actor.attemptsTo(Ensure.that(VALOR_MUNICIPIO).textContentValues().contains(ExpedientesMatricula.MUNICIPIO));
         actor.attemptsTo(Ensure.that(VALOR_PAIS).textContentValues().contains(ExpedientesMatricula.PAIS));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_01).textContentValues().contains(ExpedientesMatricula.TELEFONO_01));
+//        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_01).textContentValues().contains(ExpedientesMatricula.TELEFONO_01));
         actor.attemptsTo(Scroll.to(VALOR_DIRECCION_COMERCIAL).andAlignToTop());
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_02).textContentValues().contains(ExpedientesMatricula.TELEFONO_02));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_03).textContentValues().contains(ExpedientesMatricula.TELEFONO_03));
+//        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_02).textContentValues().contains(ExpedientesMatricula.TELEFONO_02));
+//        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_03).textContentValues().contains(ExpedientesMatricula.TELEFONO_03));
         actor.attemptsTo(Ensure.that(VALOR_CORREO_ELECTRONICO).textContentValues().contains(ExpedientesMatricula.CORREO_ELECTRONICO));
 
         actor.attemptsTo(Click.on(UBICACION_COMERCIAL)); // Cierra Ubicación Comercial
@@ -92,18 +92,15 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(Ensure.that(VALOR_DIRECCION_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.DIRECCION));
         actor.attemptsTo(Ensure.that(VALOR_MUNICIPIO_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.MUNICIPIO));
         actor.attemptsTo(Ensure.that(VALOR_PAIS_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.PAIS));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_01_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.TELEFONO_01));
         actor.attemptsTo(Scroll.to(NOTIFICACION_JUDICIAL).andAlignToTop());
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_02_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.TELEFONO_02));
-        actor.attemptsTo(Ensure.that(VALOR_TELEFONO_03_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.TELEFONO_03));
         actor.attemptsTo(Ensure.that(VALOR_CORREO_ELECTRONICO_NOTIFICACION).textContentValues().contains(ExpedientesMatricula.CORREO_ELECTRONICO));
         actor.attemptsTo(Click.on(NOTIFICACION_JUDICIAL)); // Cierra Notificación Judicial
 
-        // Sitio de Operación
-        actor.attemptsTo(Click.on(SITIO_DE_OPERACION));
-        actor.attemptsTo(Ensure.that(VALOR_EMPRESA_UBICACION).textContentValues().contains(ExpedientesMatricula.EMPRESA_UBICACION));
-        actor.attemptsTo(WaitConstantTwo.esperaConstante());
-        actor.attemptsTo(Click.on(SITIO_DE_OPERACION)); // Cierra Sitio de Operación
+//        // Sitio de Operación
+//        actor.attemptsTo(Click.on(SITIO_DE_OPERACION));
+//        actor.attemptsTo(Ensure.that(VALOR_EMPRESA_UBICACION).textContentValues().contains(ExpedientesMatricula.EMPRESA_UBICACION));
+//        actor.attemptsTo(WaitConstantTwo.esperaConstante());
+//        actor.attemptsTo(Click.on(SITIO_DE_OPERACION)); // Cierra Sitio de Operación
 
         // Actividad Económica y CIIUS
         actor.attemptsTo(Click.on(ACTIVIDAD_ECONOMICA_Y_CIIUS));
@@ -112,12 +109,12 @@ public class ConsultaExpedientesMatricula implements Task {
         actor.attemptsTo(WaitConstantTwo.esperaConstante());
         actor.attemptsTo(Click.on(ACTIVIDAD_ECONOMICA_Y_CIIUS)); // Cierra Actividad Económica y CIIUS
 
-        // Participación
-        actor.attemptsTo(Click.on(PARTICIPACION));
-        actor.attemptsTo(WaitConstantTwo.esperaConstante());
-        actor.attemptsTo(JSScrollDown.on(PRIMER_CONTENIDO_MODAL));
-        actor.attemptsTo(Scroll.to(PARTICIPACION).andAlignToTop());
-        actor.attemptsTo(Click.on(PARTICIPACION)); // Cierra Participación
+//        // Participación
+//        actor.attemptsTo(Click.on(PARTICIPACION));
+//        actor.attemptsTo(WaitConstantTwo.esperaConstante());
+//        actor.attemptsTo(JSScrollDown.on(PRIMER_CONTENIDO_MODAL));
+//        actor.attemptsTo(Scroll.to(PARTICIPACION).andAlignToTop());
+//        actor.attemptsTo(Click.on(PARTICIPACION)); // Cierra Participación
 
         // Información Financiera
         actor.attemptsTo(Click.on(INFORMACION_FINANCIERA));

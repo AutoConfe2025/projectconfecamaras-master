@@ -22,6 +22,69 @@ public class GeneralPage {
     public static final Target BOTON_RENOVAR_MATRICULA = Target.the("boton de renovar matricula")
             .locatedBy("//a[@data-pr-tooltip='Renovar matrícula']");
 
+    public static final Target BOTON_PRODUCTO_NO_CONFORME = Target.the("boton de producto no conforme")
+            .locatedBy("//a[@data-pr-tooltip='Producto no conforme - Correciones']");
+
+    public static final Target BOTON_REG_MERCANTIL_ERROR = Target.the("boton de reg mercantil error estudio")
+            .locatedBy("(//div[@class='p-card-content'])[1]");
+
+    //campos de raidcado de correcciones
+    public static final Target TIPO_DOCUMENTO_DATOS_RADICADO = Target.the("tipo de documento datos del radicado")
+            .locatedBy("//select[@id='tipodoc']");
+
+    public static final Target FECHA_DOCUMENTO_DATOS_RADICADO = Target.the("fecha del documento datos del radicado")
+            .locatedBy("//input[@id='fechadoc']");
+
+    public static final Target BOTON_SIGUIENTE_DATOS_RADICADO = Target.the("Boton siguiente datos del radicado")
+            .locatedBy("//button[@id='btn-siguiente0']");
+
+    public static final Target BOTON_SIGUIENTE_DATOS_RADICADO_1 = Target.the("Boton siguiente datos del radicado 1")
+            .locatedBy("//button[@id='btn-siguiente1']");
+
+    //campos motivo de correccion
+
+    public static final Target CAMPO_DESCRIPCION_MOTIVO_DE_CORRECCION = Target.the("campo de motivos de correccion")
+            .locatedBy("//textarea[@id='motivocorreccion']");
+
+    public static final Target LISTA_TIPO_ERROR = Target.the("lista de tipo de error")
+            .locatedBy("//select[@id='tipoerror1']");
+
+    public static final Target LISTA_TIPO_ERROR_2 = Target.the("lista de tipo de error 1")
+            .locatedBy("//select[@id='tipoerror2']");
+
+    public static final Target LISTA_TIPO_ERROR_3 = Target.the("lista de tipo de error 2")
+            .locatedBy("//select[@id='tipoerror3']");
+
+    public static final Target LISTA_DOCUMENTO_SOLICITA_CORRECCION = Target.the("lista de solicita coreccion")
+            .locatedBy("//select[@id='tipoidentificacioncor']");
+
+    public static final Target CAMPO_NUMERO_SOLICITA_CORRECCION = Target.the("campo de identificacion de quien solicita la correccion")
+            .locatedBy("//input[@id='identificacioncor']");
+
+    public static final Target CAMPO_PRIMER_NOMBRE_SOLICITA_CORRECCION = Target.the("campo de primer nombre de quien solicita la correccion")
+            .locatedBy("//input[@id='nombre1cor']");
+
+    public static final Target CAMPO_PRIMER_APELLIDO_SOLICITA_CORRECCION = Target.the("campo de primer apellido de quien solicita la correccion")
+            .locatedBy("//input[@id='apellido1cor']");
+
+    public static final Target CAMPO_DIRECCION_SOLICITA_CORRECCION = Target.the("campo de direccion de quien solicita la correccion")
+            .locatedBy("//textarea[@id='direccioncor']");
+
+    public static final Target LISTA_MUNICIPIO_SOLICITA_CORRECCION = Target.the("lista de municipio de quien solicita la correccion")
+            .locatedBy("//select[@id='municipiocor']");
+
+    public static final Target BOTON_SIGUIENTE_MOTIVO_CORRECCION = Target.the("boton de siguiente motivo de la correccion")
+            .locatedBy("//button[@id='btn-siguiente2']");
+
+    //soporte del tramite
+    public static final Target CAMPO_INGRESO_SOPORTE = Target.the("campo de ingreso del soporte de la transaccion")
+            .locatedBy("//input[@id='documentos']");
+    public static final Target BOTON_ACEPTAR_ANEXO_CARGADO = Target.the("boton de anexo cargado")
+            .locatedBy("//button[contains(text(),'Aceptar')]");
+
+    public static final Target BOTON_RADICAR_TRAMITE = Target.the("boton de radicar_tramite")
+            .locatedBy("//button[@id='btnRadicar']");
+
     public static final Target BOTON_CONTINUAR_RENOVACION = Target.the("boton de continuar renovacion")
             .locatedBy("//button[@class='btn btn-primary']");
 
@@ -79,4 +142,7 @@ public class GeneralPage {
 
     public static final Target MENSAJE_RENOVACION_INACTIVO = Target.the("mensaje que se muestra con renovacion inactiva")
             .locatedBy("(//div[@class='contenedorInfoPrincipal'])[2]");
+
+    public static final Target MENSAJE_RENOVACION_PROPIETARIO_FORANEO = Target.the("mensaje que se muestra con renovacion propietario foraneo")
+            .locatedBy("//div[@id='swal2-html-container']");
 }

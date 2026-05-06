@@ -1,11 +1,8 @@
 # language: es
 Característica: Validar Correcciones
 
-
-
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras
-
 
   @Correcciones @SII4
   Escenario: correcciones
