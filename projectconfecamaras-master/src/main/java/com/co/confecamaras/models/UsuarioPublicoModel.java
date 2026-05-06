@@ -94,4 +94,12 @@ public class UsuarioPublicoModel {
                 .contrasena("mqVC9(d54Qy@")
                 .build();
     }
+
+    public static UsuarioPublicoModel UsuarioAgil1() {
+        return UsuarioPublicoModel.builder()
+                .usuario("alanrios@confecamaras.org.co")
+                .identificacion("1026265084")
+                .contrasena("mqVC9(d54Qy@")
+                .build();
+    }
 }

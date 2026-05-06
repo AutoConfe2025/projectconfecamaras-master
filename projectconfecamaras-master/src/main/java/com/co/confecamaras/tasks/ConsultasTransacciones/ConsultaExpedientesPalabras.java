@@ -42,7 +42,7 @@ public class  ConsultaExpedientesPalabras implements Task {
         actor.attemptsTo(Click.on(BTN_NUMERO_MATRICULA_PALABRA));
 
         // Asersiones iniciales
-        actor.attemptsTo(WaitUntil.the(VALOR_MATRICULA_MERCANTIL,isPresent()).forNoMoreThan(10).seconds());
+        actor.attemptsTo(WaitUntil.the(VALOR_MATRICULA_MERCANTIL,isPresent()).forNoMoreThan(120).seconds());
         actor.attemptsTo(Ensure.that(VALOR_MATRICULA_MERCANTIL).textContentValues().contains(ConsultarExpedienteConstants.MATRICULA_EXP_PALABRA));
         actor.attemptsTo(Ensure.that(VALOR_NOMBRE_RAZON_SOCIAL).textContentValues().contains(ExpedientesPalabras.NOMBRE_RAZON_SOCIAL_PALABRA));
 

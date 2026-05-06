@@ -32,4 +32,19 @@ public class NavigateTo {
                 }
         );
     }
+    public static Performable confecamarasAgilPage() {
+        return Task.where("{0} abre la página renovacion agil",
+                actor -> {
+
+
+                    String baseUrl = EnvironmentSpecificConfiguration
+                            .from(SerenityInfrastructure.getEnvironmentVariables())
+                            .getProperty("webdriver.base.url.agil");
+
+                    actor.attemptsTo(
+                            Open.url(baseUrl)
+                    );
+                }
+        );
+    }
 }

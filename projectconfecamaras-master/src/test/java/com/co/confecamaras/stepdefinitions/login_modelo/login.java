@@ -3,12 +3,13 @@ package com.co.confecamaras.stepdefinitions.login_modelo;
 import com.co.confecamaras.models.UsuarioPublicoModel;
 import com.co.confecamaras.models.renovaciones_querys.QueryRenovacion;
 import com.co.confecamaras.navigation.NavigateTo;
+import com.co.confecamaras.tasks.LoginAgil;
 import com.co.confecamaras.tasks.login.LoginModeloConMatricula;
 import com.co.confecamaras.tasks.login.loginModelo;
 import com.co.confecamaras.tasks.nuevas_conexiones.RunDataBaseQueryRenovacionPnEstablecimiento;
+import com.co.confecamaras.tasks.renovaciones.renovacion_agil.PrepararRenovacionAgil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import net.serenitybdd.screenplay.Actor;
 
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
@@ -17,6 +18,11 @@ public class login {
     @Given("^(.*) ingresa al sistema de confecamaras$")
     public void confecamarasNecesitaHacerElProcesoDeLiquidacionRenovacion(String actor) {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasHomePage());
+    }
+
+    @Given("^(.*) ingresa al sistema de confecamaras agil$")
+    public void ingresaAlSistemaDeConfecamarasAgil(String actor) {
+        theActorCalled(actor).attemptsTo(NavigateTo.confecamarasAgilPage());
     }
 
     @Given("^(.*) ingresa al sistema de confecamaras con matricula \"(.*)\"$")
@@ -92,6 +98,13 @@ public class login {
     public void ingresoAlSistemaSII3ComoUsuarioAPublicoExternoConMatricula() {
         UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioPublicoExterno1();
         withCurrentActor(LoginModeloConMatricula.ingresoMatriculaEnUrl(usuario));
+    }
+
+    @And("ingreso al sistema SII3 como usuario en renovacion agil")
+    public void ingresoAlSistemaSii3ComoUsuarioEnRenovacionAgil() {
+        theActorInTheSpotlight().attemptsTo(PrepararRenovacionAgil.preparar());
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.UsuarioAgil1();
+        withCurrentActor(LoginAgil.loginA(usuario));
     }
 
 }
