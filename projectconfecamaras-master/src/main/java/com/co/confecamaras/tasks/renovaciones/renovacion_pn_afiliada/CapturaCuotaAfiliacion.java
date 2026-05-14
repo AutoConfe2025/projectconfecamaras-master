@@ -2,11 +2,10 @@ package com.co.confecamaras.tasks.renovaciones.renovacion_pn_afiliada;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.questions.Attribute;
 import net.serenitybdd.screenplay.questions.Text;
 
-import static com.co.confecamaras.userinterfaces.renovaciones.FlujoRenovacionPnAfiliado.CAMPO_COSTOS_AFILIACION;
-import static com.co.confecamaras.userinterfaces.renovaciones.FlujoRenovacionPnAfiliado.CAMPO_VALOR_AFILIACION;
+import static com.co.confecamaras.userinterfaces.renovaciones.FlujoRenovacionPnAfiliadoPage.CAMPO_COSTOS_AFILIACION;
+import static com.co.confecamaras.userinterfaces.renovaciones.FlujoRenovacionPnAfiliadoPage.CAMPO_VALOR_AFILIACION;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 

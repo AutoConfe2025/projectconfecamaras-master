@@ -102,4 +102,11 @@ public class UsuarioPublicoModel {
                 .contrasena("mqVC9(d54Qy@")
                 .build();
     }
+
+    public static UsuarioPublicoModel UsuarioAgilEsadl() {
+        return UsuarioPublicoModel.builder()
+                .usuario("eiden@confecamaras.org.co")
+                .contrasena("mqVC9(d54Qy@")
+                .build();
+    }
 }

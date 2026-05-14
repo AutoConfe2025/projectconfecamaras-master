@@ -8,6 +8,5 @@ Característica: flujo de actualizacion proponente
   @FlujoActualizacionProponente #@Renovacion @SII4
   Escenario: realizo el flujo de renovacion actualizacion de Proponente
     Y ingreso al sistema SII3 como usuario publico
-    Entonces ingreso al modulo de actualizacion "ACTUALIZACION_PROPONENTES"
-    Y lleno los formularios del proceso
-
+    Cuando ingreso al modulo de cancelacion "ACTUALIZACION_PROPONENTES"
+    Entonces realizo el proceso de cancelacion de proponente

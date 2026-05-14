@@ -270,6 +270,46 @@ public enum QueryRenovacion {
                                                                       LIMIT 1
             """),
 
+    ACTUALIZACION_PROPONENTES("""
+                SELECT proponente
+                                                                             FROM sii_manizales.mreg_est_inscritos
+                                                                             WHERE ctrestmatricula = 'MA'
+                                                                             and proponente >= '0'
+                                                                             AND ctrestproponente = '00'
+                                                                             LIMIT 1
+            """),
+
+    ESADL_ORG_CATORCE_CLASE_41_69("""
+               SELECT i.matricula
+                                                                                    FROM sii_manizales.mreg_est_inscritos i
+                                                                                    LEFT JOIN sii_manizales.mreg_est_propietarios mep
+                                                                                    ON mep.matriculapropietario = i.matricula
+                                                                                    WHERE i.matricula <> ''
+                                                                                    AND i.organizacion = '14'
+                                                                                    AND i.categoria ='1'
+                                                                                    AND i.ctrestmatricula = 'IA'
+                                                                                    AND i.ultanoren = '2025'
+                                                                                    AND i.ctrclaseespeesadl IN ('49', '61')
+                                                                                    GROUP BY i.matricula
+                                                                                    HAVING COUNT(mep.matriculapropietario) = 0
+                                                                                    LIMIT 1;
+            """),
+
+    ESADL_ORG_DOCE_CLASE_61_62("""
+               SELECT i.matricula
+                                                                                            FROM sii_manizales.mreg_est_inscritos i
+                                                                                            LEFT JOIN sii_manizales.mreg_est_propietarios mep
+                                                                                            ON mep.matriculapropietario = i.matricula
+                                                                                            WHERE i.matricula <> ''
+                                                                                            AND i.organizacion = '12'
+                                                                                            AND i.categoria = '1'
+                                                                                            AND i.ctrestmatricula = 'IA'
+                                                                                            AND i.ultanoren = '2025'
+                                                                                            AND i.ctrclaseespeesadl IN ('61', '62')
+                                                                                            GROUP BY i.matricula
+                                                                                            HAVING COUNT(mep.matriculapropietario) = 0
+                                                                                            LIMIT 1;
+            """),
     ACTIVIDAD_NO_COMERCIAL("""
                 SELECT i.matricula
                        from sii_manizales.mreg_est_inscritos i

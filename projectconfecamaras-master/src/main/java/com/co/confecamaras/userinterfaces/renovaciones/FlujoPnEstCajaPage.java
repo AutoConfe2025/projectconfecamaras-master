@@ -218,6 +218,9 @@ public class FlujoPnEstCajaPage {
     public static final Target BOTON_CERRAR_BAJA_ACTIVO_ALERTA = Target.the("boton de cerrar el mensaje de alerta de baja de activos")
             .locatedBy("(//button[contains(text(),'Cerrar')])[1]");
 
+    public static final Target BOTON_CERRAR_BAJA_ACTIVO_ALERTA_1 = Target.the("boton de cerrar el mensaje de alerta de baja de activos")
+            .locatedBy("(//button[contains(text(),'Cerrar')])[2]");
+
     public static final Target LISTA_TIPO_IDENTIFICACION = Target.the("lista de tipo de identificacion")
             .locatedBy("//select[@id='_idtipoidentificacioncliente']");
 

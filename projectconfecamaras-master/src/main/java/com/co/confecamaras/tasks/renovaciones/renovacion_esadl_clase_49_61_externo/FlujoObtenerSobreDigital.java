@@ -1,19 +1,21 @@
-package com.co.confecamaras.tasks.renovaciones.persona_natural_est_publico;
+package com.co.confecamaras.tasks.renovaciones.renovacion_esadl_clase_49_61_externo;
 
 import com.co.confecamaras.interactions.CloseSecondTab;
-import com.co.confecamaras.interactions.SwitchToNewWindow;
+import com.co.confecamaras.interactions.WaitInterrupted3Segundos;
 import com.co.confecamaras.interactions.WaitInterrupted5Segundos;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.BOTON_RECIBIR_PAGO_TEXTO;
+import static com.co.confecamaras.userinterfaces.renovaciones.FlujoEsadlClase4961ExternoPage.BOTON_OBTENER_SOBRE_DIGITAL;
 import static com.co.confecamaras.userinterfaces.renovaciones.FujoPnEstPublicoPage.*;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
+import static com.co.confecamaras.userinterfaces.renovaciones.FujoPnEstPublicoPage.BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO;
+import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
-public class FlujoFirmaElectronica implements Task {
+public class FlujoObtenerSobreDigital implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
@@ -41,13 +43,14 @@ public class FlujoFirmaElectronica implements Task {
                 Click.on(BOTON_ACEPTAR_FIRMADO_ELECTRONICO),
                 WaitUntil.the(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO, isPresent()).forNoMoreThan(50).seconds(),
                 Click.on(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO),
-                WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO, isVisible()).forNoMoreThan(50).seconds(),
-                Scroll.to(BOTON_RECIBIR_PAGO_TEXTO),
-                Click.on(BOTON_RECIBIR_PAGO_TEXTO)
+                WaitUntil.the(BOTON_OBTENER_SOBRE_DIGITAL, isPresent()).forNoMoreThan(50).seconds(),
+                Click.on(BOTON_OBTENER_SOBRE_DIGITAL),
+                WaitInterrupted3Segundos.esperaConstante3()
+
         );
     }
 
-    public static FlujoFirmaElectronica  FlujoFirma() {
-        return new FlujoFirmaElectronica();
+    public static FlujoObtenerSobreDigital SobreConFirma() {
+        return instrumented(FlujoObtenerSobreDigital.class);
     }
 }

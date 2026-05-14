@@ -1,4 +1,4 @@
-name: Proyecto Confecamaras - Serenity CI
+name: Proyecto confecamaras
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
         description: "Carpeta del feature (ej: registros_publicos)"
         required: true
       feature_file:
-        description: "Archivo feature (ej: boletin_noticia_mercantil.feature)"
+        description: "Archivo feature (ej: simulacion_pagos_electronicos.feature)"
         required: true
 
 jobs:
@@ -23,43 +23,40 @@ jobs:
         working-directory: projectconfecamaras-master
 
     steps:
-      # =========================
-      # 1️⃣ CHECKOUT
-      # =========================
       - name: Checkout código
         uses: actions/checkout@v4
 
-      # =========================
-      # 2️⃣ JAVA 21
-      # =========================
+      - name: Instalar OpenVPN
+        run: |
+          sudo apt update
+          sudo apt install -y openvpn
+
+      - name: Configurar VPN
+        run: |
+          echo "${{ secrets.OPENVPN_CONFIG }}" > vpn.ovpn
+          echo "${{ secrets.OPENVPN_USER }}" > vpn-auth.txt
+          echo "${{ secrets.OPENVPN_PASS }}" >> vpn-auth.txt
+          chmod 600 vpn.ovpn vpn-auth.txt
+
+      - name: Conectar VPN
+        run: |
+          sudo openvpn --config vpn.ovpn --auth-user-pass vpn-auth.txt --daemon
+          sleep 20
+          ip route
+
       - name: Configurar Java 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 21
 
-      # =========================
-      # 3️⃣ INSTALAR GOOGLE CHROME (CRÍTICO)
-      # =========================
-      - name: Instalar Google Chrome
-        run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable
-          google-chrome --version
-
-      # =========================
-      # 4️⃣ PERMISOS GRADLE
-      # =========================
       - name: Dar permisos a Gradle
         run: chmod +x gradlew
 
-      # =========================
-      # 5️⃣ VALIDAR FEATURE SELECCIONADO
-      # =========================
       - name: Validar feature seleccionado
         run: |
           FEATURE_PATH="src/test/resources/features/${{ github.event.inputs.feature_folder }}/${{ github.event.inputs.feature_file }}"
-          echo "📌 Feature seleccionado: $FEATURE_PATH"
+          echo "Feature seleccionado: $FEATURE_PATH"
 
           if [ ! -f "$FEATURE_PATH" ]; then
             echo "❌ Feature no encontrado"
@@ -68,19 +65,12 @@ jobs:
 
           echo "FEATURE_PATH=$FEATURE_PATH" >> $GITHUB_ENV
 
-      # =========================
-      # 6️⃣ EJECUTAR SERENITY
-      # =========================
-      - name: Ejecutar Serenity (1 feature)
+      - name: Ejecutar Serenity (UN SOLO FEATURE)
         run: |
           ./gradlew clean test aggregate --continue \
             -Dcucumber.features=$FEATURE_PATH \
-            -Denvironment=ci \
             -Dci=true
 
-      # =========================
-      # 7️⃣ SUBIR REPORTE SERENITY
-      # =========================
       - name: Subir reporte Serenity
         if: always()
         uses: actions/upload-artifact@v4
@@ -88,9 +78,6 @@ jobs:
           name: serenity-report
           path: projectconfecamaras-master/target/site/serenity
 
-      # =========================
-      # 8️⃣ INSTRUCCIONES QA
-      # =========================
       - name: Mostrar instrucciones QA
         if: always()
         run: |
