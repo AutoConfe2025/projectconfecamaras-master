@@ -19,6 +19,7 @@ import static com.co.confecamaras.userinterfaces.Certificados.Demas.PagoUsuarioP
 import static com.co.confecamaras.userinterfaces.ServiciosVirtuales.PagarElectronicamentePage.BTN_PSE;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoActualizarProponentePage.BOTON_CONTINUAR_RECIBIR_PAGO_ACTUALIZAR_PROPONENTE;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoAgilEsadlPage.*;
+import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.BOTON_CERRAR_BAJA_ACTIVO_ALERTA;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoPnEstCajaPage.BOTON_CERRAR_BAJA_ACTIVO_ALERTA_1;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
@@ -32,6 +33,13 @@ public class FlujoPagosEsadlAgil implements Task {
                 WaitUntil.the(BOTON_CONTINUAR_RECIBIR_PAGO_ACTUALIZAR_PROPONENTE, isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(BOTON_CONTINUAR_RECIBIR_PAGO_ACTUALIZAR_PROPONENTE)
         );
+
+        if (BOTON_CERRAR_BAJA_ACTIVO_ALERTA.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_CERRAR_BAJA_ACTIVO_ALERTA, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_CERRAR_BAJA_ACTIVO_ALERTA)
+            );
+        }
 
         if (BOTON_CERRAR_BAJA_ACTIVO_ALERTA_1.isVisibleFor(actor)) {
             actor.attemptsTo(

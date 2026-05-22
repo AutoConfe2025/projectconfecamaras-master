@@ -267,7 +267,7 @@ public class FlujoPnEstCajaPage {
             .locatedBy("//button[@id='botones_ren0']");
 
     public static final Target BOTON_RECIBIR_PAGO_1 = Target.the("boton para recibir el pago")
-            .locatedBy("//button[@id='botones_ren1']");
+            .locatedBy("//button[@id='botones_ren1' and @data-pr-tooltip='Recaudo en caja.']");
 
     public static final Target BOTON_RECIBIR_PAGO_TEXTO = Target.the("boton para recibir el pago por texto")
             .locatedBy("//button[contains(.,'Pago Electrónico')]");

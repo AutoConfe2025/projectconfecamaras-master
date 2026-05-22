@@ -33,6 +33,7 @@ public class PrimerFormularioPublico implements Task {
         String valorCapturado = Attribute.of(CAMPO_VALOR_ACTIVO_TOTAL)
                 .named("value")
                 .answeredBy(actor);
+        actor.remember("valorCapturado",valorCapturado);
 
         actor.attemptsTo(
                 Enter.theValue(valorCapturado).into(CAMPO_ACTIVO_CORRIENTE),
