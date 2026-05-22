@@ -15,13 +15,15 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPres
 public class FlujoPersonaJuridicaEstablecimientoPublicoSegundoFormulario implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
+
+        String valor = actor.recall("valorCapturado");
         actor.attemptsTo(
                 WaitUntil.the(BOTON_FORMULARIO_2, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_FORMULARIO_2),
                 WaitUntil.the(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO, isPresent()).forNoMoreThan(10).seconds(),
                 Scroll.to(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),
                 Click.on(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),
-                Enter.theValue("600.000.000").into(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),
+                Enter.theValue(valor).into(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),
                 Click.on(CAMPO_PERSONAL_OCUPADO_SEGUNDO_FORM),
                 Enter.theValue("100").into(CAMPO_PERSONAL_OCUPADO_SEGUNDO_FORM),
                 Scroll.to(BOTON_ALAMCENAR),

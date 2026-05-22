@@ -7,6 +7,9 @@ public class GeneralPage {
     public static final Target BOTON_MATRICULA = Target.the("boton de matricula")
             .locatedBy("//span[contains(text(),'Matrícula')]");
 
+    public static final Target BOTON_PROPONENTE = Target.the("boton de matricula")
+            .locatedBy("//span[contains(text(),'Proponente')]");
+
     public static final Target CAMPO_INGRESO_DATO_BUSQUEDA = Target.the("Campo de ingreso de busqueda")
             .locatedBy("//input[@id='criterio']");
 
@@ -18,6 +21,9 @@ public class GeneralPage {
 
     public static final Target BOTON_TRAMITES_REGISTROMERCANTIL_ESADL = Target.the("boton de registro mercantil esadl")
             .locatedBy("//a[.//span[contains(text(),'Trámites del Registro Mercantil y de ESADL')]]");
+
+    public static final Target BOTON_TRAMITES_REGISTRO_PROPONENTE = Target.the("boton de registro mercantil esadl")
+            .locatedBy("//a[.//span[contains(text(),'Trámites del Registro de Proponente')]]");
 
     public static final Target BOTON_RENOVAR_MATRICULA = Target.the("boton de renovar matricula")
             .locatedBy("//a[@data-pr-tooltip='Renovar matrícula']");

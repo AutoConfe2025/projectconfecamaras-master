@@ -310,6 +310,22 @@ public enum QueryRenovacion {
                                                                                             HAVING COUNT(mep.matriculapropietario) = 0
                                                                                             LIMIT 1;
             """),
+
+    PN_EST_SOL_BALANCE_CAJA("""
+            SELECT i.matricula
+                FROM sii_manizales.mreg_est_inscritos i
+                INNER JOIN sii_manizales.mreg_est_propietarios mep
+                ON mep.matriculapropietario = i.matricula
+                WHERE i.matricula <> ''
+                AND i.ultanoren = '2025'
+                AND i.organizacion = '01'
+                AND i.ctrestmatricula = 'MA'
+                AND i.actcte < 10000000
+                AND i.ciiu2 = ""
+                GROUP BY i.matricula
+                HAVING COUNT(mep.matriculapropietario) = 1
+                LIMIT 1;
+            """),
     ACTIVIDAD_NO_COMERCIAL("""
                 SELECT i.matricula
                        from sii_manizales.mreg_est_inscritos i
@@ -342,33 +358,31 @@ public enum QueryRenovacion {
             """),
 
     RENOVACION_AGIL_DELETE("""
-        DELETE FROM sii_manizales.mreg_liquidacion
-        WHERE emailcontrol = 'alanrios@confecamaras.org.co';
-    """),
+                DELETE FROM sii_manizales.mreg_liquidacion
+                WHERE emailcontrol = 'alanrios@confecamaras.org.co';
+            """),
 
     RENOVACION_AGIL_UPDATE("""
-        UPDATE sii_manizales.mreg_est_inscritos
-        SET numid = '1026265084',
-            nit = '10262650841'
-        WHERE matricula = (
-            SELECT matricula FROM (
-                SELECT i.matricula
-                FROM sii_manizales.mreg_est_inscritos i
-                INNER JOIN sii_manizales.mreg_est_propietarios mep
-                    ON mep.matriculapropietario = i.matricula
-                WHERE i.matricula <> ''
-                  AND i.ultanoren = '2025'
-                  AND i.organizacion = '01'
-                  AND i.ctrestmatricula = 'MA'
-                  AND i.actcte < '10000000'
-                GROUP BY i.matricula
-                HAVING COUNT(mep.matriculapropietario) = 1
-                LIMIT 1
-            ) AS subquery
-        );
-    """);
-
-    ;
+                UPDATE sii_manizales.mreg_est_inscritos
+                SET numid = '1026265084',
+                    nit = '10262650841'
+                WHERE matricula = (
+                    SELECT matricula FROM (
+                        SELECT i.matricula
+                        FROM sii_manizales.mreg_est_inscritos i
+                        INNER JOIN sii_manizales.mreg_est_propietarios mep
+                            ON mep.matriculapropietario = i.matricula
+                        WHERE i.matricula <> ''
+                          AND i.ultanoren = '2025'
+                          AND i.organizacion = '01'
+                          AND i.ctrestmatricula = 'MA'
+                          AND i.actcte < '10000000'
+                        GROUP BY i.matricula
+                        HAVING COUNT(mep.matriculapropietario) = 1
+                        LIMIT 1
+                    ) AS subquery
+                );
+            """);;
 
 
     private final String sql;

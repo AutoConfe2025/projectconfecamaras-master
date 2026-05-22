@@ -142,6 +142,8 @@ public class FlujoActualizarProponentePage {
     public static final Target BOTON_GENERAR_RECIBO_CLIENTE = Target.the("boton generar recibo de pago")
             .locatedBy("//button[contains(text(),'Generar recibo')]");
 
+    public static final Target BOTON_GENERAR_RECIBO_CLIENTE_2 = Target.the("boton generar recibo de pago")
+            .locatedBy("(//button[contains(text(),'Generar recibo')])[2]");
     public static final Target BOTON_CONTINUAR_RECIBO_PAGO = Target.the("boton continuar generar recibo de pago")
             .locatedBy("//button[contains(text(),'Continuar')]");
 
