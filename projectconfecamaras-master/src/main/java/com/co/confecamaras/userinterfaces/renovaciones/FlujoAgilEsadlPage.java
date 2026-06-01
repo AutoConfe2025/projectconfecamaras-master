@@ -4,11 +4,20 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class FlujoAgilEsadlPage {
 
+    public static final Target BOTON_SELECCION_MATRICULA = Target.the("boton para seleccionar la primera matricula")
+            .locatedBy("//*[@id=\"pr_id_11_content\"]/div/div/ul/li[1]");
+
     public static final Target EDITAR_NUEVO_VALOR_BOTON = Target.the("boton para editar")
-            .locatedBy("//td[@class='p-editable-column']");
+            .locatedBy("(//td[@class='p-editable-column'])[1]");
+
+    public static final Target EDITAR_NUEVO_VALOR_BOTON_ESTABLECIMIENTO = Target.the("boton para editar establecimiento")
+            .locatedBy("//*[@id=\"pr_id_149_content_1\"]/div/div/div/div/table/tbody/tr/td[4]");
 
     public static final Target CAMPO_EDITABLE_NUEVO_VALOR_BOTON = Target.the("campo ingreso nuevo valor")
             .locatedBy("(//input[@class='p-inputnumber-input p-inputtext p-component p-filled'])[1]");
+
+    public static final Target LISTA_EMPRENDIMIENTO_SOCIAL = Target.the("lista de emprendimiento social")
+            .locatedBy("//select[@id='emprendimientosocial']");
 
     public static final Target CAMPO_NUMERO_DE_PERSONAL = Target.the("campo numero de personal")
             .locatedBy("(//input[@class='p-inputnumber-input p-inputtext p-component p-filled'])[1]");
@@ -18,6 +27,12 @@ public class FlujoAgilEsadlPage {
 
     public static final Target BOTON_DILIGENCIAR_ESADL_AGIL = Target.the("boton de diligenciar esadl")
             .locatedBy("//button[contains(text(),'Diligenciar')]");
+
+    public static final Target LISTA_AUTORIZA_MENSAJES = Target.the("lista de autorizacion de envio de mensaje correo electronico")
+            .locatedBy("//select[@id='ctrmennot']");
+
+    public static final Target CAMPO_INGRESO_VALOR_ACTIVOS_VINCULADOS = Target.the("campo de ingreso de activos vinculados")
+            .locatedBy("//input[@id='actvin_2026']");
 
     public static final Target VALOR_ACTIVO_TOTAL = Target.the("valor de activo total")
             .locatedBy("//input[@id='acttot_2026']");

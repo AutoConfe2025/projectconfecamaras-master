@@ -11,20 +11,23 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.certificados_automaticos.AutomaticoExistenciaCajaPage.*;
+import static com.co.confecamaras.userinterfaces.certificados_automaticos.AutomaticoExistenciaCajaPage.BOTON_CONTINUAR_SOLICITUD_CERTIFICADO;
+import static com.co.confecamaras.userinterfaces.renovaciones.FujoPnEstPublicoPage.BOTON_CONSULTA_MATRICULA_INSCRIPCION;
 import static com.co.confecamaras.userinterfaces.renovaciones.GeneralPage.*;
 import static com.co.confecamaras.userinterfaces.renovaciones.GeneralPage.BOTON_TRAMITES_REGISTROMERCANTIL_ESADL;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 @AllArgsConstructor
-public class FlujoSolicitarCertificado implements Task {
+public class FlujoSolicitarCertficadoPublico implements Task {
 
     private final String Expediente;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
         actor.attemptsTo(
+                WaitUntil.the(BOTON_CONSULTA_MATRICULA_INSCRIPCION, isPresent()).forNoMoreThan(10).seconds(),
+                Click.on(BOTON_CONSULTA_MATRICULA_INSCRIPCION),
                 WaitUntil.the(BOTON_MATRICULA, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_MATRICULA),
                 Click.on(CAMPO_INGRESO_DATO_BUSQUEDA),
@@ -48,7 +51,7 @@ public class FlujoSolicitarCertificado implements Task {
         );
     }
 
-    public static FlujoSolicitarCertificado flujoCertificado(String Expediente) {
-        return instrumented(FlujoSolicitarCertificado.class, Expediente);
+    public static FlujoSolicitarCertficadoPublico FlujoPublicoCertiicados(String Expediente){
+        return instrumented(FlujoSolicitarCertficadoPublico.class,Expediente);
     }
 }

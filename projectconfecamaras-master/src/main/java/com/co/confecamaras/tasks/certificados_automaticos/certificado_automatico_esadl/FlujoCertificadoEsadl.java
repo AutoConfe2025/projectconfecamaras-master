@@ -11,6 +11,7 @@ import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.certificados_automaticos.AutomaticoExistenciaCajaPage.*;
+import static com.co.confecamaras.userinterfaces.renovaciones.FujoPnEstPublicoPage.BOTON_CONSULTA_MATRICULA_INSCRIPCION;
 import static com.co.confecamaras.userinterfaces.renovaciones.GeneralPage.*;
 import static com.co.confecamaras.userinterfaces.renovaciones.GeneralPage.BOTON_TRAMITES_REGISTROMERCANTIL_ESADL;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
@@ -20,33 +21,64 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPres
 public class FlujoCertificadoEsadl implements Task {
 
     private final String Expediente;
+
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                WaitUntil.the(BOTON_MATRICULA, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_MATRICULA),
-                Click.on(CAMPO_INGRESO_DATO_BUSQUEDA),
-                Enter.theValue(Expediente).into(CAMPO_INGRESO_DATO_BUSQUEDA),
-                Click.on(BOTON_CONSULTAR_DATO_BUSQUEDA),
-                WaitUntil.the(BOTON_MATRICULA_SELECCION, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_MATRICULA_SELECCION),
-                WaitUntil.the(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL),
-                WaitUntil.the(BOTON_SOLICITAR_CERTIFICADO,isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_SOLICITAR_CERTIFICADO),
-                WaitUntil.the(BOTON_CERTIFICADO_AUTOMATICO,isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_CERTIFICADO_AUTOMATICO),
-                WaitUntil.the(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL,isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL),
-                Enter.theValue("1").into(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL),
-                Scroll.to(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO).andAlignToTop(),
-                Click.on(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO),
-                WaitInterrupted2Segundos.esperaConstante2(),
-                SwitchToNewWindow.switchToNewTab()
-        );
+
+        if (BOTON_MATRICULA.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_MATRICULA, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_MATRICULA),
+                    Click.on(CAMPO_INGRESO_DATO_BUSQUEDA),
+                    Enter.theValue(Expediente).into(CAMPO_INGRESO_DATO_BUSQUEDA),
+                    Click.on(BOTON_CONSULTAR_DATO_BUSQUEDA),
+                    WaitUntil.the(BOTON_MATRICULA_SELECCION, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_MATRICULA_SELECCION),
+                    WaitUntil.the(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL),
+                    WaitUntil.the(BOTON_SOLICITAR_CERTIFICADO, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_SOLICITAR_CERTIFICADO),
+                    WaitUntil.the(BOTON_CERTIFICADO_AUTOMATICO, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_CERTIFICADO_AUTOMATICO),
+                    WaitUntil.the(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL),
+                    Enter.theValue("1").into(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL),
+                    Scroll.to(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO).andAlignToTop(),
+                    Click.on(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO),
+                    WaitInterrupted2Segundos.esperaConstante2(),
+                    SwitchToNewWindow.switchToNewTab()
+            );
+        }
+
+        if (BOTON_CONSULTA_MATRICULA_INSCRIPCION.isVisibleFor(actor)){
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_CONSULTA_MATRICULA_INSCRIPCION, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_CONSULTA_MATRICULA_INSCRIPCION),
+                    WaitUntil.the(BOTON_MATRICULA, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_MATRICULA),
+                    Click.on(CAMPO_INGRESO_DATO_BUSQUEDA),
+                    Enter.theValue(Expediente).into(CAMPO_INGRESO_DATO_BUSQUEDA),
+                    Click.on(BOTON_CONSULTAR_DATO_BUSQUEDA),
+                    WaitUntil.the(BOTON_MATRICULA_SELECCION, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_MATRICULA_SELECCION),
+                    WaitUntil.the(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL),
+                    WaitUntil.the(BOTON_SOLICITAR_CERTIFICADO, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_SOLICITAR_CERTIFICADO),
+                    WaitUntil.the(BOTON_CERTIFICADO_AUTOMATICO, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_CERTIFICADO_AUTOMATICO),
+                    WaitUntil.the(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL),
+                    Enter.theValue("1").into(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_ESADL),
+                    Scroll.to(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO).andAlignToTop(),
+                    Click.on(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO),
+                    WaitInterrupted2Segundos.esperaConstante2(),
+                    SwitchToNewWindow.switchToNewTab()
+            );
+        }
     }
 
-    public static FlujoCertificadoEsadl flujoEsadl(String Expediente){
+    public static FlujoCertificadoEsadl flujoEsadl(String Expediente) {
         return instrumented(FlujoCertificadoEsadl.class, Expediente);
     }
 }

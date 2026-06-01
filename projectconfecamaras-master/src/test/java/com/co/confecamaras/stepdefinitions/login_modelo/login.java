@@ -28,6 +28,11 @@ public class login {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasAgilPage());
     }
 
+    @Given("^(.*) ingresa al sistema de confecamaras certificados$")
+    public void ingresaAlSistemaDeConfecamarasCertificados(String actor) {
+        theActorCalled(actor).attemptsTo(NavigateTo.confecamarasCertificadosPage());
+    }
+
     @Given("^(.*) ingresa al sistema de confecamaras con matricula \"(.*)\"$")
     public void ingresoConMatriculaSII3(String actor, String query) {
         QueryRenovacion queryEnum = QueryRenovacion.from(query);
