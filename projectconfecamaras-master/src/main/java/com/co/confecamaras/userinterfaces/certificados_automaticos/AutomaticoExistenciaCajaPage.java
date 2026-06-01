@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.targets.Target;
 public class AutomaticoExistenciaCajaPage {
 
     public static final Target BOTON_SOLICITAR_CERTIFICADO = Target.the("boton de seleccion tramite de registro mercantil solicitar certificado")
-            .locatedBy("(//div[@class='p-card-content'])[7]");
+            .locatedBy("//span[text()='Solicitar certificados']");
 
     public static final Target BOTON_SOLICITAR_CERTIFICADO_PROPONENTE = Target.the("boton de seleccion tramite de registro mercantil solicitar certificado")
             .locatedBy("(//div[@class='p-card-content'])[4]");
@@ -39,7 +39,7 @@ public class AutomaticoExistenciaCajaPage {
     public static final Target CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_MATRICULA = Target.the("campo de ingreso de cantidad de certificados matricula a solicitar")
             .locatedBy("//input[@id='certimat']");
     public static final Target BOTON_CONTINUAR_SOLICITUD_CERTIFICADO = Target.the("boton de continuar con la solicitud del certificado")
-            .locatedBy("//button[@class='btn btn-primary m-1']");
+            .locatedBy("//button[contains(.,'Continuar')]");
 
     public static final Target BOTON_DESCARGAR_RECIBO_GENERADO = Target.the("boton descargar recbo generado")
             .locatedBy("//a[contains(text(),'Descargar')]");

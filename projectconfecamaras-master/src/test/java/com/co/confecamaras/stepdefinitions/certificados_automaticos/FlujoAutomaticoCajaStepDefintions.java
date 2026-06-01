@@ -8,17 +8,24 @@ import com.co.confecamaras.tasks.certificados_automaticos.certificad_automatico_
 import com.co.confecamaras.tasks.certificados_automaticos.certificado_automatico_esadl.FlujoCertificadoEsadl;
 import com.co.confecamaras.tasks.certificados_automaticos.certificado_automatico_libros.FlujoCertificadoAutomaticoLibrosCaja;
 import com.co.confecamaras.tasks.certificados_automaticos.certificado_existencia_caja.FlujoDePagoCertificado;
+import com.co.confecamaras.tasks.certificados_automaticos.certificado_existencia_caja.FlujoPAgoCertificadoPublico;
+import com.co.confecamaras.tasks.certificados_automaticos.certificado_existencia_caja.FlujoSolicitarCertficadoPublico;
 import com.co.confecamaras.tasks.certificados_automaticos.certificado_existencia_caja.FlujoSolicitarCertificado;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
-public class FlujoAutomaticoExistenciaCaja {
+public class FlujoAutomaticoCajaStepDefintions {
 
     @When("realizo el flujo de certificado automatico {string}")
     public void realizoElFlujoDeCertificadoAutomatico(String Expediente){
         theActorInTheSpotlight().attemptsTo(FlujoSolicitarCertificado.flujoCertificado(Expediente));
+    }
+
+    @When("realizo el flujo de certificado automatico publico {string}")
+    public void realizoElFlujoDeCertificadoAutomaticoPublico(String Expediente){
+        theActorInTheSpotlight().attemptsTo(FlujoSolicitarCertficadoPublico.FlujoPublicoCertiicados(Expediente));
     }
 
     @When("realizo el flujo de certificado automatico existencia proponente {string}")
@@ -59,5 +66,10 @@ public class FlujoAutomaticoExistenciaCaja {
     @Then("realizo el proceso de pago del certificado")
     public void realizoElFlujoDeCertificadoAutomatico(){
         theActorInTheSpotlight().attemptsTo(FlujoDePagoCertificado.flujoPago());
+    }
+
+    @Then("realizo el proceso de pago del certificado publico")
+    public void realizoElFlujoDeCertificadoAutomaticoPublico(){
+        theActorInTheSpotlight().attemptsTo(FlujoPAgoCertificadoPublico.FlujoPagoPublicoCertificado());
     }
 }

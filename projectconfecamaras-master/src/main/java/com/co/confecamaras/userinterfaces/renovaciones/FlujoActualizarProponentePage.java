@@ -133,6 +133,8 @@ public class FlujoActualizarProponentePage {
     public static final Target BOTON_VERIFICAR_IDENTIFICACION_ACTUALIZAR = Target.the("boton de verificar identificacion")
             .locatedBy("//button[contains(text(),'Verificar identificación')]");
 
+    public static final Target CAMPO_CORREO = Target.the("campo de correo electronico")
+            .locatedBy("//input[@id='_email']");
     public static final Target CAMPO_CONFIRMAR_CORREO = Target.the("campo de confirmacion de correo electronico")
             .locatedBy("//input[@id='_emailconfirmacion']");
 

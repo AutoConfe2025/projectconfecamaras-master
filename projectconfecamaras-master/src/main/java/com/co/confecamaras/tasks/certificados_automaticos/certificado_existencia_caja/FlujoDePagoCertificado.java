@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import net.serenitybdd.screenplay.questions.Attribute;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.certificados_automaticos.AutomaticoExistenciaCajaPage.*;
@@ -30,11 +31,16 @@ public class FlujoDePagoCertificado implements Task {
                 Click.on(CAMPO_TIPO_IDENTIFICACION),
                 Enter.theValue("1026265083").into(CAMPO_TIPO_IDENTIFICACION),
                 Scroll.to(BOTON_VERIFICAR_IDENTIFICACION_ACTUALIZAR).andAlignToTop(),
-                Click.on(BOTON_VERIFICAR_IDENTIFICACION_ACTUALIZAR),
+                Click.on(BOTON_VERIFICAR_IDENTIFICACION_ACTUALIZAR)
+        );
+
+        String correo = Attribute.of(CAMPO_CORREO).named("value").answeredBy(actor);
+
+        actor.attemptsTo(
                 WaitUntil.the(CAMPO_CONFIRMAR_CORREO, isPresent()).forNoMoreThan(120).seconds(),
                 Scroll.to(CAMPO_CONFIRMAR_CORREO).andAlignToTop(),
                 Click.on(CAMPO_CONFIRMAR_CORREO),
-                Enter.theValue("analistaqa@confecamaras.org.co").into(CAMPO_CONFIRMAR_CORREO),
+                Enter.theValue(correo).into(CAMPO_CONFIRMAR_CORREO),
                 Scroll.to(BOTON_GENERAR_RECIBO_CLIENTE_2).andAlignToTop(),
                 Click.on(BOTON_GENERAR_RECIBO_CLIENTE_2),
                 WaitUntil.the(BOTON_CONTINUAR_RECIBO_PAGO, isPresent()).forNoMoreThan(120).seconds(),

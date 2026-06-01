@@ -19,7 +19,7 @@ public class FlujoRenovacionPnEstSolBalanceCaja {
     public void realizoProcesoActulalizacionSolicitud() {
         theActorInTheSpotlight().attemptsTo(ActualizarCommoXx.ActualizaCierra());
         theActorInTheSpotlight().attemptsTo(CerrarSesionIngresarDeNuevo.cierraSesion());
-        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioAdmin20();
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.usuarioDefault();
         withCurrentActor(LoginSegundario.loginDos(usuario));
     }
 
