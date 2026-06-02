@@ -77,44 +77,37 @@ dependencies {
 }
 
 
-//bloque de ejecucion general guardando historico
-//test {
-//    useJUnit()
-//
-//    include '**/*Runner.class'
-//
-//    systemProperties System.getProperties()
-//
-//    systemProperty "serenity.outputDirectory", "target/site/serenity"
-//
-//    testLogging {
-//        showStandardStreams = true
-//        events "passed", "skipped", "failed"
-//    }
-//}
-
-
+//****** Ejecucion general guardando historico y Actualiza el Informe *****/
 test {
     useJUnit()
-
-    if (System.getProperty("runner")) {
-        include "**/${System.getProperty("runner")}.class"
-    }
-
+    include '**/*Runner.class'
     systemProperties System.getProperties()
-
     systemProperty "serenity.outputDirectory", "target/site/serenity"
-
     testLogging {
         showStandardStreams = true
         events "passed", "skipped", "failed"
     }
-
-    doFirst {
-        println "🧹 Limpiando reportes Serenity..."
-        delete fileTree(dir: "target/site/serenity")
-    }
 }
+/*************************************************************************/
+
+//****** Ejecucion un solo caso no guarda historico ni Actualiza el informe *****/
+//test {
+//    useJUnit(
+//    if (System.getProperty("runner")) {
+//        include "**/${System.getProperty("runner")}.class"
+//    }
+//    systemProperties System.getProperties()
+//    systemProperty "serenity.outputDirectory", "target/site/serenity"
+//    testLogging {
+//        showStandardStreams = true
+//        events "passed", "skipped", "failed"
+//    }
+//    doFirst {
+//        println "🧹 Limpiando reportes Serenity..."
+//        delete fileTree(dir: "target/site/serenity")
+//    }
+//}
+/*************************************************************************/
 
 test { outputs.upToDateWhen { false } }
 

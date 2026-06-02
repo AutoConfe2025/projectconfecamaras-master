@@ -1,6 +1,8 @@
 package com.co.confecamaras.tasks;
 
+import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.WaitInteractions;
+import com.co.confecamaras.interactions.log.Log;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -33,6 +35,7 @@ public class DataInscripcionDocumentosMercantilDos implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Log.message("Inicio DataInscripcionDocumentosMercantilDos"),
                 WaitInteractions.untilAppears(TXT_SEGUNDO_APELLIDO_DIDM),
                 Enter.theValue(idSegundoApellido).into(TXT_SEGUNDO_APELLIDO_DIDM),
                 WaitInteractions.untilAppears(TXT_PRIMER_NOMBRE_DIDM),
@@ -55,19 +58,17 @@ public class DataInscripcionDocumentosMercantilDos implements Task {
                 Click.on(BTN_RECIBIR_PAGO_DIDM),
                 WaitInteractions.untilAppears(BTN_CONTINUAR_TRES_DIDM),
                 Click.on(BTN_CONTINUAR_TRES_DIDM),
-                WaitInteractions.untilAppears(BTN_FACTURAR_CLIENTE_FINAL_GENERICO_DIDM),
-                Scroll.to(BTN_FACTURAR_CLIENTE_FINAL_GENERICO_DIDM).andAlignToBottom(),
-                Click.on(BTN_FACTURAR_CLIENTE_FINAL_GENERICO_DIDM),
-                WaitInteractions.untilAppears(BTN_CONTINUAR_TRES_DIDM),
-                Click.on(BTN_CONTINUAR_TRES_DIDM),
+                WaitInteractions.untilAppears(MENU_DESPLEGABLE_ID),
+                Scroll.to(MENU_DESPLEGABLE_ID).andAlignToBottom(),
+                SelectFromOptions.byVisibleText("Cédula de ciudadania").from(MENU_DESPLEGABLE_ID),
+                Enter.theValue("1026265083").into(TXT_ID),
+                Click.on(BTN_VERIFICAR_ID),
+                Clear.field(TXT_EMAIL_CONFIRMACION),
+                Enter.theValue("analistaqa@confecamaras.org.co").into(TXT_EMAIL_CONFIRMACION),
                 WaitInteractions.untilAppears(BTN_DUPLICAR_DATOS_CLIENTE_DIDM),
                 Scroll.to(BTN_DUPLICAR_DATOS_CLIENTE_DIDM).andAlignToBottom(),
                 Click.on(BTN_DUPLICAR_DATOS_CLIENTE_DIDM),
-                WaitInteractions.untilAppears(TXT_FECHA_EXPEDICION_DIDM),
-                Scroll.to(TXT_FECHA_EXPEDICION_DIDM).andAlignToBottom(),
-                Enter.theValue(idFechaExpedicion).into(TXT_FECHA_EXPEDICION_DIDM),
-                WaitInteractions.untilAppears(TXT_EMAIL_DIDM),
-                Enter.theValue(idEmail).into(TXT_EMAIL_DIDM)
+                Log.message("FIN DataInscripcionDocumentosMercantilDos")
         );
     }
 

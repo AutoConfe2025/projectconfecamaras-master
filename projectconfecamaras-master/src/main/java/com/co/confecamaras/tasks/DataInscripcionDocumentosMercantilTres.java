@@ -35,11 +35,11 @@ public class DataInscripcionDocumentosMercantilTres implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                WaitInteractions.untilAppears(TXT_TELEFONO_FIJO_DIDM),
-                Enter.theValue(idTelefonoFijo).into(TXT_TELEFONO_FIJO_DIDM),
-                WaitInteractions.untilAppears(TXT_NRO_CELULAR_DIDM),
-                Enter.theValue(idNroCelular).into(TXT_NRO_CELULAR_DIDM),
-                SubirArchivo.enConfecamaraSII(),
+//                WaitInteractions.untilAppears(TXT_TELEFONO_FIJO_DIDM),
+//                Enter.theValue(idTelefonoFijo).into(TXT_TELEFONO_FIJO_DIDM),
+//                WaitInteractions.untilAppears(TXT_NRO_CELULAR_DIDM),
+//                Enter.theValue(idNroCelular).into(TXT_NRO_CELULAR_DIDM),
+//                SubirArchivo.enConfecamaraSII(),
                 WaitInteractions.untilAppears(BTN_GENERAR_RECIBO_DIDM),
                 Scroll.to(BTN_GENERAR_RECIBO_DIDM).andAlignToBottom(),
                 Click.on(BTN_GENERAR_RECIBO_DIDM),
@@ -57,41 +57,41 @@ public class DataInscripcionDocumentosMercantilTres implements Task {
                 MoveMouse.to(LBL_CODIGO_BARRAS_DIDM).andThen(Actions::doubleClick),
                 RobotCopiar.toText()
         );*/
-
-        actor.attemptsTo(
-                Switch.toTheOtherWindow(),
-                WaitInterrupted2Segundos.esperaConstante2(),
-                RobotCambioPestanaDos.toTab(),
-                WaitInteractions.untilAppears(BTN_CERRAR_DIDM),
-                Click.on(BTN_CERRAR_DIDM),
-                WaitInteractions.untilAppears(BTN_MENU_LATERAL),
-                Click.on(BTN_MENU_LATERAL),
-                WaitInteractions.untilAppears(BTN_BANDEJAS),
-                Click.on(BTN_BANDEJAS),
-                WaitInteractions.untilAppears(BTN_REGISTROS_PUBLICOS),
-                Click.on(BTN_REGISTROS_PUBLICOS),
-                WaitInteractions.untilAppears(BTN_REPARTO_ESCANEO),
-                Scroll.to(BTN_REPARTO_ESCANEO).andAlignToBottom(),
-                Click.on(BTN_REPARTO_ESCANEO),
-                Switch.toNewWindow(),
-                WaitInteractions.untilAppears(TXT_CODIGO_BARRAS_DIDM),
-                Enter.theValue(barcode).into(TXT_CODIGO_BARRAS_ID),
-                Click.on(TXT_FECHA_INICIAL),
-                WaitInteractions.untilAppears(BTN_FINALIZAR_ESCANEO_DIDM),
-                Click.on(BTN_FINALIZAR_ESCANEO_DIDM),
-                WaitInteractions.untilAppears(BTN_SIGUIENTE_DIDM),
-                Click.on(BTN_SIGUIENTE_DIDM),
-                //Switch.toFrame(0),
-                WaitInteractions.untilAppears(SELECT_USUARIO_DIDM),
-                //SelectFromOptions.byVisibleText(selectUsuario).from(SELECT_USUARIO_DIDM),
-                SelectFromOptions.byVisibleText("CAJAQA(CAJAQA)").from(SELECT_USUARIO_DIDM),
-                WaitInteractions.untilAppears(BTN_ASIGNAR_DIDM),
-                Click.on(BTN_ASIGNAR_DIDM),
-                Ensure.that(LBL_PROCESO_FINALIZADO_DIDM).isEnabled(),
-                //Switch.toParentFrame(),
-                Switch.toTheOtherWindow(),
-                RobotCambioPestanaDos.toTab()
-        );
+//
+//        actor.attemptsTo(
+//                Switch.toTheOtherWindow(),
+//                WaitInterrupted2Segundos.esperaConstante2(),
+//                RobotCambioPestanaDos.toTab(),
+//                WaitInteractions.untilAppears(BTN_CERRAR_DIDM),
+//                Click.on(BTN_CERRAR_DIDM),
+//                WaitInteractions.untilAppears(BTN_MENU_LATERAL),
+//                Click.on(BTN_MENU_LATERAL),
+//                WaitInteractions.untilAppears(BTN_BANDEJAS),
+//                Click.on(BTN_BANDEJAS),
+//                WaitInteractions.untilAppears(BTN_REGISTROS_PUBLICOS),
+//                Click.on(BTN_REGISTROS_PUBLICOS),
+//                WaitInteractions.untilAppears(BTN_REPARTO_ESCANEO),
+//                Scroll.to(BTN_REPARTO_ESCANEO).andAlignToBottom(),
+//                Click.on(BTN_REPARTO_ESCANEO),
+//                Switch.toNewWindow(),
+//                WaitInteractions.untilAppears(TXT_CODIGO_BARRAS_DIDM),
+//                Enter.theValue(barcode).into(TXT_CODIGO_BARRAS_ID),
+//                Click.on(TXT_FECHA_INICIAL),
+//                WaitInteractions.untilAppears(BTN_FINALIZAR_ESCANEO_DIDM),
+//                Click.on(BTN_FINALIZAR_ESCANEO_DIDM),
+//                WaitInteractions.untilAppears(BTN_SIGUIENTE_DIDM),
+//                Click.on(BTN_SIGUIENTE_DIDM),
+//                //Switch.toFrame(0),
+//                WaitInteractions.untilAppears(SELECT_USUARIO_DIDM),
+//                //SelectFromOptions.byVisibleText(selectUsuario).from(SELECT_USUARIO_DIDM),
+//                SelectFromOptions.byVisibleText("CAJAQA(CAJAQA)").from(SELECT_USUARIO_DIDM),
+//                WaitInteractions.untilAppears(BTN_ASIGNAR_DIDM),
+//                Click.on(BTN_ASIGNAR_DIDM),
+//                Ensure.that(LBL_PROCESO_FINALIZADO_DIDM).isEnabled(),
+//                //Switch.toParentFrame(),
+//                Switch.toTheOtherWindow(),
+//                RobotCambioPestanaDos.toTab()
+//        );
     }
 
     public static DataInscripcionDocumentosMercantilTres enConfecamaraSII(String idTelefonoFijo, String idNroCelular, String selectUsuario) {

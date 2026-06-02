@@ -1,11 +1,8 @@
 # language: es
 Característica: Validar Proceso de PQR
 
-
-
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras
-
 
   @PQR @SII4
   Escenario: Pqr

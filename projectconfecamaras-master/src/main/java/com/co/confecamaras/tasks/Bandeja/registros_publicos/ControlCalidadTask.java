@@ -7,6 +7,7 @@ import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.VerRutaTask
 import com.co.confecamaras.tasks.Consulta.ConsultaGrillaTask;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Switch;
 
 public class ControlCalidadTask implements Task {
     private final String codigo_barras;
@@ -18,6 +19,7 @@ public class ControlCalidadTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Switch.toNewWindow(),
                 ConsultaGrillaTask.consultar(codigo_barras),
                 VerRutaTask.verRuta("Ver ruta", codigo_barras),
                 AdicionarComentariosTask.adicionar("Ver comentarios", "Adicionar comentarios", codigo_barras, "TEST COMENTARIO AUTOMATIZACION"),

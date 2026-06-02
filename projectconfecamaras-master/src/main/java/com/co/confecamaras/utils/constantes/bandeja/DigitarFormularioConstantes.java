@@ -13,6 +13,7 @@ public class DigitarFormularioConstantes {
     public static String NIT = "9006349491";
     public static String FECHA_INICIO = "12102024";
     public static String TXT_TEST = "TEST AUTOMATIZACION";
+    public static String BARRIO = "CENTRO";
 
 
 }

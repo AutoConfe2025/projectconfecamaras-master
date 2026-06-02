@@ -7,6 +7,7 @@ import com.co.confecamaras.tasks.Bandeja.registros_publicos.acciones.VerXMLTask;
 import com.co.confecamaras.tasks.Consulta.ConsultaGrillaTask;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.actions.Switch;
 
 import static com.co.confecamaras.userinterfaces.InscripcionDocumentos.BTN_PUBLICAR;
 
@@ -20,6 +21,7 @@ public class NoticiasNoPublicadasRueTask implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                Switch.toNewWindow(),
                 ConsultaGrillaTask.consultar(dato_consulta),
                 VerXMLTask.ver("seccionalentidad"),
                 VerJsonTask.ver("seccionalentidad"),
