@@ -47,4 +47,20 @@ public class NavigateTo {
                 }
         );
     }
+
+    public static Performable confecamarasCertificadosPage() {
+        return Task.where("{0} abre la página renovacion agil",
+                actor -> {
+
+
+                    String baseUrl = EnvironmentSpecificConfiguration
+                            .from(SerenityInfrastructure.getEnvironmentVariables())
+                            .getProperty("webdriver.base.url.certificados");
+
+                    actor.attemptsTo(
+                            Open.url(baseUrl)
+                    );
+                }
+        );
+    }
 }

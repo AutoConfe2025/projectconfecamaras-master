@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
         plugin = {
                 "pretty",
                 "rerun:target/rerun.txt"
-        },
-        tags = "@SII4"
+        }
+//        ,tags=("@")
 
 )
 public class ConfecamarasSIIRunner {

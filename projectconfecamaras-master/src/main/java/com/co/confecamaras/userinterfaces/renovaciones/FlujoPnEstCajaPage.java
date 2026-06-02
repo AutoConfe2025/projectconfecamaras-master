@@ -218,6 +218,9 @@ public class FlujoPnEstCajaPage {
     public static final Target BOTON_CERRAR_BAJA_ACTIVO_ALERTA = Target.the("boton de cerrar el mensaje de alerta de baja de activos")
             .locatedBy("(//button[contains(text(),'Cerrar')])[1]");
 
+    public static final Target BOTON_CERRAR_BAJA_ACTIVO_ALERTA_1 = Target.the("boton de cerrar el mensaje de alerta de baja de activos")
+            .locatedBy("(//button[contains(text(),'Cerrar')])[2]");
+
     public static final Target LISTA_TIPO_IDENTIFICACION = Target.the("lista de tipo de identificacion")
             .locatedBy("//select[@id='_idtipoidentificacioncliente']");
 
@@ -264,7 +267,7 @@ public class FlujoPnEstCajaPage {
             .locatedBy("//button[@id='botones_ren0']");
 
     public static final Target BOTON_RECIBIR_PAGO_1 = Target.the("boton para recibir el pago")
-            .locatedBy("//button[@id='botones_ren1']");
+            .locatedBy("//button[@id='botones_ren1' and @data-pr-tooltip='Recaudo en caja.']");
 
     public static final Target BOTON_RECIBIR_PAGO_TEXTO = Target.the("boton para recibir el pago por texto")
             .locatedBy("//button[contains(.,'Pago Electrónico')]");

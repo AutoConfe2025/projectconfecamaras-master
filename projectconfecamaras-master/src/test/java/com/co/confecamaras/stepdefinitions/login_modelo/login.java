@@ -8,6 +8,9 @@ import com.co.confecamaras.tasks.login.LoginModeloConMatricula;
 import com.co.confecamaras.tasks.login.loginModelo;
 import com.co.confecamaras.tasks.nuevas_conexiones.RunDataBaseQueryRenovacionPnEstablecimiento;
 import com.co.confecamaras.tasks.renovaciones.renovacion_agil.PrepararRenovacionAgil;
+import com.co.confecamaras.tasks.renovaciones.renovacion_agil_esadl.LoginAgilEsadl;
+import com.co.confecamaras.tasks.renovaciones.renovacion_agil_esadl.PreparacionEsadl;
+import com.co.confecamaras.tasks.renovaciones.renovacion_agil_pj.PrepararAgilPj;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
@@ -23,6 +26,11 @@ public class login {
     @Given("^(.*) ingresa al sistema de confecamaras agil$")
     public void ingresaAlSistemaDeConfecamarasAgil(String actor) {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasAgilPage());
+    }
+
+    @Given("^(.*) ingresa al sistema de confecamaras certificados$")
+    public void ingresaAlSistemaDeConfecamarasCertificados(String actor) {
+        theActorCalled(actor).attemptsTo(NavigateTo.confecamarasCertificadosPage());
     }
 
     @Given("^(.*) ingresa al sistema de confecamaras con matricula \"(.*)\"$")
@@ -105,6 +113,20 @@ public class login {
         theActorInTheSpotlight().attemptsTo(PrepararRenovacionAgil.preparar());
         UsuarioPublicoModel usuario = UsuarioPublicoModel.UsuarioAgil1();
         withCurrentActor(LoginAgil.loginA(usuario));
+    }
+
+    @And("ingreso al sistema SII3 como usuario en renovacion agil ESADL")
+    public void ingresoAlSistemaSii3ComoUsuarioEnRenovacionAgilEsadl() {
+        theActorInTheSpotlight().attemptsTo(PreparacionEsadl.preparar());
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.UsuarioAgilEsadl();
+        withCurrentActor(LoginAgilEsadl.loginAgilEsadl(usuario));
+    }
+
+    @And("ingreso al sistema SII3 como usuario en renovacion agil pj")
+    public void ingresoAlSistemaSii3ComoUsuarioEnRenovacionAgilPj() {
+        theActorInTheSpotlight().attemptsTo(PrepararAgilPj.prepararBD());
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.UsuarioAgilEsadl();
+        withCurrentActor(LoginAgilEsadl.loginAgilEsadl(usuario));
     }
 
 }

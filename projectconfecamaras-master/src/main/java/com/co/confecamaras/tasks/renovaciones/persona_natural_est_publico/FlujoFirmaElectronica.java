@@ -47,7 +47,7 @@ public class FlujoFirmaElectronica implements Task {
         );
     }
 
-    public static FlujoFirmaElectronica FlujoFirma() {
+    public static FlujoFirmaElectronica  FlujoFirma() {
         return new FlujoFirmaElectronica();
     }
 }

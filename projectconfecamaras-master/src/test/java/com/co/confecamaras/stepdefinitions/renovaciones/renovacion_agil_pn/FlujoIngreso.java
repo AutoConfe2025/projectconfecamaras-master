@@ -1,4 +1,4 @@
-package com.co.confecamaras.stepdefinitions.renovacion_agil_pn;
+package com.co.confecamaras.stepdefinitions.renovaciones.renovacion_agil_pn;
 
 import com.co.confecamaras.tasks.renovaciones.persona_natural_est_publico.FlujoValidacionRecibo;
 import com.co.confecamaras.tasks.renovaciones.renovacion_agil.*;
