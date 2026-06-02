@@ -7,13 +7,13 @@ import org.openqa.selenium.By;
 public class DataInscripcionDocumentosMercantilUI extends PageObject {
 
     public static final Target SELECT_CONSULTA_POR_DIDM = Target.the("Seleccionar la consulta")
-            .located(By.id("selectS"));
+            .located(By.xpath("//div[@aria-label='Matrícula']"));
 
     public static final Target TXT_CRITERIO_DIDM = Target.the("Escribir el criterio")
             .located(By.id("criterio"));
 
     public static final Target BTN_CONTINUAR_DIDM = Target.the("Boton continuar")
-            .located(By.xpath("//*[contains(text(), ' Continuar')]"));
+            .located(By.xpath("//button[@type='submit']"));
 
     public static final Target BTN_CONTINUAR_DOS_DIDM = Target.the("Boton continuar dos")
             .located(By.id("submit"));
@@ -22,30 +22,35 @@ public class DataInscripcionDocumentosMercantilUI extends PageObject {
             .located(By.xpath("//button[text()='Continuar']"));
 
     public static final Target BTN_ACCIONES_DISPONIBLES_DIDM = Target.the("Boton acciones disponibles")
-            .located(By.xpath("(//i[@data-original-title=\"Acciones Disponibles\"])[1]"));
+            .located(By.xpath("/html/body/div[1]/div[2]/div/div[2]/div/div/div/form/div/div[2]/div/div/div[1]/table/tbody/tr[1]/td[1]/p/span/button"));
 
     public static final Target BTN_OPCIONES_MERCANTIL_ESADL_DIDM = Target.the("Boton opciones mercantil esadl")
-            .located(By.xpath("//*[text()='Trámites del Registro Mercantil y de ESADL']"));
+            .located(By.xpath("/html/body/div[2]/div/div/div/div[2]/div[3]/div/div/div/a"));
 
     public static final Target BTN_INSCRIPCION_DOCUMENTOS_DIDM = Target.the("Boton inscripcion documentos")
-            .located(By.xpath("//a[@data-original-title='Inscripciones de documentos']"));
+            .located(By.xpath("//a[@data-pr-tooltip='Inscripciones de documentos']//div[@class='p-card-content']"));
 
     public static final Target BTN_SELECCION_TRANSACCION_DIDM = Target.the("Boton seleccion transaccion a incluir")
             //.located(By.xpath("//a[text()='Seleccione una transacción a incluir']"));
             .located(By.xpath("//*[@id=\"AdminPage-top\"]/div[2]/div/div/div[2]/div/div/div/a/button"));
 
     public static final Target SELECT_FILTRAR_DIDM = Target.the("Seleccionar filtrar")
-            .located(By.id("_filtrotransacciones"));
+            .located(By.id("_transaccionseleccionada"));
 
     public static final Target BTN_ACEPTACION_REPRESENTANTE_LEGAL_DIDM = Target.the("Boton aceptacion representante legal")
-            .located(By.xpath("//a[contains(text(),'ACEPTACION REPRESENTANTE LEGAL   - COMERCIALES (09.005)')]"));
+            .located(By.xpath("//button[normalize-space()='Continuar']"));
+
     public static final Target BTN_ACEPTACION_REPRESENTANTE_LEGAL_DIDM_ESADL = Target.the("Boton aceptacion representante legal")
             .located(By.xpath("(//a[contains(text(),'NOMBRAMIENTOS - REPRESENTANTE LEGAL')])[1]"));
 
     public static final Target SELECT_TIPO_DIDM = Target.the("Seleccionar tipo")
             .located(By.id("_tipodoc"));
+
     public static final Target SELECT_NUMERO_DIDM = Target.the("cuadro de texto Numero")
             .located(By.id("_numdoc"));
+
+    public static final Target TXT_FECHA_DOCUMENTO = Target.the("cuadro de texto Numero")
+            .located(By.id("_fechadoc"));
 
     public static final Target TXT_ORIGEN_DOCUMENTO_DIDM = Target.the("Escribir el origen del documento")
             .located(By.id("_origendoc"));
@@ -75,7 +80,19 @@ public class DataInscripcionDocumentosMercantilUI extends PageObject {
             .located(By.xpath("//button[text()='Recibir pago']"));
 
     public static final Target BTN_FACTURAR_CLIENTE_FINAL_GENERICO_DIDM = Target.the("Boton facturar cliente final generico")
-            .located(By.xpath("//button[text()='Facturar a cliente final genérico']"));
+            .located(By.id("_idtipoidentificacioncliente"));
+
+    public static final Target MENU_DESPLEGABLE_ID = Target.the("Menu desplegable Identificacion")
+            .located(By.id("_idtipoidentificacioncliente"));
+
+    public static final Target TXT_ID = Target.the("Cuadro de texto Identificación")
+            .located(By.id("_identificacioncliente"));
+
+    public static final Target BTN_VERIFICAR_ID = Target.the("Boton Verificar identificación")
+            .located(By.xpath("//button[normalize-space()='Verificar identificación']"));
+
+    public static final Target TXT_EMAIL_CONFIRMACION = Target.the("Cuadro de texto Email confirmacion")
+            .located(By.id("_emailconfirmacion"));
 
     public static final Target BTN_DUPLICAR_DATOS_CLIENTE_DIDM = Target.the("Boton duplicar datos del cliente")
             .located(By.xpath("//button[text()='Duplicar datos del cliente']"));

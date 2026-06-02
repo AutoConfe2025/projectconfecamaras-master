@@ -43,6 +43,7 @@ public class DigitarInformacionTask implements Task {
                     Log.message("DATOS DE UBICACION COMERCIAL"),
                     Scroll.to(DigitacionPage.SLC_UC_MUNICIPIO),
                     SelectRandomOption.select(DigitacionPage.SLC_UC_MUNICIPIO),
+                    SelectFromOptions.byVisibleText(DigitarFormularioConstantes.BARRIO).from(DigitacionPage.SLC_UC_BARRIO),
                     SelectFromOptions.byIndex(1).from(DigitacionPage.SLC_UC_PAIS),
                     Enter.theValue(DigitarFormularioConstantes.TELEFONO).into(DigitacionPage.INP_UC_TELEFONO1),
                     SelectFromOptions.byIndex(2).from(DigitacionPage.SLC_UC_ZONA),

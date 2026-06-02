@@ -47,6 +47,7 @@ public class DigitacionPage {
      Datos de ubicación comercial
      */
     public static Target SLC_UC_MUNICIPIO = Target.the("seleccionar municipio").locatedBy("#muncom");
+    public static Target SLC_UC_BARRIO = Target.the("seleccionar municipio").locatedBy("#barriocom");
     public static Target SLC_UC_PAIS = Target.the("seleccionar pais").locatedBy("#paicom");
     public static Target INP_UC_TELEFONO1 = Target.the("ingresar telefono").locatedBy("#telcom1");
     public static Target SLC_UC_ZONA = Target.the("seleccionar zona").locatedBy("#codigozonacom");

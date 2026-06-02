@@ -37,6 +37,7 @@ public class EstudioInscripcionDocumentosMercantilStepDefinitions {
 
     @Cuando("seleccione Modulo de Registro, Registros Publicos, Estudio Mercantil")
     public void seleccioneModuloDeRegistroRegistrosPublicosEstudioMercantil() {
+
         Excel excel = new Excel(Excel.rutaExcelDev, "DocumentosMercantil", true, 1);
         datos = dataDriverExcel.leerExcel(excel);
         withCurrentActor(DataInscripcionDocumentosMercantil.enConfecamaraSII(datos.get("ConsultaPor"), datos.get("Matricula"),
@@ -47,9 +48,9 @@ public class EstudioInscripcionDocumentosMercantilStepDefinitions {
                 datos.get("FechaExpedicion"), datos.get("Email")));
         withCurrentActor(DataInscripcionDocumentosMercantilTres.enConfecamaraSII(datos.get("TelefonoFijo"),
                 datos.get("NroCelular"), datos.get("Usuario")));
-        withCurrentActor(
-                DoInscripcionDocumentosMercantil.inscripcionDocumentosMercantil(datos.get("Codigo Barras"), datos.get("Correo"), datos.get("Numero"))
-        );
+//        withCurrentActor(
+//                DoInscripcionDocumentosMercantil.inscripcionDocumentosMercantil(datos.get("Codigo Barras"), datos.get("Correo"), datos.get("Numero"))
+//        );
     }
 
     @Entonces("ingresara el codigo de barras mercantil y los datos necesarios")

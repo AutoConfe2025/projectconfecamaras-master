@@ -5,14 +5,14 @@ Característica: validacion de bandejas Estudio General
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @ValidacionExpedientesEnRevisionCertiAntiguo @SII4
+  @ValidacionExpedientesEnRevisionCertiAntiguo @Bandejas @SII4
   Escenario: ingreso a la bandeja inscripcion no esta en firme XML
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Expedientes en revision"
     Entonces ingreso el codigo de barras "9960"
     Y valido el certificado antiguo formato
 
-  @ValidacionExpedientesEnRevisionCertiAntiguo @SII4
+  @ValidacionExpedientesEnRevisionCertiAntiguo @Bandejas @SII4
   Escenario: ingreso a la bandeja inscripcion no esta en firme XML
     Y ingreso al sistema SII3 como usuario publico
     Cuando ingreso solo bandeja "Expedientes en revision"

@@ -6,7 +6,10 @@ import net.serenitybdd.screenplay.targets.Target;
 public class AccionesPage {
 
     public static Target TITULO_LIBROS_COMERCIO = Target.the("TITULO bandeja Libros de comercio y sus anotaciones pendientes de registrar").
-            locatedBy("//*[contains(text(), 'Libros de comercio')]");
+            locatedBy("//center[contains(text(),'Libros de comercio y sus anotaciones pendientes de')]");
+
+    public static Target TITULO_DESISTIMIENTOS_DECRETADOS = Target.the("TITULO bandeja Libros de comercio y sus anotaciones pendientes de registrar").
+            locatedBy("//center[contains(text(),'Trámites con Desistimiento Decretado Sin Archivar')]");
 
     // PARA BUSCAR ALGUN TIPO DE INFORMACION
 
@@ -28,8 +31,10 @@ public class AccionesPage {
             located(By.id("fechainicial"));
 
     public static Target LINK_ACCION_DOS = Target.the("Seleccionar el Boton archivar").
-            //located(By.xpath("//*[@id=\"tablecb\"]/tbody/tr/td[10]/p/small/a[5]"));
-            located(By.xpath("/html/body/div[2]/div/div/div[8]/div/div/center/div/div/div[3]/div[2]/table/tbody/tr/td[10]/p/small/a[4]"));
+            located(By.xpath("//*[@id=\"tablecb\"]/tbody/tr/td[10]/p/small/a[6]"));
+
+    public static Target BTN_ARCHIVAR_DESISTIMIENTO_DECRETADO = Target.the("Seleccionar el Boton archivar").
+            located(By.xpath("//*[@id=\"tablecb\"]/tbody/tr/td[10]/p/small/a[4]"));
 
     public static Target BTN_ARCHIVAR = Target.the("Seleccionar el Boton archivar").
                     located(By.xpath("/html/body/div[2]/div/div/div[7]/div/div/center/div[2]/div/div[3]/div[2]/table/tbody/tr/td[8]/p/small/a[5]"));
