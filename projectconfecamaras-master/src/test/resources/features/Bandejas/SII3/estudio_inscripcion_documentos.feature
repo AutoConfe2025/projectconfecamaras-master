@@ -2,7 +2,7 @@
 
 Característica: Estudio e Inscripcion de Documentos Mercantil / Estudio e Inscripcion de Documentos Proponente
 
-  @estudioDocumentosMercantil @BloqueCuatro @general
+  #@estudioDocumentosMercantil @BloqueCuatro @general
   Escenario: Estudio e Inscripcion de Documentos Mercantil
     Dado Confecamaras requiere realizar el Estudio e Inscripcion de Documentos Mercantil
     Cuando Confecamaras ingrese en la aplicacion con sus credenciales

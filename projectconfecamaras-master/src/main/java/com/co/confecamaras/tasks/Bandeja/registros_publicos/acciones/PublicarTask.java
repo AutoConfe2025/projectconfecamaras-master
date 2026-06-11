@@ -30,14 +30,14 @@ public class PublicarTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        if(actor.asksFor(ElementoElegible.para(TXT_FECHA_INICIAL))){
-            actor.attemptsTo(
-                    WaitInteractions.untilBeEnable(TXT_FECHA_INICIAL),
-                    Enter.theValue("2025-03-28").into(TXT_FECHA_INICIAL),
-                    Click.on(INPUT_BUSCAR),
-                    WaitSeconds.seconds(2)
-            );
-        }
+//        if(actor.asksFor(ElementoElegible.para(TXT_FECHA_INICIAL))){
+//            actor.attemptsTo(
+//                    WaitInteractions.untilBeEnable(TXT_FECHA_INICIAL),
+//                    Enter.theValue("2025-03-28").into(TXT_FECHA_INICIAL),
+//                    Click.on(INPUT_BUSCAR),
+//                    WaitSeconds.seconds(2)
+//            );
+//        }
         if(actor.asksFor(ElementoElegible.para(TITULO_LIBROS_COMERCIO))){
             actor.attemptsTo(
                     //ConsultaGrillaTask.consultar("701377"),
@@ -47,10 +47,30 @@ public class PublicarTask implements Task {
             );
         }
 
-        actor.attemptsTo(
-                WaitInteractions.untilBeEnable(LINK_ACCION_DOS),
-                JavaScriptClick.on(LINK_ACCION_DOS)
-        );
+        if(actor.asksFor(ElementoElegible.para(TITULO_DESISTIMIENTOS_DECRETADOS))){
+            actor.attemptsTo(
+                    Log.message("Ingreso este codigo de barras 567377"),
+                    ConsultaGrillaTask.consultar("567377"),
+                    WaitSeconds.seconds(2),
+                    WaitInteractions.untilBeEnable(BTN_ARCHIVAR_DESISTIMIENTO_DECRETADO),
+                    JavaScriptClick.on(BTN_ARCHIVAR_DESISTIMIENTO_DECRETADO),
+                    Log.message("Icono archivar Desistimiento decretado")
+            );
+        }
+
+        if(actor.asksFor(ElementoElegible.para(AccionesPage.MSG_POPUP_PUBLICAR))){
+            actor.attemptsTo(
+                    WaitInteractions.untilAppears(AccionesPage.MSG_POPUP_PUBLICAR),
+                    GetTextOfElement.de(AccionesPage.MSG_POPUP_PUBLICAR)
+            );
+        } else {
+            actor.attemptsTo(
+                    WaitInteractions.untilBeEnable(LINK_ACCION_DOS),
+                    JavaScriptClick.on(LINK_ACCION_DOS),
+                    Log.message("Icono archivar")
+            );
+        }
+
         if(actor.asksFor(ElementoElegible.para(AccionesPage.MSG_POPUP_PUBLICAR))){
             actor.attemptsTo(
                     WaitInteractions.untilAppears(AccionesPage.MSG_POPUP_PUBLICAR),

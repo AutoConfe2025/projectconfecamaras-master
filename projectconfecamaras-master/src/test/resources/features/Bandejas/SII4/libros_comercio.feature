@@ -4,7 +4,7 @@ Característica: Validar caracteristicas de libros de comercio
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @LibrosComercio @BloqueOcho
+  @LibrosComercio @Bandejas @SII4
   Escenario: Validar libros de comercio
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Libros de comercio

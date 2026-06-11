@@ -1,8 +1,10 @@
 package com.co.confecamaras.tasks;
 
+import com.co.confecamaras.interactions.News.WaitSeconds;
 import com.co.confecamaras.interactions.WaitInteractions;
 import com.co.confecamaras.interactions.WaitInterrupted10Segundos;
 import com.co.confecamaras.interactions.WaitInterrupted2Segundos;
+import com.co.confecamaras.interactions.log.Log;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -36,8 +38,7 @@ public class DataInscripcionDocumentosMercantil implements Task {
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 WaitInteractions.untilAppears(SELECT_CONSULTA_POR_DIDM),
-                Scroll.to(SELECT_CONSULTA_POR_DIDM).andAlignToBottom(),
-                SelectFromOptions.byVisibleText(selectConsultaPor).from(SELECT_CONSULTA_POR_DIDM),
+                Click.on(SELECT_CONSULTA_POR_DIDM),
                 WaitInteractions.untilAppears(TXT_CRITERIO_DIDM),
                 Enter.theValue(idMatricula).into(TXT_CRITERIO_DIDM),
                 WaitInteractions.untilAppears(BTN_CONTINUAR_DIDM),
@@ -54,18 +55,17 @@ public class DataInscripcionDocumentosMercantil implements Task {
         actor.attemptsTo(
                 WaitInteractions.untilAppears(BTN_CONTINUAR_DOS_DIDM),
                 Click.on(BTN_CONTINUAR_DOS_DIDM),
-                /*WaitInteractions.untilAppears(BTN_SELECCION_TRANSACCION_DIDM),
-                Scroll.to(BTN_SELECCION_TRANSACCION_DIDM).andAlignToBottom(),
-                Click.on(BTN_SELECCION_TRANSACCION_DIDM),*/
                 WaitInteractions.untilAppears(SELECT_FILTRAR_DIDM),
-                SelectFromOptions.byVisibleText("NOMBRAMIENTOS").from(SELECT_FILTRAR_DIDM),
-                //SelectFromOptions.byVisibleText(selectFiltrar).from(SELECT_FILTRAR_DIDM),
+                Scroll.to(SELECT_FILTRAR_DIDM).andAlignToBottom(),
+                SelectFromOptions.byVisibleText("ACEPTACION REPRESENTANTE LEGAL - COMERCIALES").from(SELECT_FILTRAR_DIDM),
                 WaitInteractions.untilAppears(BTN_ACEPTACION_REPRESENTANTE_LEGAL_DIDM),
                 Click.on(BTN_ACEPTACION_REPRESENTANTE_LEGAL_DIDM),
+                WaitSeconds.seconds(10),
                 WaitInteractions.untilAppears(SELECT_TIPO_DIDM),
                 Scroll.to(SELECT_TIPO_DIDM).andAlignToBottom(),
                 SelectFromOptions.byVisibleText(selectTipo).from(SELECT_TIPO_DIDM),
                 Enter.theValue("N/A").into(SELECT_NUMERO_DIDM),
+                Enter.theValue("12052026").into(TXT_FECHA_DOCUMENTO),
                 WaitInteractions.untilAppears(TXT_ORIGEN_DOCUMENTO_DIDM),
                 Scroll.to(TXT_ORIGEN_DOCUMENTO_DIDM).andAlignToBottom(),
                 Enter.theValue(idOrigenDocumento).into(TXT_ORIGEN_DOCUMENTO_DIDM),
@@ -74,7 +74,8 @@ public class DataInscripcionDocumentosMercantil implements Task {
                 SelectFromOptions.byVisibleText(selectVinculo).from(SELECT_VINCULO_DIDM),
                 WaitInteractions.untilAppears(TXT_PRIMER_APELLIDO_DIDM),
                 Scroll.to(TXT_PRIMER_APELLIDO_DIDM).andAlignToBottom(),
-                Enter.theValue(idPrimerApellido).into(TXT_PRIMER_APELLIDO_DIDM)
+                Enter.theValue(idPrimerApellido).into(TXT_PRIMER_APELLIDO_DIDM),
+                Log.message("Fin Data Inscripcion Documentos Mercantil")
         );
     }
 
