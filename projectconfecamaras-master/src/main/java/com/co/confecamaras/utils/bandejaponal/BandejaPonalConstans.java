@@ -17,6 +17,8 @@ public class BandejaPonalConstans {
     public static final String MENSAJE_INFORMATIVO = "Mensaje informativo";
     public static final String MENSAJE_INFORMATIVO_1 = "Errores en la formalización del Nit";
 
+    public static final String MENSAJE_ERROR_MUTACION = "El codigo de barras fue devuelto con carácter definitivo, no es reingresable";
+
 
 
 

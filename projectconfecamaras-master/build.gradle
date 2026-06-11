@@ -76,8 +76,8 @@ dependencies {
     implementation 'com.sikulix:sikulixapi:2.0.5'
 }
 
-
-//bloque de ejecucion general guardando historico
+//
+////bloque de ejecucion general guardando historico
 //test {
 //    useJUnit()
 //
