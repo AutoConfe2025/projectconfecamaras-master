@@ -28,6 +28,9 @@ public class GeneralPage {
     public static final Target BOTON_RENOVAR_MATRICULA = Target.the("boton de renovar matricula")
             .locatedBy("//a[@data-pr-tooltip='Renovar matrícula']");
 
+    public static final Target BOTON_INSCRIPCIONES_DE_DOCUMENTOS = Target.the("boton de inscripciones de documentos")
+            .locatedBy("//a[@data-pr-tooltip='Inscripciones de documentos']");
+
     public static final Target BOTON_PRODUCTO_NO_CONFORME = Target.the("boton de producto no conforme")
             .locatedBy("//a[@data-pr-tooltip='Producto no conforme - Correciones']");
 
@@ -150,5 +153,10 @@ public class GeneralPage {
             .locatedBy("(//div[@class='contenedorInfoPrincipal'])[2]");
 
     public static final Target MENSAJE_RENOVACION_PROPIETARIO_FORANEO = Target.the("mensaje que se muestra con renovacion propietario foraneo")
+            .locatedBy("//div[@id='swal2-html-container']");
+
+    //REFORMA PROCEDE REINGRESO DOCUMENTOS
+
+    public static final Target BOTON_REFORMA_CAPITAL = Target.the("mensaje que se muestra con renovacion propietario foraneo")
             .locatedBy("//div[@id='swal2-html-container']");
 }
