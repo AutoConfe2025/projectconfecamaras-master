@@ -4,7 +4,7 @@ Característica: Validar Proceso de PQR
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @PQR @SII4
+  @PQR @Bandejas @SII4
   Escenario: Pqr
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja PQRs
