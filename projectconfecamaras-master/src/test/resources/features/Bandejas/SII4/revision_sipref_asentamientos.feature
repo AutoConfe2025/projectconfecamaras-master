@@ -5,7 +5,7 @@ Característica: Validar que permita la revision de revision SIPREF Asentamiento
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @RevisionSIPREF_Asentamientos @SII4
+  @RevisionSIPREF_Asentamientos @Bandejas @SII4
   Escenario: revision sipref asentamientos
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Revision SIPREF (Asentamientos)
