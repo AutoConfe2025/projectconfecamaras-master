@@ -115,6 +115,12 @@ public class login {
         withCurrentActor(LoginAgil.loginA(usuario));
     }
 
+    @And("ingreso al sistema SII4 como usuario publico")
+    public void ingresoAlSistemaSii4ComoUsuarioPublico() {
+        UsuarioPublicoModel usuario = UsuarioPublicoModel.UsuarioPublico1();
+        withCurrentActor(loginModelo.enConfecamaras(usuario));
+    }
+
     @And("ingreso al sistema SII3 como usuario en renovacion agil ESADL")
     public void ingresoAlSistemaSii3ComoUsuarioEnRenovacionAgilEsadl() {
         theActorInTheSpotlight().attemptsTo(PreparacionEsadl.preparar());

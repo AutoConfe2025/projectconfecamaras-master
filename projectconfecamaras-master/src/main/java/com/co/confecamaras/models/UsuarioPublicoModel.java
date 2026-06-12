@@ -103,6 +103,15 @@ public class UsuarioPublicoModel {
                 .build();
     }
 
+    public static UsuarioPublicoModel UsuarioPublico1() {
+        return UsuarioPublicoModel.builder()
+                .camara("20")
+                .usuario("alanrios@confecamaras.org.co")
+                .identificacion("1026265084")
+                .contrasena("mqVC9(d54Qy@")
+                .build();
+    }
+
     public static UsuarioPublicoModel UsuarioAgilEsadl() {
         return UsuarioPublicoModel.builder()
                 .usuario("eiden@confecamaras.org.co")

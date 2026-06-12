@@ -9,6 +9,7 @@ import static com.co.confecamaras.userinterfaces.Bandejas.BandejaRLeyPONALPage.T
 public class BandejaPonalTexto  implements Question<String> {
     @Override
     public String answeredBy(Actor actor) {
+
         return TextContent.of(TEXTO_DEVOLUCION_REGISTRADA).answeredBy(actor);
     }
     public static BandejaPonalTexto es (){
