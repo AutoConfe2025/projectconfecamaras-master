@@ -1,6 +1,6 @@
 # language: es
 
-Característica: flujo de renovacion consultas externas persona juridica publico
+Característica:   flujo de renovacion consultas externas persona juridica publico
 
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras con matricula "PERSONA_JURIDICA_EST_CAJA"

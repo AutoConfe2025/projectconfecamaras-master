@@ -1,5 +1,6 @@
 package com.co.confecamaras.tasks.renovaciones.baja_activos;
 
+import com.co.confecamaras.interactions.SwitchToNewWindow;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.*;
@@ -60,6 +61,13 @@ public class PrimerFormulario implements Task {
                     Click.on(BOTON_MENSAJE_INFORMACION)
             );
         }
+//
+//        actor.attemptsTo(
+//                WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO_2, isPresent()).forNoMoreThan(20).seconds(),
+//                Scroll.to(BOTON_RECIBIR_PAGO_TEXTO_2),
+//                Click.on(BOTON_RECIBIR_PAGO_TEXTO_2),
+//                SwitchToNewWindow.switchToNewTab()
+//        );
     }
 
     public static PrimerFormulario primerFormularioBajaActivos() {

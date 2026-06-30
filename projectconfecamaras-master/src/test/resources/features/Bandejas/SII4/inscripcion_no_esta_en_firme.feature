@@ -1,6 +1,6 @@
 # language: es
 
-Característica: validacion de bandeja recursos de reposicion
+Característica: validacion de bandeja inscripcion no esta en firme
 
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras

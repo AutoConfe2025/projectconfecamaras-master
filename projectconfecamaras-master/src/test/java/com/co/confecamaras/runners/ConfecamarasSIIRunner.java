@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/actualizacion_datos/actualizacion_datos_mutacion_publico.feature",
+        features = "src/test/resources/features/renovaciones/renovacion_esadl_org_catorce_clase_49_61_externo.feature",
         glue = "com.co.confecamaras",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {

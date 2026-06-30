@@ -9,8 +9,8 @@ import net.serenitybdd.screenplay.actors.OnStage;
 public class DigitacionRegEsadlStepDefinitions {
 
 
-    @Entonces("^validara las acciones de Digitacion General con codigo de barras \"([^\"]*)\" \"([^\"]*)\"$")
-    public void validaraLasAccionesDeDigitacionGeneralConCodigoDeBarras(String codigo_barras, String estado) {
-        OnStage.theActorInTheSpotlight().attemptsTo(DigitacionGeneralTask.digitar(codigo_barras, estado));
+    @Entonces("^validara las acciones de Digitacion General con codigo de barras \"([^\"]*)\"$")
+    public void validaraLasAccionesDeDigitacionGeneralConCodigoDeBarras(String estado) {
+        OnStage.theActorInTheSpotlight().attemptsTo(DigitacionGeneralTask.digitar(estado));
     }
 }
