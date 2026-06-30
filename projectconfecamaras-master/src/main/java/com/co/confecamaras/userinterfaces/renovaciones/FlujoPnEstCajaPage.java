@@ -139,6 +139,7 @@ public class FlujoPnEstCajaPage {
 
     public static final Target LISTA_SELECCION_MUNICIPIO = Target.the("lista de seleccion de municipio al generar recibo")
             .locatedBy("//select[@id='_idtipoidentificacioncliente']");
+
     public static final Target BOTON_FORMULARIO_2 = Target.the("boton de ingreso al formulario segundo")
             .locatedBy("(//button[@class='btn btn-outline-primary btn-sm'])[3]");
 
@@ -239,6 +240,17 @@ public class FlujoPnEstCajaPage {
     public static final Target CAMPO_CORREO_VERIFICACION_CONFIRMACION = Target.the("campo de correo en verificacion confirmacio")
             .locatedBy("//input[@id='_emailconfirmacion']");
 
+    public static final Target LISTA_SELECCION_MUNICIPO_PAGO = Target.the("lista de seleccion de municipio de pago")
+            .locatedBy("//select[@id='_idmunicipio']");
+
+    public static final Target CAMPO_INGRESO_DIRECCION = Target.the("campo de ingreso de direccion comercial")
+            .locatedBy("//input[@id='_direccion']");
+
+    public static final Target MENSAJE_ERROR_POR_MUNICIPIO = Target.the("mensaje de error por municipio")
+            .locatedBy("//div[contains(text(),'El municipio del cliente es obligatorio, por favor revise')]");
+
+    public static final Target BOTON_CERRAR_MENSAJE_ERROR_POR_MUNICIPIO = Target.the("boton para cerrar mensaje de error por municipio")
+            .locatedBy("//button[contains(text(),'OK')]");
     public static final Target BOTON_GENERAR_RECIBO = Target.the("boton de generar recibo")
             .locatedBy("//button[contains(text(),'Generar recibo')]");
 

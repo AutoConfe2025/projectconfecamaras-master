@@ -34,6 +34,15 @@ public class UsuarioPublicoModel {
                 .build();
     }
 
+    public static UsuarioPublicoModel usuarioDefault40() {
+        return UsuarioPublicoModel.builder()
+                .camara("40")
+                .usuario("CAJAQA")
+                .identificacion("11314260")
+                .contrasena("2837279")
+                .build();
+    }
+
     public static UsuarioPublicoModel usuarioDefault16Admin() {
         return UsuarioPublicoModel.builder()
                 .camara("16")

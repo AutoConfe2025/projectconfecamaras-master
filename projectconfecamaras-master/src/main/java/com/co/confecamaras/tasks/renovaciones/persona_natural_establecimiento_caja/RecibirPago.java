@@ -61,8 +61,24 @@ public class RecibirPago implements Task {
                 Click.on(CAMPO_CORREO_VERIFICACION_CONFIRMACION),
                 Enter.theValue("analistaqa@confecamaras.org.co").into(CAMPO_CORREO_VERIFICACION_CONFIRMACION),
                 Scroll.to(BOTON_GENERAR_RECIBO),
-                Click.on(BOTON_GENERAR_RECIBO),
+                Click.on(BOTON_GENERAR_RECIBO)
+        );
+
+        if (MENSAJE_ERROR_POR_MUNICIPIO.isVisibleFor(actor)){
+            actor.attemptsTo(
+                    Click.on(BOTON_CERRAR_MENSAJE_ERROR_POR_MUNICIPIO),
+                    Scroll.to(LISTA_SELECCION_MUNICIPO_PAGO).andAlignToTop(),
+                    SelectFromOptions.byValue("17001").from(LISTA_SELECCION_MUNICIPO_PAGO),
+                    Click.on(CAMPO_INGRESO_DIRECCION),
+                    Enter.theValue("CL 123 183 -43").into(CAMPO_INGRESO_DIRECCION),
+                    Scroll.to(BOTON_GENERAR_RECIBO),
+                    Click.on(BOTON_GENERAR_RECIBO)
+            );
+        }
+
+        actor.attemptsTo(
                 WaitUntil.the(BOTON_CONTINUAR_GENERAR_RECIBO, isPresent()).forNoMoreThan(10).seconds(),
+                Scroll.to(BOTON_CONTINUAR_GENERAR_RECIBO).andAlignToTop(),
                 Click.on(BOTON_CONTINUAR_GENERAR_RECIBO),
                 WaitUntil.the(TEXTO_RESUMEN_TRANSACCION, isPresent()).forNoMoreThan(120).seconds(),
                 CloseSecondTab.now(),
