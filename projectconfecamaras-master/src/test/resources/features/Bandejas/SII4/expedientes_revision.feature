@@ -1,6 +1,6 @@
 # language: es
 
-Característica: validacion de bandejas Estudio General
+Característica: validacion de bandejas Expedientes en revision
 
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
