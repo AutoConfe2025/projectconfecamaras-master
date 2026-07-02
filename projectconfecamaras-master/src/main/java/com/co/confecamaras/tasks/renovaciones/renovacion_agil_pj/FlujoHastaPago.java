@@ -2,13 +2,18 @@ package com.co.confecamaras.tasks.renovaciones.renovacion_agil_pj;
 
 import com.co.confecamaras.interactions.WaitInterrupted3Segundos;
 import lombok.AllArgsConstructor;
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoAgilEsadlPage.*;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoRenovacionAgilPjPage.*;
@@ -20,19 +25,29 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisi
 public class FlujoHastaPago implements Task {
 
     private final String valor;
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 //PERSONA
                 Click.on(EDITAR_NUEVO_VALOR_BOTON),
                 Click.on(CAMPO_EDITABLE_NUEVO_VALOR_BOTON),
-                Enter.theValue(valor).into(CAMPO_EDITABLE_NUEVO_VALOR_BOTON),
-                //ESTABLECIMIENTO
-                Click.on(EDITAR_NUEVO_VALOR_BOTON),
-                Click.on(CAMPO_EDITABLE_NUEVO_VALOR_BOTON),
-                Enter.theValue(valor).into(CAMPO_EDITABLE_NUEVO_VALOR_BOTON),
-                Click.on(CAMPO_NUMERO_DE_PERSONAL),
-                Enter.theValue("100").into(CAMPO_NUMERO_DE_PERSONAL),
+                Enter.theValue(valor).into(CAMPO_EDITABLE_NUEVO_VALOR_BOTON)
+        );
+
+        if (EDITAR_NUEVO_VALOR_BOTON.resolveFor(actor).isPresent()) {
+            actor.attemptsTo(
+                    //ESTABLECIMIENTO
+                    Click.on(EDITAR_NUEVO_VALOR_BOTON),
+                    Click.on(CAMPO_EDITABLE_NUEVO_VALOR_BOTON),
+                    Enter.theValue(valor).into(CAMPO_EDITABLE_NUEVO_VALOR_BOTON),
+                    Click.on(CAMPO_NUMERO_DE_PERSONAL),
+                    Enter.theValue("100").into(CAMPO_NUMERO_DE_PERSONAL)
+            );
+        }
+        actor.attemptsTo(
+                WaitUntil.the(BOTON_LIQUIDAR_ESADL_AGIL, isPresent()).forNoMoreThan(10).seconds(),
+                Scroll.to(BOTON_LIQUIDAR_ESADL_AGIL).andAlignToTop(),
                 Click.on(BOTON_LIQUIDAR_ESADL_AGIL),
 
                 // FLUJO DE FIRMA
@@ -51,18 +66,30 @@ public class FlujoHastaPago implements Task {
                 SelectFromOptions.byValue("N").from(LISTA_PARTICIPACION_GRUPOS_ETNICOS_ADMINISTRATIVOS),
                 Scroll.to(BOTON_GRABAR_FORMLARIO_ESADL).andAlignToTop(),
                 Click.on(BOTON_GRABAR_FORMLARIO_ESADL),
-                WaitInterrupted3Segundos.esperaConstante3(),
+                WaitInterrupted3Segundos.esperaConstante3()
+        );
 
-                //SEGUNDO FORMULARIO
-                WaitUntil.the(BOTON_DILIGENCIAR_PJ_AGIL, isPresent()).forNoMoreThan(120).seconds(),
-                Click.on(BOTON_DILIGENCIAR_PJ_AGIL),
-                WaitUntil.the(LISTA_AUTORIZACION_MENSAJES, isPresent()).forNoMoreThan(120).seconds(),
-                Scroll.to(LISTA_AUTORIZACION_MENSAJES).andAlignToTop(),
-                SelectFromOptions.byValue("N").from(LISTA_AUTORIZACION_MENSAJES),
-                Click.on(CAMPO_VALOR_ESTABLECIMIENTO_ACTIVOS_VINCULADOS),
-                Enter.theValue(valor).into(CAMPO_VALOR_ESTABLECIMIENTO_ACTIVOS_VINCULADOS),
-                Scroll.to(BOTON_GRABAR_FORMLARIO_ESADL).andAlignToTop(),
-                Click.on(BOTON_GRABAR_FORMLARIO_ESADL),
+//        SEGUNDO FORMULARIO
+
+        List<WebElement> Diligenciar = BrowseTheWeb.as(actor)
+                .getDriver()
+                .findElements(By.xpath("(//button[contains(text(),'Diligenciar')])[1]"));
+
+        if (!Diligenciar.isEmpty()) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_DILIGENCIAR_PJ_AGIL, isPresent()).forNoMoreThan(120).seconds(),
+                    Click.on(BOTON_DILIGENCIAR_PJ_AGIL),
+                    WaitUntil.the(LISTA_AUTORIZACION_MENSAJES, isPresent()).forNoMoreThan(120).seconds(),
+                    Scroll.to(LISTA_AUTORIZACION_MENSAJES).andAlignToTop(),
+                    SelectFromOptions.byValue("N").from(LISTA_AUTORIZACION_MENSAJES),
+                    Click.on(CAMPO_VALOR_ESTABLECIMIENTO_ACTIVOS_VINCULADOS),
+                    Enter.theValue(valor).into(CAMPO_VALOR_ESTABLECIMIENTO_ACTIVOS_VINCULADOS),
+                    Scroll.to(BOTON_GRABAR_FORMLARIO_ESADL).andAlignToTop(),
+                    Click.on(BOTON_GRABAR_FORMLARIO_ESADL)
+            );
+        }
+
+        actor.attemptsTo(
                 WaitUntil.the(BOTON_LIQUIDACION_DEL_TRAMITE, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_LIQUIDACION_DEL_TRAMITE),
                 WaitUntil.the(BOTON_CERRAR_LIQUIDACION_DEL_TRAMITE, isPresent()).forNoMoreThan(10).seconds(),
@@ -73,11 +100,22 @@ public class FlujoHastaPago implements Task {
                 WaitUntil.the(BOTON_ABRIR_PDF_DE_FIRMA_PJ, isVisible()).forNoMoreThan(120).seconds(),
                 Click.on(BOTON_ABRIR_PDF_DE_FIRMA_PJ),
                 WaitUntil.the(BOTON_CERRAR_PDF_DE_FIRMA, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_CERRAR_PDF_DE_FIRMA),
-                WaitUntil.the(BOTON_ABRIR_PDF_DE_FIRMA_PJ_2, isVisible()).forNoMoreThan(120).seconds(),
-                Click.on(BOTON_ABRIR_PDF_DE_FIRMA_PJ_2),
-                WaitUntil.the(BOTON_CERRAR_PDF_DE_FIRMA, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_CERRAR_PDF_DE_FIRMA),
+                Click.on(BOTON_CERRAR_PDF_DE_FIRMA)
+        );
+
+        List<WebElement> pdfs = BrowseTheWeb.as(actor)
+                .getDriver()
+                .findElements(By.xpath("//button[@data-pr-tooltip='Visualizar']"));
+
+        if (pdfs.size() > 1) {
+            actor.attemptsTo(
+                    Click.on(BOTON_ABRIR_PDF_DE_FIRMA_PJ_2),
+                    WaitUntil.the(BOTON_CERRAR_PDF_DE_FIRMA, isPresent()).forNoMoreThan(10).seconds(),
+                    Click.on(BOTON_CERRAR_PDF_DE_FIRMA)
+            );
+        }
+
+        actor.attemptsTo(
                 WaitUntil.the(BOTON_FIRMAR_ESADL, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_FIRMAR_ESADL),
                 WaitUntil.the(BOTON_SI_FIRMAR_ESADL, isPresent()).forNoMoreThan(10).seconds(),
@@ -93,7 +131,7 @@ public class FlujoHastaPago implements Task {
         );
     }
 
-    public static FlujoHastaPago flujoPjHastaPago(String valor){
+    public static FlujoHastaPago flujoPjHastaPago(String valor) {
         return instrumented(FlujoHastaPago.class, valor);
     }
 }

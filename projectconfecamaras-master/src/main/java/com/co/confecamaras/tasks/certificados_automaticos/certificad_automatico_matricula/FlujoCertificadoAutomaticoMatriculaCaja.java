@@ -48,33 +48,33 @@ public class FlujoCertificadoAutomaticoMatriculaCaja implements Task {
                     SwitchToNewWindow.switchToNewTab()
             );
         }
-
-        if (BOTON_CONSULTA_MATRICULA_INSCRIPCION.resolveFor(actor).isVisible()) {
-
-            actor.attemptsTo(
-                    WaitUntil.the(BOTON_CONSULTA_MATRICULA_INSCRIPCION, isPresent()).forNoMoreThan(10).seconds(),
-                    Click.on(BOTON_CONSULTA_MATRICULA_INSCRIPCION),
-                    WaitUntil.the(BOTON_MATRICULA, isPresent()).forNoMoreThan(10).seconds(),
-                    Click.on(BOTON_MATRICULA),
-                    Click.on(CAMPO_INGRESO_DATO_BUSQUEDA),
-                    Enter.theValue(Expediente).into(CAMPO_INGRESO_DATO_BUSQUEDA),
-                    Click.on(BOTON_CONSULTAR_DATO_BUSQUEDA),
-                    WaitUntil.the(BOTON_MATRICULA_SELECCION, isPresent()).forNoMoreThan(120).seconds(),
-                    Click.on(BOTON_MATRICULA_SELECCION),
-                    WaitUntil.the(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL, isPresent()).forNoMoreThan(120).seconds(),
-                    Click.on(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL),
-                    WaitUntil.the(BOTON_SOLICITAR_CERTIFICADO, isPresent()).forNoMoreThan(120).seconds(),
-                    Click.on(BOTON_SOLICITAR_CERTIFICADO),
-                    WaitUntil.the(BOTON_CERTIFICADO_AUTOMATICO, isPresent()).forNoMoreThan(120).seconds(),
-                    Click.on(BOTON_CERTIFICADO_AUTOMATICO),
-                    WaitUntil.the(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_MATRICULA, isPresent()).forNoMoreThan(120).seconds(),
-                    Click.on(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_MATRICULA),
-                    Enter.theValue("1").into(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_MATRICULA),
-                    Click.on(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO),
-                    WaitInterrupted2Segundos.esperaConstante2(),
-                    SwitchToNewWindow.switchToNewTab()
-            );
-        }
+//
+//        if (BOTON_CONSULTA_MATRICULA_INSCRIPCION.resolveFor(actor).isVisible()) {
+//
+//            actor.attemptsTo(
+//                    WaitUntil.the(BOTON_CONSULTA_MATRICULA_INSCRIPCION, isPresent()).forNoMoreThan(10).seconds(),
+//                    Click.on(BOTON_CONSULTA_MATRICULA_INSCRIPCION),
+//                    WaitUntil.the(BOTON_MATRICULA, isPresent()).forNoMoreThan(10).seconds(),
+//                    Click.on(BOTON_MATRICULA),
+//                    Click.on(CAMPO_INGRESO_DATO_BUSQUEDA),
+//                    Enter.theValue(Expediente).into(CAMPO_INGRESO_DATO_BUSQUEDA),
+//                    Click.on(BOTON_CONSULTAR_DATO_BUSQUEDA),
+//                    WaitUntil.the(BOTON_MATRICULA_SELECCION, isPresent()).forNoMoreThan(120).seconds(),
+//                    Click.on(BOTON_MATRICULA_SELECCION),
+//                    WaitUntil.the(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL, isPresent()).forNoMoreThan(120).seconds(),
+//                    Click.on(BOTON_TRAMITES_REGISTROMERCANTIL_ESADL),
+//                    WaitUntil.the(BOTON_SOLICITAR_CERTIFICADO, isPresent()).forNoMoreThan(120).seconds(),
+//                    Click.on(BOTON_SOLICITAR_CERTIFICADO),
+//                    WaitUntil.the(BOTON_CERTIFICADO_AUTOMATICO, isPresent()).forNoMoreThan(120).seconds(),
+//                    Click.on(BOTON_CERTIFICADO_AUTOMATICO),
+//                    WaitUntil.the(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_MATRICULA, isPresent()).forNoMoreThan(120).seconds(),
+//                    Click.on(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_MATRICULA),
+//                    Enter.theValue("1").into(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_MATRICULA),
+//                    Click.on(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO),
+//                    WaitInterrupted2Segundos.esperaConstante2(),
+//                    SwitchToNewWindow.switchToNewTab()
+//            );
+//        }
     }
 
     public static FlujoCertificadoAutomaticoMatriculaCaja CertiMatricula(String Expediente) {

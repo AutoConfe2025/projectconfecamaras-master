@@ -42,7 +42,7 @@ public class FlujoPnBajaActivos implements Task {
                 .named("value")
                 .answeredBy(actor);
 
-        String valorBaja= "500000000";
+        String valorBaja = "500000000";
         valorCapturado = valorCapturado.replaceAll("[^0-9]", "");
         valorBaja = valorBaja.replaceAll("[^0-9]", "");
 
@@ -58,20 +58,38 @@ public class FlujoPnBajaActivos implements Task {
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_NUEVO_VALOR_PERSONA, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NUEVO_VALOR_PERSONA),
-                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA),
-                Click.on(CAMPO_NUEVO_VALOR_PERSONA_2),
-                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_2),
-                Click.on(CAMPO_NUEVO_VALOR_PERSONA_3),
-                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_3),
-                Click.on(CAMPO_NUEVO_VALOR_PERSONA_4),
-                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_4),
+                Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA)
+        );
+
+        if (CAMPO_NUEVO_VALOR_PERSONA_2.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    Click.on(CAMPO_NUEVO_VALOR_PERSONA_2),
+                    Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_2)
+                    );
+        }
+
+        if (CAMPO_NUEVO_VALOR_PERSONA_3.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    Click.on(CAMPO_NUEVO_VALOR_PERSONA_3),
+                    Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_3)
+                    );
+        }
+
+        if (CAMPO_NUEVO_VALOR_PERSONA_4.isVisibleFor(actor)) {
+            actor.attemptsTo(
+                    Click.on(CAMPO_NUEVO_VALOR_PERSONA_4),
+                    Enter.theValue(resultadoFinal).into(CAMPO_NUEVO_VALOR_PERSONA_4)
+                    );
+        }
+
+        actor.attemptsTo(
                 Scroll.to(BOTON_CONTINUAR_RENOVACION_1),
                 Click.on(BOTON_CONTINUAR_RENOVACION_1),
                 Click.on(BOTON_ACEPTAR_MENSAJE_IMPORTANTE)
         );
     }
 
-    public static FlujoPnBajaActivos bajosActivos(){
+    public static FlujoPnBajaActivos bajosActivos() {
         return instrumented(FlujoPnBajaActivos.class);
     }
 }

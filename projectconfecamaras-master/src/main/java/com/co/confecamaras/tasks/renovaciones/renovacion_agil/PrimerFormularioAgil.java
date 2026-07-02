@@ -20,13 +20,15 @@ public class PrimerFormularioAgil implements Task {
                 WaitUntil.the(BOTON_DILIGENCIAR_FORMULARIO_1, isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(BOTON_DILIGENCIAR_FORMULARIO_1),
                 WaitInterrupted3Segundos.esperaConstante3(),
-                WaitUntil.the(CAMPO_FECHA_CIIU2,isPresent()).forNoMoreThan(120).seconds()
+                WaitUntil.the(LISTA_AUTORIZACION_MENSAJES,isPresent()).forNoMoreThan(120).seconds()
         );
 
 
         actor.attemptsTo(
-                Scroll.to(CAMPO_FECHA_CIIU2),
-                IngresarFechaActual.enElCampo(CAMPO_FECHA_CIIU2),
+//                Scroll.to(CAMPO_FECHA_CIIU2),
+//                IngresarFechaActual.enElCampo(CAMPO_FECHA_CIIU2),
+                Scroll.to(LISTA_AUTORIZACION_MENSAJES),
+                SelectFromOptions.byValue("N").from(LISTA_AUTORIZACION_MENSAJES),
                 Scroll.to(CAMPO_ACTIVO_TOTAL),
                 Click.on(CAMPO_ACTIVO_TOTAL)
         );

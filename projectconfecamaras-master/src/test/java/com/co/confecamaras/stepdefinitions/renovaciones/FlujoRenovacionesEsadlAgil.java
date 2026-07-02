@@ -17,7 +17,7 @@ public class FlujoRenovacionesEsadlAgil {
     }
 
     @Then("realizo el pago del proceso")
-    public void realizoElPagoDelProceso(){
+    public void     realizoElPagoDelProceso(){
         theActorInTheSpotlight().attemptsTo(FlujoPagosEsadlAgil.pagosEsdalAgil());
         theActorInTheSpotlight().attemptsTo(FlujoValidacionRecibo.reciboFinal());
     }

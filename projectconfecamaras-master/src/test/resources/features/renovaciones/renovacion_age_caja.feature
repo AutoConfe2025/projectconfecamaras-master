@@ -1,6 +1,6 @@
 # language: es
 
-Característica: flujo de renovacion sucursal con caja
+Característica: flujo de renovacion Age con caja
 
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras

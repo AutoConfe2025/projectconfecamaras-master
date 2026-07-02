@@ -1,6 +1,6 @@
 # language: es
 
-Característica: flujo de renovacion matricula renovacion con ley 1780 cumple
+Característica: flujo de renovacion matricula renovacion con ley 1780 mantiene
 
   Antecedentes: ingreso plataforma confecamaras
     Dado Confecamaras ingresa al sistema de confecamaras
