@@ -6,19 +6,19 @@ Característica: Validar Proceso tramites devueltos sin destinamineto detectados
     Dado Confecamaras ingresa al sistema de confecamaras
 
 
-  @TramitesdevueltosSindesitinamientodetectadoPDF @SII4
+  @TramitesdevueltosSindesitinamientodetectadoPDF @Bandejas @SII4
   Escenario: Tramites devueltos sin destinamiento detectado
     Y ingreso al sistema SII3 como usuario publico
     Cuando Cuando ingreso a la bandeja "742982" "06" "Tramites Devueltos SIN Desistimiento Decretado"
     Entonces valido el proceso de descarga del PDF
 
-  @ValidacionBandejaDesistimientosAgregarComentario @SII4
+  @ValidacionBandejaDesistimientosAgregarComentario @Bandejas @SII4
   Escenario: ingreso a la bandeja recursos agergar comentario
     Y ingreso al sistema SII3 como usuario publico
     Cuando Cuando ingreso a la bandeja "742982" "06" "Tramites Devueltos SIN Desistimiento Decretado"
     Entonces realizo la validacion de agregar un comentario
 
-  @ValidacionBandejaDesistimientosArchivar @SII4
+  @ValidacionBandejaDesistimientosArchivar @Bandejas @SII4
   Escenario: ingreso a la bandeja archivar
     Y ingreso al sistema SII3 como usuario publico
     Cuando Cuando ingreso a la bandeja "742982" "06" "Tramites Devueltos SIN Desistimiento Decretado"

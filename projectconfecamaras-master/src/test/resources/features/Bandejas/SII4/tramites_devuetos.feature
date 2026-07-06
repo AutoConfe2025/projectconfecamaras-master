@@ -5,7 +5,7 @@ Característica: Validar caracteristicas de Tramites devueltos
   Antecedentes: Ingreso al aplicativo
     Dado Confecamaras ingresa al sistema de confecamaras
 
-  @TramitesDevueltos
+  @TramitesDevueltos @Bandejas
   Escenario: Validar Tramites devueltos
     Y ingreso al sistema SII3 como usuario publico
     Cuando Buscamos por el boton principal de busqueda la bandeja (R) Tramites Devueltos.
