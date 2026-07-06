@@ -1,4 +1,4 @@
-package com.co.confecamaras.tasks.certificados_automaticos.certificad_automatico_matricula;
+package com.co.confecamaras.tasks.certificados_automaticos.ceritificado_automatico_matricula_publico;
 
 import com.co.confecamaras.interactions.SwitchToNewWindow;
 import com.co.confecamaras.interactions.WaitInterrupted2Segundos;
@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Scroll;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import static com.co.confecamaras.userinterfaces.certificados_automaticos.AutomaticoExistenciaCajaPage.*;
@@ -18,12 +17,12 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 @AllArgsConstructor
-public class FlujoCertificadoAutomaticoMatriculaCaja implements Task {
+public class CertMatriculaPublico implements Task {
 
     private final String Expediente;
-
     @Override
     public <T extends Actor> void performAs(T actor) {
+
 
         if (BOTON_CONSULTA_MATRICULA_INSCRIPCION.resolveFor(actor).isPresent()) {
 
@@ -58,7 +57,7 @@ public class FlujoCertificadoAutomaticoMatriculaCaja implements Task {
         );
     }
 
-    public static FlujoCertificadoAutomaticoMatriculaCaja CertiMatricula(String Expediente) {
-        return instrumented(FlujoCertificadoAutomaticoMatriculaCaja.class, Expediente);
+    public static CertMatriculaPublico MatricAutoPublico(String Expediente){
+        return instrumented(CertMatriculaPublico.class, Expediente);
     }
 }

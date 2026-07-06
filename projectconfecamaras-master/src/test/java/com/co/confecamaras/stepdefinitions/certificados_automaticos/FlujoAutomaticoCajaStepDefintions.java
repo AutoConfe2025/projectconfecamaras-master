@@ -1,5 +1,6 @@
 package com.co.confecamaras.stepdefinitions.certificados_automaticos;
 
+import com.co.confecamaras.tasks.certificados_automaticos.ceritificado_automatico_matricula_publico.CertMatriculaPublico;
 import com.co.confecamaras.tasks.certificados_automaticos.certificad_automatico_especiales.FlujoCertificadoEspeciales;
 import com.co.confecamaras.tasks.certificados_automaticos.certificad_automatico_matricula.FlujoCertificadoAutomaticoMatriculaCaja;
 import com.co.confecamaras.tasks.certificados_automaticos.certificad_automatico_matricula_libros.FlujoCertificadoAutomaticoMatriculaLibrosCaja;
@@ -46,6 +47,11 @@ public class FlujoAutomaticoCajaStepDefintions {
     @When("realizo el flujo de certificado automatico matricula {string}")
     public void realizoElFlujoDeCertificadoAutomaticoMatricula(String Expediente){
         theActorInTheSpotlight().attemptsTo(FlujoCertificadoAutomaticoMatriculaCaja.CertiMatricula(Expediente));
+    }
+
+    @When("realizo el flujo de certificado automatico matricula publico {string}")
+    public void realizoElFlujoDeCertificadoAutomaticoMatriculaPublico(String Expediente){
+        theActorInTheSpotlight().attemptsTo(CertMatriculaPublico.MatricAutoPublico(Expediente));
     }
 
     @When("realizo el flujo de certificado automatico matricula libros {string}")
