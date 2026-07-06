@@ -6,14 +6,14 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/renovaciones/renovacion_esadl_org_catorce_clase_49_61_externo.feature",
+        features = "src/test/resources/features/certificaciones/certificado_autmoatico_matricula_publico.feature",
         glue = "com.co.confecamaras",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {
                 "pretty",
                 "rerun:target/rerun.txt"
         }
-//        ,tags=("@pruebas")
+//        ,tags=("@Certificaciones")
 
 )
 public class ConfecamarasSIIRunner {
