@@ -3,6 +3,7 @@ package com.co.confecamaras.stepdefinitions.renovaciones;
 import com.co.confecamaras.interactions.pagos.PagoUsuarioPublicoNoPresencial;
 import com.co.confecamaras.tasks.SoloRecibirPago;
 import com.co.confecamaras.tasks.renovaciones.esadl_catorce_caja.FlujoEsadCatorcePublico;
+import com.co.confecamaras.tasks.renovaciones.esadl_catorce_caja.FlujoSoloIngresoPagoElectronico;
 import com.co.confecamaras.tasks.renovaciones.persona_natural_est_publico.FlujoFirmaElectronica;
 import com.co.confecamaras.tasks.renovaciones.persona_natural_est_publico.FlujoValidacionRecibo;
 import com.co.confecamaras.tasks.renovaciones.persona_natural_establecimiento_caja.RecibirPago;
@@ -25,6 +26,8 @@ public class FlujoEsadlCatorcePublicoStepDefinitions {
     @Then("realizo el flujo de esadl con usuario publico doce")
     public void realizoElFlujoDeEsadlConUsuarioPublicoDoce(){
         theActorInTheSpotlight().attemptsTo(FlujoEsadCatorcePublico.flujoEsadlCatocePublico());
+        theActorInTheSpotlight().attemptsTo(FlujoObtenerSobreDigital.SobreConFirma());
+        theActorInTheSpotlight().attemptsTo(FlujoSoloIngresoPagoElectronico.SoloIngresoPago());
         theActorInTheSpotlight().attemptsTo(PagoUsuarioPublicoNoPresencial.enConfecamaras());
         theActorInTheSpotlight().attemptsTo(FlujoValidacionRecibo.reciboFinal());
     }

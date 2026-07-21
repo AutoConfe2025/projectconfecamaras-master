@@ -41,8 +41,8 @@ public class PublicarTask implements Task {
         if(actor.asksFor(ElementoElegible.para(TITULO_LIBROS_COMERCIO))){
             actor.attemptsTo(
                     //ConsultaGrillaTask.consultar("701377"),
-                    Log.message("Ingreso este codigo de barras 747373"),
-                    ConsultaGrillaTask.consultar("747373"),
+                    Log.message("Ingreso este codigo de barras 747629"),
+                    ConsultaGrillaTask.consultar("747629"),
                     WaitSeconds.seconds(2)
             );
         }

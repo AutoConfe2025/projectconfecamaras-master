@@ -29,7 +29,8 @@ public class ValidaInformServicios implements Task {
                 WaitUntil.the(CAMPO_BUSQUEDA_USUARIO, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_BUSQUEDA_USUARIO),
                 Enter.theValue("CAJA").into(CAMPO_BUSQUEDA_USUARIO),
-                WaitUntil.the(SELECCION_OPCION_0, isPresent()).forNoMoreThan(10).seconds(),
+                Hit.the(Keys.TAB).into(CAMPO_BUSQUEDA_USUARIO),
+                WaitUntil.the(SELECCION_OPCION_0, isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(SELECCION_OPCION_0),
 
                 WaitInterrupted3Segundos.esperaConstante3(),

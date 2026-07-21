@@ -66,9 +66,9 @@ public class SegundoFormularioVariosAnios implements Task {
             );
         }
         actor.attemptsTo(
-                WaitUntil.the(BOTON_RECIBIR_PAGO_1, isPresent()).forNoMoreThan(50).seconds(),
-                Scroll.to(BOTON_RECIBIR_PAGO_1),
-                Click.on(BOTON_RECIBIR_PAGO_1),
+                WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO_2, isPresent()).forNoMoreThan(50).seconds(),
+                Scroll.to(BOTON_RECIBIR_PAGO_TEXTO_2),
+                Click.on(BOTON_RECIBIR_PAGO_TEXTO_2),
                 SwitchToNewWindow.switchToNewTab()
         );
 

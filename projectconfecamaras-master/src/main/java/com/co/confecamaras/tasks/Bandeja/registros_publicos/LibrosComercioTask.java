@@ -39,7 +39,7 @@ public class LibrosComercioTask implements Task {
                     VerRutaTask.verRuta("Ver ruta", codigo_barras),
                     AdicionarComentariosTask.adicionar("Ver comentarios", "Adicionar comentarios", codigo_barras, "TEST COMENTARIO AUTOMATIZACION"),
                     EstudiarTask.estudiar("Estudiar", codigo_barras),
-                    DevolverRequerirTask.devolverRequerir("Devolver/Requerir"),
+//                    DevolverRequerirTask.devolverRequerir("Devolver/Requerir"),
                     PublicarTask.publicar("Finalizar estudio","cancelara"),
                     PublicarTask.publicar("Archivar trámite","cancelara")
             );

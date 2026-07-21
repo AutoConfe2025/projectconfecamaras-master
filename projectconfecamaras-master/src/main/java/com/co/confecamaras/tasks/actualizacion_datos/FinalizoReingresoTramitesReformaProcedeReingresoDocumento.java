@@ -172,11 +172,18 @@ public class FinalizoReingresoTramitesReformaProcedeReingresoDocumento implement
                 WaitInterrupted2Segundos.esperaConstante2(),
                 WaitUntil.the(CAMPO_INGRESO_ARCHIVO, isPresent()).forNoMoreThan(10).seconds(),
                 Enter.theValue(rutaArchivo1).into(CAMPO_INGRESO_ARCHIVO),
-                Scroll.to(BOTON_CONTINUAR_REINGRESO).andAlignToTop(),
-                Click.on(BOTON_CONTINUAR_REINGRESO),
                 WaitUntil.the(BOTON_ACEPTAR_FOTO, isPresent()).forNoMoreThan(50).seconds(),
-                Click.on(BOTON_ACEPTAR_FOTO)
+                Click.on(BOTON_ACEPTAR_FOTO),
+                Scroll.to(BOTON_CONTINUAR_REINGRESO).andAlignToTop(),
+                Click.on(BOTON_CONTINUAR_REINGRESO)
         );
+
+        if (BOTON_ACEPTAR_FOTO.resolveFor(actor).isPresent()) {
+            actor.attemptsTo(
+                    WaitUntil.the(BOTON_ACEPTAR_FOTO, isPresent()).forNoMoreThan(50).seconds(),
+                    Click.on(BOTON_ACEPTAR_FOTO)
+            );
+        }
     }
 
     public static FinalizoReingresoTramitesReformaProcedeReingresoDocumento finaliza() {

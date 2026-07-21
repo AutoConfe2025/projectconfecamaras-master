@@ -30,6 +30,8 @@ public class FlujoPrimerFormulario implements Task {
                 .named("value")
                 .answeredBy(actor);
 
+        actor.remember("valorCapturado",valorCapturado);
+
         actor.attemptsTo(
                 Enter.theValue(valorCapturado).into(CAMPO_ACTIVO_CORRIENTE),
                 Enter.theValue(valorCapturado).into(CAMPO_PASIVO_CORRIENTE),

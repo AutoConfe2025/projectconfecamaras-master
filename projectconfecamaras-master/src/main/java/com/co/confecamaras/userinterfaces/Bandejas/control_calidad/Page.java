@@ -13,7 +13,7 @@ public class Page {
     public static final Target OPCION_DIGTAR_FORMULARIO = Target.the ("Boton digitar formulario").locatedBy("//a[contains(text(),'Digitar formulario')]");
     public static final Target TITULO_DIGITACION_FORMULARIO = Target.the ("Boton digitar formulario").locatedBy("//p[contains(text(),'Digitación de formularios')]");
     public static final Target BOTON_VOLVER_DIGITACION = Target.the ("Boton digitar formulario").locatedBy("//a[contains(text(),'Volver a digitación')]");
-    public static final Target BOTON_REVISAR_CERTIFICADO = Target.the ("Boton digitar formulario").locatedBy("//a[contains(text(),'Revisar certificado')]");
+    public static final Target BOTON_REVISAR_CERTIFICADO = Target.the ("Boton digitar formulario").locatedBy("//a[contains(text(),'Ver certificado')]");
     public static final Target BOTON_ACTUALIZAR_RUES = Target.the ("Boton actualiza rues").locatedBy("//a[contains(text(),'Actualización RUES')]");
     public static final Target BOTON_ACTUALIZAR_RUES_2 = Target.the ("Boton actualiza rues v2").locatedBy("(//button[@class='btn btn-primary btn-md'])[2]");
     public static final Target TITULO_MENSAJE_INFORMATIVO = Target.the ("titulo mensaje informativo actualizacion RUES").locatedBy("//p[contains(text(), 'Mensaje informativo')]");

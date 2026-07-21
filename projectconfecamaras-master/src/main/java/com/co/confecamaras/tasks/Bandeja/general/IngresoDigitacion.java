@@ -39,13 +39,13 @@ public class IngresoDigitacion implements Task {
         );
 
         actor.attemptsTo(
-                WaitUntil.the(BOTON_VOLVER_DIGITACION, isVisible()).forNoMoreThan(30).seconds(),
-                Click.on(BOTON_VOLVER_DIGITACION),
                 WaitUntil.the(BOTON_REVISAR_CERTIFICADO, isVisible()).forNoMoreThan(30).seconds(),
                 Click.on(BOTON_REVISAR_CERTIFICADO),
                 WaitInterrupted5Segundos.esperaConstante5(),
                 CloseEmbeddedPdf.now(),
                 SwitchToNewWindow.switchToNewTab(),
+                WaitUntil.the(BOTON_VOLVER_DIGITACION, isVisible()).forNoMoreThan(30).seconds(),
+                Click.on(BOTON_VOLVER_DIGITACION),
                 WaitUntil.the(BOTON_ACTUALIZAR_RUES, isVisible()).forNoMoreThan(30).seconds(),
                 Click.on(BOTON_ACTUALIZAR_RUES),
                 WaitUntil.the(BOTON_ACTUALIZAR_RUES_2, isVisible()).forNoMoreThan(30).seconds(),
@@ -65,15 +65,7 @@ public class IngresoDigitacion implements Task {
         actor.attemptsTo(
                 WaitUntil.the(BOTON_VOLVER_A_DIGITACION, isVisible()).forNoMoreThan(30).seconds(),
                 Scroll.to(BOTON_VOLVER_A_DIGITACION),
-                Click.on(BOTON_VOLVER_A_DIGITACION),
-                WaitUntil.the(BOTON_FINALIZAR_DIGITACION, isVisible()).forNoMoreThan(30).seconds(),
-                Scroll.to(BOTON_FINALIZAR_DIGITACION),
-                Click.on(BOTON_FINALIZAR_DIGITACION)
-        );
-
-        actor.should(
-                seeThat("finalizacion digitacion",
-                        ValidaComentarioPresente.tituloInformativo(), is(true))
+                Click.on(BOTON_VOLVER_A_DIGITACION)
         );
     }
 

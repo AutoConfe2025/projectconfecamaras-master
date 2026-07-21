@@ -40,7 +40,7 @@ public class ResponderOficio implements Task {
 
         actor.should(
                 seeThat("Mensaje archivado correctamente",
-                        of(MENSAJE_ARCHIVAR_PROCESO_FINALIZADO), containsString(MENSAJE_ARCHIVACION_EXITOSA))
+                        of(MENSAJE_ARCHIVAR_PROCESO_FINALIZADO), containsString(MENSAJE_ARCHIVACION_EXITOSA_OFICIOS))
         );
     }
 
