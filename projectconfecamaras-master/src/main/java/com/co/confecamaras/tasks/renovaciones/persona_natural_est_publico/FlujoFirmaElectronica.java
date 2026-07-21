@@ -39,7 +39,7 @@ public class FlujoFirmaElectronica implements Task {
                 Click.on(BOTON_FIRMAR),
                 WaitUntil.the(BOTON_ACEPTAR_FIRMADO_ELECTRONICO, isPresent()).forNoMoreThan(50).seconds(),
                 Click.on(BOTON_ACEPTAR_FIRMADO_ELECTRONICO),
-                WaitUntil.the(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO, isPresent()).forNoMoreThan(50).seconds(),
+                WaitUntil.the(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO, isPresent()).forNoMoreThan(150).seconds(),
                 Click.on(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO),
                 WaitUntil.the(BOTON_RECIBIR_PAGO_TEXTO, isVisible()).forNoMoreThan(50).seconds(),
                 Scroll.to(BOTON_RECIBIR_PAGO_TEXTO),

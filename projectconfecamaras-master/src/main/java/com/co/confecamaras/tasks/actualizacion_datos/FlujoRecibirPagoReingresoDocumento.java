@@ -29,11 +29,11 @@ public class FlujoRecibirPagoReingresoDocumento implements Task {
                 WaitInterrupted2Segundos.esperaConstante2(),
                 WaitUntil.the(BOTON_CONTINUAR_RECIBIR_PAGO_ACTUALIZAR_PROPONENTE, isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(BOTON_CONTINUAR_RECIBIR_PAGO_ACTUALIZAR_PROPONENTE),
-                WaitUntil.the(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO, isPresent()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO, isPresent()).forNoMoreThan(120).seconds(),
                 SelectFromOptions.byValue("1").from(LISTA_SELECCION_TIPO_DOCUMENTO_RECIBO),
                 Click.on(CAMPO_TIPO_IDENTIFICACION),
                 Enter.theValue("1026265083").into(CAMPO_TIPO_IDENTIFICACION),
-                WaitUntil.the(BOTON_VERIFICAR_IDENTIFICACION, isPresent()).forNoMoreThan(10).seconds(),
+                WaitUntil.the(BOTON_VERIFICAR_IDENTIFICACION, isPresent()).forNoMoreThan(120).seconds(),
                 Scroll.to(BOTON_VERIFICAR_IDENTIFICACION),
                 Click.on(BOTON_VERIFICAR_IDENTIFICACION)
         );

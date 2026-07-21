@@ -23,5 +23,6 @@ public class constant {
     public static final String ADVERTENCIA_ARCHIVAR2="El código de barras 739455 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
     public static final String ADVERTENCIA_ARCHIVAR3="El código de barras 745843 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
     public static final String EXITO_ARCHIVAR="Proceso Finalizado: Archivar trámiteNuevo estado : 16 - ARCHIVADOUsuario : Regresar a la bandeja";
+    public static final String EXITO_ARCHIVAR_OFICIOS_REQUERIMIENTOS="El código de barras 748239 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
     public static final String EXITO_ARCHIVAR_CONTROL_CALIDAD="Proceso Finalizado: Archivar trámiteNuevo estado : 16 - ARCHIVADOUsuario : Regresar a la bandeja";
 }

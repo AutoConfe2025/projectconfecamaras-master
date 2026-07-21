@@ -8,10 +8,10 @@ public class InfoemesPorServicios {
             .locatedBy("(//div[@class='col-md-6 mb-3'])[3]");
 
     public static final Target CAMPO_FECHA_INICIAL_RESUMIDO_SERVICIOS = Target.the("campo fecha incial de resumido por servicios")
-            .locatedBy("//input[@id='fechaInicial']");
+            .locatedBy("//input[@id='fechaIni']");
 
     public static final Target CAMPO_FECHA_FINAL_RESUMIDO_SERVICIOS = Target.the("campo fecha final de resumido por servicios")
-            .locatedBy("//input[@id='fechaFinal']");
+            .locatedBy("//input[@id='fechaFin']");
 
 
     public static final Target CAMPO_BUSQUEDA_USUARIO = Target.the("campo ingreso de busqueda")

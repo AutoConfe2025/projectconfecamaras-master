@@ -11,7 +11,7 @@ public class FlujoAgilEsadlPage {
             .locatedBy("(//td[@class='p-editable-column'])[1]");
 
     public static final Target EDITAR_NUEVO_VALOR_BOTON_ESTABLECIMIENTO = Target.the("boton para editar establecimiento")
-            .locatedBy("//*[@id=\"pr_id_149_content_1\"]/div/div/div/div/table/tbody/tr/td[4]");
+            .locatedBy("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/span/div/div[2]/div/form/div/div[1]/div[2]/div[2]/div/div/div/div/table/tbody/tr/td[4]");
 
     public static final Target CAMPO_EDITABLE_NUEVO_VALOR_BOTON = Target.the("campo ingreso nuevo valor")
             .locatedBy("(//input[@class='p-inputnumber-input p-inputtext p-component p-filled'])[1]");
@@ -27,6 +27,9 @@ public class FlujoAgilEsadlPage {
 
     public static final Target BOTON_DILIGENCIAR_ESADL_AGIL = Target.the("boton de diligenciar esadl")
             .locatedBy("//button[contains(text(),'Diligenciar')]");
+
+    public static final Target BOTON_DILIGENCIAR_ESADL_AGIL_FULL_XPATH = Target.the("boton de diligenciar esadl")
+            .locatedBy("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/span/div/div[2]/div/div[3]/div[2]/div/div[3]/div/button");
 
     public static final Target LISTA_AUTORIZA_MENSAJES = Target.the("lista de autorizacion de envio de mensaje correo electronico")
             .locatedBy("//select[@id='ctrmennot']");
@@ -49,7 +52,10 @@ public class FlujoAgilEsadlPage {
             .locatedBy("//input[@id='actcte_2026']");
 
     public static final Target LISTA_PARTICIPACION_GRUPOS_ETNICOS = Target.the("lista de participacion de grupos etnicos")
-            .locatedBy("//select[@id='etnias_socios_participacion']");
+            .locatedBy("//*[@id=\"etnias_pnat_pertenencia\"]");
+
+    public static final Target LISTA_AUTORIZACION_USO_INFORMACION = Target.the("lista de uso de la informacion")
+            .locatedBy("//*[@id=\"etnias_pnat_permite_uso_informacion\"]");
 
     public static final Target LISTA_PERTENECE_GRUPOS_ETNICOS = Target.the("lista de pertenece de grupos etnicos")
             .locatedBy("//select[@id='etnias_empleados_participacion']");

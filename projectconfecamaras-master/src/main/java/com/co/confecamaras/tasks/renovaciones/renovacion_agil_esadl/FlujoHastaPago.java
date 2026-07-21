@@ -33,7 +33,7 @@ public class FlujoHastaPago implements Task {
                 Enter.theValue(valor).into(CAMPO_EDITABLE_NUEVO_VALOR_BOTON)
         );
 
-        if (EDITAR_NUEVO_VALOR_BOTON_ESTABLECIMIENTO.isVisibleFor(actor)) {
+        if (EDITAR_NUEVO_VALOR_BOTON_ESTABLECIMIENTO.resolveFor(actor).isClickable()) {
             actor.attemptsTo(
                     Click.on(EDITAR_NUEVO_VALOR_BOTON_ESTABLECIMIENTO),
                     Click.on(CAMPO_EDITABLE_NUEVO_VALOR_BOTON),
@@ -47,7 +47,7 @@ public class FlujoHastaPago implements Task {
                 Click.on(BOTON_LIQUIDAR_ESADL_AGIL),
                 WaitUntil.the(BOTON_DILIGENCIAR_ESADL_AGIL, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(BOTON_DILIGENCIAR_ESADL_AGIL),
-                WaitUntil.the(LISTA_EMPRENDIMIENTO_SOCIAL, isPresent()).forNoMoreThan(240).seconds()
+                WaitUntil.the(LISTA_EMPRENDIMIENTO_SOCIAL, isPresent()).forNoMoreThan(340).seconds()
         );
 
         if (LISTA_EMPRENDIMIENTO_SOCIAL.isVisibleFor(actor)) {
@@ -73,22 +73,22 @@ public class FlujoHastaPago implements Task {
                 WaitInterrupted10Segundos.esperaConstante10()
         );
 
-//        if (BOTON_DILIGENCIAR_ESADL_AGIL.resolveFor(actor)
-//                .withTimeoutOf(Duration.ofSeconds(120))
-//                .waitUntilVisible()
-//                .isVisible()) {
-//
-//            actor.attemptsTo(
-//                    Click.on(BOTON_DILIGENCIAR_ESADL_AGIL),
-//                    WaitUntil.the(LISTA_AUTORIZA_MENSAJES, isPresent()).forNoMoreThan(240).seconds(),
-//                    SelectFromOptions.byValue("N").from(LISTA_AUTORIZA_MENSAJES),
-//                    Scroll.to(CAMPO_INGRESO_VALOR_ACTIVOS_VINCULADOS).andAlignToTop(),
-//                    Click.on(CAMPO_INGRESO_VALOR_ACTIVOS_VINCULADOS),
-//                    Enter.theValue(valor).into(CAMPO_INGRESO_VALOR_ACTIVOS_VINCULADOS),
-//                    Scroll.to(BOTON_GRABAR_FORMLARIO_ESADL).andAlignToTop(),
-//                    Click.on(BOTON_GRABAR_FORMLARIO_ESADL)
-//            );
-//        }
+        if (BOTON_DILIGENCIAR_ESADL_AGIL_FULL_XPATH.resolveFor(actor)
+                .withTimeoutOf(Duration.ofSeconds(120))
+                .waitUntilVisible()
+                .isVisible()) {
+
+            actor.attemptsTo(
+                    Click.on(BOTON_DILIGENCIAR_ESADL_AGIL_FULL_XPATH),
+                    WaitUntil.the(LISTA_AUTORIZA_MENSAJES, isPresent()).forNoMoreThan(240).seconds(),
+                    SelectFromOptions.byValue("N").from(LISTA_AUTORIZA_MENSAJES),
+                    Scroll.to(CAMPO_INGRESO_VALOR_ACTIVOS_VINCULADOS).andAlignToTop(),
+                    Click.on(CAMPO_INGRESO_VALOR_ACTIVOS_VINCULADOS),
+                    Enter.theValue(valor).into(CAMPO_INGRESO_VALOR_ACTIVOS_VINCULADOS),
+                    Scroll.to(BOTON_GRABAR_FORMLARIO_ESADL).andAlignToTop(),
+                    Click.on(BOTON_GRABAR_FORMLARIO_ESADL)
+            );
+        }
 
         actor.attemptsTo(
                 WaitUntil.the(BOTON_LIQUIDACION_DEL_TRAMITE, isPresent()).forNoMoreThan(100).seconds(),
