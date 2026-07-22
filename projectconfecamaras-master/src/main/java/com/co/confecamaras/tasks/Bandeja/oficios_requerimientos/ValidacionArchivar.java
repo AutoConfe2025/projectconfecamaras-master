@@ -11,8 +11,8 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.*;
 import static com.co.confecamaras.userinterfaces.Bandejas.estudio_general.PaginaPrincial.BOTON_ARCHIVAR_TRAMITE;
 import static com.co.confecamaras.utils.bandejas.oficios_requerimientos.constants.MENSAJE_ALERTA_ARCHIVAR;
-import static com.co.confecamaras.utils.estudio_general.constant.ADVERTENCIA_ARCHIVAR;
-import static com.co.confecamaras.utils.estudio_general.constant.EXITO_ARCHIVAR;
+import static com.co.confecamaras.utils.bandejas.oficios_requerimientos.constants.MENSAJE_ALERTA_ARCHIVAR_OFICIOS;
+import static com.co.confecamaras.utils.estudio_general.constant.*;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static net.serenitybdd.screenplay.questions.TextContent.of;
@@ -36,7 +36,7 @@ public class ValidacionArchivar implements Task {
 
         actor.should(
                 seeThat("Mensaje advertencia archivar",
-                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(MENSAJE_ALERTA_ARCHIVAR))
+                        of(MENSAJE_ADVERTENCIA_ARCHIVAR_PROCESO), containsString(MENSAJE_ALERTA_ARCHIVAR_OFICIOS))
         );
 
         actor.attemptsTo(

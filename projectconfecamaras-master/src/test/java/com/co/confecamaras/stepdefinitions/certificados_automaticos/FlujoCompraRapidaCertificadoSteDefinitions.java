@@ -7,6 +7,8 @@ import com.co.confecamaras.tasks.certificados_automaticos.compra_rapida_certific
 import com.co.confecamaras.tasks.certificados_automaticos.compra_rapida_certificado_libros_matriculas.FlujoHastaPagoCompraRapidaLibrosMatriculas;
 import com.co.confecamaras.tasks.certificados_automaticos.compra_rapida_certificado_matricula.FlujoHastaPagoCompraRapidaMatricula;
 import com.co.confecamaras.tasks.certificados_automaticos.compra_rapida_certificado_proponente.FlujoHastaPagoCompraRapidaProponente;
+import com.co.confecamaras.tasks.certificados_automaticos.compra_rapida_certificados_especiales_no.FlujoCertificadosEspecialesNo;
+import com.co.confecamaras.tasks.certificados_automaticos.compra_rapida_certificados_especiales_si.FlujoCertificadosEspecialesSi;
 import io.cucumber.java.en.When;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
@@ -46,5 +48,15 @@ public class FlujoCompraRapidaCertificadoSteDefinitions {
     @When("realizo el flujo de compra rapida certificado existencia proponente {string}")
     public void realizoElFlujoDeCompraRapidaCertificadoExistenciaProponente(String Expediente){
         theActorInTheSpotlight().attemptsTo(FlujoHastaPagoCompraRapidaExistenciaProponente.FlujoRapidaProponente(Expediente));
+    }
+
+    @When("realizo el flujo de compra rapida certificado especiales si {string}")
+    public void realizoElFlujoDeCompraRapidaCertificadosEspecialesSI(String Expediente){
+        theActorInTheSpotlight().attemptsTo(FlujoCertificadosEspecialesSi.FlujoEspecialSI(Expediente));
+    }
+
+    @When("realizo el flujo de compra rapida certificado especiales no {string}")
+    public void realizoElFlujoDeCompraRapidaCertificadosEspecialesNO(String Expediente){
+        theActorInTheSpotlight().attemptsTo(FlujoCertificadosEspecialesNo.CertificadoEspecialNO(Expediente));
     }
 }

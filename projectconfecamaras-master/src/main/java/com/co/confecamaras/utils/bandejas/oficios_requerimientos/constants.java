@@ -10,7 +10,9 @@ public class constants {
     public static final String TEXTO_NUMERO_DEL_DOCUMENTO = "2025QA";
     public static final String FECHA;
     public static final String MENSAJE_ARCHIVACION_EXITOSA = "El código de barras  739254 quedó respondido y archivadoRegresar";
+    public static final String MENSAJE_ARCHIVACION_EXITOSA_OFICIOS = "El código de barras  748239 quedó respondido y archivadoRegresar";
     public static final String MENSAJE_ALERTA_ARCHIVAR = "El código de barras 739254 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
+    public static final String MENSAJE_ALERTA_ARCHIVAR_OFICIOS = "El código de barras 748239 no está en un estado que permita su archivo en forma natural. Está seguro de archivarlo?";
 
     static {
         FECHA = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));

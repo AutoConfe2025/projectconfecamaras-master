@@ -33,6 +33,11 @@ public class login {
         theActorCalled(actor).attemptsTo(NavigateTo.confecamarasCertificadosPage());
     }
 
+    @Given("^(.*) ingresa al sistema de confecamaras certificados especiales$")
+    public void ingresaAlSistemaDeConfecamarasCertificadosEspeciales(String actor) {
+        theActorCalled(actor).attemptsTo(NavigateTo.confecamarasCertificadosEspecialesPage());
+    }
+
     @Given("^(.*) ingresa al sistema de confecamaras con matricula \"(.*)\"$")
     public void ingresoConMatriculaSII3(String actor, String query) {
         QueryRenovacion queryEnum = QueryRenovacion.from(query);

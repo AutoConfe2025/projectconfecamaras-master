@@ -6,13 +6,12 @@ import com.co.confecamaras.interactions.JsEvent;
 import com.co.confecamaras.interactions.alerts;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.Scroll;
-import net.serenitybdd.screenplay.actions.SendKeys;
+import net.serenitybdd.screenplay.actions.*;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static com.co.confecamaras.userinterfaces.Bandejas.registros_publicos.TransaccionesRUESPage.BTN_CERRAR_MODAL;
 import static com.co.confecamaras.userinterfaces.registros_publicos.ReingresoTramiteRuesPage.*;
+import static com.co.confecamaras.userinterfaces.renovaciones.FlujoActualizarProponentePage.SELECCION_ARCHIVO_ORIGEN_DOCUMENTO;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isPresent;
 
 public class ReingresoTramiteRues implements Task {
@@ -23,18 +22,16 @@ public class ReingresoTramiteRues implements Task {
         actor.attemptsTo(
                 WaitUntil.the(CAMPO_NUC, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NUC),
-                Enter.theValue("20260000171").into(CAMPO_NUC),
+                Enter.theValue("20260000224").into(CAMPO_NUC),
                 Click.on(BOTON_CONSULTAR_NUC),
                 WaitUntil.the(CAMPO_NOMBRE_COMPLETO, isPresent()).forNoMoreThan(10).seconds(),
                 Click.on(CAMPO_NOMBRE_COMPLETO),
                 Enter.theValue("RIOS MARIN ALAN").into(CAMPO_NOMBRE_COMPLETO),
-                Click.on(LISTA_TIPO_DOCUMENTO),
-                WaitUntil.the(OPCION_CE_TIPO_DOCUMENTO, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(OPCION_CE_TIPO_DOCUMENTO),
+                SelectFromOptions.byValue("3").from(LISTA_TIPO_DOCUMENTO),
                 Click.on(CAMPO_NUMERO_DE_IDENTIFICACION),
                 Enter.theValue("6536673Y").into(CAMPO_NUMERO_DE_IDENTIFICACION),
                 Click.on(CAMPO_FECHA_EXPEDICION),
-                Enter.theValue("20250101").into(CAMPO_FECHA_EXPEDICION),
+                Enter.theValue("01012025").into(CAMPO_FECHA_EXPEDICION),
                 Click.on(CAMPO_EMAIL),
                 Enter.theValue("analistaqa@confecamaras.org.co").into(CAMPO_EMAIL),
                 Click.on(CAMPO_TELEFONO_FIJO),
@@ -44,13 +41,14 @@ public class ReingresoTramiteRues implements Task {
                 Scroll.to(BOTON_TOMAR_FOTO),
                 Click.on(BOTON_TOMAR_FOTO),
                 Click.on(BOTON_CARA1_CEDULA),
-                Click.on(BOTON_CARA2_CEDULA),
-                Scroll.to(BOTON_CARGAR_DOCUMENTO),
-                Click.on(BOTON_CARGAR_DOCUMENTO),
-                FileRobotUpload.withPath(FileUploadLimpio.archivoDoc()),
-                alerts.toAlert(),
-                WaitUntil.the(BOTON_DOCUMENTO_CARGADO, isPresent()).forNoMoreThan(10).seconds(),
-                Click.on(BOTON_DOCUMENTO_CARGADO)
+                Click.on(BOTON_CARA2_CEDULA)
+        );
+
+        String rutaArchivo1 = System.getProperty("user.dir")
+                + "/src/test/resources/pdfs/20-Formulario-Establecimiento--15025.pdf";
+
+        actor.attemptsTo(
+                Enter.theValue(rutaArchivo1).into(BOTON_CARGAR_DOCUMENTO)
         );
     }
 

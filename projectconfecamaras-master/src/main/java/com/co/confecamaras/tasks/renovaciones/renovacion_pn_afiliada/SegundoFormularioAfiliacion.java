@@ -1,6 +1,7 @@
 package com.co.confecamaras.tasks.renovaciones.renovacion_pn_afiliada;
 
 import com.co.confecamaras.interactions.SwitchToNewWindow;
+import com.co.confecamaras.interactions.WaitInterrupted3Segundos;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Clear;
@@ -20,11 +21,14 @@ public class SegundoFormularioAfiliacion implements Task {
 
         String valor = actor.recall("valorNuevo");
 
+        actor.attemptsTo(
+                WaitInterrupted3Segundos.esperaConstante3()
+        );
 
         if (BOTON_FORMULARIO_2.isVisibleFor(actor)) {
 
             actor.attemptsTo(
-                    WaitUntil.the(BOTON_FORMULARIO_2, isPresent()).forNoMoreThan(10).seconds(),
+                    WaitUntil.the(BOTON_FORMULARIO_2, isPresent()).forNoMoreThan(120).seconds(),
                     Click.on(BOTON_FORMULARIO_2),
                     Scroll.to(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),
                     Click.on(CAMPO_VALOR_COMERCIAL_VINCULADO_ESTABLECIMIENTO),

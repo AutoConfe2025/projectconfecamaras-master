@@ -62,6 +62,7 @@ public class FlujoHastaPago implements Task {
                 Click.on(CAMPO_INGRESO_VALOR_ACTIVIDAD_ORDINARIA),
                 Enter.theValue(valor).into(CAMPO_INGRESO_VALOR_ACTIVIDAD_ORDINARIA),
                 SelectFromOptions.byValue("N").from(LISTA_PARTICIPACION_GRUPOS_ETNICOS),
+                SelectFromOptions.byValue("N").from(LISTA_AUTORIZACION_USO_INFORMACION),
                 SelectFromOptions.byValue("N").from(LISTA_PERTENECE_GRUPOS_ETNICOS),
                 SelectFromOptions.byValue("N").from(LISTA_PARTICIPACION_GRUPOS_ETNICOS_ADMINISTRATIVOS),
                 Scroll.to(BOTON_GRABAR_FORMLARIO_ESADL).andAlignToTop(),

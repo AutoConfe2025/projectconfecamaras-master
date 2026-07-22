@@ -8,6 +8,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import static com.co.confecamaras.userinterfaces.renovaciones.FlujoAgilEsadlPage.BOTON_CERRAR_PDF_DE_FIRMA;
 import static com.co.confecamaras.userinterfaces.renovaciones.FlujoEsadlClase4961ExternoPage.BOTON_OBTENER_SOBRE_DIGITAL;
 import static com.co.confecamaras.userinterfaces.renovaciones.FujoPnEstPublicoPage.*;
 import static com.co.confecamaras.userinterfaces.renovaciones.FujoPnEstPublicoPage.BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO;
@@ -43,9 +44,14 @@ public class FlujoObtenerSobreDigital implements Task {
                 Click.on(BOTON_ACEPTAR_FIRMADO_ELECTRONICO),
                 WaitUntil.the(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO, isPresent()).forNoMoreThan(50).seconds(),
                 Click.on(BOTON_CONTINUAR_FIRMADO_ELECTRONICO_EXITOSO),
-                WaitUntil.the(BOTON_OBTENER_SOBRE_DIGITAL, isPresent()).forNoMoreThan(50).seconds(),
+                WaitInterrupted5Segundos.esperaConstante5(),
+                WaitUntil.the(BOTON_OBTENER_SOBRE_DIGITAL, isPresent()).forNoMoreThan(350).seconds(),
                 Click.on(BOTON_OBTENER_SOBRE_DIGITAL),
+                WaitInterrupted3Segundos.esperaConstante3(),
+                Click.on(BOTON_CERRAR_PDF_DE_FIRMA),
                 WaitInterrupted3Segundos.esperaConstante3()
+
+
 
         );
     }

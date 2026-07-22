@@ -63,4 +63,20 @@ public class NavigateTo {
                 }
         );
     }
+
+    public static Performable confecamarasCertificadosEspecialesPage() {
+        return Task.where("{0} abre la página certificados especiales",
+                actor -> {
+
+
+                    String baseUrl = EnvironmentSpecificConfiguration
+                            .from(SerenityInfrastructure.getEnvironmentVariables())
+                            .getProperty("webdriver.base.url.certificados.especiales");
+
+                    actor.attemptsTo(
+                            Open.url(baseUrl)
+                    );
+                }
+        );
+    }
 }
