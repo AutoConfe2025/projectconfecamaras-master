@@ -13,8 +13,7 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "rerun:target/rerun.txt"
         },
-        tags=("@RealizoElProcesoDeRegistroMercantilEdasl")
-
+        tags=("@SII4")
 )
 public class ConfecamarasSIIRunner {
 

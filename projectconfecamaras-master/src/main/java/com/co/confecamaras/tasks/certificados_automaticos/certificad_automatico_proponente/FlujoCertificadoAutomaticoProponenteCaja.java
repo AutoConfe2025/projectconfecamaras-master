@@ -42,6 +42,7 @@ public class FlujoCertificadoAutomaticoProponenteCaja implements Task {
                     WaitUntil.the(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_PROPONENTE, isPresent()).forNoMoreThan(10).seconds(),
                     Click.on(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_PROPONENTE),
                     Enter.theValue("1").into(CAMPO_INGRESO_CANTIDAD_CERTIFICADOS_PROPONENTE),
+                    WaitUntil.the(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO, isPresent()).forNoMoreThan(10).seconds(),
                     Click.on(BOTON_CONTINUAR_SOLICITUD_CERTIFICADO),
                     WaitInterrupted2Segundos.esperaConstante2(),
                     SwitchToNewWindow.switchToNewTab()

@@ -26,6 +26,7 @@ public class FlujoHastaPagoCompraRapidaMatricula implements Task {
                 Click.on(BOTON_REALIZAR_BUSQUEDA_MATRICULA_COMPRA_RAPIDA),
                 WaitUntil.the(BOTON_SELECCIONAR_COMPRA_RAPIDA,isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(BOTON_SELECCIONAR_COMPRA_RAPIDA),
+                WaitUntil.the(BOTON_AÑADIR_PRIMERA_CARD_SELECCION,isPresent()).forNoMoreThan(120).seconds(),
                 Click.on(BOTON_AÑADIR_PRIMERA_CARD_SELECCION),
                 Click.on(BOTON_PAGAR_COMPRA_RAPIDA),
                 WaitUntil.the(CAMPO_INGRESO_CORREO_ELECTRONICO,isPresent()).forNoMoreThan(120).seconds(),

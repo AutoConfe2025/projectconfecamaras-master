@@ -8,7 +8,7 @@ public class AutomaticoExistenciaCajaPage {
             .locatedBy("//span[text()='Solicitar certificados']");
 
     public static final Target BOTON_SOLICITAR_CERTIFICADO_PROPONENTE = Target.the("boton de seleccion tramite de registro mercantil solicitar certificado")
-            .locatedBy("(//div[@class='p-card-content'])[4]");
+            .locatedBy("(//div[@class='p-card-content'])[3]");
 
     public static final Target BOTON_CERTIFICADO_AUTOMATICO = Target.the("boton de seleccion certificado atomatico")
             .locatedBy("//button[contains(text(),'Cert. Automáticos')]");
